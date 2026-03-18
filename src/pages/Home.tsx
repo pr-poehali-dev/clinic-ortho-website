@@ -79,7 +79,7 @@ export default function Home() {
                   src={item.img}
                   alt={item.titles.join(", ")}
                   className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300"
-                  style={{ filter: "saturate(0.6) hue-rotate(130deg) brightness(0.85)" }}
+                  style={{  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 gap-1">
