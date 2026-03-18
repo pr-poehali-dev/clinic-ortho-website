@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import AppointmentModal from "@/components/AppointmentModal";
 
-const HERO_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/1114d6b4-d9e0-4fd2-89ce-4a542446992e.jpg";
+const HERO_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/4a0a4c5f-8b18-4083-8a51-0d1df1369b90.jpg";
 const REHAB_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/aa8f2ae4-c5c4-4024-b1f9-a436f73e2de7.jpg";
 
 const ADVANTAGES = [
@@ -29,8 +29,8 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-clinic-warm min-h-[580px] flex items-center">
         <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="Врач и пациент" className="w-2/3 h-full object-cover object-top opacity-75 absolute right-0" />
-          <div className="absolute inset-0 bg-gradient-to-r from-clinic-warm via-clinic-warm/92 to-clinic-warm/10" />
+          <img src={HERO_IMG} alt="Врач и пациент" className="w-full h-full object-cover object-center opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10" />
         </div>
         <div className="container relative z-10 py-20">
           <div className="max-w-lg">
