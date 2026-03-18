@@ -23,6 +23,46 @@ export default function ArticleDetail() {
     .filter((a) => a.slug !== article.slug)
     .slice(0, 3);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": article.metaTitle,
+    "description": article.metaDesc,
+    "url": `https://vashortopped.ru/articles/${article.slug}`,
+    "image": article.img,
+    "inLanguage": "ru",
+    "datePublished": "2024-01-01",
+    "dateModified": "2025-01-01",
+    "author": {
+      "@type": "Organization",
+      "name": "Клиника «Ваш Ортопед»",
+      "url": "https://vashortopped.ru",
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Клиника «Ваш Ортопед»",
+      "url": "https://vashortopped.ru",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vashortopped.ru/logo.png",
+      },
+    },
+    "medicalAudience": {
+      "@type": "MedicalAudience",
+      "audienceType": "Patient",
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": article.category,
+    },
+    "mainEntity": {
+      "@type": "Article",
+      "headline": article.title,
+      "description": article.lead,
+      "articleBody": article.sections.map((s) => `${s.title}. ${s.content}`).join(" "),
+    },
+  };
+
   return (
     <>
       <SEO
@@ -30,6 +70,7 @@ export default function ArticleDetail() {
         description={article.metaDesc}
         canonical={`/articles/${article.slug}`}
         image={article.img}
+        schema={articleSchema}
         breadcrumbs={[
           { name: "Главная", url: "/" },
           { name: "Публикации", url: "/publications" },
