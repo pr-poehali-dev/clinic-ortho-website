@@ -38,6 +38,37 @@ export default function Doctors() {
         description="Врачи клиники «Ваш Ортопед» в Новосибирске. Буланбаев Бекболот Ардинатович — травматолог-ортопед, УЗИ суставов, PRP-терапия, лечение артроза и артрита. Запись: +7 999 464 91 94."
         canonical="/doctors"
         breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Врачи", url: "/doctors" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Буланбаев Бекболот Ардинатович",
+          "jobTitle": "Врач травматолог-ортопед",
+          "description": "Опытный врач травматолог-ортопед в Новосибирске, специализирующийся на диагностике и лечении заболеваний опорно-двигательного аппарата. PRP-терапия, медикаментозные блокады, введение гиалуроновой кислоты, УЗИ суставов.",
+          "image": "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/64ff5434-77ae-4e31-bfee-1453d223c9d1.JPG",
+          "worksFor": {
+            "@type": "MedicalClinic",
+            "name": "Ваш Ортопед",
+            "url": "https://vashortopped.ru",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "ул. Есенина, д. 67",
+              "addressLocality": "Новосибирск",
+              "addressCountry": "RU"
+            }
+          },
+          "medicalSpecialty": ["Orthopedic", "Traumatology"],
+          "knowsAbout": [
+            "Лечение артроза",
+            "Лечение артрита",
+            "Лечение бурсита",
+            "Лечение синовита",
+            "Лечение тендинита",
+            "PRP-терапия",
+            "УЗИ суставов",
+            "Медикаментозные блокады"
+          ],
+          "url": "https://vashortopped.ru/doctors"
+        }}
       />
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} service={selectedDoctor ? `Запись к врачу: ${selectedDoctor}` : ""} />
 
