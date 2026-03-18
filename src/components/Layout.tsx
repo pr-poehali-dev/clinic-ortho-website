@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: "/services", label: "Услуги" },
   { href: "/prices", label: "Цены" },
   { href: "/contacts", label: "Контакты" },
+  { href: "/diseases/arthritis-arthrosis", label: "Публикации" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {

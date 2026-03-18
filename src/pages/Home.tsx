@@ -4,7 +4,6 @@ import Icon from "@/components/ui/icon";
 import AppointmentModal from "@/components/AppointmentModal";
 import SEO, { LOCAL_BUSINESS_SCHEMA } from "@/components/SEO";
 import FAQ, { FAQ_SCHEMA } from "@/components/FAQ";
-import { DISEASES_LIST } from "@/pages/DiseaseDetail";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/4a0a4c5f-8b18-4083-8a51-0d1df1369b90.jpg";
 const REHAB_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/aa8f2ae4-c5c4-4024-b1f9-a436f73e2de7.jpg";
@@ -169,45 +168,6 @@ export default function Home() {
 
       {/* FAQ */}
       <FAQ />
-
-      {/* Publications */}
-      <section className="container py-12">
-        <div className="flex items-end justify-between mb-8">
-          <div>
-            <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
-              <Icon name="BookOpen" size={15} /> Публикации
-            </div>
-            <h2 className="font-display text-4xl text-clinic-text">Статьи о заболеваниях</h2>
-          </div>
-          <Link to="/diseases/arthritis-arthrosis" className="hidden sm:flex items-center gap-1.5 text-clinic-teal text-sm font-medium hover:underline">
-            Все статьи <Icon name="ArrowRight" size={14} />
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {DISEASES_LIST.slice(0, 6).map((disease) => (
-            <Link
-              key={disease.slug}
-              to={`/diseases/${disease.slug}`}
-              className="group bg-white rounded-2xl border border-border overflow-hidden hover:shadow-md transition-all flex flex-col"
-            >
-              <div className="h-44 overflow-hidden">
-                <img
-                  src={disease.img}
-                  alt={disease.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-5 flex flex-col flex-1">
-                <h3 className="font-display text-xl text-clinic-text mb-2 group-hover:text-clinic-teal transition-colors">{disease.title}</h3>
-                <p className="text-sm text-clinic-text-muted leading-relaxed line-clamp-3 flex-1">{disease.desc}</p>
-                <div className="mt-4 flex items-center gap-1.5 text-clinic-teal text-sm font-medium">
-                  Читать статью <Icon name="ArrowRight" size={13} />
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
 
       {/* gradient: white → teal */}
       <div className="h-10 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
