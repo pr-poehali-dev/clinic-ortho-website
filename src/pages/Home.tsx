@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import AppointmentModal from "@/components/AppointmentModal";
 
-const HERO_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/3ee1e2c4-fea4-4f9a-b750-d7612eacb07d.jpg";
+const HERO_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/3d7e3e0f-9ab2-42fd-bcba-6a199b3118ab.jpg";
 const REHAB_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/aa8f2ae4-c5c4-4024-b1f9-a436f73e2de7.jpg";
 
 const ADVANTAGES = [
