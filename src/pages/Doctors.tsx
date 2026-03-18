@@ -3,49 +3,24 @@ import Icon from "@/components/ui/icon";
 import AppointmentModal from "@/components/AppointmentModal";
 import SEO from "@/components/SEO";
 
-const DOCTOR_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/89f6e07c-a644-417c-a248-ae426b56751b.jpg";
-
 const DOCTORS = [
   {
-    name: "Сергей Владимирович Орлов",
-    specialty: "Ортопед-травматолог",
-    category: "Высшая категория",
-    experience: "24 года опыта",
-    desc: "Кандидат медицинских наук. Специализируется на эндопротезировании суставов и лечении дегенеративных заболеваний позвоночника.",
-    img: DOCTOR_IMG,
+    name: "Буланбаев Бекболот Ардинатович",
+    specialty: "Врач травматолог-ортопед",
+    experience: "Травматология · Ортопедия · УЗИ суставов",
+    desc: "Опытный врач травматолог‑ортопед в Новосибирске, специализирующийся на диагностике и лечении заболеваний опорно‑двигательного аппарата: артроза, артрита, бурсита, синовита, тендинита и энтезита. Сочетает современные методы лечения — PRP‑терапию, медикаментозные блокады, введение гиалуроновой кислоты — с точной инструментальной диагностикой (УЗИ суставов, рентген, МРТ) и индивидуальным подходом к каждому пациенту. Ведёт пациента полностью: от первичной консультации до контроля результатов лечения.",
+    img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/64ff5434-77ae-4e31-bfee-1453d223c9d1.JPG",
   },
   {
-    name: "Елена Николаевна Захарова",
-    specialty: "Врач-реабилитолог",
-    category: "Первая категория",
-    experience: "16 лет опыта",
-    desc: "Специалист по восстановительному лечению после травм и операций. Разрабатывает индивидуальные программы реабилитации.",
-    img: null,
-  },
-  {
-    name: "Андрей Петрович Куликов",
-    specialty: "Травматолог-ортопед",
-    category: "Высшая категория",
-    experience: "19 лет опыта",
-    desc: "Специализируется на лечении спортивных травм, повреждений связочного аппарата и артроскопических операциях.",
-    img: null,
-  },
-  {
-    name: "Ирина Михайловна Власова",
-    specialty: "Невролог",
-    category: "Высшая категория",
-    experience: "22 года опыта",
-    desc: "Занимается диагностикой и лечением болевых синдромов, остеохондроза, грыж межпозвонковых дисков.",
+    name: "Врач клиники",
+    specialty: "Специалист",
+    experience: "Скоро здесь появится информация",
+    desc: "Мы расскажем о нашем специалисте в ближайшее время.",
     img: null,
   },
 ];
 
-const INITIALS_COLORS = [
-  "bg-blue-100 text-blue-600",
-  "bg-rose-100 text-rose-600",
-  "bg-amber-100 text-amber-700",
-  "bg-teal-100 text-teal-600",
-];
+
 
 export default function Doctors() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -60,7 +35,7 @@ export default function Doctors() {
     <>
       <SEO
         title="Наши врачи — ортопеды и травматологи"
-        description="Опытные врачи клиники «Ваш Ортопед» в Новосибирске. Ортопеды и травматологи с многолетним стажем. Запишитесь на консультацию: +7 999 464 91 94."
+        description="Врачи клиники «Ваш Ортопед» в Новосибирске. Буланбаев Бекболот Ардинатович — травматолог-ортопед, УЗИ суставов, PRP-терапия, лечение артроза и артрита. Запись: +7 999 464 91 94."
         canonical="/doctors"
         breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Врачи", url: "/doctors" }]}
       />
@@ -69,13 +44,13 @@ export default function Doctors() {
       {/* Hero */}
       <section className="bg-clinic-beige py-10 border-b border-border">
         <div className="container">
-          <div className="max-w-xl">
+          <div className="max-w-lg">
             <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
               <Icon name="Users" size={15} /> Наша команда
             </div>
             <h1 className="font-display text-5xl text-clinic-text mb-4">Наши врачи</h1>
             <p className="text-clinic-text-muted leading-relaxed">
-              Команда опытных специалистов с многолетней практикой. Каждый врач прошёл стажировки в ведущих клиниках России и Европы.
+              Опытные практикующие врачи нашей клиники всегда готовы помочь
             </p>
           </div>
         </div>
@@ -83,32 +58,36 @@ export default function Doctors() {
 
       {/* Doctors */}
       <section className="container py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {DOCTORS.map((doctor, i) => (
-            <div key={doctor.name} className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col sm:flex-row">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {DOCTORS.map((doctor) => (
+            <div key={doctor.name} className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col">
               {doctor.img ? (
-                <img src={doctor.img} alt={doctor.name} className="w-full sm:w-44 h-52 sm:h-auto object-cover shrink-0" />
+                <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full h-72 object-cover object-top" />
               ) : (
-                <div className={`w-full sm:w-44 h-32 sm:h-auto flex items-center justify-center shrink-0 text-4xl font-display font-medium ${INITIALS_COLORS[i % INITIALS_COLORS.length]}`}>
-                  {doctor.name.split(" ").map(w => w[0]).slice(0, 2).join("")}
+                <div className="w-full h-48 flex items-center justify-center bg-clinic-teal-light text-5xl font-display font-medium text-clinic-teal">
+                  {doctor.name.split(" ").map((w: string) => w[0]).slice(0, 2).join("")}
                 </div>
               )}
-              <div className="p-6 flex flex-col justify-between">
+              <div className="p-6 flex flex-col justify-between flex-1">
                 <div>
-                  <div className="inline-flex items-center gap-1 bg-clinic-teal-light text-clinic-teal text-xs px-2.5 py-1 rounded-full mb-3">
-                    <Icon name="Award" size={11} /> {doctor.category}
+                  <h2 className="font-display text-2xl text-clinic-text mb-1">{doctor.name}</h2>
+                  <p className="text-clinic-teal text-sm font-medium mb-3">{doctor.specialty}</p>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {doctor.experience.split(" · ").map((tag: string) => (
+                      <span key={tag} className="bg-clinic-teal-light text-clinic-teal text-xs px-2.5 py-1 rounded-full">{tag}</span>
+                    ))}
                   </div>
-                  <h3 className="font-display text-2xl text-clinic-text mb-1">{doctor.name}</h3>
-                  <p className="text-clinic-teal text-sm font-medium mb-3">{doctor.specialty} · {doctor.experience}</p>
                   <p className="text-sm text-clinic-text-muted leading-relaxed">{doctor.desc}</p>
                 </div>
-                <button
-                  onClick={() => openModal(doctor.name)}
-                  className="mt-5 flex items-center gap-2 bg-clinic-teal text-white text-sm px-4 py-2.5 rounded-lg hover:bg-opacity-90 transition-all w-fit"
-                >
-                  <Icon name="CalendarDays" size={14} />
-                  Записаться
-                </button>
+                {doctor.img && (
+                  <button
+                    onClick={() => openModal(doctor.name)}
+                    className="mt-5 flex items-center gap-2 bg-clinic-teal text-white text-sm px-4 py-2.5 rounded-lg hover:bg-opacity-90 transition-all w-fit"
+                  >
+                    <Icon name="CalendarDays" size={14} />
+                    Записаться на приём
+                  </button>
+                )}
               </div>
             </div>
           ))}
