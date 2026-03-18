@@ -9,7 +9,7 @@ const DOCTORS = [
     specialty: "Врач травматолог-ортопед",
     experience: "Травматология · Ортопедия · УЗИ суставов",
     desc: "Опытный врач травматолог‑ортопед в Новосибирске, специализирующийся на диагностике и лечении заболеваний опорно‑двигательного аппарата: артроза, артрита, бурсита, синовита, тендинита и энтезита. Сочетает современные методы лечения — PRP‑терапию, медикаментозные блокады, введение гиалуроновой кислоты — с точной инструментальной диагностикой (УЗИ суставов, рентген, МРТ) и индивидуальным подходом к каждому пациенту. Ведёт пациента полностью: от первичной консультации до контроля результатов лечения.",
-    img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/64ff5434-77ae-4e31-bfee-1453d223c9d1.JPG",
+    img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/1017135a-54d3-4d0d-9a11-65fd55dbb932.JPG",
   },
   {
     name: "Врач клиники",
@@ -44,7 +44,7 @@ export default function Doctors() {
           "name": "Буланбаев Бекболот Ардинатович",
           "jobTitle": "Врач травматолог-ортопед",
           "description": "Опытный врач травматолог-ортопед в Новосибирске, специализирующийся на диагностике и лечении заболеваний опорно-двигательного аппарата. PRP-терапия, медикаментозные блокады, введение гиалуроновой кислоты, УЗИ суставов.",
-          "image": "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/64ff5434-77ae-4e31-bfee-1453d223c9d1.JPG",
+          "image": "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/1017135a-54d3-4d0d-9a11-65fd55dbb932.JPG",
           "worksFor": {
             "@type": "MedicalClinic",
             "name": "Ваш Ортопед",
@@ -93,7 +93,7 @@ export default function Doctors() {
           {DOCTORS.map((doctor) => (
             <div key={doctor.name} className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col">
               {doctor.img ? (
-                <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full h-72 object-cover object-top" />
+                <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full h-96 object-cover object-center" />
               ) : (
                 <div className="w-full h-48 flex items-center justify-center bg-clinic-teal-light text-5xl font-display font-medium text-clinic-teal">
                   {doctor.name.split(" ").map((w: string) => w[0]).slice(0, 2).join("")}
