@@ -71,12 +71,11 @@ export default function Home() {
       <section className="bg-clinic-teal py-6">
         <div className="container">
           <h2 className="font-display text-3xl text-white text-center mb-4">Что мы лечим</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-center">
             {[
               { titles: ["Артрит", "Артроз"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/5e7bc39d-36e2-4ecb-9def-1086449b0f96.jpeg", href: "/diseases/arthritis-arthrosis" },
               { titles: ["Тендинит", "Энтезит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/03291c96-f0f2-4aa5-86a0-75edc001f8d8.jpeg", href: "/diseases/tendinitis-enthesitis" },
-              { titles: ["Бурсит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/cff70cef-9298-45a3-a248-c868d542bbfb.jpeg", href: "/diseases/bursitis" },
-              { titles: ["Синовит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/5e7bc39d-36e2-4ecb-9def-1086449b0f96.jpeg", href: "/diseases/synovitis" },
+              { titles: ["Бурсит", "Синовит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/cff70cef-9298-45a3-a248-c868d542bbfb.jpeg", href: "/diseases/bursitis" },
             ].map((item) => (
               <Link key={item.titles[0]} to={item.href} className="relative overflow-hidden rounded-2xl cursor-pointer group block">
                 <img
