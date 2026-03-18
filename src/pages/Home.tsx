@@ -64,26 +64,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="bg-clinic-teal text-white py-8">
-        <div className="container grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {[
-            { num: "20+", label: "лет работы" },
-            { num: "15 000", label: "пациентов" },
-            { num: "12", label: "врачей" },
-            { num: "95%", label: "успешных случаев" },
-          ].map((s) => (
-            <div key={s.label}>
-              <div className="font-display text-3xl font-semibold">{s.num}</div>
-              <div className="text-white/70 text-sm mt-1">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Advantages */}
-      <section className="container py-20">
-        <div className="text-center mb-12">
+      <section className="container py-10">
+        <div className="text-center mb-8">
           <h2 className="font-display text-4xl text-clinic-text mb-3">Почему выбирают нас</h2>
           <p className="text-clinic-text-muted max-w-lg mx-auto">Мы сочетаем многолетний опыт с современными методами лечения</p>
         </div>
@@ -101,9 +84,9 @@ export default function Home() {
       </section>
 
       {/* Services preview */}
-      <section className="bg-secondary py-20">
+      <section className="bg-secondary py-10">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="font-display text-4xl text-clinic-text mb-3">Наши услуги</h2>
             <p className="text-clinic-text-muted">Комплексная помощь при заболеваниях опорно-двигательного аппарата</p>
           </div>
@@ -133,7 +116,7 @@ export default function Home() {
       </section>
 
       {/* Rehab section */}
-      <section className="container py-20">
+      <section className="container py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <img src={REHAB_IMG} alt="Реабилитация" className="rounded-2xl w-full h-80 object-cover shadow-md" />
@@ -165,7 +148,7 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-clinic-teal text-white py-16">
+      <section className="bg-clinic-teal text-white py-10">
         <div className="container text-center">
           <h2 className="font-display text-4xl mb-4">Не откладывайте здоровье на потом</h2>
           <p className="text-white/80 mb-8 max-w-lg mx-auto">

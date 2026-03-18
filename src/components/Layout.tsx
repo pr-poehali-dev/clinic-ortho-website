@@ -112,7 +112,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex-1">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-clinic-text text-white mt-16">
+      <footer className="bg-clinic-text text-white mt-8">
         <div className="container py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
