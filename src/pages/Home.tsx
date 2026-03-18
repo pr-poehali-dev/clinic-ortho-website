@@ -64,25 +64,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Advantages */}
-      <section className="container py-10">
-        <div className="text-center mb-8">
-          <h2 className="font-display text-4xl text-clinic-text mb-1">Клиника «Ваш Ортопед» — это</h2>
-          <p className="text-clinic-text-muted whitespace-nowrap">Сочетание многолетнего опыта наших врачей и современные методы лечения</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {ADVANTAGES.map((adv) => (
-            <div key={adv.title} className="bg-white rounded-2xl p-6 border border-border service-card">
-              <div className="w-12 h-12 rounded-xl bg-clinic-teal-light flex items-center justify-center mb-4">
-                <Icon name={adv.icon} size={22} className="text-clinic-teal" />
-              </div>
-              <h3 className="font-display text-xl text-clinic-text mb-2">{adv.title}</h3>
-              <p className="text-sm text-clinic-text-muted leading-relaxed">{adv.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Services preview */}
       <section className="bg-secondary py-10">
         <div className="container">
@@ -112,6 +93,25 @@ export default function Home() {
               Все услуги <Icon name="ArrowRight" size={15} />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Advantages */}
+      <section className="container py-10">
+        <div className="text-center mb-8">
+          <h2 className="font-display text-4xl text-clinic-text mb-1">Клиника «Ваш Ортопед» — это</h2>
+          <p className="text-clinic-text-muted whitespace-nowrap">Сочетание многолетнего опыта наших врачей и современные методы лечения</p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {ADVANTAGES.map((adv) => (
+            <div key={adv.title} className="bg-white rounded-2xl p-6 border border-border service-card">
+              <div className="w-12 h-12 rounded-xl bg-clinic-teal-light flex items-center justify-center mb-4">
+                <Icon name={adv.icon} size={22} className="text-clinic-teal" />
+              </div>
+              <h3 className="font-display text-xl text-clinic-text mb-2">{adv.title}</h3>
+              <p className="text-sm text-clinic-text-muted leading-relaxed">{adv.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
