@@ -30,6 +30,25 @@ export default function ServiceDetail() {
           { name: "Услуги", url: "/services" },
           { name: service.title, url: `/services/${service.slug}` },
         ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "MedicalProcedure",
+          "name": service.title,
+          "description": service.desc,
+          "procedureType": "https://schema.org/TherapeuticProcedure",
+          "provider": {
+            "@type": "MedicalClinic",
+            "name": "Ваш Ортопед",
+            "url": "https://vashortopped.ru",
+            "telephone": "+79994649194",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "ул. Есенина, д. 67",
+              "addressLocality": "Новосибирск",
+              "addressCountry": "RU"
+            }
+          }
+        }}
       />
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} service={service.title} />
 

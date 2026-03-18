@@ -210,10 +210,25 @@ export default function Prices() {
   return (
     <>
       <SEO
-        title="Цены на услуги ортопеда и травматолога"
-        description="Стоимость услуг клиники «Ваш Ортопед» в Новосибирске. Консультации, PRP-терапия, SVF-терапия, блокады, гиалуроновая кислота. Прозрачные цены без скрытых доплат."
+        title="Цены — консультации, PRP, блокады, SVF-терапия в Новосибирске"
+        description="Прайс клиники «Ваш Ортопед»: консультация от 1 500 ₽, PRP-терапия от 4 000 ₽, SVF-терапия от 55 000 ₽, гиалуроновая кислота. Без скрытых доплат. Новосибирск."
         canonical="/prices"
         breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Цены", url: "/prices" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "MedicalClinic",
+          "name": "Ваш Ортопед",
+          "url": "https://vashortopped.ru",
+          "priceRange": "1500-105000",
+          "currenciesAccepted": "RUB",
+          "paymentAccepted": "Наличные, банковская карта",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Есенина, д. 67",
+            "addressLocality": "Новосибирск",
+            "addressCountry": "RU"
+          }
+        }}
       />
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
 

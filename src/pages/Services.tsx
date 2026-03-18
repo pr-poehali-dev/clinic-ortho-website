@@ -73,10 +73,22 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="Услуги клиники — ортопедия, травматология, реабилитация"
-        description="Услуги клиники «Ваш Ортопед» в Новосибирске: ортопедия, травматология, реабилитация, физиотерапия, диагностика, блокады и PRP-инъекции. Запись: +7 999 464 91 94."
+        title="Услуги — ортопедия, травматология, PRP-терапия в Новосибирске"
+        description="Ортопедия, травматология, PRP и SVF-терапия, гиалуроновая кислота, блокады, реабилитация. Клиника «Ваш Ортопед» в Новосибирске. Запись: +7 999 464 91 94."
         canonical="/services"
         breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Услуги", url: "/services" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Услуги клиники Ваш Ортопед",
+          "itemListElement": SERVICES_LIST.map((s, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": s.title,
+            "description": s.desc,
+            "url": `https://vashortopped.ru/services/${s.slug}`
+          }))
+        }}
       />
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} service={selectedService} />
 

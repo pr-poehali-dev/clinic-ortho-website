@@ -39,10 +39,40 @@ export default function Contacts() {
   return (
     <>
       <SEO
-        title="Контакты — адрес и запись на приём"
-        description="Клиника «Ваш Ортопед» в Новосибирске, ул. Есенина, 67. Телефон: +7 999 464 91 94. Принимаем ежедневно. Запишитесь онлайн или позвоните нам."
+        title="Контакты клиники Ваш Ортопед в Новосибирске"
+        description="Адрес: Новосибирск, ул. Есенина, 67. Телефон: +7 999 464 91 94. Пн–Пт 8:00–20:00, сб 9:00–17:00. Запись онлайн или по телефону. Удобная парковка."
         canonical="/contacts"
         breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Контакты", url: "/contacts" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "MedicalClinic",
+          "name": "Ваш Ортопед",
+          "url": "https://vashortopped.ru",
+          "telephone": "+79994649194",
+          "email": "admin@vash-ortoped54.ru",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Есенина, д. 67",
+            "addressLocality": "Новосибирск",
+            "addressCountry": "RU",
+            "postalCode": "630000"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 55.034839,
+            "longitude": 82.995861
+          },
+          "openingHoursSpecification": [
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "20:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "17:00" }
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+79994649194",
+            "contactType": "customer service",
+            "availableLanguage": "Russian"
+          }
+        }}
       />
       {/* Hero */}
       <section className="bg-clinic-beige py-10 border-b border-border">
