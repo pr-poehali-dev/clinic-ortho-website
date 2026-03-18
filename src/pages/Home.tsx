@@ -85,14 +85,13 @@ export default function Home() {
               { titles: ["Тендинит", "Энтезит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/03291c96-f0f2-4aa5-86a0-75edc001f8d8.jpeg", href: "/diseases/tendinitis-enthesitis" },
               { titles: ["Бурсит", "Синовит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/cff70cef-9298-45a3-a248-c868d542bbfb.jpeg", href: "/diseases/bursitis" },
             ].map((item) => (
-              <Link key={item.titles[0]} to={item.href} className="relative overflow-hidden rounded-2xl cursor-pointer group block">
+              <Link key={item.titles[0]} to={item.href} className="relative rounded-2xl cursor-pointer group block bg-gray-100 p-3">
                 <img
                   src={item.img}
                   alt={item.titles.join(", ")}
-                  className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300"
-                  style={{  }}
+                  className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300 rounded-xl overflow-hidden"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+                <div className="absolute inset-3 rounded-xl bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 gap-1">
                   <div className="flex flex-wrap justify-center gap-x-2">
                     {item.titles.map((t) => (
