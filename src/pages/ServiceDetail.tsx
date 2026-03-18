@@ -11,7 +11,7 @@ export default function ServiceDetail() {
 
   if (!service) {
     return (
-      <div className="container py-20 text-center">
+      <div className="container py-10 text-center">
         <h2 className="font-display text-3xl text-clinic-text mb-4">Услуга не найдена</h2>
         <Link to="/services" className="text-clinic-teal hover:underline text-sm">← Вернуться к услугам</Link>
       </div>
@@ -34,7 +34,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Hero */}
-      <section className="bg-clinic-beige py-14">
+      <section className="bg-clinic-beige py-10">
         <div className="container">
           <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 ${service.color}`}>
             <Icon name={service.icon} size={26} />

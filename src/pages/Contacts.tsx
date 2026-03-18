@@ -36,7 +36,7 @@ export default function Contacts() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-clinic-beige py-16 border-b border-border">
+      <section className="bg-clinic-beige py-10 border-b border-border">
         <div className="container">
           <div className="max-w-xl">
             <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
@@ -50,7 +50,7 @@ export default function Contacts() {
         </div>
       </section>
 
-      <section className="container py-14 grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <section className="container py-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Contact info */}
         <div className="space-y-6">
           <div className="bg-white rounded-2xl border border-border p-7">

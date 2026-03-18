@@ -67,7 +67,7 @@ export default function Prices() {
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
       {/* Hero */}
-      <section className="bg-clinic-beige py-16 border-b border-border">
+      <section className="bg-clinic-beige py-10 border-b border-border">
         <div className="container">
           <div className="max-w-xl">
             <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
@@ -82,7 +82,7 @@ export default function Prices() {
       </section>
 
       {/* Prices */}
-      <section className="container py-14">
+      <section className="container py-10">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar tabs */}
           <div className="lg:col-span-1">
