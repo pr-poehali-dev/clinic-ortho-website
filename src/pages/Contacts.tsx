@@ -3,10 +3,12 @@ import Icon from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import SEO from "@/components/SEO";
+import { useSettings } from "@/hooks/useSettings";
 
 const API_URL = "https://functions.poehali.dev/669b91b8-f4ae-4395-951c-9bdf20aefe50";
 
 export default function Contacts() {
+  const { get } = useSettings();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -69,8 +71,8 @@ export default function Contacts() {
                 </div>
                 <div>
                   <div className="text-xs text-clinic-text-muted mb-1">Телефон</div>
-                  <a href="tel:+79994649194" className="text-clinic-text font-medium text-lg hover:text-clinic-teal transition-colors">
-                    +7 999 464 91 94
+                  <a href={`tel:${get("contacts.phone", "+7 999 464 91 94").replace(/\s/g, "")}`} className="text-clinic-text font-medium text-lg hover:text-clinic-teal transition-colors">
+                    {get("contacts.phone", "+7 999 464 91 94")}
                   </a>
                   <p className="text-xs text-clinic-text-muted mt-0.5">Ежедневно с 8:00 до 20:00</p>
                 </div>
@@ -81,7 +83,7 @@ export default function Contacts() {
                 </div>
                 <div>
                   <div className="text-xs text-clinic-text-muted mb-1">Адрес</div>
-                  <p className="text-clinic-text font-medium">г. Новосибирск, ул. Есенина, д. 67</p>
+                  <p className="text-clinic-text font-medium">{get("contacts.address", "г. Новосибирск, ул. Есенина, д. 67")}</p>
                   <p className="text-xs text-clinic-text-muted mt-0.5">Удобная парковка рядом с клиникой</p>
                 </div>
               </li>
@@ -94,15 +96,15 @@ export default function Contacts() {
                   <div className="space-y-1 text-sm text-clinic-text">
                     <div className="flex justify-between gap-6">
                       <span>Понедельник — Пятница</span>
-                      <span className="font-medium">8:00 — 20:00</span>
+                      <span className="font-medium">{get("contacts.hours_weekday", "8:00 — 20:00")}</span>
                     </div>
                     <div className="flex justify-between gap-6">
                       <span>Суббота</span>
-                      <span className="font-medium">9:00 — 17:00</span>
+                      <span className="font-medium">{get("contacts.hours_saturday", "9:00 — 17:00")}</span>
                     </div>
                     <div className="flex justify-between gap-6 text-clinic-text-muted">
                       <span>Воскресенье</span>
-                      <span>Выходной</span>
+                      <span>{get("contacts.hours_sunday", "Выходной")}</span>
                     </div>
                   </div>
                 </div>
@@ -113,8 +115,8 @@ export default function Contacts() {
                 </div>
                 <div>
                   <div className="text-xs text-clinic-text-muted mb-1">Email</div>
-                  <a href="mailto:admin@vash-ortoped54.ru" className="text-clinic-text font-medium hover:text-clinic-teal transition-colors">
-                    admin@vash-ortoped54.ru
+                  <a href={`mailto:${get("contacts.email", "admin@vash-ortoped54.ru")}`} className="text-clinic-text font-medium hover:text-clinic-teal transition-colors">
+                    {get("contacts.email", "admin@vash-ortoped54.ru")}
                   </a>
                 </div>
               </li>
