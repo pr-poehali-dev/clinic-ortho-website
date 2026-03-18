@@ -218,13 +218,11 @@ export default function Prices() {
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
       {/* Hero */}
-      <section className="bg-clinic-beige py-10 border-b border-border">
+      <section className="bg-clinic-beige py-8 border-b border-border">
         <div className="container">
-          <div className="max-w-xs">
-            <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
-              <Icon name="CircleDollarSign" size={15} /> Прозрачные цены
-            </div>
-            <h1 className="font-display text-5xl text-clinic-text mb-4">Стоимость услуг</h1>
+          <div className="flex items-center gap-3">
+            <Icon name="CircleDollarSign" size={18} className="text-clinic-teal shrink-0" />
+            <h1 className="font-display text-4xl text-clinic-text whitespace-nowrap">Стоимость услуг</h1>
           </div>
         </div>
       </section>
