@@ -64,6 +64,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Diseases */}
+      <section className="bg-clinic-teal py-10">
+        <div className="container">
+          <h2 className="font-display text-3xl text-white text-center mb-8">Что мы лечим</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              { title: "Лечение артроза", icon: "Bone" },
+              { title: "Лечение артрита", icon: "Zap" },
+              { title: "Лечение бурсита", icon: "CircleDot" },
+              { title: "Лечение остеохондроза", icon: "Layers" },
+              { title: "Лечение грыжи позвоночника", icon: "Activity" },
+              { title: "Лечение подагры", icon: "Flame" },
+            ].map((item) => (
+              <div key={item.title} className="bg-white/10 hover:bg-white/20 transition-colors rounded-2xl p-4 flex flex-col items-center text-center gap-3 cursor-pointer">
+                <div className="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                  <Icon name={item.icon} size={20} className="text-white" />
+                </div>
+                <p className="text-white text-xs font-medium uppercase tracking-wide leading-snug">{item.title} в Новосибирске</p>
+                <span className="text-xs text-white/70 flex items-center gap-1 hover:text-white transition-colors">
+                  Подробнее <Icon name="ArrowRight" size={12} />
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services preview */}
       <section className="bg-secondary py-10">
         <div className="container">
@@ -143,32 +170,6 @@ export default function Home() {
               <Icon name="CalendarDays" size={15} />
               Записаться на консультацию
             </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Diseases */}
-      <section className="bg-clinic-teal py-10">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {[
-              { title: "Лечение артроза", icon: "Bone" },
-              { title: "Лечение артрита", icon: "Zap" },
-              { title: "Лечение бурсита", icon: "CircleDot" },
-              { title: "Лечение остеохондроза", icon: "Layers" },
-              { title: "Лечение грыжи позвоночника", icon: "Activity" },
-              { title: "Лечение подагры", icon: "Flame" },
-            ].map((item) => (
-              <div key={item.title} className="bg-white/10 hover:bg-white/20 transition-colors rounded-2xl p-4 flex flex-col items-center text-center gap-3 cursor-pointer">
-                <div className="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                  <Icon name={item.icon} size={20} className="text-white" />
-                </div>
-                <p className="text-white text-xs font-medium uppercase tracking-wide leading-snug">{item.title} в Новосибирске</p>
-                <span className="text-xs text-white/70 flex items-center gap-1 hover:text-white transition-colors">
-                  Подробнее <Icon name="ArrowRight" size={12} />
-                </span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
