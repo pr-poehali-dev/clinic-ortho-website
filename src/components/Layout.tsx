@@ -17,13 +17,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* Top bar */}
-      <div className="bg-clinic-teal text-white text-sm py-2">
+      <div className="bg-white border-b border-border text-clinic-text-muted text-sm py-2">
         <div className="container flex items-center justify-between">
           <span className="flex items-center gap-2">
             <Icon name="Clock" size={14} />
             Пн–Пт: 8:00–20:00 &nbsp;|&nbsp; Сб: 9:00–17:00
           </span>
-          <a href="tel:+79994649194" className="flex items-center gap-2 hover:underline font-medium">
+          <a href="tel:+79994649194" className="flex items-center gap-2 hover:underline font-medium text-clinic-teal">
             <Icon name="Phone" size={14} />
             +7 999 464 91 94
           </a>
