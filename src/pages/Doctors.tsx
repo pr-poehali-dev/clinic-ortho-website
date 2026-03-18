@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import AppointmentModal from "@/components/AppointmentModal";
+import SEO from "@/components/SEO";
 
 const DOCTOR_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/89f6e07c-a644-417c-a248-ae426b56751b.jpg";
 
@@ -57,6 +58,12 @@ export default function Doctors() {
 
   return (
     <>
+      <SEO
+        title="Наши врачи — ортопеды и травматологи"
+        description="Опытные врачи клиники «Ваш Ортопед» в Новосибирске. Ортопеды и травматологи с многолетним стажем. Запишитесь на консультацию: +7 999 464 91 94."
+        canonical="/doctors"
+        breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Врачи", url: "/doctors" }]}
+      />
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} service={selectedDoctor ? `Запись к врачу: ${selectedDoctor}` : ""} />
 
       {/* Hero */}

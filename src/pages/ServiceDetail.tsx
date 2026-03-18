@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { SERVICES_LIST } from "./Services";
 import Icon from "@/components/ui/icon";
 import AppointmentModal from "@/components/AppointmentModal";
+import SEO from "@/components/SEO";
 
 export default function ServiceDetail() {
   const { slug } = useParams();
@@ -20,6 +21,16 @@ export default function ServiceDetail() {
 
   return (
     <>
+      <SEO
+        title={`${service.title} в Новосибирске`}
+        description={`${service.desc} Клиника «Ваш Ортопед», Новосибирск, ул. Есенина, 67. Запись: +7 999 464 91 94.`}
+        canonical={`/services/${service.slug}`}
+        breadcrumbs={[
+          { name: "Главная", url: "/" },
+          { name: "Услуги", url: "/services" },
+          { name: service.title, url: `/services/${service.slug}` },
+        ]}
+      />
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} service={service.title} />
 
       {/* Breadcrumb */}

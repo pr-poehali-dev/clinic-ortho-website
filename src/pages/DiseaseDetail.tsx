@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import AppointmentModal from "@/components/AppointmentModal";
+import SEO from "@/components/SEO";
 
 const DISEASES = [
   {
@@ -132,6 +133,16 @@ export default function DiseaseDetail() {
 
   return (
     <>
+      <SEO
+        title={`${disease.title} — лечение в Новосибирске`}
+        description={`${disease.desc} Клиника «Ваш Ортопед», Новосибирск, ул. Есенина, 67. Запись: +7 999 464 91 94.`}
+        canonical={`/diseases/${disease.slug}`}
+        image={disease.img}
+        breadcrumbs={[
+          { name: "Главная", url: "/" },
+          { name: disease.title, url: `/diseases/${disease.slug}` },
+        ]}
+      />
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
       {/* Breadcrumb */}

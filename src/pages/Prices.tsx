@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import AppointmentModal from "@/components/AppointmentModal";
+import SEO from "@/components/SEO";
 
 const PRICE_SECTIONS = [
   {
@@ -64,6 +65,12 @@ export default function Prices() {
 
   return (
     <>
+      <SEO
+        title="Цены на услуги ортопеда и травматолога"
+        description="Стоимость услуг клиники «Ваш Ортопед» в Новосибирске. Консультации, PRP-терапия, SVF-терапия, блокады, гиалуроновая кислота. Прозрачные цены без скрытых доплат."
+        canonical="/prices"
+        breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Цены", url: "/prices" }]}
+      />
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
       {/* Hero */}

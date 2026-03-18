@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import AppointmentModal from "@/components/AppointmentModal";
+import SEO from "@/components/SEO";
 
 export const SERVICES_LIST = [
   {
@@ -71,6 +72,12 @@ export default function Services() {
 
   return (
     <>
+      <SEO
+        title="Услуги клиники — ортопедия, травматология, реабилитация"
+        description="Услуги клиники «Ваш Ортопед» в Новосибирске: ортопедия, травматология, реабилитация, физиотерапия, диагностика, блокады и PRP-инъекции. Запись: +7 999 464 91 94."
+        canonical="/services"
+        breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Услуги", url: "/services" }]}
+      />
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} service={selectedService} />
 
       {/* Hero */}

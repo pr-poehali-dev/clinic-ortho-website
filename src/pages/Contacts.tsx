@@ -2,6 +2,7 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import SEO from "@/components/SEO";
 
 const API_URL = "https://functions.poehali.dev/669b91b8-f4ae-4395-951c-9bdf20aefe50";
 
@@ -35,6 +36,12 @@ export default function Contacts() {
 
   return (
     <>
+      <SEO
+        title="Контакты — адрес и запись на приём"
+        description="Клиника «Ваш Ортопед» в Новосибирске, ул. Есенина, 67. Телефон: +7 999 464 91 94. Принимаем ежедневно. Запишитесь онлайн или позвоните нам."
+        canonical="/contacts"
+        breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Контакты", url: "/contacts" }]}
+      />
       {/* Hero */}
       <section className="bg-clinic-beige py-10 border-b border-border">
         <div className="container">
