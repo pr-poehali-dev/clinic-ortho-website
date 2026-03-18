@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 20% 16%;
 
-    --primary: 91 45% 45%;
+    --primary: 91 50% 38%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 203 60% 93%;
@@ -44,14 +44,14 @@
     --sidebar-ring: 91 45% 45%;
 
     /* Clinic custom — зелёный #7ab648 = кнопки/акценты, синий #3aabdc = фоны/подсветки */
-    --clinic-teal: 91 45% 45%;
+    --clinic-teal: 91 50% 38%;
     --clinic-teal-light: 91 40% 93%;
     --clinic-beige: 203 50% 94%;
     --clinic-beige-dark: 203 35% 85%;
     --clinic-warm: 203 40% 97%;
     --clinic-text: 210 20% 16%;
     --clinic-text-muted: 210 12% 48%;
-    --clinic-green: 91 45% 45%;
+    --clinic-green: 91 50% 38%;
     --clinic-green-light: 91 40% 93%;
   }
 }
