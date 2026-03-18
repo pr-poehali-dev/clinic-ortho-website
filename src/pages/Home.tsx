@@ -147,24 +147,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Diseases */}
+      <section className="bg-clinic-teal py-10">
+        <div className="container">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              { title: "Лечение артроза", icon: "Bone" },
+              { title: "Лечение артрита", icon: "Zap" },
+              { title: "Лечение бурсита", icon: "CircleDot" },
+              { title: "Лечение остеохондроза", icon: "Layers" },
+              { title: "Лечение грыжи позвоночника", icon: "Activity" },
+              { title: "Лечение подагры", icon: "Flame" },
+            ].map((item) => (
+              <div key={item.title} className="bg-white/10 hover:bg-white/20 transition-colors rounded-2xl p-4 flex flex-col items-center text-center gap-3 cursor-pointer">
+                <div className="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                  <Icon name={item.icon} size={20} className="text-white" />
+                </div>
+                <p className="text-white text-xs font-medium uppercase tracking-wide leading-snug">{item.title} в Новосибирске</p>
+                <span className="text-xs text-white/70 flex items-center gap-1 hover:text-white transition-colors">
+                  Подробнее <Icon name="ArrowRight" size={12} />
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Banner */}
-      <section className="bg-clinic-teal text-white py-10">
+      <section className="bg-white py-10">
         <div className="container text-center">
-          <h2 className="font-display text-4xl mb-4">Не откладывайте здоровье на потом</h2>
-          <p className="text-white/80 mb-8 max-w-lg mx-auto">
+          <h2 className="font-display text-4xl text-clinic-text mb-4">Не откладывайте здоровье на потом</h2>
+          <p className="text-clinic-text-muted mb-8 max-w-lg mx-auto">
             Запишитесь на консультацию сейчас и получите развёрнутый план лечения от наших специалистов
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={() => setModalOpen(true)}
-              className="flex items-center justify-center gap-2 bg-white text-clinic-teal px-7 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow"
+              className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-7 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow"
             >
               <Icon name="CalendarDays" size={16} />
               Записаться на приём
             </button>
             <a
               href="tel:+79994649194"
-              className="flex items-center justify-center gap-2 border border-white/50 text-white px-7 py-3.5 rounded-xl font-medium hover:bg-white/10 transition-all text-sm"
+              className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal px-7 py-3.5 rounded-xl font-medium hover:bg-clinic-teal-light transition-all text-sm"
             >
               <Icon name="Phone" size={16} />
               Позвонить нам
