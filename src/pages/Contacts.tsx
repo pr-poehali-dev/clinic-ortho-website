@@ -3,13 +3,34 @@ import Icon from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+const API_URL = "https://functions.poehali.dev/669b91b8-f4ae-4395-951c-9bdf20aefe50";
+
 export default function Contacts() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: form.name, phone: form.phone, comment: form.message }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Не удалось отправить. Позвоните нам: +7 999 464 91 94");
+      }
+    } catch {
+      setError("Ошибка соединения. Позвоните нам: +7 999 464 91 94");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -53,8 +74,8 @@ export default function Contacts() {
                 </div>
                 <div>
                   <div className="text-xs text-clinic-text-muted mb-1">Адрес</div>
-                  <p className="text-clinic-text font-medium">г. Москва, ул. Здоровья, д. 12</p>
-                  <p className="text-xs text-clinic-text-muted mt-0.5">м. Проспект Мира, 5 мин пешком</p>
+                  <p className="text-clinic-text font-medium">г. Новосибирск, ул. Есенина, д. 67</p>
+                  <p className="text-xs text-clinic-text-muted mt-0.5">Удобная парковка рядом с клиникой</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -85,8 +106,8 @@ export default function Contacts() {
                 </div>
                 <div>
                   <div className="text-xs text-clinic-text-muted mb-1">Email</div>
-                  <a href="mailto:info@ortomed.ru" className="text-clinic-text font-medium hover:text-clinic-teal transition-colors">
-                    info@ortomed.ru
+                  <a href="mailto:admin@vash-ortoped54.ru" className="text-clinic-text font-medium hover:text-clinic-teal transition-colors">
+                    admin@vash-ortoped54.ru
                   </a>
                 </div>
               </li>
@@ -98,7 +119,7 @@ export default function Contacts() {
             <div className="text-center text-clinic-text-muted">
               <Icon name="Map" size={36} className="mx-auto mb-2 opacity-40" />
               <p className="text-sm">Карта проезда</p>
-              <p className="text-xs">г. Москва, ул. Здоровья, д. 12</p>
+              <p className="text-xs">г. Новосибирск, ул. Есенина, д. 67</p>
             </div>
           </div>
         </div>
@@ -154,15 +175,25 @@ export default function Contacts() {
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                   />
                 </div>
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 text-xs rounded-lg px-3 py-2">
+                    {error}
+                  </div>
+                )}
                 <p className="text-xs text-clinic-text-muted">
                   Нажимая кнопку, вы соглашаетесь на обработку персональных данных
                 </p>
                 <button
                   type="submit"
-                  className="w-full bg-clinic-teal text-white py-3 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm flex items-center justify-center gap-2"
+                  disabled={loading}
+                  className="w-full bg-clinic-teal text-white py-3 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm flex items-center justify-center gap-2 disabled:opacity-60"
                 >
-                  <Icon name="Send" size={15} />
-                  Отправить сообщение
+                  {loading ? (
+                    <Icon name="Loader" size={15} className="animate-spin" />
+                  ) : (
+                    <Icon name="Send" size={15} />
+                  )}
+                  {loading ? "Отправляем..." : "Отправить сообщение"}
                 </button>
               </form>
             </>

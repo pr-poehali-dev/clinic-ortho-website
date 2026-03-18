@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
 
+const API_URL = "https://functions.poehali.dev/669b91b8-f4ae-4395-951c-9bdf20aefe50";
+
 interface Props {
   open: boolean;
   onClose: () => void;
@@ -12,15 +14,35 @@ interface Props {
 
 export default function AppointmentModal({ open, onClose, service }: Props) {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", phone: "", comment: service || "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Не удалось отправить заявку. Позвоните нам по телефону +7 999 464 91 94");
+      }
+    } catch {
+      setError("Ошибка соединения. Позвоните нам по телефону +7 999 464 91 94");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleClose = () => {
     setSubmitted(false);
+    setError("");
     setForm({ name: "", phone: "", comment: "" });
     onClose();
   };
@@ -80,15 +102,25 @@ export default function AppointmentModal({ open, onClose, service }: Props) {
                 rows={3}
               />
             </div>
+            {error && (
+              <div className="bg-red-50 border border-red-200 text-red-700 text-xs rounded-lg px-3 py-2">
+                {error}
+              </div>
+            )}
             <p className="text-xs text-clinic-text-muted">
               Нажимая кнопку, вы соглашаетесь на обработку персональных данных
             </p>
             <button
               type="submit"
-              className="w-full bg-clinic-teal text-white py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all flex items-center justify-center gap-2"
+              disabled={loading}
+              className="w-full bg-clinic-teal text-white py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-60"
             >
-              <Icon name="CalendarDays" size={16} />
-              Записаться на приём
+              {loading ? (
+                <Icon name="Loader" size={16} className="animate-spin" />
+              ) : (
+                <Icon name="CalendarDays" size={16} />
+              )}
+              {loading ? "Отправляем..." : "Записаться на приём"}
             </button>
           </form>
         )}

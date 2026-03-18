@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Icon name="Cross" size={18} className="text-white" />
             </div>
             <div>
-              <div className="font-display text-xl font-semibold text-clinic-text leading-tight">ОртоМед</div>
+              <div className="font-display text-xl font-semibold text-clinic-text leading-tight">Ваш Ортопед</div>
               <div className="text-xs text-clinic-text-muted leading-tight">Ортопедия и травматология</div>
             </div>
           </Link>
@@ -120,7 +120,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="w-8 h-8 rounded-full bg-clinic-teal flex items-center justify-center">
                 <Icon name="Cross" size={15} className="text-white" />
               </div>
-              <span className="font-display text-xl text-white">ОртоМед</span>
+              <span className="font-display text-xl text-white">Ваш Ортопед</span>
             </div>
             <p className="text-sm text-white/60 leading-relaxed">
               Клиника ортопедии и травматологии. Помогаем жить без боли с 2005 года.
@@ -153,7 +153,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </li>
               <li className="flex items-start gap-2">
                 <Icon name="MapPin" size={14} className="text-clinic-teal shrink-0 mt-0.5" />
-                г. Москва, ул. Здоровья, д. 12
+                г. Новосибирск, ул. Есенина, д. 67
               </li>
             </ul>
           </div>

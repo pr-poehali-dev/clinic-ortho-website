@@ -36,7 +36,7 @@ export default function Home() {
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-2 bg-clinic-teal-light text-clinic-teal text-xs font-medium px-3 py-1.5 rounded-full mb-5 animate-fade-in">
               <Icon name="MapPin" size={12} />
-              г. Москва • Принимаем ежедневно
+              г. Новосибирск • Принимаем ежедневно
             </div>
             <h1 className="font-display text-5xl md:text-6xl font-light leading-[1.1] text-clinic-text mb-5 animate-fade-in-up">
               Жизнь без боли —<br />
