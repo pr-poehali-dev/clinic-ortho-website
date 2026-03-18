@@ -12,11 +12,11 @@ const DOCTORS = [
     img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/1017135a-54d3-4d0d-9a11-65fd55dbb932.JPG",
   },
   {
-    name: "Врач клиники",
-    specialty: "Специалист",
-    experience: "Скоро здесь появится информация",
-    desc: "Мы расскажем о нашем специалисте в ближайшее время.",
-    img: null,
+    name: "Дуйшеналиев Канатбек Дуйшеналиевич",
+    specialty: "Врач травматолог-ортопед",
+    experience: "Остеосинтез · Реконструктивная хирургия · PRP-терапия",
+    desc: "Врач травматолог-ортопед в Новосибирске с широкой хирургической специализацией. Выполняет плановые и экстренные операции: остеосинтез всех сегментов конечностей (накостный, интрамедуллярный, чрескостный, аппарат Илизарова), реконструктивные операции на переднем отделе стопы (остеотомия Scarf, Weil), нейротравматологические вмешательства. Проводит PRP-терапию, внутрисуставные и паравертебральные блокады, пункции суставов. Оказывает полный спектр консервативной помощи: репозиция переломов, вправление вывихов, скелетное вытяжение, операции на сухожилиях и мягких тканях.",
+    img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/d1155204-000e-4540-b19b-d091244c8a41.jpg",
   },
 ];
 
@@ -38,37 +38,32 @@ export default function Doctors() {
         description="Врачи клиники «Ваш Ортопед» в Новосибирске. Буланбаев Бекболот Ардинатович — травматолог-ортопед, УЗИ суставов, PRP-терапия, лечение артроза и артрита. Запись: +7 999 464 91 94."
         canonical="/doctors"
         breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Врачи", url: "/doctors" }]}
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Буланбаев Бекболот Ардинатович",
-          "jobTitle": "Врач травматолог-ортопед",
-          "description": "Опытный врач травматолог-ортопед в Новосибирске, специализирующийся на диагностике и лечении заболеваний опорно-двигательного аппарата. PRP-терапия, медикаментозные блокады, введение гиалуроновой кислоты, УЗИ суставов.",
-          "image": "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/1017135a-54d3-4d0d-9a11-65fd55dbb932.JPG",
-          "worksFor": {
-            "@type": "MedicalClinic",
-            "name": "Ваш Ортопед",
-            "url": "https://vashortopped.ru",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "ул. Есенина, д. 67",
-              "addressLocality": "Новосибирск",
-              "addressCountry": "RU"
-            }
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Буланбаев Бекболот Ардинатович",
+            "jobTitle": "Врач травматолог-ортопед",
+            "description": "Опытный врач травматолог-ортопед в Новосибирске, специализирующийся на диагностике и лечении заболеваний опорно-двигательного аппарата. PRP-терапия, медикаментозные блокады, введение гиалуроновой кислоты, УЗИ суставов.",
+            "image": "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/1017135a-54d3-4d0d-9a11-65fd55dbb932.JPG",
+            "worksFor": { "@type": "MedicalClinic", "name": "Ваш Ортопед", "url": "https://vashortopped.ru" },
+            "medicalSpecialty": ["Orthopedic", "Traumatology"],
+            "knowsAbout": ["Лечение артроза", "Лечение артрита", "PRP-терапия", "УЗИ суставов", "Медикаментозные блокады"],
+            "url": "https://vashortopped.ru/doctors"
           },
-          "medicalSpecialty": ["Orthopedic", "Traumatology"],
-          "knowsAbout": [
-            "Лечение артроза",
-            "Лечение артрита",
-            "Лечение бурсита",
-            "Лечение синовита",
-            "Лечение тендинита",
-            "PRP-терапия",
-            "УЗИ суставов",
-            "Медикаментозные блокады"
-          ],
-          "url": "https://vashortopped.ru/doctors"
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Дуйшеналиев Канатбек Дуйшеналиевич",
+            "jobTitle": "Врач травматолог-ортопед",
+            "description": "Врач травматолог-ортопед в Новосибирске. Остеосинтез, реконструктивные операции на стопе, PRP-терапия, блокады суставов, лечение переломов и травм.",
+            "image": "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/d1155204-000e-4540-b19b-d091244c8a41.jpg",
+            "worksFor": { "@type": "MedicalClinic", "name": "Ваш Ортопед", "url": "https://vashortopped.ru" },
+            "medicalSpecialty": ["Orthopedic", "Traumatology"],
+            "knowsAbout": ["Остеосинтез", "Реконструктивная хирургия стопы", "PRP-терапия", "Лечение переломов", "Паравертебральные блокады", "Операции на сухожилиях"],
+            "url": "https://vashortopped.ru/doctors"
+          }
+        ]}
       />
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} service={selectedDoctor ? `Запись к врачу: ${selectedDoctor}` : ""} />
 
