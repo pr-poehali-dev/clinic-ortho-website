@@ -67,8 +67,8 @@ export default function Home() {
       {/* Advantages */}
       <section className="container py-10">
         <div className="text-center mb-8">
-          <h2 className="font-display text-4xl text-clinic-text mb-3">Клиника «Ваш Ортопед» — это</h2>
-          <p className="text-clinic-text-muted max-w-xl mx-auto">Сочетание многолетнего опыта наших врачей и современные методы лечения</p>
+          <h2 className="font-display text-4xl text-clinic-text mb-1">Клиника «Ваш Ортопед» — это</h2>
+          <p className="text-clinic-text-muted whitespace-nowrap">Сочетание многолетнего опыта наших врачей и современные методы лечения</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {ADVANTAGES.map((adv) => (
