@@ -34,14 +34,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
         <div className="container flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-clinic-teal flex items-center justify-center">
-              <Icon name="Cross" size={18} className="text-white" />
-            </div>
-            <div>
-              <div className="font-display text-xl font-semibold text-clinic-text leading-tight">Ваш Ортопед</div>
-              <div className="text-xs text-clinic-text-muted leading-tight">Ортопедия и травматология</div>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img
+              src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/be83b83d-194a-4c69-a655-e21e8ea68f8d.png"
+              alt="Ваш Ортопед"
+              className="h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -117,9 +115,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-full bg-clinic-teal flex items-center justify-center">
-                <Icon name="Cross" size={15} className="text-white" />
-              </div>
+              <img
+                src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/3e87c830-678c-485d-b730-8467068e3086.png"
+                alt="Ваш Ортопед"
+                className="h-10 w-10 object-contain"
+              />
               <span className="font-display text-xl text-white">Ваш Ортопед</span>
             </div>
             <p className="text-sm text-white/60 leading-relaxed">
