@@ -64,15 +64,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* gradient: white → teal */}
+      <div className="h-10 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
+
       {/* Diseases */}
       <section className="bg-clinic-teal py-6">
         <div className="container">
           <h2 className="font-display text-3xl text-white text-center mb-4">Что мы лечим</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 items-center">
             {[
               { titles: ["Артрит", "Артроз"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/5e7bc39d-36e2-4ecb-9def-1086449b0f96.jpeg", href: "/diseases/arthritis-arthrosis" },
               { titles: ["Тендинит", "Энтезит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/03291c96-f0f2-4aa5-86a0-75edc001f8d8.jpeg", href: "/diseases/tendinitis-enthesitis" },
               { titles: ["Бурсит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/cff70cef-9298-45a3-a248-c868d542bbfb.jpeg", href: "/diseases/bursitis" },
+              { titles: ["Синовит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/5e7bc39d-36e2-4ecb-9def-1086449b0f96.jpeg", href: "/diseases/synovitis" },
             ].map((item) => (
               <Link key={item.titles[0]} to={item.href} className="relative overflow-hidden rounded-2xl cursor-pointer group block">
                 <img
@@ -97,6 +101,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* gradient: teal → secondary */}
+      <div className="h-10 bg-gradient-to-b from-[hsl(91,50%,38%)] to-[hsl(203,60%,93%)]" />
 
       {/* Services preview */}
       <section className="bg-secondary py-10">
@@ -130,6 +137,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* gradient: secondary → white */}
+      <div className="h-10 bg-gradient-to-b from-[hsl(203,60%,93%)] to-white" />
+
       {/* Advantages */}
       <section className="container py-10">
         <div className="text-center mb-8">
@@ -149,56 +159,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Rehab section */}
-      <section className="container py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <img src={REHAB_IMG} alt="Реабилитация" className="rounded-2xl w-full h-80 object-cover shadow-md" />
-          </div>
-          <div>
-            <h2 className="font-display text-4xl text-clinic-text mb-5 leading-tight">
-              Реабилитация после<br />операций и травм
-            </h2>
-            <p className="text-clinic-text-muted leading-relaxed mb-4">
-              Наша программа реабилитации разработана специально для людей старшего возраста. Мы помогаем восстановить функции суставов, укрепить мышцы и вернуться к полноценной жизни.
-            </p>
-            <ul className="space-y-3 mb-7">
-              {["Индивидуальная программа упражнений", "Физиотерапия и массаж", "Психологическая поддержка", "Контроль на каждом этапе"].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-clinic-text">
-                  <Icon name="Check" size={16} className="text-clinic-teal shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <button
-              onClick={() => setModalOpen(true)}
-              className="flex items-center gap-2 bg-clinic-teal text-white px-6 py-3 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm"
-            >
-              <Icon name="CalendarDays" size={15} />
-              Записаться на консультацию
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* gradient: white → teal */}
+      <div className="h-10 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
 
       {/* CTA Banner */}
-      <section className="bg-white py-10">
+      <section className="bg-clinic-teal py-10">
         <div className="container text-center">
-          <h2 className="font-display text-4xl text-clinic-text mb-4">Не откладывайте здоровье на потом</h2>
-          <p className="text-clinic-text-muted mb-8 max-w-lg mx-auto">
+          <h2 className="font-display text-4xl text-white mb-4">Не откладывайте здоровье на потом</h2>
+          <p className="text-white/80 mb-8 max-w-lg mx-auto">
             Запишитесь на консультацию сейчас и получите развёрнутый план лечения от наших специалистов
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={() => setModalOpen(true)}
-              className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-7 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow"
+              className="flex items-center justify-center gap-2 bg-white text-clinic-teal px-7 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow"
             >
               <Icon name="CalendarDays" size={16} />
               Записаться на приём
             </button>
             <a
               href="tel:+79994649194"
-              className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal px-7 py-3.5 rounded-xl font-medium hover:bg-clinic-teal-light transition-all text-sm"
+              className="flex items-center justify-center gap-2 border border-white/50 text-white px-7 py-3.5 rounded-xl font-medium hover:bg-white/10 transition-all text-sm"
             >
               <Icon name="Phone" size={16} />
               Позвонить нам
