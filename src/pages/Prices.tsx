@@ -220,14 +220,11 @@ export default function Prices() {
       {/* Hero */}
       <section className="bg-clinic-beige py-10 border-b border-border">
         <div className="container">
-          <div className="max-w-xl">
+          <div className="max-w-xs">
             <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
               <Icon name="CircleDollarSign" size={15} /> Прозрачные цены
             </div>
             <h1 className="font-display text-5xl text-clinic-text mb-4">Стоимость услуг</h1>
-            <p className="text-clinic-text-muted leading-relaxed">
-              Цены без скрытых доплат. При необходимости дополнительных исследований — согласовываем заранее.
-            </p>
           </div>
         </div>
       </section>
@@ -275,7 +272,7 @@ export default function Prices() {
             <div className="mt-4 bg-clinic-teal-light rounded-xl p-4 flex items-start gap-3">
               <Icon name="Info" size={16} className="text-clinic-teal mt-0.5 shrink-0" />
               <p className="text-sm text-clinic-text">
-                Цены носят информационный характер. Точную стоимость уточняйте у администратора при записи. Пенсионерам и ветеранам — скидка 10%.
+                Цены носят информационный характер. Точную стоимость уточняйте у администратора при записи. При предъявлении пенсионного удостоверения скидка — 20%.
               </p>
             </div>
           </div>
