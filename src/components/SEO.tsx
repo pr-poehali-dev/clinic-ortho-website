@@ -17,7 +17,7 @@ interface SEOProps {
   canonical?: string;
   image?: string;
   breadcrumbs?: BreadcrumbItem[];
-  schema?: object;
+  schema?: object | object[];
 }
 
 export default function SEO({ title, description, canonical, image, breadcrumbs, schema }: SEOProps) {
@@ -67,11 +67,11 @@ export default function SEO({ title, description, canonical, image, breadcrumbs,
       )}
 
       {/* Custom schema */}
-      {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
+      {schema && (Array.isArray(schema) ? schema : [schema]).map((s, i) => (
+        <script key={i} type="application/ld+json">
+          {JSON.stringify(s)}
         </script>
-      )}
+      ))}
     </Helmet>
   );
 }

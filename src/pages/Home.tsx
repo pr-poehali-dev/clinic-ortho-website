@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import AppointmentModal from "@/components/AppointmentModal";
 import SEO, { LOCAL_BUSINESS_SCHEMA } from "@/components/SEO";
+import FAQ, { FAQ_SCHEMA } from "@/components/FAQ";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/4a0a4c5f-8b18-4083-8a51-0d1df1369b90.jpg";
 const REHAB_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/aa8f2ae4-c5c4-4024-b1f9-a436f73e2de7.jpg";
@@ -29,7 +30,7 @@ export default function Home() {
         title="Клиника ортопедии и травматологии в Новосибирске"
         description="Клиника «Ваш Ортопед» — лечение артроза, артрита, бурсита, синовита, тендинита в Новосибирске. PRP-терапия, SVF-терапия, гиалуроновая кислота. Запись: +7 999 464 91 94."
         canonical="/"
-        schema={LOCAL_BUSINESS_SCHEMA}
+        schema={[LOCAL_BUSINESS_SCHEMA, FAQ_SCHEMA]}
       />
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
@@ -164,6 +165,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQ />
 
       {/* gradient: white → teal */}
       <div className="h-10 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
