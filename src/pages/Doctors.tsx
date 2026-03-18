@@ -75,8 +75,8 @@ export default function Doctors() {
               <Icon name="Users" size={15} /> Наша команда
             </div>
             <h1 className="font-display text-5xl text-clinic-text mb-4">Наши врачи</h1>
-            <p className="text-clinic-text-muted leading-relaxed">
-              Опытные практикующие врачи нашей клиники всегда готовы помочь
+            <p className="text-clinic-text-muted leading-relaxed whitespace-nowrap">
+              Опытные практикующие врачи всегда готовы помочь
             </p>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function Doctors() {
           {DOCTORS.map((doctor) => (
             <div key={doctor.name} className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col">
               {doctor.img ? (
-                <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full h-96 object-cover object-center" />
+                <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full h-96 object-cover object-top" />
               ) : (
                 <div className="w-full h-48 flex items-center justify-center bg-clinic-teal-light text-5xl font-display font-medium text-clinic-teal">
                   {doctor.name.split(" ").map((w: string) => w[0]).slice(0, 2).join("")}
