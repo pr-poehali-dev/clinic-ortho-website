@@ -5,6 +5,30 @@ import AppointmentModal from "@/components/AppointmentModal";
 import SEO from "@/components/SEO";
 import { ARTICLES, ARTICLES_BY_CATEGORY } from "@/data/articles";
 
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-border rounded-xl overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left bg-white hover:bg-clinic-beige/60 transition-colors"
+      >
+        <span className="font-medium text-clinic-text text-sm leading-snug">{q}</span>
+        <Icon
+          name="ChevronDown"
+          size={16}
+          className={`shrink-0 text-clinic-teal transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <div className="px-5 pb-4 pt-1 bg-clinic-beige/30 text-sm text-clinic-text-muted leading-relaxed">
+          {a}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function ArticleDetail() {
   const { slug } = useParams();
   const [modalOpen, setModalOpen] = useState(false);
@@ -22,6 +46,19 @@ export default function ArticleDetail() {
   const related = (ARTICLES_BY_CATEGORY[article.category] || [])
     .filter((a) => a.slug !== article.slug)
     .slice(0, 3);
+
+  const faqSchema = article.faq?.length ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": article.faq.map((item) => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a,
+      },
+    })),
+  } : null;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -70,7 +107,7 @@ export default function ArticleDetail() {
         description={article.metaDesc}
         canonical={`/articles/${article.slug}`}
         image={article.img}
-        schema={articleSchema}
+        schema={faqSchema ? [articleSchema, faqSchema] : articleSchema}
         breadcrumbs={[
           { name: "Главная", url: "/" },
           { name: "Публикации", url: "/publications" },
@@ -123,6 +160,21 @@ export default function ArticleDetail() {
                 </div>
               ))}
             </div>
+
+            {/* FAQ */}
+            {article.faq?.length > 0 && (
+              <div className="mt-10">
+                <h2 className="font-display text-2xl text-clinic-text mb-5 flex items-center gap-2">
+                  <Icon name="CircleHelp" size={22} className="text-clinic-teal" />
+                  Часто задаваемые вопросы
+                </h2>
+                <div className="space-y-3">
+                  {article.faq.map((item, i) => (
+                    <FaqItem key={i} q={item.q} a={item.a} />
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* CTA */}
             <div className="mt-10 bg-clinic-teal rounded-2xl p-6 text-white">
