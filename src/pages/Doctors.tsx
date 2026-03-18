@@ -10,6 +10,7 @@ interface Doctor {
   desc: string;
   img: string | null;
   imgPosition?: string;
+  imgMarginTop?: string;
 }
 
 const DOCTORS: Doctor[] = [
@@ -28,6 +29,7 @@ const DOCTORS: Doctor[] = [
     desc: "Врач травматолог-ортопед в Новосибирске. Диагностика и лечение травм и заболеваний опорно-двигательного аппарата. Проводит PRP-терапию и SVF-терапию, внутрисуставные и паравертебральные блокады, пункции суставов с введением лекарственных препаратов. Консервативное лечение: репозиция переломов, вправление вывихов, иммобилизация.",
     img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/70271e2d-4950-4f42-9bb0-74b0709c3806.JPG",
     imgPosition: "center top",
+    imgMarginTop: "-1cm",
   },
 ];
 
@@ -99,7 +101,7 @@ export default function Doctors() {
           {DOCTORS.map((doctor) => (
             <div key={doctor.name} className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col">
               {doctor.img ? (
-                <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full h-96 object-cover" style={{ objectPosition: doctor.imgPosition ?? "center top" }} />
+                <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full h-96 object-cover" style={{ objectPosition: doctor.imgPosition ?? "center top", marginTop: doctor.imgMarginTop ?? "0" }} />
               ) : (
                 <div className="w-full h-48 flex items-center justify-center bg-clinic-teal-light text-5xl font-display font-medium text-clinic-teal">
                   {doctor.name.split(" ").map((w: string) => w[0]).slice(0, 2).join("")}
