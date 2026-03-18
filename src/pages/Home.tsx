@@ -68,23 +68,25 @@ export default function Home() {
       <section className="bg-clinic-teal py-10">
         <div className="container">
           <h2 className="font-display text-3xl text-white text-center mb-8">Что мы лечим</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { title: "Лечение артроза", icon: "Bone" },
-              { title: "Лечение артрита", icon: "Zap" },
-              { title: "Лечение бурсита", icon: "CircleDot" },
-              { title: "Лечение остеохондроза", icon: "Layers" },
-              { title: "Лечение грыжи позвоночника", icon: "Activity" },
-              { title: "Лечение подагры", icon: "Flame" },
+              { titles: ["Артрит", "Артроз"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/5e7bc39d-36e2-4ecb-9def-1086449b0f96.jpeg" },
+              { titles: ["Тендинит", "Энтезит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/03291c96-f0f2-4aa5-86a0-75edc001f8d8.jpeg" },
+              { titles: ["Бурсит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/cff70cef-9298-45a3-a248-c868d542bbfb.jpeg" },
             ].map((item) => (
-              <div key={item.title} className="bg-white/10 hover:bg-white/20 transition-colors rounded-2xl p-4 flex flex-col items-center text-center gap-3 cursor-pointer">
-                <div className="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                  <Icon name={item.icon} size={20} className="text-white" />
+              <div key={item.titles[0]} className="relative overflow-hidden rounded-2xl cursor-pointer group">
+                <img src={item.img} alt={item.titles.join(", ")} className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-1">
+                  <div className="flex flex-wrap gap-1 mb-1">
+                    {item.titles.map((t) => (
+                      <span key={t} className="text-white font-semibold text-base leading-tight">{t}</span>
+                    ))}
+                  </div>
+                  <span className="text-xs text-white/80 flex items-center gap-1 group-hover:text-white transition-colors w-fit">
+                    Подробнее <Icon name="ArrowRight" size={12} />
+                  </span>
                 </div>
-                <p className="text-white text-xs font-medium uppercase tracking-wide leading-snug">{item.title} в Новосибирске</p>
-                <span className="text-xs text-white/70 flex items-center gap-1 hover:text-white transition-colors">
-                  Подробнее <Icon name="ArrowRight" size={12} />
-                </span>
               </div>
             ))}
           </div>
