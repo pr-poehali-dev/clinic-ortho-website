@@ -44,7 +44,7 @@ export default function Contacts() {
             </div>
             <h1 className="font-display text-5xl text-clinic-text mb-4">Контакты</h1>
             <p className="text-clinic-text-muted leading-relaxed">
-              Мы находимся в центре Москвы. Удобная парковка и рядом со станцией метро.
+              Удобная парковка рядом с клиникой.
             </p>
           </div>
         </div>
