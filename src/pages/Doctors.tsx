@@ -3,13 +3,23 @@ import Icon from "@/components/ui/icon";
 import AppointmentModal from "@/components/AppointmentModal";
 import SEO from "@/components/SEO";
 
-const DOCTORS = [
+interface Doctor {
+  name: string;
+  specialty: string;
+  experience: string;
+  desc: string;
+  img: string | null;
+  imgPosition?: string;
+}
+
+const DOCTORS: Doctor[] = [
   {
     name: "Буланбаев Бекболот Ардинатович",
     specialty: "Врач травматолог-ортопед",
     experience: "Травматология · Ортопедия · УЗИ суставов",
     desc: "Опытный врач травматолог‑ортопед в Новосибирске, специализирующийся на диагностике и лечении заболеваний опорно‑двигательного аппарата: артроза, артрита, бурсита, синовита, тендинита и энтезита. Сочетает современные методы лечения — PRP‑терапию, медикаментозные блокады, введение гиалуроновой кислоты — с точной инструментальной диагностикой (УЗИ суставов, рентген, МРТ) и индивидуальным подходом к каждому пациенту. Ведёт пациента полностью: от первичной консультации до контроля результатов лечения.",
     img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/1017135a-54d3-4d0d-9a11-65fd55dbb932.JPG",
+    imgPosition: "center 10%",
   },
   {
     name: "Дуйшеналиев Канатбек Дуйшеналиевич",
@@ -17,6 +27,7 @@ const DOCTORS = [
     experience: "Травматология · Ортопедия · PRP-терапия · SVF-терапия",
     desc: "Врач травматолог-ортопед в Новосибирске. Диагностика и лечение травм и заболеваний опорно-двигательного аппарата. Проводит PRP-терапию и SVF-терапию, внутрисуставные и паравертебральные блокады, пункции суставов с введением лекарственных препаратов. Консервативное лечение: репозиция переломов, вправление вывихов, иммобилизация.",
     img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/70271e2d-4950-4f42-9bb0-74b0709c3806.JPG",
+    imgPosition: "center 5%",
   },
 ];
 
@@ -88,7 +99,7 @@ export default function Doctors() {
           {DOCTORS.map((doctor) => (
             <div key={doctor.name} className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col">
               {doctor.img ? (
-                <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full h-96 object-cover object-top" />
+                <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full h-96 object-cover" style={{ objectPosition: doctor.imgPosition ?? "center top" }} />
               ) : (
                 <div className="w-full h-48 flex items-center justify-center bg-clinic-teal-light text-5xl font-display font-medium text-clinic-teal">
                   {doctor.name.split(" ").map((w: string) => w[0]).slice(0, 2).join("")}
