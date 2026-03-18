@@ -31,7 +31,7 @@ const DOCTORS: Doctor[] = [
     img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/70271e2d-4950-4f42-9bb0-74b0709c3806.JPG",
     imgPosition: "center top",
     imgMarginTop: "-1cm",
-    imgHeight: "26rem",
+    imgHeight: "calc(26rem + 2px)",
   },
 ];
 
