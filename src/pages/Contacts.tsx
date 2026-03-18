@@ -114,13 +114,16 @@ export default function Contacts() {
             </ul>
           </div>
 
-          {/* Map placeholder */}
-          <div className="bg-clinic-beige rounded-2xl border border-border overflow-hidden h-56 flex items-center justify-center">
-            <div className="text-center text-clinic-text-muted">
-              <Icon name="Map" size={36} className="mx-auto mb-2 opacity-40" />
-              <p className="text-sm">Карта проезда</p>
-              <p className="text-xs">г. Новосибирск, ул. Есенина, д. 67</p>
-            </div>
+          {/* Map 2GIS */}
+          <div className="rounded-2xl border border-border overflow-hidden h-64">
+            <iframe
+              src="https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22pos%22%3A%7B%22lat%22%3A54.84%2C%22lon%22%3A83.09%2C%22zoom%22%3A14%7D%2C%22opt%22%3A%7B%22city%22%3A%22novosibirsk%22%7D%2C%22org%22%3A%7B%22address%22%3A%22%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%2C+%D1%83%D0%BB.+%D0%95%D1%81%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0%2C+67%22%7D%7D"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              title="Карта 2ГИС — Ваш Ортопед"
+              allowFullScreen
+            />
           </div>
         </div>
 
