@@ -38,9 +38,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <img
               src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/be83b83d-194a-4c69-a655-e21e8ea68f8d.png"
               alt="Ваш Ортопед"
-              className="h-10 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
-            <span className="text-xs font-body tracking-[0.18em] uppercase text-clinic-text-muted leading-none mt-0.5 pl-0.5">Клиника ортопедии и травматологии</span>
+            <span className="text-[10px] font-body tracking-[0.22em] uppercase leading-none mt-0.5 pl-0.5 whitespace-nowrap" style={{color: '#3aabdc'}}>Клиника ортопедии и травматологии</span>
           </Link>
 
           {/* Desktop nav */}
