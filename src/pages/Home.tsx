@@ -27,22 +27,19 @@ export default function Home() {
       <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-clinic-warm min-h-[560px] flex items-center">
-        <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="Клиника ОртоМед" className="w-3/4 h-full object-cover object-top opacity-70 absolute right-0" />
-          <div className="absolute inset-0 bg-gradient-to-r from-clinic-warm via-clinic-warm/90 to-clinic-warm/10" />
-        </div>
-        <div className="container relative z-10 py-20">
-          <div className="max-w-xl">
+      <section className="bg-clinic-warm py-16 md:py-20">
+        <div className="container grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          {/* Text */}
+          <div>
             <div className="inline-flex items-center gap-2 bg-clinic-teal-light text-clinic-teal text-xs font-medium px-3 py-1.5 rounded-full mb-5 animate-fade-in">
               <Icon name="MapPin" size={12} />
               г. Новосибирск • Принимаем ежедневно
             </div>
-            <h1 className="text-4xl md:text-5xl font-light leading-[1.1] text-clinic-text mb-5 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
+            <h1 className="text-4xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-5 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
               Ваши суставы<br />
               <span className="text-clinic-teal italic">в надёжных руках</span>
             </h1>
-            <p className="text-clinic-text-muted text-lg leading-relaxed mb-8 animate-fade-in-up-delay-1">
+            <p className="text-clinic-text-muted text-base leading-relaxed mb-8 animate-fade-in-up-delay-1">
               Клиника ортопедии и травматологии. Мы возвращаем свободу движения и качество жизни людям любого возраста.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-in-up-delay-2">
@@ -60,6 +57,21 @@ export default function Home() {
                 <Icon name="Phone" size={16} />
                 +7 999 464 91 94
               </a>
+            </div>
+          </div>
+          {/* Photo */}
+          <div className="relative animate-fade-in">
+            <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
+              <img src={HERO_IMG} alt="Врач и пациент" className="w-full h-full object-cover object-top" />
+            </div>
+            <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-5 py-3 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-clinic-teal-light flex items-center justify-center shrink-0">
+                <Icon name="Star" size={16} className="text-clinic-teal" />
+              </div>
+              <div>
+                <div className="text-xs text-clinic-text-muted">Рейтинг клиники</div>
+                <div className="text-sm font-semibold text-clinic-text">4.9 / 5.0</div>
+              </div>
             </div>
           </div>
         </div>
