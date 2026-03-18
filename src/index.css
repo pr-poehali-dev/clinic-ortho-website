@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 40 30% 98%;
-    --foreground: 210 25% 18%;
+    --background: 0 0% 99%;
+    --foreground: 210 20% 16%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 25% 18%;
+    --card-foreground: 210 20% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 25% 18%;
+    --popover-foreground: 210 20% 16%;
 
-    --primary: 196 45% 38%;
+    --primary: 203 68% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 36 40% 94%;
-    --secondary-foreground: 210 25% 18%;
+    --secondary: 91 30% 94%;
+    --secondary-foreground: 210 20% 16%;
 
-    --muted: 36 20% 94%;
-    --muted-foreground: 210 15% 50%;
+    --muted: 91 15% 93%;
+    --muted-foreground: 210 12% 48%;
 
-    --accent: 196 30% 90%;
-    --accent-foreground: 196 45% 25%;
+    --accent: 203 60% 92%;
+    --accent-foreground: 203 68% 28%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 36 20% 88%;
-    --input: 36 20% 88%;
-    --ring: 196 45% 38%;
+    --border: 203 20% 88%;
+    --input: 203 20% 88%;
+    --ring: 203 68% 55%;
 
     --radius: 0.75rem;
 
@@ -41,16 +41,18 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 203 68% 55%;
 
-    /* Clinic custom */
-    --clinic-teal: 196 45% 38%;
-    --clinic-teal-light: 196 40% 92%;
-    --clinic-beige: 36 40% 94%;
-    --clinic-beige-dark: 36 25% 85%;
-    --clinic-warm: 20 30% 96%;
-    --clinic-text: 210 25% 18%;
-    --clinic-text-muted: 210 15% 50%;
+    /* Clinic custom — синий из логотипа #3aabdc, зелёный #7ab648 */
+    --clinic-teal: 203 68% 55%;
+    --clinic-teal-light: 203 60% 93%;
+    --clinic-beige: 91 30% 95%;
+    --clinic-beige-dark: 91 20% 86%;
+    --clinic-warm: 91 20% 97%;
+    --clinic-text: 210 20% 16%;
+    --clinic-text-muted: 210 12% 48%;
+    --clinic-green: 91 45% 49%;
+    --clinic-green-light: 91 40% 93%;
   }
 }
 
