@@ -13,24 +13,24 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 20% 16%;
 
-    --primary: 203 68% 55%;
+    --primary: 91 45% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 91 30% 94%;
+    --secondary: 203 60% 93%;
     --secondary-foreground: 210 20% 16%;
 
-    --muted: 91 15% 93%;
+    --muted: 203 30% 93%;
     --muted-foreground: 210 12% 48%;
 
-    --accent: 203 60% 92%;
-    --accent-foreground: 203 68% 28%;
+    --accent: 91 40% 92%;
+    --accent-foreground: 91 45% 28%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 203 20% 88%;
-    --input: 203 20% 88%;
-    --ring: 203 68% 55%;
+    --border: 203 25% 87%;
+    --input: 203 25% 87%;
+    --ring: 91 45% 45%;
 
     --radius: 0.75rem;
 
@@ -41,17 +41,17 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 203 68% 55%;
+    --sidebar-ring: 91 45% 45%;
 
-    /* Clinic custom — синий из логотипа #3aabdc, зелёный #7ab648 */
-    --clinic-teal: 203 68% 55%;
-    --clinic-teal-light: 203 60% 93%;
-    --clinic-beige: 91 30% 95%;
-    --clinic-beige-dark: 91 20% 86%;
-    --clinic-warm: 91 20% 97%;
+    /* Clinic custom — зелёный #7ab648 = кнопки/акценты, синий #3aabdc = фоны/подсветки */
+    --clinic-teal: 91 45% 45%;
+    --clinic-teal-light: 91 40% 93%;
+    --clinic-beige: 203 50% 94%;
+    --clinic-beige-dark: 203 35% 85%;
+    --clinic-warm: 203 40% 97%;
     --clinic-text: 210 20% 16%;
     --clinic-text-muted: 210 12% 48%;
-    --clinic-green: 91 45% 49%;
+    --clinic-green: 91 45% 45%;
     --clinic-green-light: 91 40% 93%;
   }
 }
