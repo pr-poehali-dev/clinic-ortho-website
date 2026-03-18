@@ -40,7 +40,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               alt="Ваш Ортопед"
               className="h-12 w-auto object-contain"
             />
-            <span className="text-[10px] font-body tracking-[0.22em] uppercase leading-none mt-0.5 pl-0.5 whitespace-nowrap" style={{color: '#3aabdc'}}>Клиника ортопедии и травматологии</span>
+            <span className="text-[10px] font-body tracking-[0.22em] uppercase leading-none mt-0.5 pl-0.5 whitespace-nowrap text-clinic-text-muted">Клиника ортопедии и травматологии</span>
           </Link>
 
           {/* Desktop nav */}
