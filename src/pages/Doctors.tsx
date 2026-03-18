@@ -11,6 +11,7 @@ interface Doctor {
   img: string | null;
   imgPosition?: string;
   imgMarginTop?: string;
+  imgHeight?: string;
 }
 
 const DOCTORS: Doctor[] = [
@@ -30,6 +31,7 @@ const DOCTORS: Doctor[] = [
     img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/70271e2d-4950-4f42-9bb0-74b0709c3806.JPG",
     imgPosition: "center top",
     imgMarginTop: "-1cm",
+    imgHeight: "28rem",
   },
 ];
 
@@ -101,7 +103,7 @@ export default function Doctors() {
           {DOCTORS.map((doctor) => (
             <div key={doctor.name} className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col">
               {doctor.img ? (
-                <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full h-96 object-cover" style={{ objectPosition: doctor.imgPosition ?? "center top", marginTop: doctor.imgMarginTop ?? "0" }} />
+                <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full object-cover" style={{ height: doctor.imgHeight ?? "24rem", objectPosition: doctor.imgPosition ?? "center top", marginTop: doctor.imgMarginTop ?? "0" }} />
               ) : (
                 <div className="w-full h-48 flex items-center justify-center bg-clinic-teal-light text-5xl font-display font-medium text-clinic-teal">
                   {doctor.name.split(" ").map((w: string) => w[0]).slice(0, 2).join("")}
