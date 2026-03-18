@@ -39,8 +39,8 @@ export default function Home() {
               г. Новосибирск • Принимаем ежедневно
             </div>
             <h1 className="text-4xl md:text-5xl font-light leading-[1.1] text-clinic-text mb-5 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
-              Жизнь без боли —<br />
-              <span className="text-clinic-teal italic">это возможно</span>
+              Ваши суставы<br />
+              <span className="text-clinic-teal italic">в надёжных руках</span>
             </h1>
             <p className="text-clinic-text-muted text-lg leading-relaxed mb-8 animate-fade-in-up-delay-1">
               Клиника ортопедии и травматологии. Мы возвращаем свободу движения и качество жизни людям любого возраста.
