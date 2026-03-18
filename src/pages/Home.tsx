@@ -29,7 +29,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-clinic-warm min-h-[580px] flex items-center">
         <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="Врач и пациент" className="w-full h-full object-cover object-center opacity-80" />
+          <img src={HERO_IMG} alt="Врач и пациент" className="w-4/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0" />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10" />
         </div>
         <div className="container relative z-10 py-20">
