@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import AppointmentModal from "@/components/AppointmentModal";
 import SEO from "@/components/SEO";
 
 const DISEASES = [
@@ -175,7 +173,6 @@ export const DISEASES_LIST = DISEASES;
 
 export default function DiseaseDetail() {
   const { slug } = useParams();
-  const [modalOpen, setModalOpen] = useState(false);
   const disease = DISEASES.find((d) => d.slug === slug);
 
   if (!disease) {
@@ -199,8 +196,6 @@ export default function DiseaseDetail() {
           { name: disease.title, url: `/diseases/${disease.slug}` },
         ]}
       />
-      <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
-
       {/* Breadcrumb */}
       <section className="bg-clinic-beige border-b border-border py-3">
         <div className="container flex items-center gap-2 text-sm text-clinic-text-muted">

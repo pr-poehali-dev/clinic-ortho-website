@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import AppointmentModal from "@/components/AppointmentModal";
 import SEO, { LOCAL_BUSINESS_SCHEMA } from "@/components/SEO";
 import FAQ, { FAQ_SCHEMA } from "@/components/FAQ";
 
@@ -22,8 +20,6 @@ const SERVICES_PREVIEW = [
 ];
 
 export default function Home() {
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
     <>
       <SEO
@@ -32,8 +28,6 @@ export default function Home() {
         canonical="/"
         schema={[LOCAL_BUSINESS_SCHEMA, FAQ_SCHEMA]}
       />
-      <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
-
       {/* Hero */}
       <section className="relative overflow-hidden bg-clinic-warm min-h-[580px] flex items-center">
         <div className="absolute inset-0">

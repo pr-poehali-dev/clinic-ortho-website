@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import AppointmentModal from "@/components/AppointmentModal";
 import SEO from "@/components/SEO";
 
 export const SERVICES_LIST = [
@@ -62,14 +60,6 @@ export const SERVICES_LIST = [
 ];
 
 export default function Services() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState("");
-
-  const openModal = (title: string) => {
-    setSelectedService(title);
-    setModalOpen(true);
-  };
-
   return (
     <>
       <SEO
@@ -90,8 +80,6 @@ export default function Services() {
           }))
         }}
       />
-      <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} service={selectedService} />
-
       {/* Hero */}
       <section className="bg-clinic-beige py-10 border-b border-border">
         <div className="container">

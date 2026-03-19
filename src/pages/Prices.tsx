@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
-import AppointmentModal from "@/components/AppointmentModal";
 import SEO from "@/components/SEO";
 
 const PRICE_SECTIONS = [
@@ -204,7 +203,6 @@ const PRICE_SECTIONS = [
 ];
 
 export default function Prices() {
-  const [modalOpen, setModalOpen] = useState(false);
   const [active, setActive] = useState(0);
 
   return (
@@ -230,8 +228,6 @@ export default function Prices() {
           }
         }}
       />
-      <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} />
-
       {/* Hero */}
       <section className="bg-clinic-beige py-8 border-b border-border">
         <div className="container">

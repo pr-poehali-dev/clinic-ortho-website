@@ -1,13 +1,10 @@
-import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { SERVICES_LIST } from "./Services";
 import Icon from "@/components/ui/icon";
-import AppointmentModal from "@/components/AppointmentModal";
 import SEO from "@/components/SEO";
 
 export default function ServiceDetail() {
   const { slug } = useParams();
-  const [modalOpen, setModalOpen] = useState(false);
   const service = SERVICES_LIST.find((s) => s.slug === slug);
 
   if (!service) {
@@ -50,8 +47,6 @@ export default function ServiceDetail() {
           }
         }}
       />
-      <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} service={service.title} />
-
       {/* Breadcrumb */}
       <section className="bg-clinic-beige border-b border-border py-3">
         <div className="container flex items-center gap-2 text-sm text-clinic-text-muted">

@@ -1,6 +1,4 @@
-import { useState } from "react";
 import Icon from "@/components/ui/icon";
-import AppointmentModal from "@/components/AppointmentModal";
 import SEO from "@/components/SEO";
 
 interface Doctor {
@@ -38,14 +36,6 @@ const DOCTORS: Doctor[] = [
 
 
 export default function Doctors() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedDoctor, setSelectedDoctor] = useState("");
-
-  const openModal = (name: string) => {
-    setSelectedDoctor(name);
-    setModalOpen(true);
-  };
-
   return (
     <>
       <SEO
@@ -80,8 +70,6 @@ export default function Doctors() {
           }
         ]}
       />
-      <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} service={selectedDoctor ? `Запись к врачу: ${selectedDoctor}` : ""} />
-
       {/* Hero */}
       <section className="bg-clinic-beige py-10 border-b border-border">
         <div className="container">
