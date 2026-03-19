@@ -24,10 +24,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Icon name="Clock" size={14} />
             Пн–Пт: 8:00–20:00 &nbsp;|&nbsp; Сб: 9:00–17:00
           </span>
-          <a href="tel:+79994649194" className="flex items-center gap-2 hover:underline font-medium text-clinic-teal">
-            <Icon name="Phone" size={14} />
-            +7 999 464 91 94
-          </a>
+          <div className="flex items-center gap-4">
+            <a href="https://t.me/+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-clinic-teal transition-colors">
+              <Icon name="Send" size={14} />
+              Написать в Telegram
+            </a>
+            <a href="https://max.ru/+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-clinic-teal transition-colors">
+              <Icon name="MessageCircle" size={14} />
+              Написать в Max
+            </a>
+            <a href="tel:+79994649194" className="flex items-center gap-2 hover:underline font-medium text-clinic-teal">
+              <Icon name="Phone" size={14} />
+              +7 999 464 91 94
+            </a>
+          </div>
         </div>
       </div>
 
@@ -109,6 +119,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Icon name="CalendarDays" size={15} />
                 Записаться на приём
               </a>
+              <div className="flex gap-2 mt-1">
+                <a
+                  href="https://t.me/+79994649194"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex-1 flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal text-sm font-medium px-3 py-2.5 rounded-lg"
+                >
+                  <Icon name="Send" size={15} />
+                  Telegram
+                </a>
+                <a
+                  href="https://max.ru/+79994649194"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex-1 flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal text-sm font-medium px-3 py-2.5 rounded-lg"
+                >
+                  <Icon name="MessageCircle" size={15} />
+                  Max
+                </a>
+              </div>
             </nav>
           </div>
         )}
