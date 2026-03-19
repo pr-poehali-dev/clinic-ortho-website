@@ -40,7 +40,7 @@ export default function Contacts() {
     <>
       <SEO
         title="Контакты клиники Ваш Ортопед в Новосибирске"
-        description="Адрес: Новосибирск, ул. Есенина, 67. Телефон: +7 999 464 91 94. Пн–Пт 8:00–20:00, сб 9:00–17:00. Запись онлайн или по телефону. Удобная парковка."
+        description="Адрес: Новосибирск, ул. Есенина, 67. Телефон: +7 999 464 91 94. Пн–Сб 09:00–19:00. Запись онлайн или по телефону. Удобная парковка."
         canonical="/contacts"
         breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Контакты", url: "/contacts" }]}
         schema={{
@@ -63,8 +63,7 @@ export default function Contacts() {
             "longitude": 82.995861
           },
           "openingHoursSpecification": [
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "20:00" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "17:00" }
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "19:00" }
           ],
           "contactPoint": {
             "@type": "ContactPoint",
@@ -104,7 +103,7 @@ export default function Contacts() {
                   <a href={`tel:${get("contacts.phone", "+7 999 464 91 94").replace(/\s/g, "")}`} className="text-clinic-text font-medium text-lg hover:text-clinic-teal transition-colors">
                     {get("contacts.phone", "+7 999 464 91 94")}
                   </a>
-                  <p className="text-xs text-clinic-text-muted mt-0.5">Ежедневно с 8:00 до 20:00</p>
+                  <p className="text-xs text-clinic-text-muted mt-0.5">Пн–Сб с 09:00 до 19:00</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -125,12 +124,8 @@ export default function Contacts() {
                   <div className="text-xs text-clinic-text-muted mb-1">Режим работы</div>
                   <div className="space-y-1 text-sm text-clinic-text">
                     <div className="flex justify-between gap-6">
-                      <span>Понедельник — Пятница</span>
-                      <span className="font-medium">{get("contacts.hours_weekday", "8:00 — 20:00")}</span>
-                    </div>
-                    <div className="flex justify-between gap-6">
-                      <span>Суббота</span>
-                      <span className="font-medium">{get("contacts.hours_saturday", "9:00 — 17:00")}</span>
+                      <span>Понедельник — Суббота</span>
+                      <span className="font-medium">{get("contacts.hours_weekday", "09:00 — 19:00")}</span>
                     </div>
                     <div className="flex justify-between gap-6 text-clinic-text-muted">
                       <span>Воскресенье</span>

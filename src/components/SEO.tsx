@@ -98,9 +98,9 @@ export const LOCAL_BUSINESS_SCHEMA = {
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       "opens": "09:00",
-      "closes": "20:00",
+      "closes": "19:00",
     },
   ],
   "medicalSpecialty": ["Orthopedic", "Traumatology"],

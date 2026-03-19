@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container flex items-center justify-between">
           <span className="flex items-center gap-2">
             <Icon name="Clock" size={14} />
-            Пн–Пт: 8:00–20:00 &nbsp;|&nbsp; Сб: 9:00–17:00
+            Пн–Сб: 09:00–19:00
           </span>
           <div className="flex items-center gap-4">
             <a href="https://t.me/+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-clinic-teal transition-colors">
@@ -187,7 +187,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </li>
               <li className="flex items-center gap-2">
                 <Icon name="Clock" size={14} className="text-clinic-teal shrink-0" />
-                Пн–Пт: 8:00–20:00
+                Пн–Сб: 09:00–19:00
               </li>
               <li className="flex items-start gap-2">
                 <Icon name="MapPin" size={14} className="text-clinic-teal shrink-0 mt-0.5" />
