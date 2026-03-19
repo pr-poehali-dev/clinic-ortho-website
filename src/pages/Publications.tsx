@@ -15,9 +15,22 @@ export default function Publications() {
   return (
     <>
       <SEO
-        title="Публикации — статьи об ортопедических заболеваниях"
-        description="Статьи об артрите, артрозе, тендините, бурсите, синовите и остеохондрозе. Клиника «Ваш Ортопед», Новосибирск."
+        title="Публикации — статьи об ортопедии и лечении суставов в Новосибирске"
+        description="Экспертные статьи об артрите, артрозе, тендините, бурсите, синовите и остеохондрозе от врачей клиники «Ваш Ортопед» в Новосибирске."
         canonical="/publications"
+        breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Публикации", url: "/publications" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Публикации — статьи об ортопедии",
+          "description": "Экспертные статьи врачей клиники «Ваш Ортопед» о заболеваниях суставов, позвоночника и опорно-двигательного аппарата",
+          "url": "https://vashortopped.ru/publications",
+          "publisher": {
+            "@type": "MedicalClinic",
+            "name": "Ваш Ортопед",
+            "url": "https://vashortopped.ru"
+          }
+        }}
       />
 
       {/* Breadcrumb */}
