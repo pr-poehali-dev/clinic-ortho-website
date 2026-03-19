@@ -74,7 +74,7 @@ export default function Home() {
       {/* Diseases */}
       <section className="bg-clinic-teal py-6">
         <div className="container">
-          <h2 className="font-display text-3xl text-white text-center mb-4">Что мы лечим</h2>
+          <h2 className="font-display text-2xl md:text-3xl text-white text-center mb-4">Что мы лечим</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-center">
             {[
               { titles: ["Артрит", "Артроз"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/5e7bc39d-36e2-4ecb-9def-1086449b0f96.jpeg", href: "/diseases/arthritis-arthrosis" },
@@ -111,7 +111,7 @@ export default function Home() {
       <section className="bg-secondary py-10">
         <div className="container">
           <div className="text-center mb-8">
-            <h2 className="font-display text-4xl text-clinic-text mb-3">Наши услуги</h2>
+            <h2 className="font-display text-2xl md:text-4xl text-clinic-text mb-3">Наши услуги</h2>
             <p className="text-clinic-text-muted">Комплексная помощь при заболеваниях опорно-двигательного аппарата</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -145,8 +145,8 @@ export default function Home() {
       {/* Advantages */}
       <section className="container py-10">
         <div className="text-center mb-8">
-          <h2 className="font-display text-4xl text-clinic-text mb-1">Клиника «Ваш Ортопед» — это</h2>
-          <p className="text-clinic-text-muted whitespace-nowrap">Сочетание многолетнего опыта наших врачей и современные методы лечения</p>
+          <h2 className="font-display text-2xl md:text-4xl text-clinic-text mb-1">Клиника «Ваш Ортопед» — это</h2>
+          <p className="text-clinic-text-muted">Сочетание многолетнего опыта наших врачей и современные методы лечения</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {ADVANTAGES.map((adv) => (
@@ -170,7 +170,7 @@ export default function Home() {
       {/* CTA Banner */}
       <section className="bg-clinic-teal py-10">
         <div className="container text-center">
-          <h2 className="font-display text-4xl text-white mb-4">Не откладывайте здоровье на потом</h2>
+          <h2 className="font-display text-2xl md:text-4xl text-white mb-4">Не откладывайте здоровье на потом</h2>
           <p className="text-white/80 mb-8 max-w-lg mx-auto">
             Запишитесь на консультацию сейчас и получите развёрнутый план лечения от наших специалистов
           </p>
