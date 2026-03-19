@@ -266,7 +266,7 @@ export default function Prices() {
             <div className="bg-white rounded-2xl border border-border overflow-hidden">
               <div className="px-6 py-4 border-b border-border flex items-center gap-3">
                 <Icon name={PRICE_SECTIONS[active].icon} size={20} className="text-clinic-teal" />
-                <h2 className="font-display text-2xl text-clinic-text">{PRICE_SECTIONS[active].title}</h2>
+                <h2 className="font-display text-xl md:text-2xl text-clinic-text">{PRICE_SECTIONS[active].title}</h2>
               </div>
               <div className="divide-y divide-border">
                 {PRICE_SECTIONS[active].items.map((item) => (

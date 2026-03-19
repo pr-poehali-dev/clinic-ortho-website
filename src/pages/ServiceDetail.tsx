@@ -64,7 +64,7 @@ export default function ServiceDetail() {
           <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 ${service.color}`}>
             <Icon name={service.icon} size={26} />
           </div>
-          <h1 className="font-display text-5xl text-clinic-text mb-4">{service.title}</h1>
+          <h1 className="font-display text-3xl md:text-5xl text-clinic-text mb-4">{service.title}</h1>
           <p className="text-clinic-text-muted text-lg max-w-xl leading-relaxed">{service.desc}</p>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function ServiceDetail() {
       <section className="container py-14 grid grid-cols-1 lg:grid-cols-3 gap-10">
         <div className="lg:col-span-2 space-y-8">
           <div className="bg-white rounded-2xl border border-border p-7">
-            <h2 className="font-display text-2xl text-clinic-text mb-4">Что входит в услугу</h2>
+            <h2 className="font-display text-xl md:text-2xl text-clinic-text mb-4">Что входит в услугу</h2>
             <ul className="space-y-3">
               {service.items.map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -87,7 +87,7 @@ export default function ServiceDetail() {
           </div>
 
           <div className="bg-white rounded-2xl border border-border p-7">
-            <h2 className="font-display text-2xl text-clinic-text mb-4">Как проходит лечение</h2>
+            <h2 className="font-display text-xl md:text-2xl text-clinic-text mb-4">Как проходит лечение</h2>
             <div className="space-y-5">
               {[
                 { step: "01", title: "Первичная консультация", text: "Врач проводит осмотр, собирает анамнез, изучает имеющиеся документы и назначает необходимые обследования." },

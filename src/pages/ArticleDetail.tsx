@@ -151,7 +151,7 @@ export default function ArticleDetail() {
             <div className="space-y-8">
               {article.sections.map((section, i) => (
                 <div key={i}>
-                  <h2 className="font-display text-2xl text-clinic-text mb-3">{section.title}</h2>
+                  <h2 className="font-display text-xl md:text-2xl text-clinic-text mb-3">{section.title}</h2>
                   <p className="text-clinic-text-muted leading-relaxed">{section.content}</p>
                 </div>
               ))}
@@ -160,7 +160,7 @@ export default function ArticleDetail() {
             {/* FAQ */}
             {article.faq?.length > 0 && (
               <div className="mt-10">
-                <h2 className="font-display text-2xl text-clinic-text mb-5 flex items-center gap-2">
+                <h2 className="font-display text-xl md:text-2xl text-clinic-text mb-5 flex items-center gap-2">
                   <Icon name="CircleHelp" size={22} className="text-clinic-teal" />
                   Часто задаваемые вопросы
                 </h2>
@@ -174,7 +174,7 @@ export default function ArticleDetail() {
 
             {/* CTA */}
             <div className="mt-10 bg-clinic-teal rounded-2xl p-6 text-white">
-              <h3 className="font-display text-2xl mb-2">Нужна консультация?</h3>
+              <h3 className="font-display text-xl md:text-2xl mb-2">Нужна консультация?</h3>
               <p className="text-white/80 text-sm mb-4">
                 Запишитесь к ортопеду — поставим точный диагноз и подберём лечение
               </p>

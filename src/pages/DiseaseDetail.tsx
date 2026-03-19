@@ -230,7 +230,7 @@ export default function DiseaseDetail() {
       <section className="relative overflow-hidden bg-clinic-beige py-12">
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h1 className="font-display text-5xl text-clinic-text mb-4 leading-tight">{disease.title}</h1>
+            <h1 className="font-display text-3xl md:text-5xl text-clinic-text mb-4 leading-tight">{disease.title}</h1>
             <p className="text-clinic-text-muted text-base leading-relaxed mb-6">{disease.desc}</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <button
@@ -261,7 +261,7 @@ export default function DiseaseDetail() {
 
           {/* Symptoms */}
           <div className="bg-white rounded-2xl border border-border p-7">
-            <h2 className="font-display text-2xl text-clinic-text mb-5">Симптомы</h2>
+            <h2 className="font-display text-xl md:text-2xl text-clinic-text mb-5">Симптомы</h2>
             <ul className="space-y-3">
               {disease.symptoms.map((s) => (
                 <li key={s} className="flex items-start gap-3">
@@ -276,7 +276,7 @@ export default function DiseaseDetail() {
 
           {/* Methods */}
           <div className="bg-white rounded-2xl border border-border p-7">
-            <h2 className="font-display text-2xl text-clinic-text mb-5">Методы лечения</h2>
+            <h2 className="font-display text-xl md:text-2xl text-clinic-text mb-5">Методы лечения</h2>
             <ul className="space-y-3">
               {disease.methods.map((m) => (
                 <li key={m} className="flex items-start gap-3">
@@ -291,7 +291,7 @@ export default function DiseaseDetail() {
 
           {/* Steps */}
           <div className="bg-white rounded-2xl border border-border p-7">
-            <h2 className="font-display text-2xl text-clinic-text mb-5">Как проходит лечение</h2>
+            <h2 className="font-display text-xl md:text-2xl text-clinic-text mb-5">Как проходит лечение</h2>
             <div className="space-y-5">
               {disease.steps.map((s) => (
                 <div key={s.step} className="flex gap-4">
