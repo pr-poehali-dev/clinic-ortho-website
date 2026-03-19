@@ -77,8 +77,8 @@ export default function Doctors() {
             <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
               <Icon name="Users" size={15} /> Наша команда
             </div>
-            <h1 className="font-display text-5xl text-clinic-text mb-4">Травматологи-ортопеды Новосибирска</h1>
-            <p className="text-clinic-text-muted leading-relaxed whitespace-nowrap">
+            <h1 className="font-display text-3xl md:text-5xl text-clinic-text mb-4">Травматологи-ортопеды Новосибирска</h1>
+            <p className="text-clinic-text-muted leading-relaxed">
               Опытные практикующие врачи всегда готовы помочь
             </p>
           </div>

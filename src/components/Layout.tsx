@@ -20,22 +20,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Top bar */}
       <div className="bg-white border-b border-border text-clinic-text-muted text-sm py-2">
         <div className="container flex items-center justify-between">
-          <span className="flex items-center gap-2">
+          <span className="hidden sm:flex items-center gap-2">
             <Icon name="Clock" size={14} />
             Пн–Сб: 09:00–19:00
           </span>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 ml-auto">
             <a href="https://t.me/+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-clinic-teal transition-colors">
               <Icon name="Send" size={14} />
-              Написать в Telegram
+              <span className="hidden md:inline">Написать в Telegram</span>
+              <span className="md:hidden">Telegram</span>
             </a>
             <a href="https://max.ru/+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-clinic-teal transition-colors">
               <Icon name="MessageCircle" size={14} />
-              Написать в Max
+              <span className="hidden md:inline">Написать в Max</span>
+              <span className="md:hidden">Max</span>
             </a>
-            <a href="tel:+79994649194" className="flex items-center gap-2 hover:underline font-medium text-clinic-teal">
+            <a href="tel:+79994649194" className="flex items-center gap-1.5 font-medium text-clinic-teal hover:underline transition-colors">
               <Icon name="Phone" size={14} />
-              +7 999 464 91 94
+              <span className="hidden sm:inline">+7 999 464 91 94</span>
             </a>
           </div>
         </div>

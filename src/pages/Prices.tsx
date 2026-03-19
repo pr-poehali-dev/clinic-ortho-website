@@ -233,7 +233,7 @@ export default function Prices() {
         <div className="container">
           <div className="flex items-center gap-3">
             <Icon name="CircleDollarSign" size={18} className="text-clinic-teal shrink-0" />
-            <h1 className="font-display text-4xl text-clinic-text whitespace-nowrap">Цены на услуги в Новосибирске</h1>
+            <h1 className="font-display text-2xl md:text-4xl text-clinic-text">Цены на услуги в Новосибирске</h1>
           </div>
         </div>
       </section>

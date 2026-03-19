@@ -80,7 +80,7 @@ export default function Contacts() {
             <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
               <Icon name="MapPin" size={15} /> Как нас найти
             </div>
-            <h1 className="font-display text-5xl text-clinic-text mb-4">Контакты</h1>
+            <h1 className="font-display text-3xl md:text-5xl text-clinic-text mb-4">Контакты</h1>
             <p className="text-clinic-text-muted leading-relaxed">
               Удобная парковка рядом с клиникой.
             </p>
