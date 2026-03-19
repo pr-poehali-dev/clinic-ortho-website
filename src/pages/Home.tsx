@@ -17,8 +17,8 @@ const ADVANTAGES = [
 
 const SERVICES_PREVIEW = [
   { icon: "Bone", title: "Ортопедия", desc: "Лечение заболеваний суставов, позвоночника и опорно-двигательного аппарата", href: "/services/orthopedics" },
-  { icon: "Bandage", title: "Травматология", desc: "Лечение переломов, вывихов, травм мягких тканей и реабилитация", href: "/services/traumatology" },
-  { icon: "Dumbbell", title: "Реабилитация", desc: "Восстановительные программы после операций и травм", href: "/services/rehabilitation" },
+  { icon: "Bandage", title: "Травматология", desc: "Лечение переломов, вывихов и травм мягких тканей", href: "/services/traumatology" },
+  { icon: "Syringe", title: "Инъекции и блокады", desc: "Быстрое снятие боли: гиалуроновая кислота, PRP-терапия, лечебные блокады", href: "/services/injections" },
 ];
 
 export default function Home() {
