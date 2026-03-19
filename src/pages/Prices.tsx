@@ -240,9 +240,29 @@ export default function Prices() {
 
       {/* Prices */}
       <section className="container py-10">
+        {/* Mobile tabs — horizontal scroll */}
+        <div className="lg:hidden mb-4 -mx-4 px-4">
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+            {PRICE_SECTIONS.map((section, i) => (
+              <button
+                key={section.title}
+                onClick={() => setActive(i)}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap shrink-0 ${
+                  active === i
+                    ? "bg-clinic-teal text-white"
+                    : "bg-secondary text-clinic-text"
+                }`}
+              >
+                <Icon name={section.icon} size={15} />
+                {section.title}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Sidebar tabs */}
-          <div className="lg:col-span-1">
+          {/* Sidebar tabs — desktop only */}
+          <div className="hidden lg:block lg:col-span-1">
             <nav className="space-y-1 sticky top-24">
               {PRICE_SECTIONS.map((section, i) => (
                 <button
