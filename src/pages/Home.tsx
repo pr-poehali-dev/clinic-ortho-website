@@ -85,7 +85,7 @@ export default function Home() {
               { titles: ["Тендинит", "Энтезит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/03291c96-f0f2-4aa5-86a0-75edc001f8d8.jpeg", href: "/diseases/tendinitis-enthesitis" },
               { titles: ["Бурсит", "Синовит"], img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/cff70cef-9298-45a3-a248-c868d542bbfb.jpeg", href: "/diseases/bursitis" },
             ].map((item) => (
-              <Link key={item.titles[0]} to={item.href} className="relative rounded-2xl cursor-pointer group block bg-gray-100 p-3">
+              <Link key={item.titles[0]} to={item.href} className="relative rounded-2xl cursor-pointer group block p-3">
                 <img
                   src={item.img}
                   alt={item.titles.join(", ")}
