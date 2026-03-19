@@ -182,13 +182,15 @@ export default function ArticleDetail() {
               <p className="text-white/80 text-sm mb-4">
                 Запишитесь к ортопеду — поставим точный диагноз и подберём лечение
               </p>
-              <button
-                onClick={() => setModalOpen(true)}
+              <a
+                href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white text-clinic-teal px-6 py-2.5 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all flex items-center gap-2"
               >
                 <Icon name="CalendarDays" size={15} />
                 Записаться на приём
-              </button>
+              </a>
             </div>
           </article>
 

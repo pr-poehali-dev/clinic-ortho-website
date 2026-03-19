@@ -117,12 +117,14 @@ export default function ServiceDetail() {
           <div className="bg-clinic-teal text-white rounded-2xl p-6">
             <h3 className="font-display text-xl mb-2">Записаться на приём</h3>
             <p className="text-white/80 text-sm mb-5">Оставьте заявку — мы свяжемся в течение 30 минут</p>
-            <button
-              onClick={() => setModalOpen(true)}
-              className="w-full bg-white text-clinic-teal py-3 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all"
+            <a
+              href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-white text-clinic-teal py-3 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all block text-center"
             >
               Оставить заявку
-            </button>
+            </a>
             <a
               href="tel:+79994649194"
               className="mt-3 flex items-center justify-center gap-2 border border-white/40 text-white py-3 rounded-xl font-medium text-sm hover:bg-white/10 transition-all w-full"

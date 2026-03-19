@@ -124,13 +124,15 @@ export default function Doctors() {
                   <p className="text-sm text-clinic-text-muted leading-relaxed">{doctor.desc}</p>
                 </div>
                 {doctor.img && (
-                  <button
-                    onClick={() => openModal(doctor.name)}
+                  <a
+                    href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-5 flex items-center gap-2 bg-clinic-teal text-white text-sm px-4 py-2.5 rounded-lg hover:bg-opacity-90 transition-all w-fit"
                   >
                     <Icon name="CalendarDays" size={14} />
                     Записаться на приём
-                  </button>
+                  </a>
                 )}
               </div>
             </div>
@@ -146,12 +148,14 @@ export default function Doctors() {
             Позвоните нам или оставьте заявку — мы поможем выбрать нужного специалиста
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button
-              onClick={() => openModal("")}
+            <a
+              href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-6 py-3 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all"
             >
               <Icon name="CalendarDays" size={15} /> Записаться на приём
-            </button>
+            </a>
             <a
               href="tel:+79994649194"
               className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3 rounded-xl font-medium text-sm hover:bg-clinic-teal-light transition-all"

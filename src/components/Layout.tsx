@@ -63,13 +63,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* CTA + burger */}
           <div className="flex items-center gap-3">
-            <Link
-              to="/contacts"
+            <a
+              href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:inline-flex items-center gap-2 bg-clinic-teal text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all"
             >
               <Icon name="CalendarDays" size={15} />
               Записаться
-            </Link>
+            </a>
             <button
               className="md:hidden p-2 text-clinic-text"
               onClick={() => setMenuOpen(!menuOpen)}
@@ -97,14 +99,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                to="/contacts"
+              <a
+                href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="mt-2 flex items-center justify-center gap-2 bg-clinic-teal text-white text-sm font-medium px-4 py-2.5 rounded-lg"
               >
                 <Icon name="CalendarDays" size={15} />
                 Записаться на приём
-              </Link>
+              </a>
             </nav>
           </div>
         )}
