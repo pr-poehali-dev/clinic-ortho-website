@@ -39,8 +39,8 @@ export default function Doctors() {
   return (
     <>
       <SEO
-        title="Врачи травматологи-ортопеды — клиника Ваш Ортопед"
-        description="Буланбаев Б.А. и Дуйшеналиев К.Д. — опытные травматологи-ортопеды в Новосибирске. PRP-терапия, SVF-терапия, лечение артроза, блокады суставов. Запись: +7 999 464 91 94."
+        title="Травматологи-ортопеды в Новосибирске — клиника Ваш Ортопед"
+        description="Опытные травматологи-ортопеды в Новосибирске. PRP-терапия, SVF-терапия, лечение артроза, блокады суставов, гиалуроновая кислота. Запись: +7 999 464 91 94."
         canonical="/doctors"
         breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Врачи", url: "/doctors" }]}
         schema={[
@@ -77,7 +77,7 @@ export default function Doctors() {
             <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
               <Icon name="Users" size={15} /> Наша команда
             </div>
-            <h1 className="font-display text-5xl text-clinic-text mb-4">Наши врачи</h1>
+            <h1 className="font-display text-5xl text-clinic-text mb-4">Травматологи-ортопеды Новосибирска</h1>
             <p className="text-clinic-text-muted leading-relaxed whitespace-nowrap">
               Опытные практикующие врачи всегда готовы помочь
             </p>

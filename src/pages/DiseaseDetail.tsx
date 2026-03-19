@@ -195,6 +195,28 @@ export default function DiseaseDetail() {
           { name: "Главная", url: "/" },
           { name: disease.title, url: `/diseases/${disease.slug}` },
         ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "MedicalCondition",
+          "name": disease.title,
+          "description": disease.desc,
+          "possibleTreatment": {
+            "@type": "MedicalTherapy",
+            "name": "Консервативное лечение",
+            "provider": {
+              "@type": "MedicalClinic",
+              "name": "Ваш Ортопед",
+              "url": "https://vashortopped.ru",
+              "telephone": "+79994649194",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "ул. Есенина, д. 67",
+                "addressLocality": "Новосибирск",
+                "addressCountry": "RU"
+              }
+            }
+          }
+        }}
       />
       {/* Breadcrumb */}
       <section className="bg-clinic-beige border-b border-border py-3">
