@@ -30,7 +30,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <span className="hidden md:inline">Написать в Telegram</span>
               <span className="md:hidden">Telegram</span>
             </a>
-            <a href="https://max.ru/+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-clinic-teal transition-colors">
+            <a href="https://max.ru/u/f9LHodD0cOIXwBPcc19ip2Oq2Y7a4MK8MaQsGM3O_elnk0ZNNUZ6QtXdNJg" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-clinic-teal transition-colors">
               <Icon name="MessageCircle" size={14} />
               <span className="hidden md:inline">Написать в Max</span>
               <span className="md:hidden">Max</span>
@@ -133,7 +133,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   Telegram
                 </a>
                 <a
-                  href="https://max.ru/+79994649194"
+                  href="https://max.ru/u/f9LHodD0cOIXwBPcc19ip2Oq2Y7a4MK8MaQsGM3O_elnk0ZNNUZ6QtXdNJg"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMenuOpen(false)}

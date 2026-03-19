@@ -162,7 +162,7 @@ export default function Contacts() {
                       Написать в Telegram
                     </a>
                     <a
-                      href="https://max.ru/+79994649194"
+                      href="https://max.ru/u/f9LHodD0cOIXwBPcc19ip2Oq2Y7a4MK8MaQsGM3O_elnk0ZNNUZ6QtXdNJg"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 bg-[#0077FF] text-white text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
