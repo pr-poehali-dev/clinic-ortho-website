@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://vash-ortoped54.ru/sitemap.xml
+Sitemap: https://vash-ortoped.ru/sitemap.xml

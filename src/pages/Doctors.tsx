@@ -51,10 +51,10 @@ export default function Doctors() {
             "jobTitle": "Врач травматолог-ортопед",
             "description": "Опытный врач травматолог-ортопед в Новосибирске, специализирующийся на диагностике и лечении заболеваний опорно-двигательного аппарата. PRP-терапия, медикаментозные блокады, введение гиалуроновой кислоты, УЗИ суставов.",
             "image": "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/1017135a-54d3-4d0d-9a11-65fd55dbb932.JPG",
-            "worksFor": { "@type": "MedicalClinic", "name": "Ваш Ортопед", "url": "https://vashortopped.ru" },
+            "worksFor": { "@type": "MedicalClinic", "name": "Ваш Ортопед", "url": "https://vash-ortoped.ru" },
             "medicalSpecialty": ["Orthopedic", "Traumatology"],
             "knowsAbout": ["Лечение артроза", "Лечение артрита", "PRP-терапия", "УЗИ суставов", "Медикаментозные блокады"],
-            "url": "https://vashortopped.ru/doctors"
+            "url": "https://vash-ortoped.ru/doctors"
           },
           {
             "@context": "https://schema.org",
@@ -63,10 +63,10 @@ export default function Doctors() {
             "jobTitle": "Врач травматолог-ортопед",
             "description": "Врач травматолог-ортопед в Новосибирске. Остеосинтез, реконструктивные операции на стопе, PRP-терапия, блокады суставов, лечение переломов и травм.",
             "image": "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/d1155204-000e-4540-b19b-d091244c8a41.jpg",
-            "worksFor": { "@type": "MedicalClinic", "name": "Ваш Ортопед", "url": "https://vashortopped.ru" },
+            "worksFor": { "@type": "MedicalClinic", "name": "Ваш Ортопед", "url": "https://vash-ortoped.ru" },
             "medicalSpecialty": ["Orthopedic", "Traumatology"],
             "knowsAbout": ["Остеосинтез", "Реконструктивная хирургия стопы", "PRP-терапия", "Лечение переломов", "Паравертебральные блокады", "Операции на сухожилиях"],
-            "url": "https://vashortopped.ru/doctors"
+            "url": "https://vash-ortoped.ru/doctors"
           }
         ]}
       />

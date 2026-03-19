@@ -47,9 +47,9 @@ export default function Contacts() {
           "@context": "https://schema.org",
           "@type": "MedicalClinic",
           "name": "Ваш Ортопед",
-          "url": "https://vashortopped.ru",
+          "url": "https://vash-ortoped.ru",
           "telephone": "+79994649194",
-          "email": "admin@vash-ortoped54.ru",
+          "email": "admin@vash-ortoped.ru",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "ул. Есенина, д. 67",

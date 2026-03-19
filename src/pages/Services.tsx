@@ -76,7 +76,7 @@ export default function Services() {
             "position": i + 1,
             "name": s.title,
             "description": s.desc,
-            "url": `https://vashortopped.ru/services/${s.slug}`
+            "url": `https://vash-ortoped.ru/services/${s.slug}`
           }))
         }}
       />

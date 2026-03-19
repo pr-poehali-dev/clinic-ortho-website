@@ -24,11 +24,11 @@ export default function Publications() {
           "@type": "CollectionPage",
           "name": "Публикации — статьи об ортопедии",
           "description": "Экспертные статьи врачей клиники «Ваш Ортопед» о заболеваниях суставов, позвоночника и опорно-двигательного аппарата",
-          "url": "https://vashortopped.ru/publications",
+          "url": "https://vash-ortoped.ru/publications",
           "publisher": {
             "@type": "MedicalClinic",
             "name": "Ваш Ортопед",
-            "url": "https://vashortopped.ru"
+            "url": "https://vash-ortoped.ru"
           }
         }}
       />

@@ -63,7 +63,7 @@ export default function ArticleDetail() {
     "@type": "MedicalWebPage",
     "name": article.metaTitle,
     "description": article.metaDesc,
-    "url": `https://vashortopped.ru/articles/${article.slug}`,
+    "url": `https://vash-ortoped.ru/articles/${article.slug}`,
     "image": article.img,
     "inLanguage": "ru",
     "datePublished": "2024-01-01",
@@ -71,15 +71,15 @@ export default function ArticleDetail() {
     "author": {
       "@type": "Organization",
       "name": "Клиника «Ваш Ортопед»",
-      "url": "https://vashortopped.ru",
+      "url": "https://vash-ortoped.ru",
     },
     "publisher": {
       "@type": "Organization",
       "name": "Клиника «Ваш Ортопед»",
-      "url": "https://vashortopped.ru",
+      "url": "https://vash-ortoped.ru",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://vashortopped.ru/logo.png",
+        "url": "https://vash-ortoped.ru/logo.png",
       },
     },
     "medicalAudience": {

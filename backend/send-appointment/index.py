@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 
 
 def handler(event: dict, context) -> dict:
-    """Отправка заявки на запись на приём на почту клиники admin@vash-ortoped54.ru"""
+    """Отправка заявки на запись на приём на почту клиники admin@vash-ortoped.ru"""
 
     cors_headers = {
         "Access-Control-Allow-Origin": "*",
@@ -36,7 +36,7 @@ def handler(event: dict, context) -> dict:
     smtp_port = int(os.environ.get("SMTP_PORT", "465"))
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
-    to_email = "admin@vash-ortoped54.ru"
+    to_email = "admin@vash-ortoped.ru"
 
     html_body = f"""
     <html>
@@ -49,7 +49,7 @@ def handler(event: dict, context) -> dict:
         <p style="margin: 0 0 8px;"><b>Телефон:</b> <a href="tel:{phone}" style="color: #2d7d8e;">{phone}</a></p>
         {"<p style='margin: 0 0 8px;'><b>Комментарий:</b> " + comment + "</p>" if comment else ""}
         <hr style="border: none; border-top: 1px solid #e5e0d8; margin: 16px 0;">
-        <p style="font-size: 12px; color: #888; margin: 0;">Заявка отправлена с сайта vash-ortoped54.ru</p>
+        <p style="font-size: 12px; color: #888; margin: 0;">Заявка отправлена с сайта vash-ortoped.ru</p>
       </div>
     </body>
     </html>

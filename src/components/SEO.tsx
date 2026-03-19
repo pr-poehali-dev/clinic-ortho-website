@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
 const SITE_NAME = "Ваш Ортопед";
-const SITE_URL = "https://vashortopped.ru";
+const SITE_URL = "https://vash-ortoped.ru";
 const DEFAULT_IMAGE = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/4a0a4c5f-8b18-4083-8a51-0d1df1369b90.jpg";
 const PHONE = "+7 999 464 91 94";
 const ADDRESS = "г. Новосибирск, ул. Есенина, д. 67";

@@ -36,7 +36,7 @@ export default function ServiceDetail() {
           "provider": {
             "@type": "MedicalClinic",
             "name": "Ваш Ортопед",
-            "url": "https://vashortopped.ru",
+            "url": "https://vash-ortoped.ru",
             "telephone": "+79994649194",
             "address": {
               "@type": "PostalAddress",
