@@ -53,13 +53,15 @@ export default function Home() {
               Клиника ортопедии и травматологии. Мы возвращаем свободу движения и качество жизни людям любого возраста.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-in-up-delay-2">
-              <button
-                onClick={() => setModalOpen(true)}
+              <a
+                href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-6 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow-md"
               >
                 <Icon name="CalendarDays" size={16} />
                 Записаться на приём
-              </button>
+              </a>
               <a
                 href="tel:+79994649194"
                 className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3.5 rounded-xl font-medium hover:bg-clinic-teal-light transition-all text-sm"
