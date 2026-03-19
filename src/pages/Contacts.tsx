@@ -150,6 +150,34 @@ export default function Contacts() {
                   </a>
                 </div>
               </li>
+              <li className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-clinic-teal-light flex items-center justify-center shrink-0">
+                  <Icon name="MessageCircle" size={18} className="text-clinic-teal" />
+                </div>
+                <div>
+                  <div className="text-xs text-clinic-text-muted mb-1">Мессенджеры</div>
+                  <div className="flex gap-3 mt-1">
+                    <a
+                      href="https://t.me/+79994649194"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-[#29a9eb] text-white text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                    >
+                      <Icon name="Send" size={15} />
+                      Написать в Telegram
+                    </a>
+                    <a
+                      href="https://max.ru/+79994649194"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-[#0077FF] text-white text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                    >
+                      <Icon name="MessageCircle" size={15} />
+                      Написать в Max
+                    </a>
+                  </div>
+                </div>
+              </li>
             </ul>
           </div>
 
