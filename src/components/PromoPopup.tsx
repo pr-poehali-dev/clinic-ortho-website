@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import Icon from "@/components/ui/icon";
 
 export default function PromoPopup() {
@@ -6,37 +7,45 @@ export default function PromoPopup() {
 
   if (!open) return null;
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-      style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 99999,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "16px",
+        backgroundColor: "rgba(0,0,0,0.55)",
+      }}
     >
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-sm w-full overflow-hidden">
-        <div className="bg-clinic-teal px-6 pt-6 pb-8 text-white text-center">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/20 mb-4">
+      <div style={{ position: "relative", background: "#fff", borderRadius: "16px", maxWidth: "380px", width: "100%", overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}>
+        <div style={{ background: "#2a7a6f", padding: "24px 24px 32px", textAlign: "center", color: "#fff" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 56, height: 56, borderRadius: "50%", background: "rgba(255,255,255,0.2)", marginBottom: 16 }}>
             <Icon name="Tag" size={28} className="text-white" />
           </div>
-          <div className="text-xs font-semibold uppercase tracking-widest text-white/70 mb-1">Специальное предложение</div>
-          <div className="text-5xl font-bold font-display leading-none mb-1">20%</div>
-          <div className="text-lg font-medium">скидка на первичный приём</div>
+          <div style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: 2, color: "rgba(255,255,255,0.7)", marginBottom: 4 }}>Специальное предложение</div>
+          <div style={{ fontSize: 56, fontWeight: 700, lineHeight: 1, marginBottom: 4 }}>20%</div>
+          <div style={{ fontSize: 17, fontWeight: 500 }}>скидка на первичный приём</div>
         </div>
 
-        <div className="px-6 py-5 text-center">
-          <p className="text-clinic-text text-sm leading-relaxed mb-5">
-            При предъявлении <span className="font-semibold text-clinic-teal">пенсионного удостоверения</span> вы получаете скидку 20% на первичную консультацию врача травматолога-ортопеда.
+        <div style={{ padding: "20px 24px 24px", textAlign: "center" }}>
+          <p style={{ fontSize: 14, lineHeight: 1.6, marginBottom: 20, color: "#2d3748" }}>
+            При предъявлении <strong style={{ color: "#2a7a6f" }}>пенсионного удостоверения</strong> вы получаете скидку 20% на первичную консультацию врача травматолога-ортопеда.
           </p>
           <a
             href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="block w-full bg-clinic-teal text-white py-3 rounded-xl font-medium text-sm mb-3"
+            style={{ display: "block", width: "100%", background: "#2a7a6f", color: "#fff", padding: "12px", borderRadius: 12, fontWeight: 600, fontSize: 14, textDecoration: "none", marginBottom: 12 }}
           >
             Записаться со скидкой
           </a>
           <button
             onClick={() => setOpen(false)}
-            className="text-xs text-clinic-text-muted hover:text-clinic-text transition-colors"
+            style={{ fontSize: 12, color: "#888", background: "none", border: "none", cursor: "pointer" }}
           >
             Закрыть
           </button>
@@ -44,11 +53,12 @@ export default function PromoPopup() {
 
         <button
           onClick={() => setOpen(false)}
-          className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 text-white"
+          style={{ position: "absolute", top: 10, right: 10, width: 32, height: 32, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", background: "rgba(255,255,255,0.2)", border: "none", cursor: "pointer", color: "#fff" }}
         >
           <Icon name="X" size={16} />
         </button>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
