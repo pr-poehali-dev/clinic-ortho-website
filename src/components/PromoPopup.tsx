@@ -7,8 +7,7 @@ export default function PromoPopup() {
   useEffect(() => {
     const dismissed = sessionStorage.getItem("promo_dismissed");
     if (!dismissed) {
-      const timer = setTimeout(() => setOpen(true), 1500);
-      return () => clearTimeout(timer);
+      setOpen(true);
     }
   }, []);
 
