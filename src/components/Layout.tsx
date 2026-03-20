@@ -40,10 +40,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <span className="hidden md:inline">Написать в Max</span>
               <span className="md:hidden">Max</span>
             </a>
-            <a href="tel:+79994649194" className="flex items-center gap-1.5 font-medium text-clinic-teal hover:underline transition-colors">
+            <span className="flex items-center gap-1.5 font-medium text-clinic-teal">
               <Icon name="Phone" size={14} />
               <span className="hidden sm:inline">+7 999 464 91 94</span>
-            </a>
+            </span>
           </div>
         </div>
       </div>
@@ -191,7 +191,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-center gap-2">
                 <Icon name="Phone" size={14} className="text-clinic-teal shrink-0" />
-                <a href="tel:+79994649194" className="hover:text-white transition-colors">+7 999 464 91 94</a>
+                <span>+7 999 464 91 94</span>
               </li>
               <li className="flex items-center gap-2">
                 <Icon name="Clock" size={14} className="text-clinic-teal shrink-0" />

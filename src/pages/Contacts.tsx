@@ -100,9 +100,9 @@ export default function Contacts() {
                 </div>
                 <div>
                   <div className="text-xs text-clinic-text-muted mb-1">Телефон</div>
-                  <a href={`tel:${get("contacts.phone", "+7 999 464 91 94").replace(/\s/g, "")}`} className="text-clinic-text font-medium text-lg hover:text-clinic-teal transition-colors">
+                  <span className="text-clinic-text font-medium text-lg">
                     {get("contacts.phone", "+7 999 464 91 94")}
-                  </a>
+                  </span>
                   <p className="text-xs text-clinic-text-muted mt-0.5">Пн–Сб с 09:00 до 19:00</p>
                 </div>
               </li>

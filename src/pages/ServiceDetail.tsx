@@ -123,12 +123,9 @@ export default function ServiceDetail() {
             >
               Оставить заявку
             </a>
-            <a
-              href="tel:+79994649194"
-              className="mt-3 flex items-center justify-center gap-2 border border-white/40 text-white py-3 rounded-xl font-medium text-sm hover:bg-white/10 transition-all w-full"
-            >
-              <Icon name="Phone" size={14} /> Позвонить
-            </a>
+            <span className="mt-3 flex items-center justify-center gap-2 border border-white/40 text-white py-3 rounded-xl font-medium text-sm w-full">
+              <Icon name="Phone" size={14} /> +7 999 464 91 94
+            </span>
           </div>
 
           <div className="bg-white rounded-2xl border border-border p-6">

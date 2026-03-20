@@ -146,12 +146,9 @@ export default function Services() {
           <p className="text-white/80 mb-6 max-w-md mx-auto text-sm">
             Позвоните нам — мы поможем разобраться с симптомами и направим к нужному специалисту
           </p>
-          <a
-            href="tel:+79994649194"
-            className="inline-flex items-center gap-2 bg-white text-clinic-teal px-7 py-3 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all"
-          >
+          <span className="inline-flex items-center gap-2 bg-white text-clinic-teal px-7 py-3 rounded-xl font-medium text-sm">
             <Icon name="Phone" size={15} /> +7 999 464 91 94
-          </a>
+          </span>
         </div>
       </section>
     </>

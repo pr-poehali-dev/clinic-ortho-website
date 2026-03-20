@@ -59,13 +59,12 @@ export default function Home() {
                 <Icon name="CalendarDays" size={16} />
                 Записаться на приём
               </a>
-              <a
-                href="tel:+79994649194"
-                className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3.5 rounded-xl font-medium hover:bg-clinic-teal-light transition-all text-sm"
+              <span
+                className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3.5 rounded-xl font-medium text-sm"
               >
                 <Icon name="Phone" size={16} />
                 +7 999 464 91 94
-              </a>
+              </span>
             </div>
           </div>
         </div>
