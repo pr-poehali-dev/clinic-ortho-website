@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Icon from "@/components/ui/icon";
 
 export default function PromoPopup() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const dismissed = sessionStorage.getItem("promo_dismissed");
+    if (!dismissed) {
+      const timer = setTimeout(() => setOpen(true), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const close = () => {
+    sessionStorage.setItem("promo_dismissed", "1");
+    setOpen(false);
+  };
 
   if (!open) return null;
 
@@ -38,13 +51,13 @@ export default function PromoPopup() {
             href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
+            onClick={close}
             style={{ display: "block", width: "100%", background: "#2a7a6f", color: "#fff", padding: "12px", borderRadius: 12, fontWeight: 600, fontSize: 14, textDecoration: "none", marginBottom: 12 }}
           >
             Записаться со скидкой
           </a>
           <button
-            onClick={() => setOpen(false)}
+            onClick={close}
             style={{ fontSize: 12, color: "#888", background: "none", border: "none", cursor: "pointer" }}
           >
             Закрыть
@@ -52,7 +65,7 @@ export default function PromoPopup() {
         </div>
 
         <button
-          onClick={() => setOpen(false)}
+          onClick={close}
           style={{ position: "absolute", top: 10, right: 10, width: 32, height: 32, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", background: "rgba(255,255,255,0.2)", border: "none", cursor: "pointer", color: "#fff" }}
         >
           <Icon name="X" size={16} />
