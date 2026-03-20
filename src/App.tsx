@@ -16,6 +16,7 @@ import Publications from "@/pages/Publications";
 import ArticleDetail from "@/pages/ArticleDetail";
 import NotFound from "./pages/NotFound";
 import Admin from "@/pages/Admin";
+import PromoPopup from "@/components/PromoPopup";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <PromoPopup />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout><Home /></Layout>} />
