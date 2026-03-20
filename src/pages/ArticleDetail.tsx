@@ -4,6 +4,8 @@ import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
 import { ARTICLES, ARTICLES_BY_CATEGORY } from "@/data/articles";
 
+const trackGoal = (goal: string) => window.ym?.(108160921, 'reachGoal', goal);
+
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
@@ -182,6 +184,7 @@ export default function ArticleDetail() {
                 href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackGoal('click_zapis')}
                 className="bg-white text-clinic-teal px-6 py-2.5 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all flex items-center gap-2"
               >
                 <Icon name="CalendarDays" size={15} />

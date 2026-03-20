@@ -1,6 +1,8 @@
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
 
+const trackGoal = (goal: string) => window.ym?.(108160921, 'reachGoal', goal);
+
 interface Doctor {
   name: string;
   specialty: string;
@@ -116,6 +118,7 @@ export default function Doctors() {
                     href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackGoal('click_zapis')}
                     className="mt-5 flex items-center gap-2 bg-clinic-teal text-white text-sm px-4 py-2.5 rounded-lg hover:bg-opacity-90 transition-all w-fit"
                   >
                     <Icon name="CalendarDays" size={14} />
@@ -140,6 +143,7 @@ export default function Doctors() {
               href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackGoal('click_zapis')}
               className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-6 py-3 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all"
             >
               <Icon name="CalendarDays" size={15} /> Записаться на приём

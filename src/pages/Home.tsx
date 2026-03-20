@@ -3,6 +3,8 @@ import Icon from "@/components/ui/icon";
 import SEO, { LOCAL_BUSINESS_SCHEMA } from "@/components/SEO";
 import FAQ, { FAQ_SCHEMA } from "@/components/FAQ";
 
+const trackGoal = (goal: string) => window.ym?.(108160921, 'reachGoal', goal);
+
 const HERO_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/4a0a4c5f-8b18-4083-8a51-0d1df1369b90.jpg";
 const REHAB_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/aa8f2ae4-c5c4-4024-b1f9-a436f73e2de7.jpg";
 
@@ -51,6 +53,7 @@ export default function Home() {
                 href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackGoal('click_zapis')}
                 className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-6 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow-md"
               >
                 <Icon name="CalendarDays" size={16} />

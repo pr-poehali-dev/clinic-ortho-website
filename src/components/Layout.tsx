@@ -2,6 +2,11 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
+declare global {
+  interface Window { ym: (id: number, action: string, goal: string) => void; }
+}
+const trackGoal = (goal: string) => window.ym?.(108160921, 'reachGoal', goal);
+
 const NAV_LINKS = [
   { href: "/", label: "Главная" },
   { href: "/doctors", label: "Наши врачи" },
@@ -79,6 +84,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackGoal('click_zapis')}
               className="hidden md:inline-flex items-center gap-2 bg-clinic-teal text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all"
             >
               <Icon name="CalendarDays" size={15} />
@@ -115,7 +121,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => { setMenuOpen(false); trackGoal('click_zapis'); }}
                 className="mt-2 flex items-center justify-center gap-2 bg-clinic-teal text-white text-sm font-medium px-4 py-2.5 rounded-lg"
               >
                 <Icon name="CalendarDays" size={15} />
