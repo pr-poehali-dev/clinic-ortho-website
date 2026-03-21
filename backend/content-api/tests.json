@@ -1,0 +1,28 @@
+{
+  "tests": [
+    {
+      "name": "GET doctors",
+      "method": "GET",
+      "path": "/?section=doctors",
+      "expectedStatus": 200,
+      "expectedBody": {"key": "string"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "GET services",
+      "method": "GET",
+      "path": "/?section=services",
+      "expectedStatus": 200,
+      "expectedBody": {"key": "string"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "GET prices",
+      "method": "GET",
+      "path": "/?section=prices",
+      "expectedStatus": 200,
+      "expectedBody": {"key": "string"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}

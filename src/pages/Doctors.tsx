@@ -1,43 +1,46 @@
+import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
+
+const API_URL = "https://functions.poehali.dev/e3850f3d-bba8-4c1c-8dbb-bf8d3f7bdd34";
 
 const trackGoal = (goal: string) => window.ym?.(108160921, 'reachGoal', goal);
 
 interface Doctor {
+  id?: number | string;
   name: string;
   specialty: string;
   experience: string;
   desc: string;
+  description?: string;
   img: string | null;
   imgPosition?: string;
   imgMarginTop?: string;
   imgHeight?: string;
+  sort_order?: number;
+  is_active?: boolean;
 }
 
-const DOCTORS: Doctor[] = [
-  {
-    name: "Буланбаев Бекболот Ардинатович",
-    specialty: "Врач травматолог-ортопед",
-    experience: "Травматология · Ортопедия · УЗИ суставов",
-    desc: "Опытный врач травматолог‑ортопед в Новосибирске, специализирующийся на диагностике и лечении заболеваний опорно‑двигательного аппарата: артроза, артрита, бурсита, синовита, тендинита и энтезита. Сочетает современные методы лечения — PRP‑терапию, медикаментозные блокады, введение гиалуроновой кислоты — с точной инструментальной диагностикой (УЗИ суставов, рентген, МРТ) и индивидуальным подходом к каждому пациенту. Ведёт пациента полностью: от первичной консультации до контроля результатов лечения.",
-    img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/1017135a-54d3-4d0d-9a11-65fd55dbb932.JPG",
-    imgPosition: "center 10%",
-  },
-  {
-    name: "Дуйшеналиев Канатбек Дуйшеналиевич",
-    specialty: "Врач травматолог-ортопед",
-    experience: "Травматология · Ортопедия · PRP-терапия · SVF-терапия",
-    desc: "Врач травматолог-ортопед в Новосибирске. Диагностика и лечение травм и заболеваний опорно-двигательного аппарата. Проводит PRP-терапию и SVF-терапию, внутрисуставные и паравертебральные блокады, пункции суставов с введением лекарственных препаратов. Консервативное лечение: репозиция переломов, вправление вывихов, иммобилизация.",
-    img: "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/70271e2d-4950-4f42-9bb0-74b0709c3806.JPG",
-    imgPosition: "center top",
-    imgMarginTop: "-1cm",
-    imgHeight: "calc(26rem + 3px)",
-  },
-];
-
-
-
 export default function Doctors() {
+  const [doctors, setDoctors] = useState<Doctor[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`${API_URL}?section=doctors`)
+      .then((res) => res.json())
+      .then((data: Doctor[]) => {
+        const mapped = data.map((d) => ({
+          ...d,
+          desc: d.description ?? d.desc ?? "",
+        }));
+        setDoctors(mapped);
+      })
+      .catch(() => {
+        // silently fail — empty list will be shown
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <>
       <SEO
@@ -89,46 +92,56 @@ export default function Doctors() {
 
       {/* Doctors */}
       <section className="container py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {DOCTORS.map((doctor) => (
-            <div key={doctor.name} className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col">
-              {doctor.img ? (
-                <div className="relative">
-                  <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full object-cover" style={{ height: doctor.imgHeight ?? "24rem", objectPosition: doctor.imgPosition ?? "center top", marginTop: doctor.imgMarginTop ?? "0" }} />
-                  <img src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/3e87c830-678c-485d-b730-8467068e3086.png" alt="Ваш Ортопед" className="absolute top-3 right-3 h-10 w-10 object-contain opacity-90" />
-                </div>
-              ) : (
-                <div className="w-full h-48 flex items-center justify-center bg-clinic-teal-light text-5xl font-display font-medium text-clinic-teal">
-                  {doctor.name.split(" ").map((w: string) => w[0]).slice(0, 2).join("")}
-                </div>
-              )}
-              <div className="p-6 flex flex-col justify-between flex-1">
-                <div>
-                  <h2 className="font-display text-2xl text-clinic-text mb-1">{doctor.name}</h2>
-                  <p className="text-clinic-teal text-sm font-medium mb-3">{doctor.specialty}</p>
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {doctor.experience.split(" · ").map((tag: string) => (
-                      <span key={tag} className="bg-clinic-teal-light text-clinic-teal text-xs px-2.5 py-1 rounded-full">{tag}</span>
-                    ))}
+        {loading ? (
+          <div className="flex items-center justify-center py-20 text-clinic-text-muted text-sm gap-3">
+            <svg className="animate-spin h-5 w-5 text-clinic-teal" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+            </svg>
+            Загрузка...
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {doctors.map((doctor) => (
+              <div key={doctor.id ?? doctor.name} className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col">
+                {doctor.img ? (
+                  <div className="relative">
+                    <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full object-cover" style={{ height: doctor.imgHeight ?? "24rem", objectPosition: doctor.imgPosition ?? "center top", marginTop: doctor.imgMarginTop ?? "0" }} />
+                    <img src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/3e87c830-678c-485d-b730-8467068e3086.png" alt="Ваш Ортопед" className="absolute top-3 right-3 h-10 w-10 object-contain opacity-90" />
                   </div>
-                  <p className="text-sm text-clinic-text-muted leading-relaxed">{doctor.desc}</p>
-                </div>
-                {doctor.img && (
-                  <a
-                    href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackGoal('click_zapis')}
-                    className="mt-5 flex items-center gap-2 bg-clinic-teal text-white text-sm px-4 py-2.5 rounded-lg hover:bg-opacity-90 transition-all w-fit"
-                  >
-                    <Icon name="CalendarDays" size={14} />
-                    Записаться на приём
-                  </a>
+                ) : (
+                  <div className="w-full h-48 flex items-center justify-center bg-clinic-teal-light text-5xl font-display font-medium text-clinic-teal">
+                    {doctor.name.split(" ").map((w: string) => w[0]).slice(0, 2).join("")}
+                  </div>
                 )}
+                <div className="p-6 flex flex-col justify-between flex-1">
+                  <div>
+                    <h2 className="font-display text-2xl text-clinic-text mb-1">{doctor.name}</h2>
+                    <p className="text-clinic-teal text-sm font-medium mb-3">{doctor.specialty}</p>
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {doctor.experience.split(" · ").map((tag: string) => (
+                        <span key={tag} className="bg-clinic-teal-light text-clinic-teal text-xs px-2.5 py-1 rounded-full">{tag}</span>
+                      ))}
+                    </div>
+                    <p className="text-sm text-clinic-text-muted leading-relaxed">{doctor.desc}</p>
+                  </div>
+                  {doctor.img && (
+                    <a
+                      href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackGoal('click_zapis')}
+                      className="mt-5 flex items-center gap-2 bg-clinic-teal text-white text-sm px-4 py-2.5 rounded-lg hover:bg-opacity-90 transition-all w-fit"
+                    >
+                      <Icon name="CalendarDays" size={14} />
+                      Записаться на приём
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* CTA */}
