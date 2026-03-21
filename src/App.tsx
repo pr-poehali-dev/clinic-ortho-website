@@ -16,6 +16,7 @@ import Publications from "@/pages/Publications";
 import ArticleDetail from "@/pages/ArticleDetail";
 import NotFound from "./pages/NotFound";
 import Admin from "@/pages/Admin";
+import License from "@/pages/License";
 import PromoPopup from "@/components/PromoPopup";
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/articles/:slug" element={<Layout><ArticleDetail /></Layout>} />
           <Route path="/diseases/:slug" element={<Layout><DiseaseDetail /></Layout>} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/license" element={<Layout><License /></Layout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

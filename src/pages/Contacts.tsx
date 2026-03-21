@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -272,14 +273,14 @@ export default function Contacts() {
           <h2 className="font-display text-2xl text-clinic-text mb-4">Документы</h2>
           <ul className="space-y-3">
             {[
-              { label: "Лицензия", icon: "FileCheck" },
-              { label: "Реквизиты организации", icon: "Building2" },
-              { label: "Персональные данные", icon: "ShieldCheck" },
-              { label: "Контролирующие органы", icon: "Scale" },
+              { label: "Лицензия", icon: "FileCheck", href: "/license" },
+              { label: "Реквизиты организации", icon: "Building2", href: "#" },
+              { label: "Персональные данные", icon: "ShieldCheck", href: "#" },
+              { label: "Контролирующие органы", icon: "Scale", href: "#" },
             ].map((doc) => (
               <li key={doc.label}>
-                <a
-                  href="#"
+                <Link
+                  to={doc.href}
                   className="flex items-center gap-3 text-clinic-teal hover:text-clinic-text transition-colors group"
                 >
                   <div className="w-9 h-9 rounded-lg bg-clinic-teal-light flex items-center justify-center shrink-0 group-hover:bg-clinic-teal/20 transition-colors">
@@ -287,7 +288,7 @@ export default function Contacts() {
                   </div>
                   <span className="font-medium underline underline-offset-2">{doc.label}</span>
                   <Icon name="ChevronRight" size={15} className="ml-auto text-clinic-text-muted" />
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
