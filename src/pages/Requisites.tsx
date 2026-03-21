@@ -30,9 +30,9 @@ export default function Requisites() {
         <div className="bg-white rounded-2xl border border-border p-7 max-w-2xl">
           <div className="flex justify-center mb-8">
             <img
-              src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/ff359cef-7f64-488d-80fb-6c9a3385399b.png"
+              src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/e73dd241-e1e6-4431-be82-de3da622fb6b.png"
               alt="Логотип Ваш Ортопед"
-              className="w-32 h-32 object-contain"
+              className="h-16 object-contain"
             />
           </div>
 
