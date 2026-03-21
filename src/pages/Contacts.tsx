@@ -274,7 +274,7 @@ export default function Contacts() {
           <ul className="space-y-3">
             {[
               { label: "Лицензия", icon: "FileCheck", href: "/license" },
-              { label: "Реквизиты организации", icon: "Building2", href: "#" },
+              { label: "Реквизиты организации", icon: "Building2", href: "/requisites" },
               { label: "Персональные данные", icon: "ShieldCheck", href: "#" },
               { label: "Контролирующие органы", icon: "Scale", href: "#" },
             ].map((doc) => (
