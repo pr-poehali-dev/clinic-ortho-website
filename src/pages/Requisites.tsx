@@ -53,6 +53,24 @@ export default function Requisites() {
               </li>
             ))}
           </ul>
+
+          <div className="mt-8 pt-6 border-t border-border">
+            <h3 className="font-display text-lg text-clinic-text mb-4">Банковские реквизиты</h3>
+            <ul className="space-y-5">
+              {[
+                { label: "Банк", value: "АО «ТБанк»" },
+                { label: "БИК банка", value: "044525974" },
+                { label: "ИНН банка", value: "7710140679" },
+                { label: "Корреспондентский счёт", value: "30101810145250000974" },
+                { label: "Юридический адрес банка", value: "127287, г. Москва, ул. Хуторская 2-я, д. 38А, стр. 26" },
+              ].map((item) => (
+                <li key={item.label} className="flex flex-col gap-1 border-b border-border pb-5 last:border-0 last:pb-0">
+                  <div className="text-xs text-clinic-text-muted">{item.label}</div>
+                  <div className="text-clinic-text font-medium">{item.value}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
     </>

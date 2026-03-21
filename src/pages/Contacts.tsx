@@ -275,7 +275,7 @@ export default function Contacts() {
             {[
               { label: "Лицензия", icon: "FileCheck", href: "/license" },
               { label: "Реквизиты организации", icon: "Building2", href: "/requisites" },
-              { label: "Персональные данные", icon: "ShieldCheck", href: "#" },
+              { label: "Персональные данные", icon: "ShieldCheck", href: "/privacy" },
               { label: "Контролирующие органы", icon: "Scale", href: "#" },
             ].map((doc) => (
               <li key={doc.label}>
