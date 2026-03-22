@@ -158,7 +158,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Footer */}
       <footer className="bg-clinic-text text-white mt-8">
-        <div className="container py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="container py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img
@@ -180,6 +180,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <li key={link.href}>
                   <Link to={link.href} className="text-sm text-white/60 hover:text-white transition-colors">
                     {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-display text-lg mb-4 text-white">Документы</h4>
+            <ul className="space-y-2">
+              {[
+                { label: "Лицензия", href: "/license" },
+                { label: "Реквизиты организации", href: "/requisites" },
+                { label: "Персональные данные", href: "/privacy" },
+                { label: "Контролирующие органы", href: "/supervisors" },
+              ].map((doc) => (
+                <li key={doc.label}>
+                  <Link to={doc.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                    {doc.label}
                   </Link>
                 </li>
               ))}
