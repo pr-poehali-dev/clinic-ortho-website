@@ -169,7 +169,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <span className="font-display text-xl text-white">Ваш Ортопед</span>
             </div>
             <p className="text-sm text-white/60 leading-relaxed">
-              Клиника ортопедии и травматологии. Помогаем жить без боли с 2005 года.
+              Клиника ортопедии и травматологии. Помогаем жить без боли.
             </p>
           </div>
 
@@ -206,7 +206,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
         <div className="border-t border-white/10">
           <div className="container py-4 text-center text-xs text-white/30">
-            © 2024 ОртоМед. Все права защищены.
+            © 2026 Ваш Ортопед. Все права защищены.
           </div>
         </div>
       </footer>
