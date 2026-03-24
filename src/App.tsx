@@ -22,6 +22,7 @@ import Privacy from "@/pages/Privacy";
 import Supervisors from "@/pages/Supervisors";
 import Promos from "@/pages/Promos";
 import PromoPopup from "@/components/PromoPopup";
+import Osteohondroz from "@/pages/diseases/Osteohondroz";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/contacts" element={<Layout><Contacts /></Layout>} />
           <Route path="/publications" element={<Layout><Publications /></Layout>} />
           <Route path="/articles/:slug" element={<Layout><ArticleDetail /></Layout>} />
+          <Route path="/diseases/osteohondroz" element={<Layout><Osteohondroz /></Layout>} />
           <Route path="/diseases/:slug" element={<Layout><DiseaseDetail /></Layout>} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/license" element={<Layout><License /></Layout>} />
