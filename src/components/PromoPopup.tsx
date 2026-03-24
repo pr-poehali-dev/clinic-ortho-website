@@ -43,20 +43,21 @@ export default function PromoPopup() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "16px",
+        padding: "12px",
         backgroundColor: "rgba(0,0,0,0.55)",
+        overflowY: "auto",
       }}
     >
-      <div style={{ position: "relative", background: "#fff", borderRadius: "16px", maxWidth: "420px", width: "100%", overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}>
-        <div style={{ background: "#2a7a6f", padding: "24px 24px 28px", textAlign: "center", color: "#fff" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 56, height: 56, borderRadius: "50%", background: "rgba(255,255,255,0.2)", marginBottom: 16 }}>
-            <Icon name="Tag" size={28} className="text-white" />
+      <div style={{ position: "relative", background: "#fff", borderRadius: "16px", maxWidth: "420px", width: "100%", overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.3)", maxHeight: "calc(100vh - 24px)", overflowY: "auto", margin: "auto" }}>
+        <div style={{ background: "#2a7a6f", padding: "18px 24px 22px", textAlign: "center", color: "#fff" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 48, height: 48, borderRadius: "50%", background: "rgba(255,255,255,0.2)", marginBottom: 10 }}>
+            <Icon name="Tag" size={24} className="text-white" />
           </div>
-          <div style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: 2, color: "rgba(255,255,255,0.7)", marginBottom: 6 }}>Специальные предложения</div>
-          <div style={{ fontSize: 17, fontWeight: 500 }}>Акции для наших пациентов</div>
+          <div style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: 2, color: "rgba(255,255,255,0.7)", marginBottom: 4 }}>Специальные предложения</div>
+          <div style={{ fontSize: 16, fontWeight: 500 }}>Акции для наших пациентов</div>
         </div>
 
-        <div style={{ padding: "20px 24px 24px" }}>
+        <div style={{ padding: "16px 20px 20px" }}>
           {/* Оффер 1 */}
           <div style={{ background: "#f0faf8", borderRadius: 12, padding: "16px", marginBottom: 12, borderLeft: "4px solid #2a7a6f" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>

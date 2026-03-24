@@ -20,6 +20,7 @@ import License from "@/pages/License";
 import Requisites from "@/pages/Requisites";
 import Privacy from "@/pages/Privacy";
 import Supervisors from "@/pages/Supervisors";
+import Promos from "@/pages/Promos";
 import PromoPopup from "@/components/PromoPopup";
 
 const queryClient = new QueryClient();
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="/requisites" element={<Layout><Requisites /></Layout>} />
           <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
           <Route path="/supervisors" element={<Layout><Supervisors /></Layout>} />
+          <Route path="/promos" element={<Layout><Promos /></Layout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

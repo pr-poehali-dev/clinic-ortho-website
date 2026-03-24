@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: "/doctors", label: "Наши врачи" },
   { href: "/services", label: "Услуги" },
   { href: "/prices", label: "Цены" },
+  { href: "/promos", label: "Акции" },
   { href: "/contacts", label: "Контакты" },
   { href: "/publications", label: "Публикации" },
 ];
