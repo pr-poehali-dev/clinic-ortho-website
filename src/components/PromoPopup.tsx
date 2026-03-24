@@ -9,6 +9,10 @@ export default function PromoPopup() {
     const dismissed = sessionStorage.getItem("promo_dismissed");
     if (dismissed) return;
 
+    const timer = setTimeout(() => {
+      setOpen(true);
+    }, 1500);
+
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0) {
         setOpen(true);
@@ -17,7 +21,10 @@ export default function PromoPopup() {
     };
 
     document.addEventListener("mouseleave", handleMouseLeave);
-    return () => document.removeEventListener("mouseleave", handleMouseLeave);
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+    };
   }, []);
 
   const close = () => {
@@ -65,7 +72,7 @@ export default function PromoPopup() {
           </div>
 
           {/* Оффер 2 */}
-          <div style={{ background: "#fdf6f0", borderRadius: 12, padding: "16px", marginBottom: 20, borderLeft: "4px solid #e07a2f" }}>
+          <div style={{ background: "#fdf6f0", borderRadius: 12, padding: "16px", marginBottom: 12, borderLeft: "4px solid #e07a2f" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
               <span style={{ fontSize: 32, fontWeight: 700, color: "#e07a2f", lineHeight: 1 }}>25%</span>
               <div>
@@ -76,6 +83,24 @@ export default function PromoPopup() {
             <p style={{ fontSize: 12, color: "#555", lineHeight: 1.5, margin: 0 }}>
               При оплате полного курса плазмотерапии суставов из 4 инъекций сразу — одна инъекция в подарок.
             </p>
+          </div>
+
+          {/* Оффер 3 */}
+          <div style={{ background: "#f0f4ff", borderRadius: 12, padding: "16px", marginBottom: 12, borderLeft: "4px solid #3a5fc8" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+              <span style={{ fontSize: 32, fontWeight: 700, color: "#3a5fc8", lineHeight: 1 }}>400₽</span>
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#1a1a1a" }}>Анализ крови. Недорого.</div>
+                <div style={{ fontSize: 12, color: "#666" }}>Общий анализ крови</div>
+              </div>
+            </div>
+            <p style={{ fontSize: 12, color: "#555", lineHeight: 1.5, margin: 0 }}>
+              Сдайте общий анализ крови всего за 400 рублей — быстро, удобно, без очередей.
+            </p>
+          </div>
+
+          <div style={{ textAlign: "center", fontSize: 15, fontWeight: 700, color: "#2a7a6f", marginBottom: 16, lineHeight: 1.4 }}>
+            «Ваш ортопед» — пожалуй самые низкие цены в Новосибирске.
           </div>
 
           <a
