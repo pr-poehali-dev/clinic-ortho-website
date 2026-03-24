@@ -99,7 +99,7 @@ export default function PromoPopup() {
             </div>
           </div>
 
-          <div style={{ textAlign: "center", fontSize: 15, fontWeight: 700, color: "#2a7a6f", marginBottom: 16, lineHeight: 1.4 }}>
+          <div style={{ textAlign: "center", fontSize: 17, fontWeight: 700, color: "#1a5248", marginBottom: 16, lineHeight: 1.4 }}>
             «Ваш ортопед» — пожалуй самые низкие цены в Новосибирске.
           </div>
 
