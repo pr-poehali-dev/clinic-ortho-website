@@ -46,7 +46,7 @@ export default function Home() {
               Ваши суставы в <span className="text-clinic-teal italic">надёжных руках</span>
             </h1>
             <p className="text-clinic-text-muted text-base leading-relaxed mb-8 animate-fade-in-up-delay-1">
-              Клиника ортопедии и травматологии. Мы возвращаем свободу движения и качество жизни людям любого возраста.
+              Клиника лечения суставов. Мы возвращаем свободу движения и качество жизни людям любого возраста.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-in-up-delay-2">
               <a

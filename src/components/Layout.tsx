@@ -59,7 +59,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               alt="Ваш Ортопед"
               className="h-12 w-auto object-contain"
             />
-            <span className="text-[10px] font-body tracking-[0.22em] uppercase leading-none mt-0.5 pl-0.5 whitespace-nowrap text-clinic-text-muted">Клиника ортопедии и травматологии</span>
+            <span className="text-[10px] font-body tracking-[0.22em] uppercase leading-none mt-0.5 pl-0.5 whitespace-nowrap text-clinic-text-muted">Клиника лечения суставов</span>
           </Link>
 
           {/* Desktop nav */}
@@ -170,7 +170,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <span className="font-display text-xl text-white">Ваш Ортопед</span>
             </div>
             <p className="text-sm text-white/60 leading-relaxed">
-              Клиника ортопедии и травматологии. Помогаем жить без боли.
+              Клиника лечения суставов. Помогаем жить без боли.
             </p>
           </div>
 

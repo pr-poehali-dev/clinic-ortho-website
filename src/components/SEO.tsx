@@ -80,7 +80,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
   "name": SITE_NAME,
-  "description": "Клиника ортопедии и травматологии в Новосибирске. Лечение артроза, артрита, бурсита, синовита, тендинита. PRP-терапия, SVF-терапия, гиалуроновая кислота.",
+  "description": "Клиника лечения суставов в Новосибирске. Лечение артроза, артрита, бурсита, синовита, тендинита. PRP-терапия, SVF-терапия, гиалуроновая кислота.",
   "url": SITE_URL,
   "telephone": PHONE,
   "address": {
