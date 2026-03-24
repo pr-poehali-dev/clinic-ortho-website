@@ -62,11 +62,11 @@ export default function PromoPopup() {
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
               <span style={{ fontSize: 32, fontWeight: 700, color: "#2a7a6f", lineHeight: 1 }}>20%</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1a1a1a" }}>скидка на первичный приём</div>
-                <div style={{ fontSize: 12, color: "#666" }}>по пенсионному удостоверению</div>
+                <div style={{ fontSize: 16, fontWeight: 600, color: "#1a1a1a" }}>скидка на первичный приём</div>
+                <div style={{ fontSize: 14, color: "#666" }}>по пенсионному удостоверению</div>
               </div>
             </div>
-            <p style={{ fontSize: 12, color: "#555", lineHeight: 1.5, margin: 0 }}>
+            <p style={{ fontSize: 14, color: "#555", lineHeight: 1.5, margin: 0 }}>
               Предъявите пенсионное удостоверение на приёме и получите скидку 20% на первичную консультацию врача травматолога-ортопеда.
             </p>
           </div>
@@ -76,11 +76,11 @@ export default function PromoPopup() {
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
               <span style={{ fontSize: 32, fontWeight: 700, color: "#e07a2f", lineHeight: 1 }}>25%</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1a1a1a" }}>скидка на курс PRP-терапии</div>
-                <div style={{ fontSize: 12, color: "#666" }}>1 инъекция в подарок из 4</div>
+                <div style={{ fontSize: 16, fontWeight: 600, color: "#1a1a1a" }}>скидка на курс PRP-терапии</div>
+                <div style={{ fontSize: 14, color: "#666" }}>1 инъекция в подарок из 4</div>
               </div>
             </div>
-            <p style={{ fontSize: 12, color: "#555", lineHeight: 1.5, margin: 0 }}>
+            <p style={{ fontSize: 14, color: "#555", lineHeight: 1.5, margin: 0 }}>
               При оплате полного курса плазмотерапии суставов из 4 инъекций сразу — одна инъекция в подарок.
             </p>
           </div>
@@ -89,12 +89,12 @@ export default function PromoPopup() {
           <div style={{ background: "#f0f4ff", borderRadius: 12, padding: "16px", marginBottom: 12, borderLeft: "4px solid #3a5fc8" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
               <span style={{ fontSize: 32, fontWeight: 700, color: "#3a5fc8", lineHeight: 1 }}>400₽</span>
-              <div style={{ fontSize: 15, fontWeight: 700, color: "#1a1a1a" }}>Общий анализ крови</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: "#1a1a1a" }}>Общий анализ крови</div>
             </div>
-            <div style={{ fontSize: 13, color: "#555", lineHeight: 1.5, marginBottom: 8 }}>
+            <div style={{ fontSize: 14, color: "#555", lineHeight: 1.5, marginBottom: 8 }}>
               Большой спектр исследований крови и мочи — быстро, удобно, без очередей
             </div>
-            <div style={{ fontSize: 13, fontWeight: 700, color: "#1a1a1a" }}>
+            <div style={{ fontSize: 14, fontWeight: 700, color: "#1a1a1a" }}>
               — Исследования крови. Недорого.
             </div>
           </div>
