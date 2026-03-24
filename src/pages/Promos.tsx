@@ -50,7 +50,7 @@ export default function Promos() {
       <section className="bg-clinic-teal py-4 px-4">
         <div className="container max-w-2xl mx-auto text-center text-white flex items-center justify-center gap-3">
           <Icon name="Tag" size={20} className="text-white/80" />
-          <h1 className="text-xl font-display font-bold">Акции и спецпредложения</h1>
+          <h1 className="text-2xl font-display font-bold">Акции и спецпредложения</h1>
         </div>
       </section>
 
