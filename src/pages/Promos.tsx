@@ -47,13 +47,10 @@ export default function Promos() {
   return (
     <div className="bg-background min-h-screen">
       {/* Hero */}
-      <section className="bg-clinic-teal py-10 px-4">
-        <div className="container max-w-2xl mx-auto text-center text-white">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/20 mb-4">
-            <Icon name="Tag" size={28} className="text-white" />
-          </div>
-          <h1 className="text-3xl font-display font-bold mb-2">Акции и спецпредложения</h1>
-          <p className="text-white/80 text-base">Актуальные акции клиники «Ваш Ортопед»</p>
+      <section className="bg-clinic-teal py-4 px-4">
+        <div className="container max-w-2xl mx-auto text-center text-white flex items-center justify-center gap-3">
+          <Icon name="Tag" size={20} className="text-white/80" />
+          <h1 className="text-xl font-display font-bold">Акции и спецпредложения</h1>
         </div>
       </section>
 
