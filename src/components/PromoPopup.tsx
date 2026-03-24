@@ -87,14 +87,15 @@ export default function PromoPopup() {
 
           {/* Оффер 3 */}
           <div style={{ background: "#f0f4ff", borderRadius: 12, padding: "16px", marginBottom: 12, borderLeft: "4px solid #3a5fc8" }}>
-            <div style={{ fontSize: 15, fontWeight: 700, color: "#1a1a1a", marginBottom: 6 }}>
-              400₽ Общий анализ крови
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+              <span style={{ fontSize: 32, fontWeight: 700, color: "#3a5fc8", lineHeight: 1 }}>400₽</span>
+              <div style={{ fontSize: 15, fontWeight: 700, color: "#1a1a1a" }}>Общий анализ крови</div>
             </div>
             <div style={{ fontSize: 13, color: "#555", lineHeight: 1.5, marginBottom: 8 }}>
-              Большой спектр анализов крови и мочи — быстро, удобно, без очередей
+              Большой спектр исследований крови и мочи — быстро, удобно, без очередей
             </div>
-            <div style={{ fontSize: 13, fontWeight: 700, color: "#3a5fc8" }}>
-              — Анализы крови. Недорого.
+            <div style={{ fontSize: 13, fontWeight: 700, color: "#1a1a1a" }}>
+              — Исследования крови. Недорого.
             </div>
           </div>
 
