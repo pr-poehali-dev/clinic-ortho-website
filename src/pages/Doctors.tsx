@@ -84,7 +84,7 @@ export default function Doctors() {
               <Icon name="Users" size={15} /> Наша команда
             </div>
             <h1 className="font-display text-3xl md:text-4xl text-clinic-text mb-2">Врачи клиники</h1>
-            <p className="text-clinic-text-muted text-sm whitespace-nowrap">Опытные практикующие врачи всегда готовы помочь</p>
+            <p className="text-clinic-text-muted text-sm">Опытные практикующие врачи<br />всегда готовы помочь</p>
           </div>
         </div>
       </section>

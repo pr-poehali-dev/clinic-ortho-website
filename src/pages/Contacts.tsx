@@ -160,7 +160,7 @@ export default function Contacts() {
                       className="flex items-center gap-2 bg-[#29a9eb] text-white text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
                     >
                       <Icon name="Send" size={15} />
-                      Написать в Telegram
+                      <span>Написать<br />в Telegram</span>
                     </a>
                     <a
                       href="https://max.ru/u/f9LHodD0cOIXwBPcc19ip2Oq2Y7a4MK8MaQsGM3O_elnk0ZNNUZ6QtXdNJg"
