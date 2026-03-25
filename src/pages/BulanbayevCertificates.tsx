@@ -127,11 +127,13 @@ export default function BulanbayevCertificates() {
               href={cert.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-white border border-border rounded-xl px-4 py-3 hover:border-clinic-teal hover:bg-clinic-teal-light transition-all group"
+              className="flex items-center gap-3 bg-white border border-border rounded-xl px-3 py-3 hover:border-clinic-teal hover:bg-clinic-teal-light transition-all group"
             >
-              <span className="text-clinic-teal shrink-0">
-                <Icon name={typeIcon[cert.type]} fallback="Award" size={18} />
-              </span>
+              <img
+                src={cert.url}
+                alt={cert.title}
+                className="w-14 h-14 object-cover rounded-lg shrink-0 border border-border"
+              />
               <span className="flex-1 text-sm text-clinic-text leading-snug group-hover:text-clinic-teal transition-colors">
                 {cert.title}
               </span>
