@@ -20,6 +20,7 @@ import License from "@/pages/License";
 import Requisites from "@/pages/Requisites";
 import Privacy from "@/pages/Privacy";
 import Supervisors from "@/pages/Supervisors";
+import BulanbayevCertificates from "@/pages/BulanbayevCertificates";
 import Promos from "@/pages/Promos";
 import PromoPopup from "@/components/PromoPopup";
 import Osteohondroz from "@/pages/diseases/Osteohondroz";
@@ -37,6 +38,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Layout><Home /></Layout>} />
           <Route path="/doctors" element={<Layout><Doctors /></Layout>} />
+          <Route path="/doctors/bulanbayev/certificates" element={<Layout><BulanbayevCertificates /></Layout>} />
           <Route path="/services" element={<Layout><Services /></Layout>} />
           <Route path="/services/:slug" element={<Layout><ServiceDetail /></Layout>} />
           <Route path="/prices" element={<Layout><Prices /></Layout>} />

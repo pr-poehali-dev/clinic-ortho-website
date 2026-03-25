@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
 
@@ -122,7 +123,17 @@ export default function Doctors() {
                 <div className="p-6 flex flex-col justify-between flex-1">
                   <div>
                     <h2 className="font-display text-2xl text-clinic-text mb-1">{doctor.name}</h2>
-                    <p className="text-clinic-teal text-sm font-medium mb-3">{doctor.specialty}</p>
+                    <div className="flex items-center gap-3 mb-3">
+                      <p className="text-clinic-teal text-sm font-medium">{doctor.specialty}</p>
+                      {doctor.id === 1 && (
+                        <Link
+                          to="/doctors/bulanbayev/certificates"
+                          className="flex items-center gap-1 text-xs text-clinic-teal border border-clinic-teal rounded-full px-2.5 py-0.5 hover:bg-clinic-teal hover:text-white transition-all"
+                        >
+                          <Icon name="Award" size={11} /> Сертификаты
+                        </Link>
+                      )}
+                    </div>
                     <div className="flex flex-wrap gap-1 mb-4">
                       {doctor.experience.split(" · ").map((tag: string) => (
                         <span key={tag} className="bg-clinic-teal-light text-clinic-teal text-xs px-2.5 py-1 rounded-full">{tag}</span>
