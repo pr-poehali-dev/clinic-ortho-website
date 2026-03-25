@@ -1,0 +1,1 @@
+UPDATE doctors SET img_position = 'center -1.5cm' WHERE id = 1;
