@@ -68,8 +68,47 @@ export default function Osteohondroz() {
     <>
       <SEO
         title="Лечение остеохондроза в Новосибирске — клиника Ваш Ортопед"
-        description="Эффективное лечение остеохондроза шейного, грудного и поясничного отдела в Новосибирске. Медикаментозные блокады, PRP-терапия, паравертебральное введение хондропротектора. Запись: +7 999 464 91 94."
+        description="Эффективное лечение остеохондроза шейного, грудного и поясничного отдела позвоночника. Паравертебральные блокады, PRP-терапия. Клиника «Ваш Ортопед», Новосибирск. Запись: +7 999 464 91 94."
         canonical="/diseases/osteohondroz"
+        breadcrumbs={[
+          { name: "Главная", url: "/" },
+          { name: "Заболевания", url: "/diseases" },
+          { name: "Остеохондроз", url: "/diseases/osteohondroz" },
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "MedicalCondition",
+          "name": "Остеохондроз",
+          "alternateName": "Osteochondrosis",
+          "description": "Дегенеративно-дистрофическое заболевание позвоночника, поражающее межпозвоночные диски и прилегающие ткани.",
+          "associatedAnatomy": {
+            "@type": "AnatomicalStructure",
+            "name": "Позвоночник"
+          },
+          "possibleTreatment": [
+            {
+              "@type": "MedicalTherapy",
+              "name": "Паравертебральные блокады",
+              "description": "Введение анестетика и противовоспалительного препарата в паравертебральную зону"
+            },
+            {
+              "@type": "MedicalTherapy",
+              "name": "PRP-терапия",
+              "description": "Введение обогащённой тромбоцитами плазмы для восстановления тканей"
+            }
+          ],
+          "recognizingAuthority": {
+            "@type": "MedicalClinic",
+            "name": "Ваш Ортопед",
+            "telephone": "+7 999 464 91 94",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "ул. Есенина, д. 67",
+              "addressLocality": "Новосибирск",
+              "addressCountry": "RU"
+            }
+          }
+        }}
       />
 
       {/* Hero */}
