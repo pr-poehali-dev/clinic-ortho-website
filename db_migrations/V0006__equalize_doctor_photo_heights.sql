@@ -1,0 +1,1 @@
+UPDATE doctors SET img_height = '26rem' WHERE id IN (1, 2);
