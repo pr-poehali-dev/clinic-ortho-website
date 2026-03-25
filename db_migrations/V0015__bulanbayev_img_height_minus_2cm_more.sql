@@ -1,0 +1,1 @@
+UPDATE t_p48876731_clinic_ortho_website.doctors SET img_height = '23.6rem' WHERE id = 1;
