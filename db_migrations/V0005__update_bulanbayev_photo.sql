@@ -1,0 +1,1 @@
+UPDATE doctors SET img = 'https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/83c76aac-9bd2-4f20-a174-a87de4042be4.JPG' WHERE id = 1;
