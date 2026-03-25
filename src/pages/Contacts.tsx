@@ -157,17 +157,16 @@ export default function Contacts() {
                       href="https://t.me/+79994649194"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-[#29a9eb] text-white text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                      className="flex items-center gap-2 bg-[#29a9eb] text-white text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity whitespace-nowrap"
                     >
                       <Icon name="Send" size={15} />
-                      <span className="hidden sm:inline">Написать в Telegram</span>
-                      <span className="sm:hidden">Написать<br />в Telegram</span>
+                      Написать в Telegram
                     </a>
                     <a
                       href="https://max.ru/u/f9LHodD0cOIXwBPcc19ip2Oq2Y7a4MK8MaQsGM3O_elnk0ZNNUZ6QtXdNJg"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-[#0077FF] text-white text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                      className="flex items-center gap-2 bg-[#0077FF] text-white text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity whitespace-nowrap"
                     >
                       <Icon name="MessageCircle" size={15} />
                       Написать в Max
