@@ -122,12 +122,10 @@ export default function BulanbayevCertificates() {
       <section className="container py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-w-4xl">
           {certificates.map((cert) => (
-            <a
+            <button
               key={cert.id}
-              href={cert.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-white border border-border rounded-xl px-3 py-3 hover:border-clinic-teal hover:bg-clinic-teal-light transition-all group"
+              onClick={() => setPreview(cert.url)}
+              className="flex items-center gap-3 bg-white border border-border rounded-xl px-3 py-3 hover:border-clinic-teal hover:bg-clinic-teal-light transition-all group text-left w-full"
             >
               <img
                 src={cert.url}
@@ -138,19 +136,31 @@ export default function BulanbayevCertificates() {
                 {cert.title}
               </span>
               <span className="shrink-0 text-clinic-text-muted group-hover:text-clinic-teal transition-colors">
-                <Icon name="ExternalLink" size={14} />
+                <Icon name="Expand" size={14} />
               </span>
-            </a>
+            </button>
           ))}
         </div>
       </section>
 
       {preview && (
         <div
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4"
           onClick={() => setPreview(null)}
         >
-          <img src={preview} alt="Сертификат" className="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl" />
+          <div className="relative max-h-[92vh] max-w-[92vw]" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setPreview(null)}
+              className="absolute -top-3 -right-3 z-10 bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg hover:bg-clinic-beige transition-colors"
+            >
+              <Icon name="X" size={16} />
+            </button>
+            <img
+              src={preview}
+              alt="Сертификат"
+              className="max-h-[88vh] max-w-[88vw] rounded-xl shadow-2xl object-contain"
+            />
+          </div>
         </div>
       )}
     </>
