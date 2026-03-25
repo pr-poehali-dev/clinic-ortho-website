@@ -78,11 +78,11 @@ export default function Doctors() {
       {/* Hero */}
       <section className="bg-clinic-beige py-10 border-b border-border">
         <div className="container">
-          <div className="max-w-lg">
+          <div className="max-w-xs">
             <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
               <Icon name="Users" size={15} /> Наша команда
             </div>
-            <h1 className="font-display text-3xl md:text-5xl text-clinic-text mb-4">Травматологи-ортопеды Новосибирска</h1>
+            <h1 className="font-display text-3xl md:text-5xl text-clinic-text mb-4">Врачи клиники «Ваш ортопед»</h1>
             <p className="text-clinic-text-muted leading-relaxed">
               Опытные практикующие врачи всегда готовы помочь
             </p>
@@ -90,8 +90,15 @@ export default function Doctors() {
         </div>
       </section>
 
+      {/* Специализация-бейдж */}
+      <div className="container mt-8 mb-2">
+        <div className="inline-block bg-clinic-beige border border-border rounded-xl px-5 py-2">
+          <span className="text-clinic-text font-medium text-sm">Травматологи-ортопеды</span>
+        </div>
+      </div>
+
       {/* Doctors */}
-      <section className="container py-10">
+      <section className="container py-6">
         {loading ? (
           <div className="flex items-center justify-center py-20 text-clinic-text-muted text-sm gap-3">
             <svg className="animate-spin h-5 w-5 text-clinic-teal" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -142,6 +149,20 @@ export default function Doctors() {
             ))}
           </div>
         )}
+      </section>
+
+      {/* Неврологи-бейдж */}
+      <div className="container mb-2">
+        <div className="inline-block bg-clinic-beige border border-border rounded-xl px-5 py-2">
+          <span className="text-clinic-text font-medium text-sm">Неврологи</span>
+        </div>
+      </div>
+
+      {/* Неврологи-заглушка */}
+      <section className="container mb-10">
+        <div className="max-w-4xl mx-auto bg-clinic-beige border border-border rounded-2xl flex items-center justify-center" style={{ minHeight: "8rem" }}>
+          <span className="text-clinic-text-muted text-sm">Скоро здесь появятся наши неврологи</span>
+        </div>
       </section>
 
       {/* CTA */}
