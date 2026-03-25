@@ -120,7 +120,7 @@ export default function BulanbayevCertificates() {
 
       {/* List */}
       <section className="container py-8">
-        <div className="max-w-2xl flex flex-col gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-w-4xl">
           {certificates.map((cert) => (
             <a
               key={cert.id}
