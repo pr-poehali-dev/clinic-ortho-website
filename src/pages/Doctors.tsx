@@ -76,16 +76,14 @@ export default function Doctors() {
         ]}
       />
       {/* Hero */}
-      <section className="bg-clinic-beige py-10 border-b border-border">
+      <section className="bg-clinic-beige py-6 border-b border-border">
         <div className="container">
           <div className="max-w-xs">
             <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
               <Icon name="Users" size={15} /> Наша команда
             </div>
-            <h1 className="font-display text-3xl md:text-5xl text-clinic-text mb-4">Врачи клиники «Ваш ортопед»</h1>
-            <p className="text-clinic-text-muted leading-relaxed">
-              Опытные практикующие врачи всегда готовы помочь
-            </p>
+            <h1 className="font-display text-3xl md:text-4xl text-clinic-text mb-2">Врачи клиники</h1>
+            <p className="text-clinic-text-muted text-sm whitespace-nowrap">Опытные практикующие врачи всегда готовы помочь</p>
           </div>
         </div>
       </section>
