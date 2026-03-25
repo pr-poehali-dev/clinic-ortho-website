@@ -152,7 +152,7 @@ export default function Contacts() {
                 </div>
                 <div>
                   <div className="text-xs text-clinic-text-muted mb-1">Мессенджеры</div>
-                  <div className="flex gap-3 mt-1">
+                  <div className="flex flex-col sm:flex-row gap-3 mt-1">
                     <a
                       href="https://t.me/+79994649194"
                       target="_blank"
