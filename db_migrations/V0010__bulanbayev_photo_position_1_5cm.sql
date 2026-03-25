@@ -1,0 +1,1 @@
+UPDATE doctors SET img_position = 'center 1.5cm', img_margin_top = '' WHERE id = 1;
