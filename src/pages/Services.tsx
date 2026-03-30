@@ -69,9 +69,9 @@ export default function Services() {
             <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
               <Icon name="Stethoscope" size={15} /> Что мы лечим
             </div>
-            <h1 className="font-display text-3xl md:text-5xl text-clinic-text mb-4">Услуги ортопеда в Новосибирске</h1>
+            <h1 className="font-display text-3xl md:text-5xl text-clinic-text mb-4">Помощь ортопеда и невролога в Новосибирске</h1>
             <p className="text-clinic-text-muted leading-relaxed">
-              Ортопедия и травматология, блокады и инъекции, лабораторные анализы и внутривенные инфузии — всё в одной клинике. Выберите направление, чтобы узнать подробнее.
+              Ортопедия, травматология, неврология, массаж, блокады и инъекции, лабораторные анализы и внутривенные инфузии — всё в одной клинике. Выберите направление, чтобы узнать подробнее.
             </p>
           </div>
         </div>
