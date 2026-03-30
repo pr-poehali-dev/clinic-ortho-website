@@ -90,7 +90,7 @@ export default function Home() {
       </section>
 
       {/* gradient: white → teal */}
-      <div className="h-5 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
+      <div className="h-2 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
 
       {/* Diseases */}
       <section className="bg-clinic-teal py-6">
