@@ -15,26 +15,12 @@ export default function Contacts() {
   const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: form.name, phone: form.phone, comment: form.message }),
-      });
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        setError("Не удалось отправить. Позвоните нам: +7 999 464 91 94");
-      }
-    } catch {
-      setError("Ошибка соединения. Позвоните нам: +7 999 464 91 94");
-    } finally {
-      setLoading(false);
-    }
+    const text = `📋 Обратная связь с сайта vash-ortoped.ru\n\nИмя: ${form.name}\nТелефон: ${form.phone}${form.message ? `\nСообщение: ${form.message}` : ""}`;
+    const maxUrl = `https://max.ru/u/f9LHodD0cOIXwBPcc19ip2Oq2Y7a4MK8MaQsGM3O_elnk0ZNNUZ6QtXdNJg?text=${encodeURIComponent(text)}`;
+    window.open(maxUrl, "_blank");
+    setSubmitted(true);
   };
 
   return (
