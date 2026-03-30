@@ -67,30 +67,30 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Специализации */}
-            <div className="mt-14 animate-fade-in-up-delay-2">
-              <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
-              <div className="flex flex-row gap-2">
-                {[
-                  { icon: "Bone", label: "Ортопедия" },
-                  { icon: "Brain", label: "Неврология" },
-                  { icon: "Hand", label: "Массаж" },
-                  { icon: "FlaskConical", label: "Анализы" },
-                ].map(({ icon, label }) => (
-                  <div key={label} className="flex items-center gap-3 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-7 transition-transform duration-200 hover:scale-105 cursor-default" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
-                    <Icon name={icon} size={22} className="text-clinic-teal shrink-0" />
-                    <span className="text-lg font-bold text-clinic-text">{label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
       {/* gradient: white → teal */}
       <div className="h-10 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
+
+      {/* Специализации */}
+      <div className="relative z-10 -mt-6 container pb-2">
+        <p className="text-xs text-white/70 uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
+        <div className="flex flex-row gap-2">
+          {[
+            { icon: "Bone", label: "Ортопедия" },
+            { icon: "Brain", label: "Неврология" },
+            { icon: "Hand", label: "Массаж" },
+            { icon: "FlaskConical", label: "Анализы" },
+          ].map(({ icon, label }) => (
+            <div key={label} className="flex items-center gap-3 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-7 transition-transform duration-200 hover:scale-105 cursor-default" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
+              <Icon name={icon} size={22} className="text-clinic-teal shrink-0" />
+              <span className="text-lg font-bold text-clinic-text">{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Diseases */}
       <section className="bg-clinic-teal py-6">
