@@ -33,10 +33,10 @@ def handler(event: dict, context) -> dict:
         }
 
     smtp_host = os.environ.get("SMTP_HOST", "")
-    smtp_port = int(os.environ.get("SMTP_PORT", "465"))
+    smtp_port = int(os.environ.get("SMTP_PORT", "25"))
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
-    to_email = "admin@vash-ortoped.ru"
+    to_email = os.environ.get("SMTP_USER", "admin@vash-ortoped54.ru")
 
     html_body = f"""
     <html>
@@ -61,9 +61,14 @@ def handler(event: dict, context) -> dict:
     msg["To"] = to_email
     msg.attach(MIMEText(html_body, "html", "utf-8"))
 
-    with smtplib.SMTP_SSL(smtp_host, smtp_port) as server:
-        server.login(smtp_user, smtp_password)
-        server.sendmail(smtp_user, to_email, msg.as_string())
+    if smtp_port == 465:
+        server_ctx = smtplib.SMTP_SSL(smtp_host, smtp_port)
+    else:
+        server_ctx = smtplib.SMTP(smtp_host, smtp_port)
+        server_ctx.starttls()
+    server_ctx.login(smtp_user, smtp_password)
+    server_ctx.sendmail(smtp_user, to_email, msg.as_string())
+    server_ctx.quit()
 
     return {
         "statusCode": 200,
