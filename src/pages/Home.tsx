@@ -70,16 +70,16 @@ export default function Home() {
             {/* Специализации */}
             <div className="mt-7 animate-fade-in-up-delay-2">
               <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
-              <div className="grid grid-cols-4 gap-2 max-w-xs">
+              <div className="flex flex-col gap-2">
                 {[
                   { icon: "Bone", label: "Ортопедия" },
                   { icon: "Brain", label: "Неврология" },
                   { icon: "Hand", label: "Массаж" },
                   { icon: "FlaskConical", label: "Анализы" },
                 ].map(({ icon, label }) => (
-                  <div key={label} className="flex flex-col items-center gap-1.5 bg-white/80 border border-clinic-teal/15 rounded-xl py-3 px-1 shadow-sm">
-                    <Icon name={icon} size={18} className="text-clinic-teal" />
-                    <span className="text-[11px] font-medium text-clinic-text text-center leading-tight">{label}</span>
+                  <div key={label} className="flex items-center gap-3 bg-white/80 border border-clinic-teal/15 rounded-xl py-2.5 px-4 shadow-sm">
+                    <Icon name={icon} size={20} className="text-clinic-teal shrink-0" />
+                    <span className="text-sm font-medium text-clinic-text">{label}</span>
                   </div>
                 ))}
               </div>
