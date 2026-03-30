@@ -33,7 +33,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-clinic-warm min-h-[580px] flex items-center">
         <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="Врач и пациент" className="w-4/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0" />
+          <img src={HERO_IMG} alt="Врач и пациент" className="w-4/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10" />
         </div>
         <div className="container relative z-10 py-20">
@@ -68,9 +68,9 @@ export default function Home() {
             </div>
 
             {/* Специализации */}
-            <div className="mt-14 animate-fade-in-up-delay-2">
+            <div className="mt-10 animate-fade-in-up-delay-2">
               <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
-              <div className="flex flex-row gap-2">
+              <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2">
                 {[
                   { icon: "Bone", label: "Ортопедия" },
                   { icon: "Brain", label: "Неврология" },
@@ -79,9 +79,9 @@ export default function Home() {
                   { icon: "Scan", label: "УЗИ суставов" },
                   { icon: "Droplets", label: "Капельницы" },
                 ].map(({ icon, label }) => (
-                  <div key={label} className="flex items-center gap-3 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3.5 px-6 transition-transform duration-200 hover:scale-105 cursor-default whitespace-nowrap" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
-                    <Icon name={icon} size={22} className="text-clinic-teal shrink-0" />
-                    <span className="text-lg font-bold text-clinic-text">{label}</span>
+                  <div key={label} className="flex items-center gap-2 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-4 transition-transform duration-200 hover:scale-105 cursor-default" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
+                    <Icon name={icon} size={18} className="text-clinic-teal shrink-0" />
+                    <span className="text-sm sm:text-lg font-bold text-clinic-text whitespace-nowrap">{label}</span>
                   </div>
                 ))}
               </div>
