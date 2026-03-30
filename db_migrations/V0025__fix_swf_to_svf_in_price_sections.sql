@@ -1,0 +1,1 @@
+UPDATE t_p48876731_clinic_ortho_website.price_sections SET title = 'SVF-терапия, мини-операции' WHERE id = 6;
