@@ -79,7 +79,7 @@ export default function Home() {
                   { icon: "Scan", label: "УЗИ суставов" },
                   { icon: "Droplets", label: "Капельницы" },
                 ].map(({ icon, label }) => (
-                  <div key={label} className="flex items-center gap-3 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-7 transition-transform duration-200 hover:scale-105 cursor-default" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
+                  <div key={label} className="flex items-center gap-3 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3.5 px-6 transition-transform duration-200 hover:scale-105 cursor-default whitespace-nowrap" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
                     <Icon name={icon} size={22} className="text-clinic-teal shrink-0" />
                     <span className="text-lg font-bold text-clinic-text">{label}</span>
                   </div>
