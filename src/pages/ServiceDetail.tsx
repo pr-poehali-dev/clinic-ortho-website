@@ -1,13 +1,39 @@
 import { useParams, Link } from "react-router-dom";
-import { SERVICES_LIST } from "./Services";
+import { useState, useEffect } from "react";
+import { SERVICES_LIST, type Service } from "./Services";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
 
+const API_URL = "https://functions.poehali.dev/e3850f3d-bba8-4c1c-8dbb-bf8d3f7bdd34";
 const trackGoal = (goal: string) => window.ym?.(108160921, 'reachGoal', goal);
 
 export default function ServiceDetail() {
   const { slug } = useParams();
-  const service = SERVICES_LIST.find((s) => s.slug === slug);
+  const [service, setService] = useState<Service | undefined>(SERVICES_LIST.find((s) => s.slug === slug));
+  const [loading, setLoading] = useState(!service);
+
+  useEffect(() => {
+    if (service) return;
+    fetch(`${API_URL}?section=services`)
+      .then((r) => r.json())
+      .then((data: Service[]) => {
+        SERVICES_LIST.splice(0, SERVICES_LIST.length, ...data);
+        setService(data.find((s) => s.slug === slug));
+      })
+      .finally(() => setLoading(false));
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="container py-20 flex items-center justify-center gap-3 text-clinic-text-muted text-sm">
+        <svg className="animate-spin h-5 w-5 text-clinic-teal" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+        </svg>
+        Загрузка...
+      </div>
+    );
+  }
 
   if (!service) {
     return (
