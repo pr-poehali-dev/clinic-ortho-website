@@ -47,7 +47,7 @@ export default function Publications() {
         <div className="text-clinic-teal text-sm font-medium mb-2 flex items-center gap-2">
           <Icon name="BookOpen" size={15} /> Публикации
         </div>
-        <h1 className="font-display text-4xl md:text-5xl text-clinic-text mb-4">Статьи об ортопедии</h1>
+        <h1 className="font-display text-4xl md:text-5xl text-clinic-text mb-4">Статьи о заболеваниях и лечении суставов</h1>
         <p className="text-clinic-text-muted max-w-2xl leading-relaxed">
           Подробные материалы о заболеваниях суставов, позвоночника и опорно-двигательного аппарата от врачей клиники «Ваш Ортопед».
         </p>
