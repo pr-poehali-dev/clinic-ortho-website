@@ -70,7 +70,7 @@ export default function Home() {
             {/* Специализации */}
             <div className="mt-7 animate-fade-in-up-delay-2">
               <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-row gap-2">
                 {[
                   { icon: "Bone", label: "Ортопедия" },
                   { icon: "Brain", label: "Неврология" },
