@@ -66,6 +66,25 @@ export default function Home() {
                 +7 999 464 91 94
               </span>
             </div>
+
+            {/* Специализации */}
+            <div className="mt-7 animate-fade-in-up-delay-2">
+              <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
+              <div className="grid grid-cols-4 gap-2 max-w-xs">
+                {[
+                  { icon: "Bone", label: "Ортопедия" },
+                  { icon: "Brain", label: "Неврология" },
+                  { icon: "Hand", label: "Массаж" },
+                  { icon: "FlaskConical", label: "Анализы" },
+                ].map(({ icon, label }) => (
+                  <div key={label} className="flex flex-col items-center gap-1.5 bg-white/80 border border-clinic-teal/15 rounded-xl py-3 px-1 shadow-sm">
+                    <Icon name={icon} size={18} className="text-clinic-teal" />
+                    <span className="text-[11px] font-medium text-clinic-text text-center leading-tight">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
