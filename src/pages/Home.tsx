@@ -77,11 +77,9 @@ export default function Home() {
                   { icon: "Hand", label: "Массаж" },
                   { icon: "FlaskConical", label: "Анализы" },
                 ].map(({ icon, label }) => (
-                  <div key={label} className="p-[3px] rounded-xl" style={{background: 'linear-gradient(to right, #4a9a6e, #a8d8bc, #ffffff)'}}>
-                    <div className="flex items-center gap-3 bg-white rounded-[9px] py-3 px-7">
-                      <Icon name={icon} size={22} className="text-clinic-teal shrink-0" />
-                      <span className="text-lg font-bold text-clinic-text">{label}</span>
-                    </div>
+                  <div key={label} className="flex items-center gap-3 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-7">
+                    <Icon name={icon} size={22} className="text-clinic-teal shrink-0" />
+                    <span className="text-lg font-bold text-clinic-text">{label}</span>
                   </div>
                 ))}
               </div>
