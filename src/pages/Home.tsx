@@ -77,7 +77,7 @@ export default function Home() {
                   { icon: "Hand", label: "Массаж" },
                   { icon: "FlaskConical", label: "Анализы" },
                 ].map(({ icon, label }) => (
-                  <div key={label} className="flex items-center gap-3 bg-white/80 border border-clinic-teal/15 rounded-xl py-3 px-7 shadow-sm">
+                  <div key={label} className="flex items-center gap-3 bg-white/80 border-2 border-clinic-teal/60 rounded-xl py-3 px-7 shadow-sm">
                     <Icon name={icon} size={22} className="text-clinic-teal shrink-0" />
                     <span className="text-lg font-bold text-clinic-text">{label}</span>
                   </div>
