@@ -2786,6 +2786,3 @@ export const ARTICLES_BY_CATEGORY = ARTICLES.reduce((acc, article) => {
 }, {} as Record<string, Article[]>);
 
 export const CATEGORIES = [...new Set(ARTICLES.map((a) => a.category))];
-
-
-export const CATEGORIES = [...new Set(ARTICLES.map((a) => a.category))];
