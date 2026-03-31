@@ -36,7 +36,7 @@ const IMG_PIRIFORMIS = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9
 const IMG_RLS = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/0f743631-e1e8-4799-9b56-555aea202828.jpg";
 const IMG_EPICONDYLITIS = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/187156d5-e92c-444c-8c42-83dbef30906e.jpg";
 const IMG_MASSAGE = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/5bc449f8-6b51-47b6-9c14-d8da643059fe.png";
-const IMG_HEEL = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/074b99ef-9155-4f68-9c52-a6ca7ceafbf2.jpg";
+const IMG_HEEL = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/2b7d6486-737f-429d-acf5-6dd2e892d7f2.png";
 const IMG_FLATFOOT = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/89e4f2ea-39d9-4b27-8517-9538cc25304a.png";
 const IMG_VALGUS = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/dde91b83-cc87-42e4-bf04-1ff192060892.png";
 
