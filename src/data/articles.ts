@@ -2786,3 +2786,11 @@ export const ARTICLES_BY_CATEGORY = ARTICLES.reduce((acc, article) => {
 }, {} as Record<string, Article[]>);
 
 export const CATEGORIES = [...new Set(ARTICLES.map((a) => a.category))];
+
+const SHUFFLE_ORDER = [3, 12, 7, 20, 1, 15, 5, 22, 9, 18, 0, 25, 6, 13, 2, 19, 11, 24, 8, 16, 4, 21, 10, 17, 14, 23, 26, 27];
+export const ARTICLES_SHUFFLED = [
+  ...SHUFFLE_ORDER.filter((i) => i < ARTICLES.length).map((i) => ARTICLES[i]),
+  ...ARTICLES.filter((_, i) => !SHUFFLE_ORDER.includes(i)),
+];
+
+export const CATEGORIES = [...new Set(ARTICLES.map((a) => a.category))];

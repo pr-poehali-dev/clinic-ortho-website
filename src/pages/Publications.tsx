@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
-import { ARTICLES, CATEGORIES } from "@/data/articles";
+import { ARTICLES, ARTICLES_SHUFFLED, CATEGORIES } from "@/data/articles";
 
 export default function Publications() {
   const [activeCategory, setActiveCategory] = useState<string>("Все");
 
   const allCategories = ["Все", ...CATEGORIES];
   const filtered = activeCategory === "Все"
-    ? ARTICLES
+    ? ARTICLES_SHUFFLED
     : ARTICLES.filter((a) => a.category === activeCategory);
 
   return (
