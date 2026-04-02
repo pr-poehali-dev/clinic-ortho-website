@@ -91,31 +91,27 @@ export default function Promos() {
 
       {/* Cards */}
       <section className="container max-w-3xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
+        <div className="flex flex-col gap-3 mb-6">
         {promos.map((p) => (
           <div
             key={p.id}
             style={{ background: p.bg, borderLeft: `5px solid ${p.border}` }}
-            className="rounded-2xl p-6 shadow-sm"
+            className="rounded-xl px-5 py-4 shadow-sm flex items-center gap-5"
           >
-            <div className="mb-3">
-              <span style={{ color: p.accentColor, fontSize: 36, fontWeight: 700, lineHeight: 1, display: "block", marginBottom: 6 }}>
-                {p.accent}
-              </span>
-              <div className="text-sm font-bold text-gray-900 leading-snug">{p.title}</div>
-              {p.subtitle && (
-                <div className="text-xs text-gray-500 mt-0.5 leading-snug">{p.subtitle}</div>
+            <span style={{ color: p.accentColor, fontSize: 38, fontWeight: 700, lineHeight: 1, flexShrink: 0, minWidth: 64, textAlign: "center" }}>
+              {p.accent}
+            </span>
+            <div className="flex-1 min-w-0">
+              <div className="font-bold text-gray-900 text-sm leading-snug">{p.title}</div>
+              {p.subtitle && <div className="text-xs text-gray-500 mt-0.5">{p.subtitle}</div>}
+              <div className="text-xs text-gray-600 mt-1 leading-relaxed">{p.description}</div>
+              {p.promo && (
+                <div className="inline-flex items-center gap-1.5 mt-2 rounded-md px-2 py-1" style={{ background: "rgba(255,255,255,0.7)", border: `1px solid ${p.accentColor}` }}>
+                  <Icon name="Ticket" size={12} style={{ color: p.accentColor }} />
+                  <span className="text-xs font-semibold" style={{ color: p.accentColor }}>«{p.promo}»</span>
+                </div>
               )}
             </div>
-            <p className="text-xs text-gray-600 leading-relaxed mb-3">{p.description}</p>
-            {p.promo && (
-              <div className="inline-flex items-center gap-2 bg-white/70 border border-current rounded-lg px-3 py-1.5" style={{ borderColor: p.accentColor }}>
-                <Icon name="Ticket" size={14} style={{ color: p.accentColor }} />
-                <span className="text-xs font-semibold" style={{ color: p.accentColor }}>
-                  Промокод: {p.promo}
-                </span>
-              </div>
-            )}
           </div>
         ))}
         </div>
