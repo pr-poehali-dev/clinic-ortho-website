@@ -130,7 +130,7 @@ def handler(event: dict, context) -> dict:
             sections = cur.fetchall()
             result = []
             for s in sections:
-                cur.execute(f"SELECT id, name, price, sort_order FROM {SCHEMA}.price_items WHERE section_id=%s ORDER BY sort_order", (s[0],))
+                cur.execute(f"SELECT id, name, price, sort_order FROM {SCHEMA}.price_items WHERE section_id=%s AND hidden=false ORDER BY sort_order", (s[0],))
                 items = [{"id": r[0], "name": r[1], "price": r[2], "sort_order": r[3]} for r in cur.fetchall()]
                 result.append({"id": s[0], "title": s[1], "icon": s[2], "sort_order": s[3], "items": items})
             conn.close()

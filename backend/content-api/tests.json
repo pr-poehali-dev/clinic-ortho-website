@@ -5,7 +5,7 @@
       "method": "GET",
       "path": "/?section=doctors",
       "expectedStatus": 200,
-      "expectedBody": {"key": "string"},
+      "expectedBody": [],
       "bodyMatcher": "partial"
     },
     {
@@ -13,7 +13,7 @@
       "method": "GET",
       "path": "/?section=services",
       "expectedStatus": 200,
-      "expectedBody": {"key": "string"},
+      "expectedBody": [],
       "bodyMatcher": "partial"
     },
     {
@@ -21,7 +21,7 @@
       "method": "GET",
       "path": "/?section=prices",
       "expectedStatus": 200,
-      "expectedBody": {"key": "string"},
+      "expectedBody": [],
       "bodyMatcher": "partial"
     }
   ]
