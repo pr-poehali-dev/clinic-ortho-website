@@ -24,6 +24,12 @@ import BulanbayevCertificates from "@/pages/BulanbayevCertificates";
 import Promos from "@/pages/Promos";
 import PromoPopup from "@/components/PromoPopup";
 import Osteohondroz from "@/pages/diseases/Osteohondroz";
+import Orthopedics from "@/pages/services/Orthopedics";
+import Neurology from "@/pages/services/Neurology";
+import Massage from "@/pages/services/Massage";
+import LabTests from "@/pages/services/LabTests";
+import Ultrasound from "@/pages/services/Ultrasound";
+import Infusions from "@/pages/services/Infusions";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +59,12 @@ const App = () => (
           <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
           <Route path="/supervisors" element={<Layout><Supervisors /></Layout>} />
           <Route path="/promos" element={<Layout><Promos /></Layout>} />
+          <Route path="/services/orthopedics-clinic" element={<Layout><Orthopedics /></Layout>} />
+          <Route path="/services/neurology-clinic" element={<Layout><Neurology /></Layout>} />
+          <Route path="/services/massage-clinic" element={<Layout><Massage /></Layout>} />
+          <Route path="/services/lab-tests" element={<Layout><LabTests /></Layout>} />
+          <Route path="/services/ultrasound" element={<Layout><Ultrasound /></Layout>} />
+          <Route path="/services/infusions" element={<Layout><Infusions /></Layout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
