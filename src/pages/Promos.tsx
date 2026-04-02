@@ -97,11 +97,11 @@ export default function Promos() {
                 {p.accent}
               </span>
               <div className="min-w-0">
-                <div className="font-bold text-gray-900 text-sm leading-snug">{p.title}</div>
-                {p.subtitle && <div className="text-xs text-gray-500 mt-0.5">{p.subtitle}</div>}
+                <div className="font-bold text-gray-900 text-base leading-snug">{p.title}</div>
+                {p.subtitle && <div className="text-sm text-gray-500 mt-0.5">{p.subtitle}</div>}
               </div>
             </div>
-            <div className="text-xs text-gray-600 leading-relaxed mb-2">{p.description}</div>
+            <div className="text-sm text-gray-700 leading-relaxed mb-2">{p.description}</div>
             {p.promo && (
               <div className="inline-flex items-center gap-1.5 mt-auto pt-1 rounded-md px-2 py-1 self-start" style={{ background: "rgba(255,255,255,0.7)", border: `1px solid ${p.accentColor}` }}>
                 <Icon name="Ticket" size={12} style={{ color: p.accentColor }} />
