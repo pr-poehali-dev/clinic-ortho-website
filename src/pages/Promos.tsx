@@ -90,7 +90,8 @@ export default function Promos() {
       </section>
 
       {/* Cards */}
-      <section className="container max-w-2xl mx-auto px-4 py-10 flex flex-col gap-5">
+      <section className="container max-w-3xl mx-auto px-4 py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
         {promos.map((p) => (
           <div
             key={p.id}
@@ -119,6 +120,7 @@ export default function Promos() {
             )}
           </div>
         ))}
+        </div>
 
         <p className="text-center text-lg font-bold mt-2" style={{ color: "#1a5248" }}>
           «Ваш ортопед» — пожалуй самые низкие цены в Новосибирске.
@@ -138,6 +140,7 @@ export default function Promos() {
           ← На главную
         </Link>
       </section>
+
     </div>
   );
 }
