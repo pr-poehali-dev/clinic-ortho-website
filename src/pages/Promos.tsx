@@ -98,18 +98,16 @@ export default function Promos() {
             style={{ background: p.bg, borderLeft: `5px solid ${p.border}` }}
             className="rounded-2xl p-6 shadow-sm"
           >
-            <div className="flex items-start gap-4 mb-3">
-              <span style={{ color: p.accentColor, fontSize: 42, fontWeight: 700, lineHeight: 1, flexShrink: 0 }}>
+            <div className="mb-3">
+              <span style={{ color: p.accentColor, fontSize: 36, fontWeight: 700, lineHeight: 1, display: "block", marginBottom: 6 }}>
                 {p.accent}
               </span>
-              <div className="min-w-0">
-                <div className="text-base font-bold text-gray-900">{p.title}</div>
-                {p.subtitle && (
-                  <div className="text-sm text-gray-500 mt-0.5">{p.subtitle}</div>
-                )}
-              </div>
+              <div className="text-sm font-bold text-gray-900 leading-snug">{p.title}</div>
+              {p.subtitle && (
+                <div className="text-xs text-gray-500 mt-0.5 leading-snug">{p.subtitle}</div>
+              )}
             </div>
-            <p className="text-sm text-gray-600 leading-relaxed mb-3">{p.description}</p>
+            <p className="text-xs text-gray-600 leading-relaxed mb-3">{p.description}</p>
             {p.promo && (
               <div className="inline-flex items-center gap-2 bg-white/70 border border-current rounded-lg px-3 py-1.5" style={{ borderColor: p.accentColor }}>
                 <Icon name="Ticket" size={14} style={{ color: p.accentColor }} />
