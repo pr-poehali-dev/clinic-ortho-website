@@ -91,7 +91,7 @@ export default function Promos() {
 
       {/* Cards */}
       <section className="container max-w-3xl mx-auto px-4 py-10">
-        <div className="flex flex-col gap-3 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
         {promos.map((p) => (
           <div
             key={p.id}
