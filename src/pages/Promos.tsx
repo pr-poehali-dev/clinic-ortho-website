@@ -12,9 +12,9 @@ const promos = [
     border: "#2a7a6f",
     title: "Скидка на первичный приём",
     subtitle: "по пенсионному удостоверению",
-    description:
-      "Предъявите пенсионное удостоверение на приёме и получите скидку 20% на первичную консультацию врача травматолога-ортопеда.",
+    description: "Предъявите пенсионное удостоверение на приёме и получите скидку 20% на первичную консультацию врача травматолога-ортопеда.",
     icon: "UserCheck",
+    promo: null,
   },
   {
     id: 2,
@@ -24,9 +24,9 @@ const promos = [
     border: "#e07a2f",
     title: "Скидка на курс PRP-терапии",
     subtitle: "1 инъекция в подарок из 4",
-    description:
-      "При оплате полного курса плазмотерапии суставов из 4 инъекций сразу — одна инъекция в подарок.",
+    description: "При оплате полного курса плазмотерапии суставов из 4 инъекций сразу — одна инъекция в подарок.",
     icon: "Syringe",
+    promo: null,
   },
   {
     id: 3,
@@ -35,11 +35,46 @@ const promos = [
     bg: "#f0f4ff",
     border: "#3a5fc8",
     title: "Общий анализ крови",
-    subtitle: null,
-    description:
-      "Большой спектр исследований крови и мочи — быстро, удобно, без очередей.",
-    footer: "Исследования крови. Недорого.",
+    subtitle: "Исследования крови. Недорого.",
+    description: "Большой спектр исследований крови и мочи — быстро, удобно, без очередей.",
     icon: "Droplets",
+    promo: null,
+  },
+  {
+    id: 4,
+    accent: "25%",
+    accentColor: "#2a7a6f",
+    bg: "#f0faf8",
+    border: "#2a7a6f",
+    title: "Лечение артроза",
+    subtitle: "Скидка на приём и плазму",
+    description: "Скидка 25% на первичный приём врача и на процедуру PRP-плазмотерапии при лечении артроза суставов.",
+    icon: "Bone",
+    promo: "Ортопед Нск",
+  },
+  {
+    id: 5,
+    accent: "25%",
+    accentColor: "#7c3aed",
+    bg: "#f5f0ff",
+    border: "#7c3aed",
+    title: "Лечение грыж и протрузий",
+    subtitle: "Скидка на приём невролога",
+    description: "Скидка 25% на первичный приём при обращении с межпозвоночной грыжей или протрузией.",
+    icon: "Brain",
+    promo: "Ваш невролог",
+  },
+  {
+    id: 6,
+    accent: "10%",
+    accentColor: "#b45309",
+    bg: "#fffbeb",
+    border: "#b45309",
+    title: "Недорогой массаж",
+    subtitle: "Скидка на курс из 10 процедур",
+    description: "Скидка 10% на курс из 10 сеансов лечебного массажа при оплате сразу.",
+    icon: "Hand",
+    promo: "Ортомассаж",
   },
 ];
 
@@ -62,13 +97,11 @@ export default function Promos() {
             style={{ background: p.bg, borderLeft: `5px solid ${p.border}` }}
             className="rounded-2xl p-6 shadow-sm"
           >
-            <div className="flex items-center gap-4 mb-3">
-              <span
-                style={{ color: p.accentColor, fontSize: 42, fontWeight: 700, lineHeight: 1 }}
-              >
+            <div className="flex items-start gap-4 mb-3">
+              <span style={{ color: p.accentColor, fontSize: 42, fontWeight: 700, lineHeight: 1, flexShrink: 0 }}>
                 {p.accent}
               </span>
-              <div>
+              <div className="min-w-0">
                 <div className="text-base font-bold text-gray-900">{p.title}</div>
                 {p.subtitle && (
                   <div className="text-sm text-gray-500 mt-0.5">{p.subtitle}</div>
@@ -76,16 +109,18 @@ export default function Promos() {
               </div>
             </div>
             <p className="text-sm text-gray-600 leading-relaxed mb-3">{p.description}</p>
-            {p.footer && (
-              <div className="text-sm font-bold text-gray-900">— {p.footer}</div>
+            {p.promo && (
+              <div className="inline-flex items-center gap-2 bg-white/70 border border-current rounded-lg px-3 py-1.5" style={{ borderColor: p.accentColor }}>
+                <Icon name="Ticket" size={14} style={{ color: p.accentColor }} />
+                <span className="text-xs font-semibold" style={{ color: p.accentColor }}>
+                  Промокод: {p.promo}
+                </span>
+              </div>
             )}
           </div>
         ))}
 
-        <p
-          className="text-center text-lg font-bold mt-2"
-          style={{ color: "#1a5248" }}
-        >
+        <p className="text-center text-lg font-bold mt-2" style={{ color: "#1a5248" }}>
           «Ваш ортопед» — пожалуй самые низкие цены в Новосибирске.
         </p>
 
@@ -99,10 +134,7 @@ export default function Promos() {
           Записаться на приём
         </a>
 
-        <Link
-          to="/"
-          className="text-center text-sm text-clinic-teal hover:underline"
-        >
+        <Link to="/" className="text-center text-sm text-clinic-teal hover:underline">
           ← На главную
         </Link>
       </section>
