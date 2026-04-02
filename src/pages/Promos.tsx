@@ -84,7 +84,7 @@ export default function Promos() {
       </section>
 
       {/* Cards */}
-      <section className="container max-w-3xl mx-auto px-4 py-10">
+      <section className="container max-w-5xl mx-auto px-4 py-10">
         <div className="grid grid-cols-2 gap-3 mb-6">
         {promos.map((p) => (
           <div
