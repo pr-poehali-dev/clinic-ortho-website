@@ -35,8 +35,8 @@ export default function Home() {
         setConsultOpen(false);
       }
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
   }, []);
 
   return (
@@ -69,7 +69,7 @@ export default function Home() {
         </div>
 
         {/* Продающий блок — только десктоп */}
-        <div className="hidden md:block absolute left-0 right-0 z-10" style={{top: '260px'}}>
+        <div className="hidden md:block absolute left-0 right-0 z-10" style={{top: '270px'}}>
           <div className="container">
             <div className="bg-transparent rounded-2xl border-2 border-clinic-teal/40 p-5 grid md:grid-cols-2 gap-6 items-center max-w-4xl">
 
@@ -119,7 +119,7 @@ export default function Home() {
         </div>
 
         {/* Кнопки + специализации — только десктоп */}
-        <div className="hidden md:block absolute bottom-6 left-0 right-0 z-10">
+        <div className="hidden md:block absolute left-0 right-0 z-10" style={{bottom: '29px'}}>
           <div className="container space-y-4">
             {/* Кнопки */}
             <div className="flex flex-row gap-3">
