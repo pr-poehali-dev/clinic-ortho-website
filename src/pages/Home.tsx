@@ -86,6 +86,94 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Продающий блок — внутри hero, над специализацией */}
+        <div className="absolute left-0 right-0 z-10" style={{bottom: '88px'}}>
+          <div className="container">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-border p-5 grid md:grid-cols-2 gap-6 items-center max-w-4xl">
+
+              {/* Левая часть */}
+              <div>
+                <h2 className="font-display text-xl md:text-2xl text-clinic-text leading-tight mb-2">
+                  Болит колено, спина или суставы?<br />
+                  <span className="text-clinic-teal">Избавим от боли без операций</span>
+                </h2>
+                <ul className="space-y-1 text-clinic-text-muted text-xs mb-3">
+                  <li className="flex items-center gap-1.5"><Icon name="CheckCircle" size={13} className="text-clinic-teal shrink-0" />Диагностика + план лечения за 1 приём</li>
+                  <li className="flex items-center gap-1.5"><Icon name="CheckCircle" size={13} className="text-clinic-teal shrink-0" />Приём в день обращения. Без очередей.</li>
+                </ul>
+                <div className="inline-flex items-center gap-2 bg-amber-50 border-2 border-amber-400 rounded-lg px-3 py-1.5 mb-3">
+                  <Icon name="Tag" size={14} className="text-amber-500 shrink-0" />
+                  <span className="font-bold text-clinic-text text-xs">Первичный приём + УЗИ сустава — <span className="text-amber-600">2 500 ₽</span></span>
+                </div>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <a
+                    href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackGoal('click_zapis')}
+                    className="flex items-center gap-1.5 bg-clinic-teal text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-all text-xs shadow"
+                  >
+                    <Icon name="CalendarDays" size={13} />
+                    Записаться на приём
+                  </a>
+                  <div className="relative" ref={consultRef}>
+                    <button
+                      onClick={() => setConsultOpen((v) => !v)}
+                      className="flex items-center gap-1.5 border-2 border-clinic-teal text-clinic-teal bg-white px-4 py-2 rounded-lg font-medium text-xs hover:bg-clinic-teal-light transition-all"
+                    >
+                      <Icon name="MessageCircle" size={13} />
+                      Получить консультацию
+                      <Icon name={consultOpen ? "ChevronUp" : "ChevronDown"} size={12} />
+                    </button>
+                    {consultOpen && (
+                      <div className="absolute top-full mt-1 left-0 w-52 bg-white border border-border rounded-xl shadow-lg z-20 overflow-hidden">
+                        <a href="tel:+79994649194" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-xs text-clinic-text">
+                          <Icon name="Phone" size={13} className="text-clinic-teal" />
+                          <div><p className="font-medium">Позвонить</p><p className="text-clinic-text-muted">+7 999 464 91 94</p></div>
+                        </a>
+                        <a href="https://max.ru/im?sel=+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-xs text-clinic-text border-t border-border">
+                          <Icon name="MessageSquare" size={13} className="text-clinic-teal" />
+                          <p className="font-medium">Написать в Макс</p>
+                        </a>
+                        <a href="https://t.me/VashOrtoped_NSK" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-xs text-clinic-text border-t border-border">
+                          <Icon name="Send" size={13} className="text-clinic-teal" />
+                          <p className="font-medium">Написать в Telegram</p>
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-3 text-xs text-clinic-text-muted">
+                  <span className="flex items-center gap-1"><Icon name="Clock" size={11} className="text-clinic-teal" />Приём уже сегодня</span>
+                  <span className="flex items-center gap-1"><Icon name="Award" size={11} className="text-clinic-teal" />Опытные врачи</span>
+                  <span className="flex items-center gap-1"><Icon name="Users" size={11} className="text-clinic-teal" />Более 1000 пациентов</span>
+                </div>
+              </div>
+
+              {/* Правая часть */}
+              <div className="flex gap-4 items-center justify-center">
+                <ul className="space-y-2.5 text-xs">
+                  {[
+                    { icon: "Footprints", text: "Болит колено" },
+                    { icon: "Activity", text: "Боль в спине" },
+                    { icon: "Zap", text: "Хруст в суставах" },
+                    { icon: "MoveHorizontal", text: "Ограничение движения" },
+                  ].map(({ icon, text }) => (
+                    <li key={text} className="flex items-center gap-2">
+                      <div className="w-7 h-7 rounded-full bg-red-50 flex items-center justify-center shrink-0">
+                        <Icon name={icon} fallback="AlertCircle" size={13} className="text-red-500" />
+                      </div>
+                      <span className="font-medium text-clinic-text">{text}</span>
+                    </li>
+                  ))}
+                </ul>
+                <img src={KNEE_IMG} alt="Боль в суставе" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl shadow shrink-0" />
+              </div>
+
+            </div>
+          </div>
+        </div>
+
         {/* Специализации — прижаты к нижней границе hero */}
         <div className="absolute bottom-6 left-0 right-0 z-10 animate-fade-in-up-delay-2">
           <div className="container">
@@ -105,108 +193,6 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Продающий блок */}
-      <section className="bg-white border-y border-border">
-        <div className="container py-10">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-
-            {/* Левая колонка */}
-            <div>
-              <h2 className="font-display text-2xl md:text-3xl text-clinic-text leading-tight mb-3">
-                Болит колено, спина или суставы?<br />
-                <span className="text-clinic-teal">Избавим от боли без операций</span>
-              </h2>
-              <ul className="space-y-1.5 text-clinic-text-muted text-sm mb-5">
-                <li className="flex items-center gap-2"><Icon name="CheckCircle" size={15} className="text-clinic-teal shrink-0" />Поставим точный диагноз и скажем, как убрать боль без операций</li>
-                <li className="flex items-center gap-2"><Icon name="CheckCircle" size={15} className="text-clinic-teal shrink-0" />Диагностика + индивидуальный план лечения за 1 приём</li>
-                <li className="flex items-center gap-2"><Icon name="CheckCircle" size={15} className="text-clinic-teal shrink-0" />Приём в день обращения. Без очередей.</li>
-              </ul>
-
-              {/* Оффер */}
-              <div className="inline-flex items-center gap-3 bg-amber-50 border-2 border-amber-400 rounded-xl px-5 py-3 mb-6">
-                <Icon name="Tag" size={18} className="text-amber-500 shrink-0" />
-                <span className="font-bold text-clinic-text text-sm md:text-base">Первичный приём + УЗИ сустава — <span className="text-amber-600">2 500 ₽</span></span>
-              </div>
-
-              {/* Кнопки */}
-              <div className="flex flex-col sm:flex-row gap-3 mb-5">
-                <a
-                  href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackGoal('click_zapis')}
-                  className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-6 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow-md"
-                >
-                  <Icon name="CalendarDays" size={16} />
-                  Записаться на приём
-                </a>
-                <div className="relative" ref={consultRef}>
-                  <button
-                    onClick={() => setConsultOpen((v) => !v)}
-                    className="flex items-center justify-center gap-2 border-2 border-clinic-teal text-clinic-teal bg-white px-6 py-3.5 rounded-xl font-medium text-sm hover:bg-clinic-teal-light transition-all w-full"
-                  >
-                    <Icon name="MessageCircle" size={16} />
-                    Получить консультацию
-                    <Icon name={consultOpen ? "ChevronUp" : "ChevronDown"} size={14} />
-                  </button>
-                  {consultOpen && (
-                    <div className="absolute top-full mt-2 left-0 w-full bg-white border border-border rounded-xl shadow-lg z-20 overflow-hidden">
-                      <a href="tel:+79994649194" className="flex items-center gap-3 px-4 py-3 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text">
-                        <Icon name="Phone" size={15} className="text-clinic-teal" />
-                        <div>
-                          <p className="font-medium">Позвонить</p>
-                          <p className="text-clinic-text-muted text-xs">+7 999 464 91 94</p>
-                        </div>
-                      </a>
-                      <a href="https://max.ru/im?sel=+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-3 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
-                        <Icon name="MessageSquare" size={15} className="text-clinic-teal" />
-                        <p className="font-medium">Написать в Макс</p>
-                      </a>
-                      <a href="https://t.me/VashOrtoped_NSK" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-3 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
-                        <Icon name="Send" size={15} className="text-clinic-teal" />
-                        <p className="font-medium">Написать в Telegram</p>
-                      </a>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Усилители */}
-              <div className="flex flex-wrap gap-4 text-xs text-clinic-text-muted">
-                <span className="flex items-center gap-1.5"><Icon name="Clock" size={13} className="text-clinic-teal" />Приём уже сегодня</span>
-                <span className="flex items-center gap-1.5"><Icon name="Award" size={13} className="text-clinic-teal" />Опытные врачи-ортопеды</span>
-                <span className="flex items-center gap-1.5"><Icon name="Users" size={13} className="text-clinic-teal" />Более 1000 пациентов</span>
-              </div>
-            </div>
-
-            {/* Правая колонка */}
-            <div className="flex gap-6 items-center justify-center md:justify-end">
-              <ul className="space-y-4 text-sm">
-                {[
-                  { icon: "Footprints", text: "Болит колено" },
-                  { icon: "Activity", text: "Боль в спине" },
-                  { icon: "Zap", text: "Хруст в суставах" },
-                  { icon: "MoveHorizontal", text: "Ограничение движения" },
-                ].map(({ icon, text }) => (
-                  <li key={text} className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-red-50 flex items-center justify-center shrink-0">
-                      <Icon name={icon} fallback="AlertCircle" size={16} className="text-red-500" />
-                    </div>
-                    <span className="font-medium text-clinic-text">{text}</span>
-                  </li>
-                ))}
-              </ul>
-              <img
-                src={KNEE_IMG}
-                alt="Боль в суставе"
-                className="w-44 h-44 md:w-56 md:h-56 object-cover rounded-2xl shadow-lg shrink-0"
-              />
-            </div>
-
           </div>
         </div>
       </section>
