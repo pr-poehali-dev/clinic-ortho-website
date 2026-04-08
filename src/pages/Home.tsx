@@ -277,11 +277,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* gradient: white → teal */}
-      <div className="h-10 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
-
       {/* Diseases */}
-      <section className="bg-clinic-teal pb-6" style={{marginTop: '-60px'}}>
+      <section className="bg-clinic-teal pb-6" style={{marginTop: '-90px'}}>
         <div className="h-10 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
         <div className="container">
           <h2 className="font-display text-2xl md:text-3xl text-white text-center mb-4">Что мы лечим</h2>
