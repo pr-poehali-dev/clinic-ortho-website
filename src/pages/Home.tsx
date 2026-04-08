@@ -52,7 +52,7 @@ export default function Home() {
         schema={[LOCAL_BUSINESS_SCHEMA, FAQ_SCHEMA]}
       />
       {/* Hero */}
-      <section className="relative overflow-hidden bg-clinic-warm md:min-h-[720px] flex items-start">
+      <section className="relative overflow-hidden bg-clinic-warm md:min-h-[780px] flex items-start">
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Врач и пациент" className="w-4/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10" />
@@ -123,7 +123,7 @@ export default function Home() {
         </div>
 
         {/* Кнопки + специализации — только десктоп */}
-        <div className="hidden md:block absolute left-0 right-0 z-10" style={{bottom: '64px'}}>
+        <div className="hidden md:block absolute left-0 right-0 z-10" style={{bottom: '8px'}}>
           <div className="container space-y-4">
             {/* Кнопки */}
             <div className="flex flex-row gap-3">
