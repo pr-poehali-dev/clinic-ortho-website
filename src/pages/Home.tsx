@@ -48,12 +48,12 @@ export default function Home() {
         schema={[LOCAL_BUSINESS_SCHEMA, FAQ_SCHEMA]}
       />
       {/* Hero */}
-      <section className="relative overflow-hidden bg-clinic-warm min-h-[780px] flex items-start">
+      <section className="relative overflow-hidden bg-clinic-warm md:min-h-[780px] flex items-start">
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Врач и пациент" className="w-4/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10" />
         </div>
-        <div className="container relative z-10 pt-8 pb-20">
+        <div className="container relative z-10 pt-8 md:pb-20 pb-6">
           <div className="max-w-lg">
             <div className="inline-flex items-center gap-2 bg-clinic-teal-light text-clinic-teal text-xs font-medium px-3 py-1.5 rounded-full mb-5 animate-fade-in">
               <Icon name="MapPin" size={12} />
@@ -109,8 +109,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Продающий блок */}
-        <div className="absolute left-0 right-0 z-10" style={{bottom: '150px'}}>
+        {/* Продающий блок — только десктоп */}
+        <div className="hidden md:block absolute left-0 right-0 z-10" style={{bottom: '150px'}}>
           <div className="container">
             <div className="bg-transparent rounded-2xl border-2 border-clinic-teal/40 p-5 grid md:grid-cols-2 gap-6 items-center max-w-4xl">
 
@@ -159,8 +159,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Специализации */}
-        <div className="absolute bottom-6 left-0 right-0 z-10">
+        {/* Специализации — только десктоп */}
+        <div className="hidden md:block absolute bottom-6 left-0 right-0 z-10">
           <div className="container">
             <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
             <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2">
@@ -181,6 +181,50 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Мобильная версия продающего блока + специализации */}
+      <div className="md:hidden bg-clinic-warm px-4 pb-6 space-y-4">
+        {/* Продающий блок */}
+        <div className="rounded-2xl border-2 border-clinic-teal/40 p-4">
+          <h2 className="font-display text-xl text-clinic-text leading-tight mb-2">
+            Болит колено, спина или суставы?<br />
+            <span className="text-clinic-teal">Избавим от боли без операций</span>
+          </h2>
+          <ul className="space-y-1 text-clinic-text text-sm mb-2">
+            <li className="flex items-center gap-1.5"><Icon name="CheckCircle" size={13} className="text-clinic-teal shrink-0" />Диагностика + план лечения за 1 приём</li>
+            <li className="flex items-center gap-1.5"><Icon name="CheckCircle" size={13} className="text-clinic-teal shrink-0" />Приём в день обращения. Без очередей.</li>
+          </ul>
+          <div className="flex items-center gap-2 bg-amber-50 border-2 border-amber-400 rounded-lg px-3 py-2 mb-3">
+            <Icon name="Tag" size={13} className="text-amber-500 shrink-0" />
+            <span className="font-bold text-clinic-text text-sm">Первичный приём + УЗИ сустава — <span className="text-amber-600">2 500 ₽</span></span>
+          </div>
+          <div className="flex flex-wrap gap-3 text-xs text-clinic-text">
+            <span className="flex items-center gap-1"><Icon name="Clock" size={11} className="text-clinic-teal" />Приём уже сегодня</span>
+            <span className="flex items-center gap-1"><Icon name="Award" size={11} className="text-clinic-teal" />Опытные врачи</span>
+            <span className="flex items-center gap-1"><Icon name="Users" size={11} className="text-clinic-teal" />Более 1000 пациентов</span>
+          </div>
+        </div>
+
+        {/* Специализации */}
+        <div>
+          <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-2 font-medium">Наша специализация</p>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { icon: "Bone", label: "Ортопедия", href: "/services/orthopedics-clinic" },
+              { icon: "Brain", label: "Неврология", href: "/services/neurology-clinic" },
+              { icon: "Hand", label: "Массаж", href: "/services/massage-clinic" },
+              { icon: "FlaskConical", label: "Анализы", href: "/services/lab-tests" },
+              { icon: "Scan", label: "УЗИ суставов", href: "/services/ultrasound" },
+              { icon: "Droplets", label: "Капельницы", href: "/services/infusions" },
+            ].map(({ icon, label, href }) => (
+              <Link key={label} to={href} className="flex items-center gap-2 bg-white border-2 border-clinic-teal rounded-xl py-2.5 px-3">
+                <Icon name={icon} size={16} className="text-clinic-teal shrink-0" />
+                <span className="text-sm font-bold text-clinic-text">{label}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* gradient: white → teal */}
       <div className="h-10 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
