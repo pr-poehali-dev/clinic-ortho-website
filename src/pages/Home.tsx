@@ -122,10 +122,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Кнопки + специализации — только десктоп */}
-        <div className="hidden md:block absolute left-0 right-0 z-10" style={{bottom: '33px'}}>
-          <div className="container space-y-4">
-            {/* Кнопки */}
+        {/* Кнопки — только десктоп */}
+        <div className="hidden md:block absolute left-0 right-0 z-10" style={{bottom: '98px'}}>
+          <div className="container">
             <div className="flex flex-row gap-3">
               <a
                 href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
@@ -167,24 +166,27 @@ export default function Home() {
                 )}
               </div>
             </div>
-            {/* Специализации */}
-            <div>
-              <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
-              <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2">
-                {[
-                  { icon: "Bone", label: "Ортопедия", href: "/services/orthopedics-clinic" },
-                  { icon: "Brain", label: "Неврология", href: "/services/neurology-clinic" },
-                  { icon: "Hand", label: "Массаж", href: "/services/massage-clinic" },
-                  { icon: "FlaskConical", label: "Анализы", href: "/services/lab-tests" },
-                  { icon: "Scan", label: "УЗИ суставов", href: "/services/ultrasound" },
-                  { icon: "Droplets", label: "Капельницы", href: "/services/infusions" },
-                ].map(({ icon, label, href }) => (
-                  <Link key={label} to={href} className="flex items-center gap-2 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-4 transition-transform duration-200 hover:scale-105" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
-                    <Icon name={icon} size={18} className="text-clinic-teal shrink-0" />
-                    <span className="text-sm sm:text-lg font-bold text-clinic-text whitespace-nowrap">{label}</span>
-                  </Link>
-                ))}
-              </div>
+          </div>
+        </div>
+
+        {/* Специализации — только десктоп */}
+        <div className="hidden md:block absolute left-0 right-0 z-10" style={{bottom: '33px'}}>
+          <div className="container">
+            <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
+            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2">
+              {[
+                { icon: "Bone", label: "Ортопедия", href: "/services/orthopedics-clinic" },
+                { icon: "Brain", label: "Неврология", href: "/services/neurology-clinic" },
+                { icon: "Hand", label: "Массаж", href: "/services/massage-clinic" },
+                { icon: "FlaskConical", label: "Анализы", href: "/services/lab-tests" },
+                { icon: "Scan", label: "УЗИ суставов", href: "/services/ultrasound" },
+                { icon: "Droplets", label: "Капельницы", href: "/services/infusions" },
+              ].map(({ icon, label, href }) => (
+                <Link key={label} to={href} className="flex items-center gap-2 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-4 transition-transform duration-200 hover:scale-105" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
+                  <Icon name={icon} size={18} className="text-clinic-teal shrink-0" />
+                  <span className="text-sm sm:text-lg font-bold text-clinic-text whitespace-nowrap">{label}</span>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
