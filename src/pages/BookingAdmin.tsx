@@ -80,9 +80,10 @@ export default function BookingAdmin() {
       fetch(`${API}/appointments?status=${filterStatus}`),
       fetch(`${API}/schedule`),
     ]);
-    setSpecialists(await specsRes.json());
-    setAppointments(await apptRes.json());
-    setSchedule(await schedRes.json());
+    const parse = (d: unknown) => Array.isArray(d) ? d : JSON.parse(d as string);
+    setSpecialists(parse(await specsRes.json()));
+    setAppointments(parse(await apptRes.json()));
+    setSchedule(parse(await schedRes.json()));
   }, [filterStatus]);
 
   useEffect(() => {
@@ -94,7 +95,8 @@ export default function BookingAdmin() {
     if (filterSpec !== "all") url += `&specialist_id=${filterSpec}`;
     if (filterDate) url += `&date=${filterDate}`;
     const res = await fetch(url);
-    setAppointments(await res.json());
+    const d = await res.json();
+    setAppointments(Array.isArray(d) ? d : JSON.parse(d as string));
   }, [filterSpec, filterDate, filterStatus]);
 
   useEffect(() => {

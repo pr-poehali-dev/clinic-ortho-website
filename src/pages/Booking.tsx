@@ -61,7 +61,7 @@ export default function Booking() {
   useEffect(() => {
     fetch(`${API}/specialists`)
       .then((r) => r.json())
-      .then(setSpecialists);
+      .then((d) => setSpecialists(Array.isArray(d) ? d : JSON.parse(d)));
   }, []);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function Booking() {
     const to = format(maxDate, "yyyy-MM-dd");
     fetch(`${API}/schedule?specialist_id=${selectedSpec.id}&from=${from}&to=${to}`)
       .then((r) => r.json())
-      .then(setSchedule);
+      .then((d) => setSchedule(Array.isArray(d) ? d : JSON.parse(d)));
   }, [selectedSpec]);
 
   useEffect(() => {
@@ -78,7 +78,8 @@ export default function Booking() {
     setSlots([]);
     fetch(`${API}/slots?specialist_id=${selectedSpec.id}&date=${selectedDate}`)
       .then((r) => r.json())
-      .then((data) => {
+      .then((raw) => {
+        const data = typeof raw === "string" ? JSON.parse(raw) : raw;
         setSlots(data.slots || []);
         setSlotDuration(data.duration || 40);
         if (data.duration) setMassageDuration(data.duration);
