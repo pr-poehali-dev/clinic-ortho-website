@@ -123,7 +123,7 @@ export default function Home() {
         </div>
 
         {/* Кнопки + специализации — только десктоп */}
-        <div className="hidden md:block absolute left-0 right-0 z-10" style={{bottom: '8px'}}>
+        <div className="hidden md:block absolute left-0 right-0 z-10" style={{bottom: '33px'}}>
           <div className="container space-y-4">
             {/* Кнопки */}
             <div className="flex flex-row gap-3">
