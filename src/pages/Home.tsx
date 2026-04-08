@@ -75,7 +75,7 @@ export default function Home() {
         {/* Продающий блок — только десктоп */}
         <div className="hidden md:block absolute left-0 right-0 z-10" style={{top: '280px'}}>
           <div className="container">
-            <div className="bg-transparent rounded-2xl border-2 border-clinic-teal/40 p-5 grid md:grid-cols-2 gap-6 items-center max-w-2xl">
+            <div className="bg-transparent rounded-2xl border-2 border-clinic-teal/40 p-5 grid md:grid-cols-2 gap-6 items-center max-w-3xl">
 
               {/* Левая часть */}
               <div>
