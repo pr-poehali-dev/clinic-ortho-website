@@ -28,15 +28,19 @@ export default function Home() {
   const [consultOpen, setConsultOpen] = useState(false);
   const [callModalOpen, setCallModalOpen] = useState(false);
   const consultRef = useRef<HTMLDivElement>(null);
+  const consultRefMobile = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (consultRef.current && !consultRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      const inDesktop = consultRef.current?.contains(target);
+      const inMobile = consultRefMobile.current?.contains(target);
+      if (!inDesktop && !inMobile) {
         setConsultOpen(false);
       }
     };
-    document.addEventListener("click", handler);
-    return () => document.removeEventListener("click", handler);
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   }, []);
 
   return (
@@ -221,7 +225,7 @@ export default function Home() {
             <Icon name="CalendarDays" size={16} />
             Записаться на приём
           </a>
-          <div className="relative" ref={consultRef}>
+          <div className="relative" ref={consultRefMobile}>
             <button
               onClick={() => setConsultOpen((v) => !v)}
               className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3.5 rounded-xl font-medium text-sm hover:bg-clinic-teal-light transition-all w-full"
