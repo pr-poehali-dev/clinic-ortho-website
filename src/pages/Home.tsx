@@ -52,7 +52,7 @@ export default function Home() {
         schema={[LOCAL_BUSINESS_SCHEMA, FAQ_SCHEMA]}
       />
       {/* Hero */}
-      <section className="relative overflow-hidden bg-clinic-warm md:min-h-[780px] flex items-start">
+      <section className="relative overflow-hidden bg-clinic-warm md:min-h-[720px] flex items-start">
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Врач и пациент" className="w-4/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10" />
@@ -278,7 +278,7 @@ export default function Home() {
       </div>
 
       {/* Diseases */}
-      <section className="bg-clinic-teal pb-6" style={{marginTop: '12px'}}>
+      <section className="bg-clinic-teal pb-6" style={{marginTop: '0px'}}>
         <div className="h-6 bg-gradient-to-b from-[hsl(91,50%,75%)] to-[hsl(91,50%,38%)]" />
         <div className="container">
           <h2 className="font-display text-2xl md:text-3xl text-white text-center mb-4">Что мы лечим</h2>
