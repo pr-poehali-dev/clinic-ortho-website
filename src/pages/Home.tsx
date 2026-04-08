@@ -31,7 +31,7 @@ export default function Home() {
         schema={[LOCAL_BUSINESS_SCHEMA, FAQ_SCHEMA]}
       />
       {/* Hero */}
-      <section className="relative overflow-hidden bg-clinic-warm min-h-[580px] flex items-center">
+      <section className="relative overflow-hidden bg-clinic-warm min-h-[780px] flex items-center">
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Врач и пациент" className="w-4/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10" />
