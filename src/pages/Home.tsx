@@ -69,7 +69,7 @@ export default function Home() {
         </div>
 
         {/* Продающий блок — только десктоп */}
-        <div className="hidden md:block absolute left-0 right-0 z-10" style={{top: '250px'}}>
+        <div className="hidden md:block absolute left-0 right-0 z-10" style={{top: '260px'}}>
           <div className="container">
             <div className="bg-transparent rounded-2xl border-2 border-clinic-teal/40 p-5 grid md:grid-cols-2 gap-6 items-center max-w-4xl">
 
@@ -84,8 +84,8 @@ export default function Home() {
                   <li className="flex items-center gap-1.5"><Icon name="CheckCircle" size={14} className="text-clinic-teal shrink-0" />Приём в день обращения. Без очередей.</li>
                 </ul>
                 <div className="flex items-center gap-2 bg-amber-50 border-2 border-amber-400 rounded-lg px-3 py-2 mb-2 whitespace-nowrap w-fit">
-                  <Icon name="Tag" size={14} className="text-amber-500 shrink-0" />
-                  <span className="font-bold text-clinic-text text-sm">Первичный приём + УЗИ сустава — <span className="text-amber-600">2 500 ₽</span></span>
+                  <Icon name="Tag" size={15} className="text-amber-500 shrink-0" />
+                  <span className="font-bold text-clinic-text text-base">Первичный приём + УЗИ сустава — <span className="text-amber-600">2 500 ₽</span></span>
                 </div>
                 <div className="flex gap-3 text-xs text-clinic-text whitespace-nowrap">
                   <span className="flex items-center gap-1"><Icon name="Clock" size={11} className="text-clinic-teal" />Приём уже сегодня</span>
