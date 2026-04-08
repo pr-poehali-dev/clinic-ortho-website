@@ -37,6 +37,8 @@ import Massage from "@/pages/services/Massage";
 import LabTests from "@/pages/services/LabTests";
 import Ultrasound from "@/pages/services/Ultrasound";
 import Infusions from "@/pages/services/Infusions";
+import Booking from "@/pages/Booking";
+import BookingAdmin from "@/pages/BookingAdmin";
 
 const queryClient = new QueryClient();
 
@@ -73,6 +75,8 @@ const App = () => (
           <Route path="/services/lab-tests" element={<Layout><LabTests /></Layout>} />
           <Route path="/services/ultrasound" element={<Layout><Ultrasound /></Layout>} />
           <Route path="/services/infusions" element={<Layout><Infusions /></Layout>} />
+          <Route path="/booking" element={<Layout><Booking /></Layout>} />
+          <Route path="/booking-admin" element={<BookingAdmin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
