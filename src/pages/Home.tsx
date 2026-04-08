@@ -33,41 +33,60 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-clinic-warm min-h-[580px] flex items-center">
         <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="Врач и пациент" className="w-3/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0 hidden sm:block" />
+          <img src={HERO_IMG} alt="Врач и пациент" className="w-4/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10" />
         </div>
-        <div className="container relative z-10 py-10">
-          {/* Геолокация + кнопки — сразу под шапкой */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6 animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-clinic-teal-light text-clinic-teal text-xs font-medium px-3 py-1.5 rounded-full">
+        <div className="container relative z-10 py-20">
+          <div className="max-w-lg">
+            <div className="inline-flex items-center gap-2 bg-clinic-teal-light text-clinic-teal text-xs font-medium px-3 py-1.5 rounded-full mb-5 animate-fade-in">
               <Icon name="MapPin" size={12} />
               г. Новосибирск • Принимаем ежедневно
             </div>
-            <div className="flex flex-col sm:flex-row gap-2">
+            <h1 className="text-4xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-5 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
+              Ваши суставы в <span className="text-clinic-teal italic">надёжных руках</span>
+            </h1>
+            <p className="text-clinic-text-muted text-base leading-relaxed mb-8 animate-fade-in-up-delay-1">
+              Клиника лечения суставов. Мы возвращаем свободу движения и качество жизни людям любого возраста.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 animate-fade-in-up-delay-2">
               <a
                 href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackGoal('click_zapis')}
-                className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-5 py-2.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow-md"
+                className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-6 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow-md"
               >
-                <Icon name="CalendarDays" size={15} />
+                <Icon name="CalendarDays" size={16} />
                 Записаться на приём
               </a>
-              <span className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-5 py-2.5 rounded-xl font-medium text-sm">
-                <Icon name="Phone" size={15} />
+              <span
+                className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3.5 rounded-xl font-medium text-sm"
+              >
+                <Icon name="Phone" size={16} />
                 +7 999 464 91 94
               </span>
             </div>
-          </div>
 
-          <div className="max-w-xl">
-            <h1 className="text-4xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-5 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
-              Ваши суставы в <span className="text-clinic-teal italic">надёжных руках</span>
-            </h1>
-            <p className="text-clinic-text-muted text-base leading-relaxed animate-fade-in-up-delay-1">
-              Клиника лечения суставов. Мы возвращаем свободу движения и качество жизни людям любого возраста.
-            </p>
+            {/* Специализации */}
+            <div className="mt-10 animate-fade-in-up-delay-2">
+              <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
+              <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2">
+                {[
+                  { icon: "Bone", label: "Ортопедия", href: "/services/orthopedics-clinic" },
+                  { icon: "Brain", label: "Неврология", href: "/services/neurology-clinic" },
+                  { icon: "Hand", label: "Массаж", href: "/services/massage-clinic" },
+                  { icon: "FlaskConical", label: "Анализы", href: "/services/lab-tests" },
+                  { icon: "Scan", label: "УЗИ суставов", href: "/services/ultrasound" },
+                  { icon: "Droplets", label: "Капельницы", href: "/services/infusions" },
+                ].map(({ icon, label, href }) => (
+                  <Link key={label} to={href} className="flex items-center gap-2 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-4 transition-transform duration-200 hover:scale-105" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
+                    <Icon name={icon} size={18} className="text-clinic-teal shrink-0" />
+                    <span className="text-sm sm:text-lg font-bold text-clinic-text whitespace-nowrap">{label}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -111,28 +130,6 @@ export default function Home() {
 
       {/* gradient: teal → secondary */}
       <div className="h-10 bg-gradient-to-b from-[hsl(91,50%,38%)] to-[hsl(203,60%,93%)]" />
-
-      {/* Наша специализация — на границе блока "Что мы лечим" */}
-      <section className="bg-secondary pt-8 pb-4">
-        <div className="container">
-          <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium text-center">Наша специализация</p>
-          <div className="flex flex-wrap justify-center gap-2">
-            {[
-              { icon: "Bone", label: "Ортопедия", href: "/services/orthopedics-clinic" },
-              { icon: "Brain", label: "Неврология", href: "/services/neurology-clinic" },
-              { icon: "Hand", label: "Массаж", href: "/services/massage-clinic" },
-              { icon: "FlaskConical", label: "Анализы", href: "/services/lab-tests" },
-              { icon: "Scan", label: "УЗИ суставов", href: "/services/ultrasound" },
-              { icon: "Droplets", label: "Капельницы", href: "/services/infusions" },
-            ].map(({ icon, label, href }) => (
-              <Link key={label} to={href} className="flex items-center gap-2 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-4 transition-transform duration-200 hover:scale-105" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
-                <Icon name={icon} size={18} className="text-clinic-teal shrink-0" />
-                <span className="text-sm sm:text-lg font-bold text-clinic-text whitespace-nowrap">{label}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Services preview */}
       <section className="bg-secondary py-10">
