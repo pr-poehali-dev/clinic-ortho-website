@@ -87,7 +87,7 @@ export default function Home() {
         </div>
 
         {/* Продающий блок — внутри hero, над специализацией */}
-        <div className="absolute left-0 right-0 z-10" style={{bottom: '160px'}}>
+        <div className="absolute left-0 right-0 z-10" style={{bottom: '150px'}}>
           <div className="container">
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-border p-5 grid md:grid-cols-2 gap-6 items-center max-w-4xl">
 
