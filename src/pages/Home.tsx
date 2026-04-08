@@ -67,26 +67,28 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Специализации */}
-            <div className="mt-10 animate-fade-in-up-delay-2">
-              <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
-              <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2">
-                {[
-                  { icon: "Bone", label: "Ортопедия", href: "/services/orthopedics-clinic" },
-                  { icon: "Brain", label: "Неврология", href: "/services/neurology-clinic" },
-                  { icon: "Hand", label: "Массаж", href: "/services/massage-clinic" },
-                  { icon: "FlaskConical", label: "Анализы", href: "/services/lab-tests" },
-                  { icon: "Scan", label: "УЗИ суставов", href: "/services/ultrasound" },
-                  { icon: "Droplets", label: "Капельницы", href: "/services/infusions" },
-                ].map(({ icon, label, href }) => (
-                  <Link key={label} to={href} className="flex items-center gap-2 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-4 transition-transform duration-200 hover:scale-105" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
-                    <Icon name={icon} size={18} className="text-clinic-teal shrink-0" />
-                    <span className="text-sm sm:text-lg font-bold text-clinic-text whitespace-nowrap">{label}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
+          </div>
+        </div>
 
+        {/* Специализации — прижаты к нижней границе hero */}
+        <div className="absolute bottom-6 left-0 right-0 z-10 animate-fade-in-up-delay-2">
+          <div className="container">
+            <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
+            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2">
+              {[
+                { icon: "Bone", label: "Ортопедия", href: "/services/orthopedics-clinic" },
+                { icon: "Brain", label: "Неврология", href: "/services/neurology-clinic" },
+                { icon: "Hand", label: "Массаж", href: "/services/massage-clinic" },
+                { icon: "FlaskConical", label: "Анализы", href: "/services/lab-tests" },
+                { icon: "Scan", label: "УЗИ суставов", href: "/services/ultrasound" },
+                { icon: "Droplets", label: "Капельницы", href: "/services/infusions" },
+              ].map(({ icon, label, href }) => (
+                <Link key={label} to={href} className="flex items-center gap-2 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-4 transition-transform duration-200 hover:scale-105" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
+                  <Icon name={icon} size={18} className="text-clinic-teal shrink-0" />
+                  <span className="text-sm sm:text-lg font-bold text-clinic-text whitespace-nowrap">{label}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
