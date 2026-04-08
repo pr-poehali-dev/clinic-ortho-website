@@ -155,8 +155,9 @@ export default function Home() {
               </div>
 
               {/* Правая часть */}
-              <div className="flex gap-2 items-center justify-start">
-                <ul className="space-y-2.5 text-xs">
+              <div className="flex gap-2 items-center justify-start relative rounded-xl overflow-hidden">
+                <div className="absolute inset-0 bg-white/30 backdrop-blur-sm rounded-xl -z-0" />
+                <ul className="space-y-2.5 text-xs relative z-10 p-3">
                   {[
                     { icon: "Footprints", text: "Болит колено" },
                     { icon: "Activity", text: "Боль в спине" },
@@ -171,7 +172,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <img src={KNEE_IMG} alt="Боль в суставе" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl shadow shrink-0" />
+                <img src={KNEE_IMG} alt="Боль в суставе" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl shadow shrink-0 relative z-10" />
               </div>
 
             </div>
