@@ -69,7 +69,7 @@ export default function Home() {
         </div>
 
         {/* Продающий блок — только десктоп */}
-        <div className="hidden md:block absolute left-0 right-0 z-10" style={{top: '230px'}}>
+        <div className="hidden md:block absolute left-0 right-0 z-10" style={{top: '250px'}}>
           <div className="container">
             <div className="bg-transparent rounded-2xl border-2 border-clinic-teal/40 p-5 grid md:grid-cols-2 gap-6 items-center max-w-4xl">
 
@@ -96,6 +96,7 @@ export default function Home() {
 
               {/* Правая часть */}
               <div className="flex gap-2 items-center justify-start rounded-xl p-2" style={{background: 'rgba(255,255,255,0.25)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)'}}>
+                <img src={KNEE_IMG} alt="Боль в суставе" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl shadow shrink-0 relative z-10" />
                 <ul className="space-y-2.5 text-xs relative z-10 p-3">
                   {[
                     { icon: "Footprints", text: "Болит колено" },
@@ -111,7 +112,6 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <img src={KNEE_IMG} alt="Боль в суставе" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl shadow shrink-0 relative z-10" />
               </div>
 
             </div>
