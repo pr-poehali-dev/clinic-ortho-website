@@ -36,7 +36,7 @@ export default function Home() {
           <img src={HERO_IMG} alt="Врач и пациент" className="w-4/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10" />
         </div>
-        <div className="container relative z-10 py-20">
+        <div className="container relative z-10 pt-8 pb-20">
           <div className="max-w-lg">
             <div className="inline-flex items-center gap-2 bg-clinic-teal-light text-clinic-teal text-xs font-medium px-3 py-1.5 rounded-full mb-5 animate-fade-in">
               <Icon name="MapPin" size={12} />
