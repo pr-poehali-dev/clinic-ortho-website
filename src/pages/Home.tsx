@@ -155,8 +155,7 @@ export default function Home() {
               </div>
 
               {/* Правая часть */}
-              <div className="flex gap-2 items-center justify-start relative rounded-xl overflow-hidden">
-                <div className="absolute inset-0 bg-white/30 backdrop-blur-sm rounded-xl -z-0" />
+              <div className="flex gap-2 items-center justify-start rounded-xl p-2" style={{background: 'rgba(255,255,255,0.25)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)'}}>
                 <ul className="space-y-2.5 text-xs relative z-10 p-3">
                   {[
                     { icon: "Footprints", text: "Болит колено" },
