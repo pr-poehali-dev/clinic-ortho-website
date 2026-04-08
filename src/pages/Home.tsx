@@ -278,10 +278,10 @@ export default function Home() {
       </div>
 
       {/* gradient: white → teal */}
-      <div className="h-4 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
+      <div className="h-10 bg-gradient-to-b from-white to-[hsl(91,50%,38%)]" />
 
       {/* Diseases */}
-      <section className="bg-clinic-teal pt-2 pb-6">
+      <section className="bg-clinic-teal py-6">
         <div className="container">
           <h2 className="font-display text-2xl md:text-3xl text-white text-center mb-4">Что мы лечим</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3 items-center">
