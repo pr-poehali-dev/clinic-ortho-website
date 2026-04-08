@@ -26,6 +26,7 @@ const SERVICES_PREVIEW = [
 
 export default function Home() {
   const [consultOpen, setConsultOpen] = useState(false);
+  const [callModalOpen, setCallModalOpen] = useState(false);
   const consultRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -97,7 +98,7 @@ export default function Home() {
                   Болит колено, спина или суставы?<br />
                   <span className="text-clinic-teal">Избавим от боли без операций</span>
                 </h2>
-                <ul className="space-y-1 text-clinic-text-muted text-xs mb-3">
+                <ul className="space-y-1 text-clinic-text text-xs mb-3">
                   <li className="flex items-center gap-1.5"><Icon name="CheckCircle" size={13} className="text-clinic-teal shrink-0" />Диагностика + план лечения за 1 приём</li>
                   <li className="flex items-center gap-1.5"><Icon name="CheckCircle" size={13} className="text-clinic-teal shrink-0" />Приём в день обращения. Без очередей.</li>
                 </ul>
@@ -126,11 +127,14 @@ export default function Home() {
                       <Icon name={consultOpen ? "ChevronUp" : "ChevronDown"} size={12} />
                     </button>
                     {consultOpen && (
-                      <div className="absolute top-full mt-1 left-0 w-52 bg-white border border-border rounded-xl shadow-lg z-20 overflow-hidden">
-                        <a href="tel:+79994649194" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-xs text-clinic-text">
+                      <div className="absolute bottom-full mb-1 left-0 w-52 bg-white border border-border rounded-xl shadow-xl z-50 overflow-hidden">
+                        <button
+                          onClick={() => { setCallModalOpen(true); setConsultOpen(false); }}
+                          className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-xs text-clinic-text w-full text-left"
+                        >
                           <Icon name="Phone" size={13} className="text-clinic-teal" />
-                          <div><p className="font-medium">Позвонить</p><p className="text-clinic-text-muted">+7 999 464 91 94</p></div>
-                        </a>
+                          <p className="font-medium">Позвонить</p>
+                        </button>
                         <a href="https://max.ru/im?sel=+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-xs text-clinic-text border-t border-border">
                           <Icon name="MessageSquare" size={13} className="text-clinic-teal" />
                           <p className="font-medium">Написать в Макс</p>
@@ -143,7 +147,7 @@ export default function Home() {
                     )}
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-3 text-xs text-clinic-text-muted">
+                <div className="flex flex-wrap gap-3 text-xs text-clinic-text">
                   <span className="flex items-center gap-1"><Icon name="Clock" size={11} className="text-clinic-teal" />Приём уже сегодня</span>
                   <span className="flex items-center gap-1"><Icon name="Award" size={11} className="text-clinic-teal" />Опытные врачи</span>
                   <span className="flex items-center gap-1"><Icon name="Users" size={11} className="text-clinic-teal" />Более 1000 пациентов</span>
@@ -151,7 +155,7 @@ export default function Home() {
               </div>
 
               {/* Правая часть */}
-              <div className="flex gap-4 items-center justify-center">
+              <div className="flex gap-2 items-center justify-start">
                 <ul className="space-y-2.5 text-xs">
                   {[
                     { icon: "Footprints", text: "Болит колено" },
@@ -322,6 +326,26 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Модальное окно "Позвонить" */}
+      {callModalOpen && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setCallModalOpen(false)}>
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full text-center" onClick={(e) => e.stopPropagation()}>
+            <div className="w-14 h-14 rounded-full bg-clinic-teal-light flex items-center justify-center mx-auto mb-4">
+              <Icon name="Phone" size={26} className="text-clinic-teal" />
+            </div>
+            <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-1">Клиника «Ваш Ортопед»</p>
+            <p className="font-display text-2xl text-clinic-text mb-1">+7 999 464 91 94</p>
+            <p className="text-sm text-clinic-text-muted mb-6">Мы рады Вас проконсультировать!</p>
+            <button
+              onClick={() => setCallModalOpen(false)}
+              className="w-full border border-border text-clinic-text-muted py-2.5 rounded-xl text-sm hover:bg-gray-50 transition-colors"
+            >
+              Закрыть
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
