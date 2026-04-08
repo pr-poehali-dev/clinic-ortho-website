@@ -53,7 +53,7 @@ export default function Home() {
           <img src={HERO_IMG} alt="Врач и пациент" className="w-4/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10" />
         </div>
-        <div className="container relative z-10 pt-8 md:pb-20 pb-6">
+        <div className="container relative z-10 pt-8 md:pb-6 pb-6">
           <div className="max-w-lg">
             <div className="inline-flex items-center gap-2 bg-clinic-teal-light text-clinic-teal text-xs font-medium px-3 py-1.5 rounded-full mb-5 animate-fade-in">
               <Icon name="MapPin" size={12} />
@@ -62,55 +62,14 @@ export default function Home() {
             <h1 className="text-4xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-5 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
               Ваши суставы в <span className="text-clinic-teal italic">надёжных руках</span>
             </h1>
-            <p className="text-clinic-text-muted text-base leading-relaxed mb-8 animate-fade-in-up-delay-1">
+            <p className="text-clinic-text-muted text-base leading-relaxed mb-6 animate-fade-in-up-delay-1">
               Клиника лечения суставов. Мы возвращаем свободу движения и качество жизни людям любого возраста.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 animate-fade-in-up-delay-2">
-              <a
-                href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackGoal('click_zapis')}
-                className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-6 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow-md"
-              >
-                <Icon name="CalendarDays" size={16} />
-                Записаться на приём
-              </a>
-              <div className="relative" ref={consultRef}>
-                <button
-                  onClick={() => setConsultOpen((v) => !v)}
-                  className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3.5 rounded-xl font-medium text-sm hover:bg-clinic-teal-light transition-all"
-                >
-                  <Icon name="MessageCircle" size={16} />
-                  Получить консультацию
-                  <Icon name={consultOpen ? "ChevronUp" : "ChevronDown"} size={14} />
-                </button>
-                {consultOpen && (
-                  <div className="absolute top-full mt-1 left-0 w-56 bg-white border border-border rounded-xl shadow-xl z-50 overflow-hidden">
-                    <button
-                      onClick={() => { setCallModalOpen(true); setConsultOpen(false); }}
-                      className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text w-full text-left"
-                    >
-                      <Icon name="Phone" size={15} className="text-clinic-teal" />
-                      <p className="font-medium">Позвонить</p>
-                    </button>
-                    <a href="https://max.ru/im?sel=+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
-                      <Icon name="MessageSquare" size={15} className="text-clinic-teal" />
-                      <p className="font-medium">Написать в Макс</p>
-                    </a>
-                    <a href="https://t.me/VashOrtoped_NSK" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
-                      <Icon name="Send" size={15} className="text-clinic-teal" />
-                      <p className="font-medium">Написать в Telegram</p>
-                    </a>
-                  </div>
-                )}
-              </div>
-            </div>
           </div>
         </div>
 
         {/* Продающий блок — только десктоп */}
-        <div className="hidden md:block absolute left-0 right-0 z-10" style={{bottom: '150px'}}>
+        <div className="hidden md:block absolute left-0 right-0 z-10" style={{top: '230px'}}>
           <div className="container">
             <div className="bg-transparent rounded-2xl border-2 border-clinic-teal/40 p-5 grid md:grid-cols-2 gap-6 items-center max-w-4xl">
 
@@ -159,24 +118,69 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Специализации — только десктоп */}
+        {/* Кнопки + специализации — только десктоп */}
         <div className="hidden md:block absolute bottom-6 left-0 right-0 z-10">
-          <div className="container">
-            <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
-            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2">
-              {[
-                { icon: "Bone", label: "Ортопедия", href: "/services/orthopedics-clinic" },
-                { icon: "Brain", label: "Неврология", href: "/services/neurology-clinic" },
-                { icon: "Hand", label: "Массаж", href: "/services/massage-clinic" },
-                { icon: "FlaskConical", label: "Анализы", href: "/services/lab-tests" },
-                { icon: "Scan", label: "УЗИ суставов", href: "/services/ultrasound" },
-                { icon: "Droplets", label: "Капельницы", href: "/services/infusions" },
-              ].map(({ icon, label, href }) => (
-                <Link key={label} to={href} className="flex items-center gap-2 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-4 transition-transform duration-200 hover:scale-105" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
-                  <Icon name={icon} size={18} className="text-clinic-teal shrink-0" />
-                  <span className="text-sm sm:text-lg font-bold text-clinic-text whitespace-nowrap">{label}</span>
-                </Link>
-              ))}
+          <div className="container space-y-4">
+            {/* Кнопки */}
+            <div className="flex flex-row gap-3">
+              <a
+                href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackGoal('click_zapis')}
+                className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-6 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow-md"
+              >
+                <Icon name="CalendarDays" size={16} />
+                Записаться на приём
+              </a>
+              <div className="relative" ref={consultRef}>
+                <button
+                  onClick={() => setConsultOpen((v) => !v)}
+                  className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3.5 rounded-xl font-medium text-sm hover:bg-clinic-teal-light transition-all"
+                >
+                  <Icon name="MessageCircle" size={16} />
+                  Получить консультацию
+                  <Icon name={consultOpen ? "ChevronUp" : "ChevronDown"} size={14} />
+                </button>
+                {consultOpen && (
+                  <div className="absolute bottom-full mb-1 left-0 w-56 bg-white border border-border rounded-xl shadow-xl z-50 overflow-hidden">
+                    <button
+                      onClick={() => { setCallModalOpen(true); setConsultOpen(false); }}
+                      className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text w-full text-left"
+                    >
+                      <Icon name="Phone" size={15} className="text-clinic-teal" />
+                      <p className="font-medium">Позвонить</p>
+                    </button>
+                    <a href="https://max.ru/im?sel=+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
+                      <Icon name="MessageSquare" size={15} className="text-clinic-teal" />
+                      <p className="font-medium">Написать в Макс</p>
+                    </a>
+                    <a href="https://t.me/VashOrtoped_NSK" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
+                      <Icon name="Send" size={15} className="text-clinic-teal" />
+                      <p className="font-medium">Написать в Telegram</p>
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+            {/* Специализации */}
+            <div>
+              <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-3 font-medium">Наша специализация</p>
+              <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2">
+                {[
+                  { icon: "Bone", label: "Ортопедия", href: "/services/orthopedics-clinic" },
+                  { icon: "Brain", label: "Неврология", href: "/services/neurology-clinic" },
+                  { icon: "Hand", label: "Массаж", href: "/services/massage-clinic" },
+                  { icon: "FlaskConical", label: "Анализы", href: "/services/lab-tests" },
+                  { icon: "Scan", label: "УЗИ суставов", href: "/services/ultrasound" },
+                  { icon: "Droplets", label: "Капельницы", href: "/services/infusions" },
+                ].map(({ icon, label, href }) => (
+                  <Link key={label} to={href} className="flex items-center gap-2 bg-white/80 border-[3px] border-clinic-teal rounded-xl py-3 px-4 transition-transform duration-200 hover:scale-105" style={{boxShadow: '0 0 0 5px rgba(74,154,110,0.18), 0 0 12px 4px rgba(74,154,110,0.13)'}}>
+                    <Icon name={icon} size={18} className="text-clinic-teal shrink-0" />
+                    <span className="text-sm sm:text-lg font-bold text-clinic-text whitespace-nowrap">{label}</span>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -202,6 +206,49 @@ export default function Home() {
             <span className="flex items-center gap-1"><Icon name="Clock" size={11} className="text-clinic-teal" />Приём уже сегодня</span>
             <span className="flex items-center gap-1"><Icon name="Award" size={11} className="text-clinic-teal" />Опытные врачи</span>
             <span className="flex items-center gap-1"><Icon name="Users" size={11} className="text-clinic-teal" />Более 1000 пациентов</span>
+          </div>
+        </div>
+
+        {/* Кнопки */}
+        <div className="flex flex-col gap-3">
+          <a
+            href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackGoal('click_zapis')}
+            className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-6 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow-md"
+          >
+            <Icon name="CalendarDays" size={16} />
+            Записаться на приём
+          </a>
+          <div className="relative" ref={consultRef}>
+            <button
+              onClick={() => setConsultOpen((v) => !v)}
+              className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3.5 rounded-xl font-medium text-sm hover:bg-clinic-teal-light transition-all w-full"
+            >
+              <Icon name="MessageCircle" size={16} />
+              Получить консультацию
+              <Icon name={consultOpen ? "ChevronUp" : "ChevronDown"} size={14} />
+            </button>
+            {consultOpen && (
+              <div className="absolute top-full mt-1 left-0 w-56 bg-white border border-border rounded-xl shadow-xl z-50 overflow-hidden">
+                <button
+                  onClick={() => { setCallModalOpen(true); setConsultOpen(false); }}
+                  className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text w-full text-left"
+                >
+                  <Icon name="Phone" size={15} className="text-clinic-teal" />
+                  <p className="font-medium">Позвонить</p>
+                </button>
+                <a href="https://max.ru/im?sel=+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
+                  <Icon name="MessageSquare" size={15} className="text-clinic-teal" />
+                  <p className="font-medium">Написать в Макс</p>
+                </a>
+                <a href="https://t.me/VashOrtoped_NSK" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
+                  <Icon name="Send" size={15} className="text-clinic-teal" />
+                  <p className="font-medium">Написать в Telegram</p>
+                </a>
+              </div>
+            )}
           </div>
         </div>
 
