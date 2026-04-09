@@ -101,7 +101,7 @@ export default function Home() {
 
               {/* Правая часть */}
               <div className="flex gap-2 items-center justify-start rounded-xl p-2" style={{background: 'rgba(255,255,255,0.25)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)'}}>
-                <img src={KNEE_IMG} alt="Боль в суставе" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl shadow shrink-0 relative z-10" />
+                <img src={KNEE_IMG} alt="Боль в суставе" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl shadow shrink-0 relative z-10" loading="lazy" decoding="async" />
                 <ul className="space-y-2.5 text-xs relative z-10 p-3">
                   {[
                     { icon: "Footprints", text: "Болит колено" },
@@ -297,6 +297,8 @@ export default function Home() {
                   src={item.img}
                   alt={item.titles.join(", ")}
                   className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300 rounded-xl overflow-hidden"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-3 rounded-xl bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 gap-1">

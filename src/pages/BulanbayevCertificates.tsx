@@ -131,6 +131,8 @@ export default function BulanbayevCertificates() {
                 src={cert.url}
                 alt={cert.title}
                 className="w-14 h-14 object-cover rounded-lg shrink-0 border border-border"
+                loading="lazy"
+                decoding="async"
               />
               <span className="flex-1 text-sm text-clinic-text leading-snug group-hover:text-clinic-teal transition-colors">
                 {cert.title}
@@ -159,6 +161,8 @@ export default function BulanbayevCertificates() {
               src={preview}
               alt="Сертификат"
               className="max-h-[88vh] max-w-[88vw] rounded-xl shadow-2xl object-contain"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

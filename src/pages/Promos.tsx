@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import SEO from "@/components/SEO";
 
 const BOOKING_URL = "https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089";
 
@@ -75,6 +76,23 @@ const promos = [
 export default function Promos() {
   return (
     <div className="bg-background min-h-screen">
+      <SEO
+        title="Акции и скидки — клиника Ваш Ортопед, Новосибирск"
+        description="Скидки до 25% на приём ортопеда, PRP-терапию, массаж и анализы. Акции для пенсионеров. Клиника «Ваш Ортопед», Новосибирск."
+        canonical="/promos"
+        breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Акции", url: "/promos" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "OfferCatalog",
+          "name": "Акции клиники Ваш Ортопед",
+          "itemListElement": promos.map((p, i) => ({
+            "@type": "Offer",
+            "position": i + 1,
+            "name": p.title,
+            "description": p.description,
+          })),
+        }}
+      />
       {/* Hero */}
       <section className="bg-clinic-teal py-4 px-4">
         <div className="container max-w-2xl mx-auto text-center text-white flex items-center justify-center gap-3">

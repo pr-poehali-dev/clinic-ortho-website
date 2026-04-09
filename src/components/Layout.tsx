@@ -188,6 +188,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/3e87c830-678c-485d-b730-8467068e3086.png"
                 alt="Ваш Ортопед"
                 className="h-10 w-10 object-contain"
+                loading="lazy"
+                decoding="async"
               />
               <span className="font-display text-xl text-white">Ваш Ортопед</span>
             </div>

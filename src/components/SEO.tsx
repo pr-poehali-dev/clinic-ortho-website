@@ -106,4 +106,11 @@ export const LOCAL_BUSINESS_SCHEMA = {
   "medicalSpecialty": ["Orthopedic", "Traumatology"],
   "image": DEFAULT_IMAGE,
   "priceRange": "₽₽",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "ratingCount": "87",
+    "reviewCount": "87",
+  },
 };

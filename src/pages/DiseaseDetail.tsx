@@ -205,7 +205,7 @@ export default function DiseaseDetail() {
             "provider": {
               "@type": "MedicalClinic",
               "name": "Ваш Ортопед",
-              "url": "https://vashortopped.ru",
+              "url": "https://vash-ortoped.ru",
               "telephone": "+79994649194",
               "address": {
                 "@type": "PostalAddress",
@@ -250,7 +250,7 @@ export default function DiseaseDetail() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-lg">
-            <img src={disease.img} alt={disease.title} className="w-full h-72 object-cover" />
+            <img src={disease.img} alt={disease.title} className="w-full h-72 object-cover" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>

@@ -4,41 +4,43 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
   return null;
 };
+
 import Layout from "@/components/Layout";
-import Home from "@/pages/Home";
-import Doctors from "@/pages/Doctors";
-import Services from "@/pages/Services";
-import ServiceDetail from "@/pages/ServiceDetail";
-import Prices from "@/pages/Prices";
-import Contacts from "@/pages/Contacts";
-import DiseaseDetail from "@/pages/DiseaseDetail";
-import Publications from "@/pages/Publications";
-import ArticleDetail from "@/pages/ArticleDetail";
-import NotFound from "./pages/NotFound";
-import Admin from "@/pages/Admin";
-import License from "@/pages/License";
-import Requisites from "@/pages/Requisites";
-import Privacy from "@/pages/Privacy";
-import Supervisors from "@/pages/Supervisors";
-import BulanbayevCertificates from "@/pages/BulanbayevCertificates";
-import Promos from "@/pages/Promos";
 import PromoPopup from "@/components/PromoPopup";
-import Osteohondroz from "@/pages/diseases/Osteohondroz";
-import Orthopedics from "@/pages/services/Orthopedics";
-import Neurology from "@/pages/services/Neurology";
-import Massage from "@/pages/services/Massage";
-import LabTests from "@/pages/services/LabTests";
-import Ultrasound from "@/pages/services/Ultrasound";
-import Infusions from "@/pages/services/Infusions";
-import Booking from "@/pages/Booking";
-import BookingAdmin from "@/pages/BookingAdmin";
+import Home from "@/pages/Home";
+
+const Doctors = lazy(() => import("@/pages/Doctors"));
+const Services = lazy(() => import("@/pages/Services"));
+const ServiceDetail = lazy(() => import("@/pages/ServiceDetail"));
+const Prices = lazy(() => import("@/pages/Prices"));
+const Contacts = lazy(() => import("@/pages/Contacts"));
+const DiseaseDetail = lazy(() => import("@/pages/DiseaseDetail"));
+const Publications = lazy(() => import("@/pages/Publications"));
+const ArticleDetail = lazy(() => import("@/pages/ArticleDetail"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
+const Admin = lazy(() => import("@/pages/Admin"));
+const License = lazy(() => import("@/pages/License"));
+const Requisites = lazy(() => import("@/pages/Requisites"));
+const Privacy = lazy(() => import("@/pages/Privacy"));
+const Supervisors = lazy(() => import("@/pages/Supervisors"));
+const BulanbayevCertificates = lazy(() => import("@/pages/BulanbayevCertificates"));
+const Promos = lazy(() => import("@/pages/Promos"));
+const Osteohondroz = lazy(() => import("@/pages/diseases/Osteohondroz"));
+const Orthopedics = lazy(() => import("@/pages/services/Orthopedics"));
+const Neurology = lazy(() => import("@/pages/services/Neurology"));
+const Massage = lazy(() => import("@/pages/services/Massage"));
+const LabTests = lazy(() => import("@/pages/services/LabTests"));
+const Ultrasound = lazy(() => import("@/pages/services/Ultrasound"));
+const Infusions = lazy(() => import("@/pages/services/Infusions"));
+const Booking = lazy(() => import("@/pages/Booking"));
+const BookingAdmin = lazy(() => import("@/pages/BookingAdmin"));
 
 const queryClient = new QueryClient();
 
@@ -51,6 +53,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <PromoPopup />
+        <Suspense fallback={<div className="min-h-screen" />}>
         <Routes>
           <Route path="/" element={<Layout><Home /></Layout>} />
           <Route path="/doctors" element={<Layout><Doctors /></Layout>} />
@@ -80,6 +83,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

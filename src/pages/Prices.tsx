@@ -48,7 +48,7 @@ export default function Prices() {
           "@context": "https://schema.org",
           "@type": "MedicalClinic",
           "name": "Ваш Ортопед",
-          "url": "https://vashortopped.ru",
+          "url": "https://vash-ortoped.ru",
           "priceRange": "1500-105000",
           "currenciesAccepted": "RUB",
           "paymentAccepted": "Наличные, банковская карта",

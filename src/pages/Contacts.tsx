@@ -48,8 +48,8 @@ export default function Contacts() {
           },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 55.034839,
-            "longitude": 82.995861
+            "latitude": 54.8527,
+            "longitude": 83.1028
           },
           "openingHoursSpecification": [
             { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "19:00" }

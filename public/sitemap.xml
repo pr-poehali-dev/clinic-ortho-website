@@ -4,75 +4,113 @@
   <!-- Главные страницы -->
   <url>
     <loc>https://vash-ortoped.ru/</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/doctors</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/services</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/prices</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/contacts</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/publications</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vash-ortoped.ru/promos</loc>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Услуги -->
+  <!-- Услуги (статические страницы) -->
   <url>
-    <loc>https://vash-ortoped.ru/services/orthopedics</loc>
-    <lastmod>2026-03-19</lastmod>
+    <loc>https://vash-ortoped.ru/services/orthopedics-clinic</loc>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vash-ortoped.ru/services/traumatology</loc>
-    <lastmod>2026-03-19</lastmod>
+    <loc>https://vash-ortoped.ru/services/neurology-clinic</loc>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vash-ortoped.ru/services/blockades</loc>
-    <lastmod>2026-03-19</lastmod>
+    <loc>https://vash-ortoped.ru/services/massage-clinic</loc>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vash-ortoped.ru/services/injections</loc>
-    <lastmod>2026-03-19</lastmod>
+    <loc>https://vash-ortoped.ru/services/lab-tests</loc>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vash-ortoped.ru/services/analyses</loc>
-    <lastmod>2026-03-19</lastmod>
+    <loc>https://vash-ortoped.ru/services/ultrasound</loc>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/services/infusions</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Услуги (динамические) -->
+  <url>
+    <loc>https://vash-ortoped.ru/services/orthopedics</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vash-ortoped.ru/services/traumatology</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vash-ortoped.ru/services/blockades</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vash-ortoped.ru/services/injections</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vash-ortoped.ru/services/analyses</loc>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -80,37 +118,43 @@
   <!-- Заболевания -->
   <url>
     <loc>https://vash-ortoped.ru/diseases/arthritis-arthrosis</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/diseases/tendinitis-enthesitis</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/diseases/synovitis</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/diseases/fractures-dislocations</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/diseases/osteochondrosis-back-pain</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/diseases/bursitis</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vash-ortoped.ru/diseases/osteohondroz</loc>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -118,93 +162,113 @@
   <!-- Статьи -->
   <url>
     <loc>https://vash-ortoped.ru/articles/arthritis-causes-and-symptoms</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/arthritis-treatment-without-surgery</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/arthrosis-what-is-it</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/arthritis-vs-arthrosis-difference</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/arthritis-vs-arthrosis-treatment-tactics</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/tendinitis-types-and-symptoms</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/tendinitis-prp-treatment</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/enthesitis-symptoms-and-treatment</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/enthesitis-heel-spur-treatment</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/bursitis-types-symptoms</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/shoulder-bursitis-treatment</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/synovitis-joint-fluid</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/synovitis-after-injury</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/osteochondrosis-orthopedic-view</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vash-ortoped.ru/articles/osteochondrosis-lumbar-treatment</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Документы -->
+  <url>
+    <loc>https://vash-ortoped.ru/license</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://vash-ortoped.ru/requisites</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://vash-ortoped.ru/privacy</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>

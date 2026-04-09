@@ -118,6 +118,8 @@ export default function Osteohondroz() {
             src={SPINE_IMG}
             alt="Лечение остеохондроза"
             className="w-full h-full object-cover object-center opacity-30"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/40" />
         </div>
