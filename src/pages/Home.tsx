@@ -54,10 +54,11 @@ export default function Home() {
       />
       {/* SEO banner */}
       <div className="bg-clinic-teal text-white py-3 md:py-4 px-4">
-        <h2 className="container text-center text-lg md:text-2xl font-display font-bold tracking-wide">
+        <h2 className="container text-center text-xl md:text-3xl font-bold tracking-wide" style={{fontFamily: "'Playfair Display', serif"}}>
           Лечение артроза и боли в суставах без операций
         </h2>
       </div>
+      <div className="h-4 bg-gradient-to-b from-clinic-teal to-clinic-warm" />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-clinic-warm md:min-h-[780px] flex items-start">
@@ -209,9 +210,12 @@ export default function Home() {
             <li className="flex items-center gap-1.5"><Icon name="CheckCircle" size={13} className="text-clinic-teal shrink-0" />Диагностика + план лечения за 1 приём</li>
             <li className="flex items-center gap-1.5"><Icon name="CheckCircle" size={13} className="text-clinic-teal shrink-0" />Приём в день обращения. Без очередей.</li>
           </ul>
-          <div className="flex items-center gap-2 bg-amber-50 border-2 border-amber-400 rounded-lg px-3 py-2 mb-3">
-            <Icon name="Tag" size={13} className="text-amber-500 shrink-0" />
-            <span className="font-bold text-clinic-text text-sm">Первичный приём + УЗИ сустава — <span className="text-amber-600">2 500 ₽</span></span>
+          <div className="flex flex-col items-center gap-1 bg-amber-50 border-2 border-amber-400 rounded-lg px-3 py-2 mb-3">
+            <span className="flex items-center gap-1.5 text-clinic-text text-sm font-medium">
+              <Icon name="Tag" size={13} className="text-amber-500 shrink-0" />
+              Первичный приём + УЗИ сустава
+            </span>
+            <span className="font-bold text-amber-600 text-lg">2 500 ₽</span>
           </div>
           <div className="flex flex-wrap gap-3 text-xs text-clinic-text">
             <span className="flex items-center gap-1"><Icon name="Clock" size={11} className="text-clinic-teal" />Приём уже сегодня</span>
@@ -359,60 +363,53 @@ export default function Home() {
       {/* gradient: secondary → white */}
       <div className="h-10 bg-gradient-to-b from-[hsl(203,60%,93%)] to-white" />
 
+      {/* gradient: white → teal block */}
+      <div className="h-8 bg-gradient-to-b from-white to-clinic-teal" />
+
       {/* SEO text block */}
-      <section className="bg-clinic-beige border-y border-border py-10">
+      <section className="bg-clinic-teal py-10">
         <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-display text-2xl md:text-4xl text-clinic-text mb-6 text-center">Лечение артроза и артрита в Новосибирске</h2>
-            <div className="grid md:grid-cols-2 gap-5">
-              <div className="bg-white rounded-2xl p-5 border border-border">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
-                    <Icon name="Bone" size={16} className="text-clinic-teal" />
-                  </div>
-                  <h3 className="font-bold text-clinic-text">Артроз коленного сустава</h3>
+          <h2 className="font-display text-2xl md:text-4xl text-white mb-6 text-center">Лечение артроза и артрита в Новосибирске</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            <div className="bg-white rounded-2xl p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
+                  <Icon name="Bone" size={16} className="text-clinic-teal" />
                 </div>
-                <p className="text-sm text-clinic-text-muted leading-relaxed">
-                  Боль в коленях, хруст при движении, скованность по утрам — признаки разрушения хрящевой ткани. Лечим артроз без операции: PRP-терапия, гиалуроновая кислота и SVF-терапия (стволовые клетки).
-                </p>
+                <h3 className="font-bold text-clinic-text">Артроз коленного сустава</h3>
               </div>
-              <div className="bg-white rounded-2xl p-5 border border-border">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
-                    <Icon name="Flame" size={16} className="text-clinic-teal" />
-                  </div>
-                  <h3 className="font-bold text-clinic-text">Артрит и воспаление суставов</h3>
+              <p className="text-sm text-clinic-text-muted leading-relaxed">
+                Боль в коленях, хруст при движении, скованность по утрам — признаки разрушения хрящевой ткани. Лечим артроз без операции: PRP-терапия, гиалуроновая кислота и SVF-терапия (стволовые клетки).
+              </p>
+            </div>
+            <div className="bg-white rounded-2xl p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
+                  <Icon name="Flame" size={16} className="text-clinic-teal" />
                 </div>
-                <p className="text-sm text-clinic-text-muted leading-relaxed">
-                  Покраснение, отёк, острая боль при движении требуют точной диагностики. Врач-ортопед проводит УЗИ сустава прямо на приёме и подбирает индивидуальный план лечения.
-                </p>
+                <h3 className="font-bold text-clinic-text">Артрит и воспаление суставов</h3>
               </div>
-              <div className="bg-white rounded-2xl p-5 border border-border">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
-                    <Icon name="Activity" size={16} className="text-clinic-teal" />
-                  </div>
-                  <h3 className="font-bold text-clinic-text">Болит спина или шея?</h3>
+              <p className="text-sm text-clinic-text-muted leading-relaxed">
+                Покраснение, отёк, острая боль при движении требуют точной диагностики. Врач-ортопед проводит УЗИ сустава прямо на приёме и подбирает индивидуальный план лечения.
+              </p>
+            </div>
+            <div className="bg-white rounded-2xl p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
+                  <Icon name="Activity" size={16} className="text-clinic-teal" />
                 </div>
-                <p className="text-sm text-clinic-text-muted leading-relaxed">
-                  Остеохондроз, грыжи и протрузии лечим блокадами, капельницами с хондропротекторами и PRP-терапией. Большинство пациентов чувствуют облегчение уже после первой процедуры.
-                </p>
+                <h3 className="font-bold text-clinic-text">Болит спина или шея?</h3>
               </div>
-              <div className="bg-white rounded-2xl p-5 border border-border">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
-                    <Icon name="Heart" size={16} className="text-clinic-teal" />
-                  </div>
-                  <h3 className="font-bold text-clinic-text">Более 1 000 пациентов</h3>
-                </div>
-                <p className="text-sm text-clinic-text-muted leading-relaxed">
-                  Клиника «Ваш Ортопед» — приём без очередей, прозрачные цены и индивидуальный подход. Мы уже помогли вернуть свободу движения более чем тысяче пациентов.
-                </p>
-              </div>
+              <p className="text-sm text-clinic-text-muted leading-relaxed">
+                Остеохондроз, грыжи и протрузии лечим блокадами, капельницами с хондропротекторами и PRP-терапией. Большинство пациентов чувствуют облегчение уже после первой процедуры.
+              </p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* gradient: teal block → white */}
+      <div className="h-8 bg-gradient-to-b from-clinic-teal to-white" />
 
       {/* Advantages */}
       <section className="container py-10">
