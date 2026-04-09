@@ -68,7 +68,7 @@ export default function Home() {
         </div>
         <div className="container relative z-10 pt-8 md:pb-6 pb-6">
           <div className="max-w-lg">
-            <h1 className="text-4xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-4 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
+            <h1 className="text-3xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-4 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
               Ваши суставы в <span className="text-clinic-teal italic">надёжных руках</span>
             </h1>
             <p className="text-clinic-text-muted text-base leading-relaxed mb-6 animate-fade-in-up-delay-1">
@@ -152,7 +152,7 @@ export default function Home() {
                   <Icon name={consultOpen ? "ChevronUp" : "ChevronDown"} size={14} />
                 </button>
                 {consultOpen && (
-                  <div className="absolute bottom-full mb-1 left-0 w-56 bg-white border border-border rounded-xl shadow-xl z-50 overflow-hidden">
+                  <div className="absolute bottom-full mb-1 left-0 w-52 bg-white border border-border rounded-xl shadow-xl z-50 overflow-hidden">
                     <button
                       onClick={() => { setCallModalOpen(true); setConsultOpen(false); }}
                       className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text w-full text-left"
@@ -246,7 +246,7 @@ export default function Home() {
               <Icon name={consultOpen ? "ChevronUp" : "ChevronDown"} size={14} />
             </button>
             {consultOpen && (
-              <div className="absolute top-full mt-1 left-0 w-56 bg-white border border-border rounded-xl shadow-xl z-50 overflow-hidden">
+              <div className="absolute top-full mt-1 left-0 w-52 bg-white border border-border rounded-xl shadow-xl z-50 overflow-hidden">
                 <button
                   onClick={() => { setCallModalOpen(true); setConsultOpen(false); }}
                   className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text w-full text-left"
@@ -444,13 +444,16 @@ export default function Home() {
             Запишитесь на консультацию сейчас и получите развёрнутый план лечения от наших специалистов
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button
-              onClick={() => setModalOpen(true)}
+            <a
+              href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackGoal('click_zapis')}
               className="flex items-center justify-center gap-2 bg-white text-clinic-teal px-7 py-3.5 rounded-xl font-medium hover:bg-opacity-90 transition-all text-sm shadow"
             >
               <Icon name="CalendarDays" size={16} />
               Записаться на приём
-            </button>
+            </a>
             {/* Десктоп: попап */}
             <button
               onClick={() => setCallModalOpen(true)}
