@@ -158,7 +158,7 @@ export default function Home() {
                       <Icon name="MessageSquare" size={15} className="text-clinic-teal" />
                       <p className="font-medium">Написать в Макс</p>
                     </a>
-                    <a href="https://t.me/VashOrtoped_NSK" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
+                    <a href="https://t.me/+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
                       <Icon name="Send" size={15} className="text-clinic-teal" />
                       <p className="font-medium">Написать в Telegram</p>
                     </a>
@@ -249,7 +249,7 @@ export default function Home() {
                   <Icon name="MessageSquare" size={15} className="text-clinic-teal" />
                   <p className="font-medium">Написать в Макс</p>
                 </a>
-                <a href="https://t.me/VashOrtoped_NSK" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
+                <a href="https://t.me/+79994649194" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2.5 hover:bg-clinic-teal-light transition-colors text-sm text-clinic-text border-t border-border">
                   <Icon name="Send" size={15} className="text-clinic-teal" />
                   <p className="font-medium">Написать в Telegram</p>
                 </a>
