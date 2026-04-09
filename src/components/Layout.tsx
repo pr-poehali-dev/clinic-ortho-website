@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import PhoneModal from "@/components/PhoneModal";
 
 declare global {
   interface Window { ym: (id: number, action: string, goal: string) => void; }
@@ -20,6 +21,7 @@ const NAV_LINKS = [
 export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [phoneOpen, setPhoneOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -41,10 +43,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <span className="hidden md:inline">Написать в Max</span>
               <span className="md:hidden">Max</span>
             </a>
-            <span className="flex items-center gap-1.5 font-medium text-clinic-teal">
+            {/* Десктоп: попап */}
+            <button
+              onClick={() => setPhoneOpen(true)}
+              className="hidden sm:flex items-center gap-1.5 font-medium text-clinic-teal hover:opacity-80 transition-opacity"
+            >
               <Icon name="Phone" size={14} />
-              <span className="hidden sm:inline">+7 999 464 91 94</span>
-            </span>
+              +7 999 464 91 94
+            </button>
+            {/* Мобиль: сразу звонок */}
+            <a
+              href="tel:+79994649194"
+              className="sm:hidden flex items-center gap-1.5 font-medium text-clinic-teal"
+            >
+              <Icon name="Phone" size={14} />
+            </a>
           </div>
         </div>
       </div>
@@ -130,6 +143,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </a>
               <div className="flex gap-2 mt-1">
                 <a
+                  href="tel:+79994649194"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex-1 flex items-center justify-center gap-2 bg-clinic-teal text-white text-sm font-medium px-3 py-2.5 rounded-lg"
+                >
+                  <Icon name="Phone" size={15} />
+                  Позвонить
+                </a>
+                <a
                   href="https://t.me/+79994649194"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -156,6 +177,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       <main className="flex-1">{children}</main>
+      <PhoneModal open={phoneOpen} onClose={() => setPhoneOpen(false)} />
 
       {/* Footer */}
       <footer className="bg-clinic-text text-white mt-8">
@@ -210,7 +232,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-center gap-2">
                 <Icon name="Phone" size={14} className="text-clinic-teal shrink-0" />
-                <span>+7 999 464 91 94</span>
+                <button
+                  onClick={() => setPhoneOpen(true)}
+                  className="hidden sm:inline hover:text-white transition-colors"
+                >
+                  +7 999 464 91 94
+                </button>
+                <a
+                  href="tel:+79994649194"
+                  className="sm:hidden hover:text-white transition-colors"
+                >
+                  +7 999 464 91 94
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Icon name="Clock" size={14} className="text-clinic-teal shrink-0" />

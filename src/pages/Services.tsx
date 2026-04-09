@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
+import PhoneModal from "@/components/PhoneModal";
 
 const API_URL = "https://functions.poehali.dev/e3850f3d-bba8-4c1c-8dbb-bf8d3f7bdd34";
 
@@ -26,6 +27,7 @@ export const SERVICES_LIST: Service[] = [];
 export default function Services() {
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
+  const [phoneOpen, setPhoneOpen] = useState(false);
 
   useEffect(() => {
     fetch(`${API_URL}?section=services`)
@@ -136,11 +138,21 @@ export default function Services() {
           <p className="text-white/80 mb-6 max-w-md mx-auto text-sm">
             Позвоните нам — мы поможем разобраться с симптомами и направим к нужному специалисту
           </p>
-          <span className="inline-flex items-center gap-2 bg-white text-clinic-teal px-7 py-3 rounded-xl font-medium text-sm">
+          <button
+            onClick={() => setPhoneOpen(true)}
+            className="hidden sm:inline-flex items-center gap-2 bg-white text-clinic-teal px-7 py-3 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all"
+          >
             <Icon name="Phone" size={15} /> +7 999 464 91 94
-          </span>
+          </button>
+          <a
+            href="tel:+79994649194"
+            className="sm:hidden inline-flex items-center gap-2 bg-white text-clinic-teal px-7 py-3 rounded-xl font-medium text-sm"
+          >
+            <Icon name="Phone" size={15} /> +7 999 464 91 94
+          </a>
         </div>
       </section>
+      <PhoneModal open={phoneOpen} onClose={() => setPhoneOpen(false)} />
     </>
   );
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import SEO, { LOCAL_BUSINESS_SCHEMA } from "@/components/SEO";
 import FAQ, { FAQ_SCHEMA } from "@/components/FAQ";
+import PhoneModal from "@/components/PhoneModal";
 
 const KNEE_IMG = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/540619c8-26d5-4b2e-9e06-3ec44c326345.jpeg";
 
@@ -392,9 +393,18 @@ export default function Home() {
               <Icon name="CalendarDays" size={16} />
               Записаться на приём
             </button>
+            {/* Десктоп: попап */}
+            <button
+              onClick={() => setCallModalOpen(true)}
+              className="hidden sm:flex items-center justify-center gap-2 border border-white/50 text-white px-7 py-3.5 rounded-xl font-medium hover:bg-white/10 transition-all text-sm"
+            >
+              <Icon name="Phone" size={16} />
+              Позвонить нам
+            </button>
+            {/* Мобиль: сразу звонок */}
             <a
               href="tel:+79994649194"
-              className="flex items-center justify-center gap-2 border border-white/50 text-white px-7 py-3.5 rounded-xl font-medium hover:bg-white/10 transition-all text-sm"
+              className="sm:hidden flex items-center justify-center gap-2 border border-white/50 text-white px-7 py-3.5 rounded-xl font-medium hover:bg-white/10 transition-all text-sm"
             >
               <Icon name="Phone" size={16} />
               Позвонить нам
@@ -403,25 +413,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Модальное окно "Позвонить" */}
-      {callModalOpen && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setCallModalOpen(false)}>
-          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full text-center" onClick={(e) => e.stopPropagation()}>
-            <div className="w-14 h-14 rounded-full bg-clinic-teal-light flex items-center justify-center mx-auto mb-4">
-              <Icon name="Phone" size={26} className="text-clinic-teal" />
-            </div>
-            <p className="text-xs text-clinic-text-muted uppercase tracking-widest mb-1">Клиника «Ваш Ортопед»</p>
-            <p className="font-display text-2xl text-clinic-text mb-1">+7 999 464 91 94</p>
-            <p className="text-sm text-clinic-text-muted mb-6">Мы рады Вас проконсультировать!</p>
-            <button
-              onClick={() => setCallModalOpen(false)}
-              className="w-full border border-border text-clinic-text-muted py-2.5 rounded-xl text-sm hover:bg-gray-50 transition-colors"
-            >
-              Закрыть
-            </button>
-          </div>
-        </div>
-      )}
+      <PhoneModal open={callModalOpen} onClose={() => setCallModalOpen(false)} />
     </>
   );
 }

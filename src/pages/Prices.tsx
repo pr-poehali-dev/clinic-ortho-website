@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
+import PhoneModal from "@/components/PhoneModal";
 
 const API_URL = "https://functions.poehali.dev/e3850f3d-bba8-4c1c-8dbb-bf8d3f7bdd34";
 
@@ -22,6 +23,7 @@ export default function Prices() {
   const [active, setActive] = useState(0);
   const [priceSections, setPriceSections] = useState<PriceSection[]>([]);
   const [loading, setLoading] = useState(true);
+  const [phoneOpen, setPhoneOpen] = useState(false);
 
   useEffect(() => {
     fetch(`${API_URL}?section=prices`)
@@ -168,15 +170,22 @@ export default function Prices() {
             >
               <Icon name="CalendarDays" size={15} /> Записаться на приём
             </a>
+            <button
+              onClick={() => setPhoneOpen(true)}
+              className="hidden sm:flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3 rounded-xl font-medium text-sm hover:bg-clinic-teal-light transition-all"
+            >
+              <Icon name="Phone" size={15} /> +7 999 464 91 94
+            </button>
             <a
               href="tel:+79994649194"
-              className="flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3 rounded-xl font-medium text-sm hover:bg-clinic-teal-light transition-all"
+              className="sm:hidden flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-6 py-3 rounded-xl font-medium text-sm hover:bg-clinic-teal-light transition-all"
             >
               <Icon name="Phone" size={15} /> +7 999 464 91 94
             </a>
           </div>
         </div>
       </section>
+      <PhoneModal open={phoneOpen} onClose={() => setPhoneOpen(false)} />
     </>
   );
 }

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import SEO from "@/components/SEO";
 import { useSettings } from "@/hooks/useSettings";
+import PhoneModal from "@/components/PhoneModal";
 
 const API_URL = "https://functions.poehali.dev/669b91b8-f4ae-4395-951c-9bdf20aefe50";
 
@@ -14,6 +15,7 @@ export default function Contacts() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [phoneOpen, setPhoneOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,9 +89,18 @@ export default function Contacts() {
                 </div>
                 <div>
                   <div className="text-xs text-clinic-text-muted mb-1">Телефон</div>
-                  <span className="text-clinic-text font-medium text-lg">
+                  <button
+                    onClick={() => setPhoneOpen(true)}
+                    className="hidden sm:block text-clinic-teal font-medium text-lg hover:opacity-80 transition-opacity"
+                  >
                     {get("contacts.phone", "+7 999 464 91 94")}
-                  </span>
+                  </button>
+                  <a
+                    href="tel:+79994649194"
+                    className="sm:hidden block text-clinic-teal font-medium text-lg"
+                  >
+                    {get("contacts.phone", "+7 999 464 91 94")}
+                  </a>
                   <p className="text-xs text-clinic-text-muted mt-0.5">Пн–Сб с 09:00 до 19:00</p>
                 </div>
               </li>
@@ -260,15 +271,23 @@ export default function Contacts() {
             <p className="font-display text-xl">Нужна срочная консультация?</p>
             <p className="text-white/70 text-sm">Звоните — мы всегда на связи в рабочие часы</p>
           </div>
+          <button
+            onClick={() => setPhoneOpen(true)}
+            className="hidden sm:flex items-center gap-2 bg-white text-clinic-teal px-7 py-3 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all whitespace-nowrap"
+          >
+            <Icon name="Phone" size={16} />
+            +7 999 464 91 94
+          </button>
           <a
             href="tel:+79994649194"
-            className="flex items-center gap-2 bg-white text-clinic-teal px-7 py-3 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all whitespace-nowrap"
+            className="sm:hidden flex items-center gap-2 bg-white text-clinic-teal px-7 py-3 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all whitespace-nowrap"
           >
             <Icon name="Phone" size={16} />
             +7 999 464 91 94
           </a>
         </div>
       </section>
+      <PhoneModal open={phoneOpen} onClose={() => setPhoneOpen(false)} />
     </>
   );
 }
