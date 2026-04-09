@@ -53,13 +53,10 @@ export default function Home() {
         schema={[LOCAL_BUSINESS_SCHEMA, FAQ_SCHEMA]}
       />
       {/* SEO banner */}
-      <div className="bg-clinic-teal text-white py-2 px-4">
-        <div className="container flex items-center justify-center gap-2 text-sm font-medium">
-          <Icon name="Stethoscope" size={15} className="text-white/80 shrink-0" />
-          <span>Лечение артроза и боли в суставах без операций</span>
-          <span className="hidden sm:inline text-white/60">•</span>
-          <span className="hidden sm:inline text-white/80">Новосибирск, ул. Есенина, 67</span>
-        </div>
+      <div className="bg-clinic-teal text-white py-3 md:py-4 px-4">
+        <h2 className="container text-center text-lg md:text-2xl font-display font-bold tracking-wide">
+          Лечение артроза и боли в суставах без операций
+        </h2>
       </div>
 
       {/* Hero */}
@@ -70,15 +67,12 @@ export default function Home() {
         </div>
         <div className="container relative z-10 pt-8 md:pb-6 pb-6">
           <div className="max-w-lg">
-            <div className="inline-flex items-center gap-2 bg-clinic-teal-light text-clinic-teal text-xs font-medium px-3 py-1.5 rounded-full mb-5 animate-fade-in">
-              <Icon name="MapPin" size={12} />
-              г. Новосибирск • Принимаем ежедневно
-            </div>
-            <h1 className="text-4xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-5 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
+            <h1 className="text-4xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-4 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
               Ваши суставы в <span className="text-clinic-teal italic">надёжных руках</span>
             </h1>
             <p className="text-clinic-text-muted text-base leading-relaxed mb-6 animate-fade-in-up-delay-1">
-              Клиника «Ваш Ортопед» в Новосибирске. Лечим артроз, артрит, остеохондроз и боли в коленях — возвращаем свободу движения людям любого возраста.
+              Клиника «Ваш Ортопед» в Новосибирске.<br />
+              Лечим артроз, артрит, остеохондроз и боли в коленях — возвращаем свободу движения.
             </p>
           </div>
         </div>
@@ -366,22 +360,56 @@ export default function Home() {
       <div className="h-10 bg-gradient-to-b from-[hsl(203,60%,93%)] to-white" />
 
       {/* SEO text block */}
-      <section className="container py-10">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-display text-2xl md:text-3xl text-clinic-text mb-4 text-center">Лечение артроза и артрита в Новосибирске</h2>
-          <div className="text-sm text-clinic-text-muted leading-relaxed space-y-3">
-            <p>
-              <strong className="text-clinic-text">Артроз коленного сустава</strong> — одна из самых частых причин обращения в нашу клинику. Боль в коленях, хруст при движении, скованность по утрам — всё это признаки разрушения хрящевой ткани. Мы лечим артроз без операции с помощью PRP-терапии, инъекций гиалуроновой кислоты и SVF-терапии (стволовые клетки).
-            </p>
-            <p>
-              <strong className="text-clinic-text">Артрит и воспаление суставов</strong> — ещё одна распространённая проблема. Покраснение, отёк, острая боль при движении требуют точной диагностики и грамотного лечения. Врач-ортопед проводит УЗИ сустава прямо на приёме и подбирает индивидуальный план лечения.
-            </p>
-            <p>
-              <strong className="text-clinic-text">Болит спина или шея?</strong> Остеохондроз, грыжи и протрузии межпозвонковых дисков лечим с помощью медикаментозных блокад, капельниц с хондропротекторами и курса PRP-терапии. Большинство пациентов чувствуют облегчение уже после первой процедуры.
-            </p>
-            <p>
-              Клиника «Ваш Ортопед» — это приём без очередей, прозрачные цены и более 1 000 пациентов, которым мы уже помогли вернуть свободу движения.
-            </p>
+      <section className="bg-clinic-beige border-y border-border py-10">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display text-2xl md:text-4xl text-clinic-text mb-6 text-center">Лечение артроза и артрита в Новосибирске</h2>
+            <div className="grid md:grid-cols-2 gap-5">
+              <div className="bg-white rounded-2xl p-5 border border-border">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
+                    <Icon name="Bone" size={16} className="text-clinic-teal" />
+                  </div>
+                  <h3 className="font-bold text-clinic-text">Артроз коленного сустава</h3>
+                </div>
+                <p className="text-sm text-clinic-text-muted leading-relaxed">
+                  Боль в коленях, хруст при движении, скованность по утрам — признаки разрушения хрящевой ткани. Лечим артроз без операции: PRP-терапия, гиалуроновая кислота и SVF-терапия (стволовые клетки).
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl p-5 border border-border">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
+                    <Icon name="Flame" size={16} className="text-clinic-teal" />
+                  </div>
+                  <h3 className="font-bold text-clinic-text">Артрит и воспаление суставов</h3>
+                </div>
+                <p className="text-sm text-clinic-text-muted leading-relaxed">
+                  Покраснение, отёк, острая боль при движении требуют точной диагностики. Врач-ортопед проводит УЗИ сустава прямо на приёме и подбирает индивидуальный план лечения.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl p-5 border border-border">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
+                    <Icon name="Activity" size={16} className="text-clinic-teal" />
+                  </div>
+                  <h3 className="font-bold text-clinic-text">Болит спина или шея?</h3>
+                </div>
+                <p className="text-sm text-clinic-text-muted leading-relaxed">
+                  Остеохондроз, грыжи и протрузии лечим блокадами, капельницами с хондропротекторами и PRP-терапией. Большинство пациентов чувствуют облегчение уже после первой процедуры.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl p-5 border border-border">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
+                    <Icon name="Heart" size={16} className="text-clinic-teal" />
+                  </div>
+                  <h3 className="font-bold text-clinic-text">Более 1 000 пациентов</h3>
+                </div>
+                <p className="text-sm text-clinic-text-muted leading-relaxed">
+                  Клиника «Ваш Ортопед» — приём без очередей, прозрачные цены и индивидуальный подход. Мы уже помогли вернуть свободу движения более чем тысяче пациентов.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
