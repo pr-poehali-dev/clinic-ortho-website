@@ -47,8 +47,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Лечение суставов в Новосибирске — клиника Ваш Ортопед"
-        description="Лечение артроза, артрита, бурсита, синовита в Новосибирске. PRP и SVF-терапия, гиалуроновая кислота, блокады. Врач-травматолог-ортопед. Запись: +7 999 464 91 94."
+        title="Лечение артроза и боли в суставах в Новосибирске — Ваш Ортопед"
+        description="Лечение артроза, артрита, боли в коленях и спине без операции. PRP-терапия, SVF, гиалуроновая кислота, блокады. Клиника «Ваш Ортопед», Новосибирск. Запись: +7 999 464 91 94."
         canonical="/"
         schema={[LOCAL_BUSINESS_SCHEMA, FAQ_SCHEMA]}
       />
@@ -65,10 +65,10 @@ export default function Home() {
               г. Новосибирск • Принимаем ежедневно
             </div>
             <h1 className="text-4xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-5 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
-              Ваши суставы в <span className="text-clinic-teal italic">надёжных руках</span>
+              Лечение артроза и боли в суставах <span className="text-clinic-teal italic">без операции</span>
             </h1>
             <p className="text-clinic-text-muted text-base leading-relaxed mb-6 animate-fade-in-up-delay-1">
-              Клиника лечения суставов. Мы возвращаем свободу движения и качество жизни людям любого возраста.
+              Клиника «Ваш Ортопед» в Новосибирске. Лечим артроз, артрит, остеохондроз и боли в коленях — возвращаем свободу движения людям любого возраста.
             </p>
           </div>
         </div>
@@ -354,6 +354,27 @@ export default function Home() {
 
       {/* gradient: secondary → white */}
       <div className="h-10 bg-gradient-to-b from-[hsl(203,60%,93%)] to-white" />
+
+      {/* SEO text block */}
+      <section className="container py-10">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-display text-2xl md:text-3xl text-clinic-text mb-4 text-center">Лечение артроза и артрита в Новосибирске</h2>
+          <div className="text-sm text-clinic-text-muted leading-relaxed space-y-3">
+            <p>
+              <strong className="text-clinic-text">Артроз коленного сустава</strong> — одна из самых частых причин обращения в нашу клинику. Боль в коленях, хруст при движении, скованность по утрам — всё это признаки разрушения хрящевой ткани. Мы лечим артроз без операции с помощью PRP-терапии, инъекций гиалуроновой кислоты и SVF-терапии (стволовые клетки).
+            </p>
+            <p>
+              <strong className="text-clinic-text">Артрит и воспаление суставов</strong> — ещё одна распространённая проблема. Покраснение, отёк, острая боль при движении требуют точной диагностики и грамотного лечения. Врач-ортопед проводит УЗИ сустава прямо на приёме и подбирает индивидуальный план лечения.
+            </p>
+            <p>
+              <strong className="text-clinic-text">Болит спина или шея?</strong> Остеохондроз, грыжи и протрузии межпозвонковых дисков лечим с помощью медикаментозных блокад, капельниц с хондропротекторами и курса PRP-терапии. Большинство пациентов чувствуют облегчение уже после первой процедуры.
+            </p>
+            <p>
+              Клиника «Ваш Ортопед» — это приём без очередей, прозрачные цены и более 1 000 пациентов, которым мы уже помогли вернуть свободу движения.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Advantages */}
       <section className="container py-10">
