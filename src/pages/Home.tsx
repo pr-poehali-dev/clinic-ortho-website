@@ -370,35 +370,35 @@ export default function Home() {
       <section className="bg-clinic-teal py-10">
         <div className="container">
           <h2 className="font-display text-2xl md:text-4xl text-white mb-6 text-center">Лечение артроза и артрита в Новосибирске</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-            <div className="bg-white rounded-2xl p-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="bg-white rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
                   <Icon name="Bone" size={16} className="text-clinic-teal" />
                 </div>
-                <h3 className="font-bold text-clinic-text">Артроз коленного сустава</h3>
+                <h3 className="font-bold text-clinic-text text-base">Артроз коленного сустава</h3>
               </div>
               <p className="text-sm text-clinic-text-muted leading-relaxed">
                 Боль в коленях, хруст при движении, скованность по утрам — признаки разрушения хрящевой ткани. Лечим артроз без операции: PRP-терапия, гиалуроновая кислота и SVF-терапия (стволовые клетки).
               </p>
             </div>
-            <div className="bg-white rounded-2xl p-5">
+            <div className="bg-white rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
                   <Icon name="Flame" size={16} className="text-clinic-teal" />
                 </div>
-                <h3 className="font-bold text-clinic-text">Артрит и воспаление суставов</h3>
+                <h3 className="font-bold text-clinic-text text-base">Артрит и воспаление суставов</h3>
               </div>
               <p className="text-sm text-clinic-text-muted leading-relaxed">
                 Покраснение, отёк, острая боль при движении требуют точной диагностики. Врач-ортопед проводит УЗИ сустава прямо на приёме и подбирает индивидуальный план лечения.
               </p>
             </div>
-            <div className="bg-white rounded-2xl p-5">
+            <div className="bg-white rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center">
                   <Icon name="Activity" size={16} className="text-clinic-teal" />
                 </div>
-                <h3 className="font-bold text-clinic-text">Болит спина или шея?</h3>
+                <h3 className="font-bold text-clinic-text text-base">Болит спина или шея?</h3>
               </div>
               <p className="text-sm text-clinic-text-muted leading-relaxed">
                 Остеохондроз, грыжи и протрузии лечим блокадами, капельницами с хондропротекторами и PRP-терапией. Большинство пациентов чувствуют облегчение уже после первой процедуры.
