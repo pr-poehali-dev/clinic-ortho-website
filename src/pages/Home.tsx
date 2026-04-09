@@ -52,6 +52,16 @@ export default function Home() {
         canonical="/"
         schema={[LOCAL_BUSINESS_SCHEMA, FAQ_SCHEMA]}
       />
+      {/* SEO banner */}
+      <div className="bg-clinic-teal text-white py-2 px-4">
+        <div className="container flex items-center justify-center gap-2 text-sm font-medium">
+          <Icon name="Stethoscope" size={15} className="text-white/80 shrink-0" />
+          <span>Лечение артроза и боли в суставах без операций</span>
+          <span className="hidden sm:inline text-white/60">•</span>
+          <span className="hidden sm:inline text-white/80">Новосибирск, ул. Есенина, 67</span>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden bg-clinic-warm md:min-h-[780px] flex items-start">
         <div className="absolute inset-0">
@@ -65,7 +75,7 @@ export default function Home() {
               г. Новосибирск • Принимаем ежедневно
             </div>
             <h1 className="text-4xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-5 animate-fade-in-up" style={{fontFamily: "'Playfair Display', serif"}}>
-              Лечение артроза и боли в суставах <span className="text-clinic-teal italic">без операции</span>
+              Ваши суставы в <span className="text-clinic-teal italic">надёжных руках</span>
             </h1>
             <p className="text-clinic-text-muted text-base leading-relaxed mb-6 animate-fade-in-up-delay-1">
               Клиника «Ваш Ортопед» в Новосибирске. Лечим артроз, артрит, остеохондроз и боли в коленях — возвращаем свободу движения людям любого возраста.
