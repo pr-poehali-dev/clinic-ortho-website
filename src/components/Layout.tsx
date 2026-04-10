@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import PhoneModal from "@/components/PhoneModal";
@@ -18,10 +18,26 @@ const NAV_LINKS = [
   { href: "/publications", label: "Публикации" },
 ];
 
+const DISEASE_LINKS = [
+  { href: "/diseases/artroz", label: "Лечение артроза" },
+  { href: "/diseases/osteohondroz", label: "Лечение остеохондроза" },
+];
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [phoneOpen, setPhoneOpen] = useState(false);
+  const [diseasesOpen, setDiseasesOpen] = useState(false);
+  const [mobileDiseasesOpen, setMobileDiseasesOpen] = useState(false);
+  const diseasesRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (!diseasesRef.current?.contains(e.target as Node)) setDiseasesOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -77,7 +93,52 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-7">
-            {NAV_LINKS.map((link) => (
+            {NAV_LINKS.slice(0, 3).map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={`nav-link text-sm font-body font-medium transition-colors ${
+                  location.pathname === link.href
+                    ? "text-clinic-teal active"
+                    : "text-clinic-text hover:text-clinic-teal"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            {/* Заболевания — дропдаун */}
+            <div className="relative" ref={diseasesRef}>
+              <button
+                onClick={() => setDiseasesOpen((v) => !v)}
+                className={`nav-link text-sm font-body font-medium transition-colors flex items-center gap-1 ${
+                  DISEASE_LINKS.some(l => location.pathname === l.href)
+                    ? "text-clinic-teal"
+                    : "text-clinic-text hover:text-clinic-teal"
+                }`}
+              >
+                Заболевания
+                <Icon name={diseasesOpen ? "ChevronUp" : "ChevronDown"} size={13} />
+              </button>
+              {diseasesOpen && (
+                <div className="absolute top-full mt-2 left-0 w-56 bg-white border border-border rounded-xl shadow-xl z-50 overflow-hidden">
+                  {DISEASE_LINKS.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setDiseasesOpen(false)}
+                      className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-colors ${
+                        location.pathname === link.href
+                          ? "bg-clinic-teal-light text-clinic-teal font-medium"
+                          : "text-clinic-text hover:bg-clinic-teal-light hover:text-clinic-teal"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            {NAV_LINKS.slice(3).map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -117,7 +178,53 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {menuOpen && (
           <div className="md:hidden border-t border-border bg-white animate-fade-in">
             <nav className="container py-4 flex flex-col gap-1">
-              {NAV_LINKS.map((link) => (
+              {NAV_LINKS.slice(0, 3).map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`py-2.5 px-3 rounded-lg text-sm font-medium transition-colors ${
+                    location.pathname === link.href
+                      ? "bg-clinic-teal-light text-clinic-teal"
+                      : "text-clinic-text hover:bg-secondary"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              {/* Заболевания — аккордеон в мобильном */}
+              <div>
+                <button
+                  onClick={() => setMobileDiseasesOpen((v) => !v)}
+                  className={`w-full flex items-center justify-between py-2.5 px-3 rounded-lg text-sm font-medium transition-colors ${
+                    DISEASE_LINKS.some(l => location.pathname === l.href)
+                      ? "bg-clinic-teal-light text-clinic-teal"
+                      : "text-clinic-text hover:bg-secondary"
+                  }`}
+                >
+                  <span>Заболевания суставов</span>
+                  <Icon name={mobileDiseasesOpen ? "ChevronUp" : "ChevronDown"} size={15} />
+                </button>
+                {mobileDiseasesOpen && (
+                  <div className="ml-3 mt-1 flex flex-col gap-1 border-l-2 border-clinic-teal/20 pl-3">
+                    {DISEASE_LINKS.map((link) => (
+                      <Link
+                        key={link.href}
+                        to={link.href}
+                        onClick={() => { setMenuOpen(false); setMobileDiseasesOpen(false); }}
+                        className={`py-2 px-3 rounded-lg text-sm transition-colors ${
+                          location.pathname === link.href
+                            ? "bg-clinic-teal-light text-clinic-teal font-medium"
+                            : "text-clinic-text-muted hover:bg-secondary"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+              {NAV_LINKS.slice(3).map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
