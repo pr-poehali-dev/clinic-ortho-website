@@ -18,9 +18,10 @@ interface SEOProps {
   image?: string;
   breadcrumbs?: BreadcrumbItem[];
   schema?: object | object[];
+  keywords?: string;
 }
 
-export default function SEO({ title, description, canonical, image, breadcrumbs, schema }: SEOProps) {
+export default function SEO({ title, description, canonical, image, breadcrumbs, schema, keywords }: SEOProps) {
   const fullTitle = `${title} | ${SITE_NAME}`;
   const canonicalUrl = canonical ? `${SITE_URL}${canonical}` : SITE_URL;
   const ogImage = image || DEFAULT_IMAGE;
@@ -41,6 +42,7 @@ export default function SEO({ title, description, canonical, image, breadcrumbs,
       <html lang="ru" />
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href={canonicalUrl} />
 

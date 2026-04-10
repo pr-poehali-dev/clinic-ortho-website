@@ -121,21 +121,22 @@ export default function Artroz() {
   return (
     <>
       <SEO
-        title="Лечение артроза в Новосибирске — клиника суставов"
-        description="Лечение артроза коленного, тазобедренного и других суставов в Новосибирске. PRP-терапия, гиалуроновая кислота, SVF-терапия. Без операции. Запись онлайн."
+        title="Лечение артроза в Новосибирске — цены, PRP и стволовые клетки | Ваш Ортопед"
+        description="Лечение артроза коленного, тазобедренного, плечевого сустава в Новосибирске без операции. PRP-терапия от 4000₽, SVF-терапия, гиалуроновая кислота от 7800₽, блокады от 2500₽. Первичный приём + УЗИ — 2500₽. Запись онлайн."
+        keywords="лечение артроза Новосибирск, лечение артроза коленного сустава, артроз тазобедренного сустава лечение, PRP терапия Новосибирск, плазмолифтинг суставов, SVF терапия стволовыми клетками, гиалуроновая кислота в сустав, уколы в коленный сустав, гонартроз лечение, коксартроз Новосибирск, лечение суставов без операции, ортопед Новосибирск, внутрисуставные инъекции"
       />
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-clinic-warm md:min-h-[680px] flex items-start pt-8 pb-12 md:pt-12 md:pb-16">
+      <section className="relative overflow-hidden bg-clinic-warm md:min-h-[560px] flex items-center pt-8 pb-6 md:pt-10 md:pb-8">
         <div className="absolute inset-0">
           <img
             src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/d883e60f-e326-44d2-85f9-5c96a302aca5.jpeg"
-            alt="Пациент с болью в суставе"
-            className="w-3/5 h-full object-cover object-[60%_10%] opacity-60 absolute right-0 hidden sm:block"
+            alt="Лечение артроза коленного сустава в Новосибирске"
+            className="w-3/5 h-full object-cover object-[60%_-15%] opacity-60 absolute right-0 hidden sm:block"
             style={{ filter: "brightness(1.25) saturate(0.85)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-clinic-warm via-clinic-warm/90 to-clinic-warm/5" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-clinic-warm/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-clinic-warm" />
         </div>
         <div className="container relative z-10 w-full">
           <div className="max-w-2xl">
@@ -150,10 +151,10 @@ export default function Artroz() {
               </div>
             </div>
             <h1 className="text-3xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Лечение <span className="text-clinic-teal italic">артроза</span><br />без операции
+              Лечение <span className="text-clinic-teal italic">артроза</span><br />в Новосибирске без операции
             </h1>
             <p className="text-clinic-text-muted text-base md:text-lg leading-relaxed mb-6 max-w-lg">
-              Современные методы — PRP-терапия, стволовые клетки, гиалуроновая кислота. Снимаем боль и восстанавливаем подвижность на 1–3 стадии артроза.
+              Лечим артроз коленного, тазобедренного и плечевого сустава современными методами: PRP-терапия, SVF (стволовые клетки), гиалуроновая кислота, блокады. Снимаем боль и восстанавливаем подвижность на 1–3 стадии артроза.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <a
