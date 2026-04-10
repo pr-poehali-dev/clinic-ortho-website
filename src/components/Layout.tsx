@@ -24,6 +24,7 @@ const DISEASE_LINKS = [
   { href: "/diseases/tazobedrennyj-sustav", label: "Лечение тазобедренного сустава" },
   { href: "/diseases/osteohondroz", label: "Лечение остеохондроза" },
   { href: "/services/prp-terapiya", label: "PRP / Плазмотерапия суставов" },
+  { href: "/services/gialuronovaya-kislota", label: "Гиалуроновая кислота в сустав" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
