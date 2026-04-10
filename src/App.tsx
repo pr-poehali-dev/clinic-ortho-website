@@ -36,6 +36,7 @@ const Osteohondroz = lazy(() => import("@/pages/diseases/Osteohondroz"));
 const Artroz = lazy(() => import("@/pages/diseases/Artroz"));
 const KolennyjSustav = lazy(() => import("@/pages/diseases/KolennyjSustav"));
 const TazobedrenyjSustav = lazy(() => import("@/pages/diseases/TazobedrenyjSustav"));
+const PrpTerapiya = lazy(() => import("@/pages/services/PrpTerapiya"));
 const Orthopedics = lazy(() => import("@/pages/services/Orthopedics"));
 const Neurology = lazy(() => import("@/pages/services/Neurology"));
 const Massage = lazy(() => import("@/pages/services/Massage"));
@@ -78,6 +79,7 @@ const App = () => (
           <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
           <Route path="/supervisors" element={<Layout><Supervisors /></Layout>} />
           <Route path="/promos" element={<Layout><Promos /></Layout>} />
+          <Route path="/services/prp-terapiya" element={<Layout><PrpTerapiya /></Layout>} />
           <Route path="/services/orthopedics-clinic" element={<Layout><Orthopedics /></Layout>} />
           <Route path="/services/neurology-clinic" element={<Layout><Neurology /></Layout>} />
           <Route path="/services/massage-clinic" element={<Layout><Massage /></Layout>} />
