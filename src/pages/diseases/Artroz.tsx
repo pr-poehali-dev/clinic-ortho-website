@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
 import PhoneModal from "@/components/PhoneModal";
-import AppointmentModal from "@/components/AppointmentModal";
+
 
 const trackGoal = (goal: string) => window.ym?.(108160921, 'reachGoal', goal);
 
@@ -112,7 +112,6 @@ const FAQ_ITEMS = [
 
 export default function Artroz() {
   const [callModalOpen, setCallModalOpen] = useState(false);
-  const [appointmentOpen, setAppointmentOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
@@ -120,7 +119,6 @@ export default function Artroz() {
       <SEO
         title="Лечение артроза в Новосибирске — клиника суставов"
         description="Лечение артроза коленного, тазобедренного и других суставов в Новосибирске. PRP-терапия, гиалуроновая кислота, SVF-терапия. Без операции. Запись онлайн."
-        keywords="лечение артроза Новосибирск, артроз коленного сустава лечение, гонартроз, коксартроз, PRP терапия суставов"
       />
 
       {/* HERO */}
@@ -407,7 +405,6 @@ export default function Artroz() {
       </section>
 
       <PhoneModal open={callModalOpen} onClose={() => setCallModalOpen(false)} />
-      <AppointmentModal open={appointmentOpen} onClose={() => setAppointmentOpen(false)} service="Лечение артроза" />
     </>
   );
 }
