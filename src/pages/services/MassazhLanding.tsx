@@ -261,8 +261,8 @@ export default function MassazhLanding() {
             ].map((p) => (
               <div key={p.title} className="bg-clinic-warm rounded-2xl p-6 border border-clinic-teal/10 shadow-sm relative">
                 <span className="absolute top-4 right-4 text-xs font-medium px-2.5 py-1 rounded-full bg-clinic-teal text-white">{p.badge}</span>
-                <h3 className="font-semibold text-clinic-text mb-1 pr-16">{p.title}</h3>
-                <p className="text-2xl font-bold text-clinic-teal mb-3">{p.price}</p>
+                <h3 className="text-lg font-bold text-clinic-text mb-1 pr-16">{p.title}</h3>
+                <p className="text-3xl font-bold text-clinic-teal mb-3">{p.price}</p>
                 <p className="text-sm text-clinic-text/75 leading-relaxed">{p.desc}</p>
               </div>
             ))}
