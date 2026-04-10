@@ -38,6 +38,7 @@ const KolennyjSustav = lazy(() => import("@/pages/diseases/KolennyjSustav"));
 const TazobedrenyjSustav = lazy(() => import("@/pages/diseases/TazobedrenyjSustav"));
 const PrpTerapiya = lazy(() => import("@/pages/services/PrpTerapiya"));
 const GialuronovayaKislota = lazy(() => import("@/pages/services/GialuronovayaKislota"));
+const MassazhLanding = lazy(() => import("@/pages/services/MassazhLanding"));
 const Orthopedics = lazy(() => import("@/pages/services/Orthopedics"));
 const Neurology = lazy(() => import("@/pages/services/Neurology"));
 const Massage = lazy(() => import("@/pages/services/Massage"));
@@ -82,6 +83,7 @@ const App = () => (
           <Route path="/promos" element={<Layout><Promos /></Layout>} />
           <Route path="/services/prp-terapiya" element={<Layout><PrpTerapiya /></Layout>} />
           <Route path="/services/gialuronovaya-kislota" element={<Layout><GialuronovayaKislota /></Layout>} />
+          <Route path="/services/massazh" element={<Layout><MassazhLanding /></Layout>} />
           <Route path="/services/orthopedics-clinic" element={<Layout><Orthopedics /></Layout>} />
           <Route path="/services/neurology-clinic" element={<Layout><Neurology /></Layout>} />
           <Route path="/services/massage-clinic" element={<Layout><Massage /></Layout>} />
