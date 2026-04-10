@@ -171,7 +171,7 @@ export default function MassazhLanding() {
                   <Icon name="Tag" size={18} className="text-amber-700" />
                 </div>
                 <div>
-                  <span className="text-base font-bold text-clinic-text block">Первичный приём + УЗИ сустава — 2 500 ₽</span>
+                  <span className="text-base font-bold text-clinic-text block">Недорогой массаж в Новосибирске — от 800 ₽</span>
                   <span className="text-sm text-amber-700 font-medium">Запись сегодня · без очереди</span>
                 </div>
               </div>
