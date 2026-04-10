@@ -175,22 +175,24 @@ export default function KolennyjSustav() {
             </div>
 
             {/* CTA-плашка */}
-            <div className="bg-white/80 backdrop-blur-sm border border-clinic-teal/20 rounded-2xl px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Icon name="Tag" size={15} className="text-amber-500" />
-                  <span className="font-semibold text-clinic-text text-sm">Первичный приём + УЗИ сустава — 2 500 ₽</span>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 shadow-sm">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center shrink-0">
+                  <Icon name="Tag" size={18} className="text-amber-700" />
                 </div>
-                <p className="text-xs text-clinic-text-muted">Запись сегодня · без очереди</p>
+                <div>
+                  <span className="text-base font-bold text-clinic-text block">Первичный приём + УЗИ сустава — 2 500 ₽</span>
+                  <span className="text-sm text-amber-700 font-medium">Запись сегодня · без очереди</span>
+                </div>
               </div>
               <a
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackGoal('click_koleno_cta')}
-                className="shrink-0 flex items-center gap-2 bg-amber-400 hover:bg-amber-500 text-white px-5 py-2.5 rounded-xl text-sm font-medium transition-all shadow-sm"
+                className="sm:ml-auto flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-500 text-amber-900 font-semibold px-5 py-2.5 rounded-xl text-sm transition-all whitespace-nowrap"
               >
-                <Icon name="CalendarCheck" size={15} />
+                <Icon name="CalendarDays" size={15} />
                 Записаться
               </a>
             </div>
@@ -205,13 +207,13 @@ export default function KolennyjSustav() {
             Симптомы боли в колене
           </h2>
           <p className="text-clinic-text-muted mb-8">Обратитесь к врачу, если замечаете хотя бы один из признаков</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {SYMPTOMS.map((s) => (
-              <div key={s.text} className="flex items-start gap-3 p-4 rounded-xl bg-clinic-warm border border-clinic-teal/10">
-                <div className="shrink-0 w-8 h-8 rounded-lg bg-clinic-teal-light flex items-center justify-center mt-0.5">
-                  <Icon name={s.icon} size={16} className="text-clinic-teal" />
+              <div key={s.text} className="flex items-center gap-3 bg-clinic-warm border border-clinic-beige-dark/40 rounded-xl px-4 py-3">
+                <div className="w-8 h-8 rounded-full bg-clinic-teal-light flex items-center justify-center shrink-0">
+                  <Icon name={s.icon} size={15} className="text-clinic-teal" />
                 </div>
-                <span className="text-sm text-clinic-text leading-snug">{s.text}</span>
+                <span className="text-sm text-clinic-text">{s.text}</span>
               </div>
             ))}
           </div>
@@ -233,7 +235,7 @@ export default function KolennyjSustav() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-clinic-text mb-1 text-sm">{d.title}</h3>
-                  <p className="text-xs text-clinic-text-muted leading-relaxed">{d.desc}</p>
+                  <p className="text-sm text-clinic-text/75 leading-relaxed">{d.desc}</p>
                 </div>
               </div>
             ))}
@@ -260,7 +262,7 @@ export default function KolennyjSustav() {
                   <Icon name={m.icon} size={20} className="text-clinic-teal" />
                 </div>
                 <h3 className="font-semibold text-clinic-text mb-2">{m.title}</h3>
-                <p className="text-sm text-clinic-text-muted leading-relaxed mb-3">{m.desc}</p>
+                <p className="text-sm text-clinic-text/75 leading-relaxed mb-3">{m.desc}</p>
                 <p className="text-clinic-teal font-semibold text-sm">{m.price}</p>
               </div>
             ))}
@@ -294,7 +296,7 @@ export default function KolennyjSustav() {
                   {s.num}
                 </div>
                 <h3 className="font-semibold text-clinic-text mb-2">{s.title}</h3>
-                <p className="text-sm text-clinic-text-muted mb-4 leading-relaxed">{s.desc}</p>
+                <p className="text-sm text-clinic-text/75 mb-4 leading-relaxed">{s.desc}</p>
                 <div className="border-t border-clinic-teal/10 pt-3">
                   <p className="text-xs text-clinic-teal font-medium leading-relaxed">{s.result}</p>
                 </div>
@@ -343,7 +345,7 @@ export default function KolennyjSustav() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-clinic-text mb-1 text-sm">{item.title}</h3>
-                  <p className="text-xs text-clinic-text-muted leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-clinic-text/75 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
