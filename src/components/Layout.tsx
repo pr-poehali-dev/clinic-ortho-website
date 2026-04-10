@@ -22,7 +22,7 @@ const DISEASE_LINKS = [
   { href: "/diseases/artroz", label: "Лечение артроза" },
   { href: "/diseases/kolennyj-sustav", label: "Лечение коленного сустава" },
   { href: "/diseases/tazobedrennyj-sustav", label: "Лечение тазобедренного сустава" },
-  { href: "/diseases/osteohondroz", label: "Лечение остеохондроза" },
+  { href: "/services/osteohondroz", label: "Лечение остеохондроза" },
   { href: "/services/prp-terapiya", label: "PRP / Плазмотерапия суставов" },
   { href: "/services/gialuronovaya-kislota", label: "Гиалуроновая кислота в сустав" },
   { href: "/services/massazh", label: "Лечебный массаж" },

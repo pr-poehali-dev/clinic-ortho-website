@@ -45,6 +45,7 @@ const Massage = lazy(() => import("@/pages/services/Massage"));
 const LabTests = lazy(() => import("@/pages/services/LabTests"));
 const Ultrasound = lazy(() => import("@/pages/services/Ultrasound"));
 const Infusions = lazy(() => import("@/pages/services/Infusions"));
+const OsteohondrozService = lazy(() => import("@/pages/services/OsteohondrozService"));
 const Booking = lazy(() => import("@/pages/Booking"));
 const BookingAdmin = lazy(() => import("@/pages/BookingAdmin"));
 
@@ -90,6 +91,7 @@ const App = () => (
           <Route path="/services/lab-tests" element={<Layout><LabTests /></Layout>} />
           <Route path="/services/ultrasound" element={<Layout><Ultrasound /></Layout>} />
           <Route path="/services/infusions" element={<Layout><Infusions /></Layout>} />
+          <Route path="/services/osteohondroz" element={<Layout><OsteohondrozService /></Layout>} />
           <Route path="/booking" element={<Layout><Booking /></Layout>} />
           <Route path="/booking-admin" element={<BookingAdmin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
