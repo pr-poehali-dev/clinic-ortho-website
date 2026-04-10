@@ -255,9 +255,9 @@ export default function MassazhLanding() {
           <p className="text-clinic-text-muted mb-8">Прозрачные цены — называем стоимость до начала</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[
-              { title: "Сеанс 40 минут", price: "1 500 ₽", desc: "Массаж отдельной зоны: спина, шея, поясница или ноги.", badge: "Старт" },
-              { title: "Сеанс 60 минут", price: "2 000 ₽", desc: "Полноценный лечебный или расслабляющий массаж всей спины.", badge: "Основа" },
-              { title: "Курс 10 сеансов", price: "от 15 000 ₽", desc: "Курс лечебного массажа со скидкой. Стойкий результат и профилактика.", badge: "Выгодно" },
+              { title: "Сеанс 10–30 минут", price: "800–1 500 ₽", desc: "Массаж отдельной зоны: спина, шея, поясница или ноги.", badge: "Старт" },
+              { title: "Сеанс 60 минут", price: "3 000 ₽", desc: "Полноценный лечебный или расслабляющий массаж всей спины.", badge: "Основа" },
+              { title: "Курс 10 сеансов", price: "Скидка 10%", desc: "При единовременной оплате курса. Стойкий результат и профилактика.", badge: "Выгодно" },
             ].map((p) => (
               <div key={p.title} className="bg-clinic-warm rounded-2xl p-6 border border-clinic-teal/10 shadow-sm relative">
                 <span className="absolute top-4 right-4 text-xs font-medium px-2.5 py-1 rounded-full bg-clinic-teal text-white">{p.badge}</span>
