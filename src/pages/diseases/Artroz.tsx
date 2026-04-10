@@ -31,24 +31,28 @@ const METHODS = [
     title: "PRP-терапия (плазмотерапия)",
     desc: "Вводим собственную плазму пациента, обогащённую тромбоцитами. Активирует регенерацию хряща, снимает воспаление, устраняет боль. Курс: 3–5 инъекций.",
     badge: "Популярно",
+    price: "4 000 ₽ / процедура",
   },
   {
     icon: "Dna",
     title: "SVF-терапия (стволовые клетки)",
-    desc: "Клетки из собственной жировой ткани восстанавливают хрящ на клеточном уровне. В ряде случаев — альтернатива эндопротезированию.",
+    desc: "Клетки из собственной жировой ткани восстанавливают хрящ на клеточном уровне. В ряде случаев — альтернатива эндопротезированию. Эффект держится до 5 лет, в зависимости от образа жизни пациента.",
     badge: "Инновация",
+    price: "55 000 ₽ / сустав",
   },
   {
     icon: "FlaskConical",
     title: "Гиалуроновая кислота",
     desc: "Препараты синовиальной жидкости вводятся в сустав — смазывают, питают хрящ и снимают боль. Эффект сохраняется до 12 месяцев.",
     badge: null,
+    price: "от 7 800 ₽",
   },
   {
     icon: "Syringe",
     title: "Медикаментозные блокады",
     desc: "Точечное введение лекарства в очаг боли. Быстрый эффект — уже в день процедуры. Снимает острую боль и воспаление.",
     badge: null,
+    price: "от 2 500 ₽",
   },
 ];
 
@@ -125,9 +129,15 @@ export default function Artroz() {
       <section className="bg-gradient-to-br from-clinic-warm via-white to-clinic-beige pt-8 pb-12 md:pt-12 md:pb-16">
         <div className="container">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-clinic-teal-light text-clinic-teal text-xs font-medium px-3 py-1.5 rounded-full mb-4">
-              <Icon name="MapPin" size={13} />
-              Новосибирск · Лечение суставов
+            <div className="flex flex-wrap gap-2 mb-4">
+              <div className="inline-flex items-center gap-2 bg-clinic-teal-light text-clinic-teal text-xs font-medium px-3 py-1.5 rounded-full">
+                <Icon name="MapPin" size={13} />
+                Новосибирск · Лечение суставов
+              </div>
+              <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs font-medium px-3 py-1.5 rounded-full">
+                <Icon name="BadgePercent" size={13} />
+                Пожалуй самые низкие цены на лечение
+              </div>
             </div>
             <h1 className="text-3xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               Лечение <span className="text-clinic-teal italic">артроза</span><br />без операции
@@ -161,12 +171,26 @@ export default function Artroz() {
                 Позвонить
               </a>
             </div>
-            <div className="inline-flex flex-col sm:flex-row sm:items-center gap-2 bg-white border border-clinic-teal/30 rounded-2xl px-4 py-3 shadow-sm">
-              <div className="flex items-center gap-2">
-                <Icon name="Tag" size={15} className="text-clinic-teal shrink-0" />
-                <span className="text-sm font-semibold text-clinic-text">Первичный приём + УЗИ сустава — 2 500 ₽</span>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 shadow-sm">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center shrink-0">
+                  <Icon name="Tag" size={18} className="text-amber-700" />
+                </div>
+                <div>
+                  <span className="text-base font-bold text-clinic-text block">Первичный приём + УЗИ сустава — 2 500 ₽</span>
+                  <span className="text-sm text-amber-700 font-medium">Запись сегодня · без очереди</span>
+                </div>
               </div>
-              <span className="text-xs text-clinic-text-muted sm:border-l sm:border-clinic-beige-dark sm:pl-2">Запись сегодня</span>
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackGoal('click_artroz_promo')}
+                className="sm:ml-auto flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-500 text-amber-900 font-semibold px-5 py-2.5 rounded-xl text-sm transition-all whitespace-nowrap"
+              >
+                <Icon name="CalendarDays" size={15} />
+                Записаться
+              </a>
             </div>
           </div>
         </div>
@@ -234,9 +258,13 @@ export default function Artroz() {
                   <div className="w-11 h-11 rounded-xl bg-white border border-clinic-beige-dark/40 flex items-center justify-center shrink-0">
                     <Icon name={m.icon as "Droplets"} size={20} className="text-clinic-teal" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="font-semibold text-clinic-text mb-2">{m.title}</h3>
-                    <p className="text-sm text-clinic-text-muted leading-relaxed">{m.desc}</p>
+                    <p className="text-sm text-clinic-text-muted leading-relaxed mb-3">{m.desc}</p>
+                    <div className="inline-flex items-center gap-1.5 bg-white border border-clinic-teal/30 rounded-lg px-3 py-1.5">
+                      <Icon name="Banknote" size={13} className="text-clinic-teal shrink-0" />
+                      <span className="text-sm font-semibold text-clinic-teal">{m.price}</span>
+                    </div>
                   </div>
                 </div>
               </div>
