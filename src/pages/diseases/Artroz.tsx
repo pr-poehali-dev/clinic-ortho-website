@@ -132,8 +132,8 @@ export default function Artroz() {
           <img
             src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/d883e60f-e326-44d2-85f9-5c96a302aca5.jpeg"
             alt="Лечение артроза коленного сустава в Новосибирске"
-            className="w-3/5 h-full object-cover object-top opacity-60 absolute right-0 hidden sm:block"
-            style={{ filter: "brightness(1.25) saturate(0.85)", objectPosition: "60% -80%" }}
+            className="w-3/5 h-full object-cover object-[60%_-15%] opacity-60 absolute right-0 hidden sm:block"
+            style={{ filter: "brightness(1.25) saturate(0.85)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-clinic-warm via-clinic-warm/90 to-clinic-warm/5" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-clinic-warm" />
