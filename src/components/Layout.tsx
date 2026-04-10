@@ -111,7 +111,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {link.label}
               </Link>
             ))}
-            {/* Заболевания — дропдаун */}
+            {/* Специализация — дропдаун */}
             <div className="relative" ref={diseasesRef}>
               <button
                 onClick={() => setDiseasesOpen((v) => !v)}
@@ -121,7 +121,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     : "text-clinic-text hover:text-clinic-teal"
                 }`}
               >
-                Заболевания
+                Специализация
                 <Icon name={diseasesOpen ? "ChevronUp" : "ChevronDown"} size={13} />
               </button>
               {diseasesOpen && (
@@ -207,7 +207,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       : "text-clinic-text hover:bg-secondary"
                   }`}
                 >
-                  <span>Заболевания суставов</span>
+                  <span>Специализация</span>
                   <Icon name={mobileDiseasesOpen ? "ChevronUp" : "ChevronDown"} size={15} />
                 </button>
                 {mobileDiseasesOpen && (
