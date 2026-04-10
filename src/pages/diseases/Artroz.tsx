@@ -126,8 +126,18 @@ export default function Artroz() {
       />
 
       {/* HERO */}
-      <section className="bg-gradient-to-br from-clinic-warm via-white to-clinic-beige pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="container">
+      <section className="relative overflow-hidden bg-clinic-warm md:min-h-[680px] flex items-start pt-8 pb-12 md:pt-12 md:pb-16">
+        <div className="absolute inset-0">
+          <img
+            src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/d883e60f-e326-44d2-85f9-5c96a302aca5.jpeg"
+            alt="Пациент с болью в суставе"
+            className="w-3/5 h-full object-cover object-[60%_10%] opacity-60 absolute right-0 hidden sm:block"
+            style={{ filter: "brightness(1.25) saturate(0.85)" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-clinic-warm via-clinic-warm/90 to-clinic-warm/5" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-clinic-warm/60" />
+        </div>
+        <div className="container relative z-10 w-full">
           <div className="max-w-2xl">
             <div className="flex flex-wrap gap-2 mb-4">
               <div className="inline-flex items-center gap-2 bg-clinic-teal-light text-clinic-teal text-xs font-medium px-3 py-1.5 rounded-full">
