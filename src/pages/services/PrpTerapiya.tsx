@@ -254,7 +254,7 @@ export default function PrpTerapiya() {
             {[
               { title: "Первичный приём + УЗИ", price: "2 500 ₽", desc: "Осмотр врача-ортопеда, УЗИ сустава, постановка диагноза, план лечения", badge: "Старт" },
               { title: "1 процедура PRP", price: "4 000 ₽", desc: "Забор крови, центрифугирование, инъекция под УЗИ-контролем", badge: "Основа" },
-              { title: "Курс 3 процедуры", price: "11 000 ₽", desc: "Полный стандартный курс плазмотерапии со скидкой", badge: "Выгодно" },
+              { title: "Курс 3 процедуры", price: "12 000 ₽", desc: "Полный стандартный курс плазмотерапии. При оплате сразу — 4 процедуры по цене трёх.", badge: "Выгодно" },
             ].map((p) => (
               <div key={p.title} className="bg-white rounded-2xl p-6 border border-clinic-teal/10 shadow-sm relative">
                 <span className="absolute top-4 right-4 text-xs font-medium px-2.5 py-1 rounded-full bg-clinic-teal text-white">{p.badge}</span>
