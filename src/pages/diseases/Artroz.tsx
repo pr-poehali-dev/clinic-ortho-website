@@ -110,7 +110,7 @@ const FAQ_ITEMS = [
   },
 ];
 
-export default function ArtrozPage() {
+export default function Artroz() {
   const [callModalOpen, setCallModalOpen] = useState(false);
   const [appointmentOpen, setAppointmentOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -163,7 +163,6 @@ export default function ArtrozPage() {
                 Позвонить
               </a>
             </div>
-            {/* Promo */}
             <div className="inline-flex flex-col sm:flex-row sm:items-center gap-2 bg-white border border-clinic-teal/30 rounded-2xl px-4 py-3 shadow-sm">
               <div className="flex items-center gap-2">
                 <Icon name="Tag" size={15} className="text-clinic-teal shrink-0" />
@@ -311,7 +310,7 @@ export default function ArtrozPage() {
                   </div>
                   {i < arr.length - 1 && <div className="w-0.5 bg-clinic-teal/20 flex-1 my-1" />}
                 </div>
-                <div className={`pb-6 ${i < arr.length - 1 ? "" : ""}`}>
+                <div className="pb-6">
                   <h3 className="font-semibold text-clinic-text mb-1">{item.title}</h3>
                   <p className="text-sm text-clinic-text-muted leading-relaxed">{item.desc}</p>
                 </div>
@@ -367,20 +366,13 @@ export default function ArtrozPage() {
           </h2>
           <div className="flex flex-col gap-3">
             {FAQ_ITEMS.map((item, i) => (
-              <div
-                key={i}
-                className="border border-clinic-beige-dark/40 rounded-xl overflow-hidden"
-              >
+              <div key={i} className="border border-clinic-beige-dark/40 rounded-xl overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full text-left flex items-center justify-between gap-3 px-4 py-4 bg-clinic-warm hover:bg-clinic-teal-light transition-colors"
                 >
                   <span className="font-medium text-clinic-text text-sm leading-snug">{item.q}</span>
-                  <Icon
-                    name={openFaq === i ? "ChevronUp" : "ChevronDown"}
-                    size={16}
-                    className="text-clinic-teal shrink-0"
-                  />
+                  <Icon name={openFaq === i ? "ChevronUp" : "ChevronDown"} size={16} className="text-clinic-teal shrink-0" />
                 </button>
                 {openFaq === i && (
                   <div className="px-4 py-3 bg-white text-sm text-clinic-text-muted leading-relaxed border-t border-clinic-beige-dark/30">

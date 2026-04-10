@@ -33,7 +33,7 @@ const Supervisors = lazy(() => import("@/pages/Supervisors"));
 const BulanbayevCertificates = lazy(() => import("@/pages/BulanbayevCertificates"));
 const Promos = lazy(() => import("@/pages/Promos"));
 const Osteohondroz = lazy(() => import("@/pages/diseases/Osteohondroz"));
-const ArtrozPage = lazy(() => import("@/pages/ArtrozPage"));
+const Artroz = lazy(() => import("@/pages/diseases/Artroz"));
 const Orthopedics = lazy(() => import("@/pages/services/Orthopedics"));
 const Neurology = lazy(() => import("@/pages/services/Neurology"));
 const Massage = lazy(() => import("@/pages/services/Massage"));
@@ -66,7 +66,7 @@ const App = () => (
           <Route path="/publications" element={<Layout><Publications /></Layout>} />
           <Route path="/articles/:slug" element={<Layout><ArticleDetail /></Layout>} />
           <Route path="/diseases/osteohondroz" element={<Layout><Osteohondroz /></Layout>} />
-          <Route path="/diseases/artroz" element={<Layout><ArtrozPage /></Layout>} />
+          <Route path="/diseases/artroz" element={<Layout><Artroz /></Layout>} />
           <Route path="/diseases/:slug" element={<Layout><DiseaseDetail /></Layout>} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/license" element={<Layout><License /></Layout>} />
