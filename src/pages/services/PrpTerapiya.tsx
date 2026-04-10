@@ -5,7 +5,7 @@ import PhoneModal from "@/components/PhoneModal";
 
 const trackGoal = (goal: string) => window.ym?.(108160921, 'reachGoal', goal);
 
-const BOOKING_URL = "https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089";
+const BOOKING_URL = "https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089&utm_source=site&utm_medium=organic&utm_campaign=prp-terapiya";
 
 const SYNONYMS = [
   { term: "PRP-терапия", desc: "Официальное медицинское название метода" },

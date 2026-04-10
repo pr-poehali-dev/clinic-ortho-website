@@ -113,7 +113,7 @@ export default function Infusions() {
               <h3 className="font-display text-lg text-clinic-text mb-4">Записаться на капельницу</h3>
               <p className="text-sm text-clinic-text-muted mb-4">Курс назначается после осмотра врача. Процедуры проводятся в удобное для вас время.</p>
               <a
-                href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
+                href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089&utm_source=site&utm_medium=organic&utm_campaign=infusions"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 bg-clinic-teal text-white px-5 py-3 rounded-xl font-medium text-sm hover:bg-opacity-90 transition-all"
