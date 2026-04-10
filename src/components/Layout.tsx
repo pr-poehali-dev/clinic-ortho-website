@@ -20,6 +20,7 @@ const NAV_LINKS = [
 
 const DISEASE_LINKS = [
   { href: "/diseases/artroz", label: "Лечение артроза" },
+  { href: "/diseases/kolennyj-sustav", label: "Лечение коленного сустава" },
   { href: "/diseases/osteohondroz", label: "Лечение остеохондроза" },
 ];
 
