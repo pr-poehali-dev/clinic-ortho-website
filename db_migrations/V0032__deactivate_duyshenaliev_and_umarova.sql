@@ -1,0 +1,1 @@
+UPDATE booking_specialists SET is_active = false WHERE id IN (1, 3);
