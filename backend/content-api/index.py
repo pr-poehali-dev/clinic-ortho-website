@@ -48,7 +48,7 @@ def handler(event: dict, context) -> dict:
     if section == "doctors":
         if method == "GET":
             cur = conn.cursor()
-            cur.execute(f"SELECT id, name, specialty, experience, description, img, img_position, img_height, img_margin_top, sort_order, is_active FROM {SCHEMA}.doctors ORDER BY sort_order")
+            cur.execute(f"SELECT id, name, specialty, experience, description, img, img_position, img_height, img_margin_top, sort_order, is_active FROM {SCHEMA}.doctors WHERE is_active = true ORDER BY sort_order")
             rows = cur.fetchall()
             conn.close()
             cols = ["id", "name", "specialty", "experience", "description", "img", "imgPosition", "imgHeight", "imgMarginTop", "sort_order", "is_active"]
