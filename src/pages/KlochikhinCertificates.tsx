@@ -4,13 +4,44 @@ import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
 
 const certificates: { id: number; title: string; type: string; url: string }[] = [
-  // Сертификаты Клочихина И.М. будут добавлены сюда после загрузки файлов
+  {
+    id: 1,
+    title: "Сертификат специалиста — Мануальная терапия (МГМСУ им. А.И. Евдокимова, 2020)",
+    type: "Сертификат",
+    url: "https://cdn.poehali.dev/files/3bf01454-63d8-4d9f-8423-413bb297f7ba.jpeg",
+  },
+  {
+    id: 2,
+    title: "Диплом о профессиональной переподготовке — Детский массаж (Институт восстановительных технологий, 2020)",
+    type: "Диплом",
+    url: "https://cdn.poehali.dev/files/09bd2dff-ca9a-4421-92bf-f428eb7176db.jpeg",
+  },
+  {
+    id: 3,
+    title: "Сертификат — Пункция плечевых, коленных и тазобедренных суставов под контролем УЗИ. Техника внутрисуставных и периартикулярных инъекций (ГиалСин, 2024)",
+    type: "Сертификат",
+    url: "https://cdn.poehali.dev/files/b40ff215-dc45-4340-b63c-52b4260a8e6a.jpeg",
+  },
+  {
+    id: 4,
+    title: "Удостоверение о повышении квалификации — Постковидная реабилитация в практике специалиста по оздоровлению: ревматология (НИПКРЗ, 2013)",
+    type: "Удостоверение",
+    url: "https://cdn.poehali.dev/files/f773a09c-3ec3-46d6-8f98-16e2e2e43422.jpeg",
+  },
+  {
+    id: 5,
+    title: "Грамота — Работа с никелидо-титановыми конструкциями, имплантантами при переломах шейки бедра и трубчатых костей, при остеопорозе",
+    type: "Грамота",
+    url: "https://cdn.poehali.dev/files/ca5e8722-98c4-4c5b-bad5-3144f5ef3977.jpeg",
+  },
 ];
 
 const typeIcon: Record<string, string> = {
   Сертификат: "Award",
   Патент: "FileText",
   Удостоверение: "GraduationCap",
+  Диплом: "ScrollText",
+  Грамота: "Medal",
 };
 
 export default function KlochikhinCertificates() {
