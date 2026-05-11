@@ -31,6 +31,7 @@ const Requisites = lazy(() => import("@/pages/Requisites"));
 const Privacy = lazy(() => import("@/pages/Privacy"));
 const Supervisors = lazy(() => import("@/pages/Supervisors"));
 const BulanbayevCertificates = lazy(() => import("@/pages/BulanbayevCertificates"));
+const KlochikhinCertificates = lazy(() => import("@/pages/KlochikhinCertificates"));
 const Promos = lazy(() => import("@/pages/Promos"));
 const Osteohondroz = lazy(() => import("@/pages/diseases/Osteohondroz"));
 const Artroz = lazy(() => import("@/pages/diseases/Artroz"));
@@ -65,6 +66,7 @@ const App = () => (
           <Route path="/" element={<Layout><Home /></Layout>} />
           <Route path="/doctors" element={<Layout><Doctors /></Layout>} />
           <Route path="/doctors/bulanbayev/certificates" element={<Layout><BulanbayevCertificates /></Layout>} />
+          <Route path="/doctors/klochikhin/certificates" element={<Layout><KlochikhinCertificates /></Layout>} />
           <Route path="/services" element={<Layout><Services /></Layout>} />
           <Route path="/services/:slug" element={<Layout><ServiceDetail /></Layout>} />
           <Route path="/prices" element={<Layout><Prices /></Layout>} />
