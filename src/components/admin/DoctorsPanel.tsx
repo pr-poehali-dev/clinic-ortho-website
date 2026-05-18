@@ -33,6 +33,24 @@ export function DoctorsPanel({ password }: { password: string }) {
 
   useEffect(() => { load(); }, [load]);
 
+  const handleDelete = async (doc: Doctor) => {
+    if (!confirm(`Удалить врача "${doc.name}"? Это действие необратимо.`)) return;
+    try {
+      const res = await fetch(CONTENT_API, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json", "X-Admin-Password": password },
+        body: JSON.stringify({ section: "doctors", id: doc.id }),
+      });
+      if (!res.ok) throw new Error();
+      showToast("Врач удалён", "ok");
+      setSelected(null);
+      setIsNew(false);
+      await load();
+    } catch {
+      showToast("Ошибка при удалении", "err");
+    }
+  };
+
   const handleSave = async () => {
     if (!selected) return;
     setSaving(true);
@@ -108,8 +126,16 @@ export function DoctorsPanel({ password }: { password: string }) {
             <div><FieldLabel>Порядок сортировки</FieldLabel><Input type="number" value={doc.sort_order ?? 0} onChange={(e) => set("sort_order", Number(e.target.value))} /></div>
           </div>
 
-          <div className="pt-2">
+          <div className="pt-2 flex items-center gap-3">
             <SaveBtn saving={saving} saved={false} onClick={handleSave} />
+            {"id" in selected && (
+              <button
+                onClick={() => handleDelete(selected as Doctor)}
+                className="flex items-center gap-2 text-sm text-red-500 border border-red-200 px-4 py-2.5 rounded-xl hover:bg-red-50 transition-all"
+              >
+                <Icon name="Trash2" size={14} /> Удалить врача
+              </button>
+            )}
           </div>
         </div>
       </div>

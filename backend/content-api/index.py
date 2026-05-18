@@ -37,7 +37,7 @@ def handler(event: dict, context) -> dict:
 
     method = event.get("httpMethod", "GET")
     params = event.get("queryStringParameters") or {}
-    body = json.loads(event.get("body") or "{}") if method in ("POST", "PUT") else {}
+    body = json.loads(event.get("body") or "{}") if method in ("POST", "PUT", "DELETE") else {}
 
     # Раздел передаётся через ?section=doctors или в теле запроса
     section = params.get("section", body.get("section", ""))
@@ -70,12 +70,23 @@ def handler(event: dict, context) -> dict:
             return ok({"id": new_id})
 
         if method == "PUT":
-            doc_id = path.strip("/").split("/")[-2] if path.count("/") >= 2 else body.get("id")
+            doc_id = body.get("id")
             cur = conn.cursor()
             cur.execute(
                 f"UPDATE {SCHEMA}.doctors SET name=%s, specialty=%s, experience=%s, description=%s, img=%s, img_position=%s, img_height=%s, img_margin_top=%s, sort_order=%s, is_active=%s WHERE id=%s",
-                (body.get("name"), body.get("specialty"), body.get("experience"), body.get("description"), body.get("img"), body.get("imgPosition", "center top"), body.get("imgHeight", ""), body.get("imgMarginTop", ""), body.get("sort_order", 0), body.get("is_active", True), doc_id or body.get("id"))
+                (body.get("name"), body.get("specialty"), body.get("experience"), body.get("description"), body.get("img"), body.get("imgPosition", "center top"), body.get("imgHeight", ""), body.get("imgMarginTop", ""), body.get("sort_order", 0), body.get("is_active", True), doc_id)
             )
+            conn.commit()
+            conn.close()
+            return ok({"ok": True})
+
+        if method == "DELETE":
+            doc_id = body.get("id")
+            if not doc_id:
+                conn.close()
+                return err("id обязателен")
+            cur = conn.cursor()
+            cur.execute(f"DELETE FROM {SCHEMA}.doctors WHERE id=%s", (doc_id,))
             conn.commit()
             conn.close()
             return ok({"ok": True})
