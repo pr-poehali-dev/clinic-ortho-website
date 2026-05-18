@@ -62,18 +62,7 @@ export default function Doctors() {
             "knowsAbout": ["Лечение артроза", "Лечение артрита", "PRP-терапия", "УЗИ суставов", "Медикаментозные блокады"],
             "url": "https://vash-ortoped.ru/doctors"
           },
-          {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Клочихин Игорь Михайлович",
-            "jobTitle": "Врач травматолог-ортопед, артролог, хирург",
-            "description": "Врач высшей категории, травматолог-ортопед, артролог, хирург, мануальный и ДЭНАС-терапевт в Новосибирске. Опыт работы с 1995 года, более 30 лет лечит заболевания суставов, позвоночника и опорно-двигательного аппарата: сколиоз, ДЦП, артрозы, боли в спине и суставах, восстановление после травм и эндопротезирования.",
-            "image": "https://cdn.poehali.dev/files/3fd293f1-1e68-4e10-8473-75a3c6c98f13.png",
-            "worksFor": { "@type": "MedicalClinic", "name": "Ваш Ортопед", "url": "https://vash-ortoped.ru" },
-            "medicalSpecialty": ["Orthopedic", "Traumatology"],
-            "knowsAbout": ["Лечение артроза", "Сколиоз", "ДЦП", "Плазмолифтинг", "Мануальная терапия", "ДЭНАС-терапия", "Реабилитация после эндопротезирования"],
-            "url": "https://vash-ortoped.ru/doctors"
-          },
+
         ]}
       />
       {/* Hero */}
@@ -128,7 +117,6 @@ export default function Doctors() {
                       {(() => {
                         const certUrl: Record<number, string> = {
                           1: "/doctors/bulanbayev/certificates",
-                          3: "/doctors/klochikhin/certificates",
                         };
                         const url = certUrl[Number(doctor.id)];
                         return url ? (
