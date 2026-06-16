@@ -175,6 +175,12 @@ def handler(event: dict, context) -> dict:
                 conn.close()
                 return ok({"ok": True})
 
+            if action == "delete_item":
+                cur.execute(f"DELETE FROM {SCHEMA}.price_items WHERE id=%s", (body.get("id"),))
+                conn.commit()
+                conn.close()
+                return ok({"ok": True})
+
             if action == "update_section":
                 cur.execute(f"UPDATE {SCHEMA}.price_sections SET title=%s, icon=%s WHERE id=%s", (body.get("title"), body.get("icon"), body.get("id")))
                 conn.commit()

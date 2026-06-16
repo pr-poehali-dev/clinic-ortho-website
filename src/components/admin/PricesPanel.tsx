@@ -102,6 +102,17 @@ export function PricesPanel({ password }: { password: string }) {
     }
   };
 
+  const handleDeleteItem = async (item: PriceItem) => {
+    if (!confirm(`Удалить позицию «${item.name}»?`)) return;
+    try {
+      await contentPost({ section: "prices", action: "delete_item", id: item.id });
+      showToast("Позиция удалена", "ok");
+      await load();
+    } catch {
+      showToast("Ошибка при удалении", "err");
+    }
+  };
+
   const handleSaveItem = async (item: PriceItem) => {
     const draft = editItem[item.id];
     if (!draft) return;
@@ -248,6 +259,12 @@ export function PricesPanel({ password }: { password: string }) {
                             className="text-xs text-clinic-text-muted hover:text-clinic-teal transition-colors shrink-0"
                           >
                             <Icon name="Pencil" size={14} />
+                          </button>
+                          <button
+                            onClick={() => handleDeleteItem(item)}
+                            className="text-xs text-clinic-text-muted hover:text-red-500 transition-colors shrink-0"
+                          >
+                            <Icon name="Trash2" size={14} />
                           </button>
                         </>
                       )}
