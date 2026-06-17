@@ -141,8 +141,8 @@ def handler(event: dict, context) -> dict:
             sections = cur.fetchall()
             result = []
             for s in sections:
-                cur.execute(f"SELECT id, name, price, sort_order FROM {SCHEMA}.price_items WHERE section_id=%s AND hidden=false ORDER BY sort_order", (s[0],))
-                items = [{"id": r[0], "name": r[1], "price": r[2], "sort_order": r[3]} for r in cur.fetchall()]
+                cur.execute(f"SELECT id, name, price, sort_order, description FROM {SCHEMA}.price_items WHERE section_id=%s AND hidden=false ORDER BY sort_order", (s[0],))
+                items = [{"id": r[0], "name": r[1], "price": r[2], "sort_order": r[3], "description": r[4]} for r in cur.fetchall()]
                 result.append({"id": s[0], "title": s[1], "icon": s[2], "sort_order": s[3], "items": items})
             conn.close()
             return ok(result)
@@ -163,14 +163,14 @@ def handler(event: dict, context) -> dict:
                 return ok({"id": new_id})
 
             if action == "add_item":
-                cur.execute(f"INSERT INTO {SCHEMA}.price_items (section_id, name, price, sort_order) VALUES (%s,%s,%s,%s) RETURNING id", (body.get("section_id"), body.get("name"), body.get("price"), body.get("sort_order", 0)))
+                cur.execute(f"INSERT INTO {SCHEMA}.price_items (section_id, name, price, sort_order, description) VALUES (%s,%s,%s,%s,%s) RETURNING id", (body.get("section_id"), body.get("name"), body.get("price"), body.get("sort_order", 0), body.get("description", "")))
                 new_id = cur.fetchone()[0]
                 conn.commit()
                 conn.close()
                 return ok({"id": new_id})
 
             if action == "update_item":
-                cur.execute(f"UPDATE {SCHEMA}.price_items SET name=%s, price=%s WHERE id=%s", (body.get("name"), body.get("price"), body.get("id")))
+                cur.execute(f"UPDATE {SCHEMA}.price_items SET name=%s, price=%s, description=%s WHERE id=%s", (body.get("name"), body.get("price"), body.get("description", ""), body.get("id")))
                 conn.commit()
                 conn.close()
                 return ok({"ok": True})

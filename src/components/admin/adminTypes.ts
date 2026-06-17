@@ -32,6 +32,7 @@ export interface PriceItem {
   id: number;
   name: string;
   price: string;
+  description: string;
 }
 
 export interface PriceSection {

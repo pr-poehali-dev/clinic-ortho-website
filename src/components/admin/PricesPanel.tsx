@@ -15,8 +15,9 @@ export function PricesPanel({ password }: { password: string }) {
   const [addingItem, setAddingItem]           = useState<Record<number, boolean>>({});
   const [newItemName, setNewItemName]         = useState<Record<number, string>>({});
   const [newItemPrice, setNewItemPrice]       = useState<Record<number, string>>({});
+  const [newItemDesc, setNewItemDesc]         = useState<Record<number, string>>({});
   const [savingItem, setSavingItem]           = useState<Record<number, boolean>>({});
-  const [editItem, setEditItem]               = useState<Record<number, { name: string; price: string }>>({});
+  const [editItem, setEditItem]               = useState<Record<number, { name: string; price: string; description: string }>>({});
   const [savingEditItem, setSavingEditItem]   = useState<Record<number, boolean>>({});
   const [editSection, setEditSection]         = useState<Record<number, { title: string; icon: string }>>({});
   const [savingEditSection, setSavingEditSection] = useState<Record<number, boolean>>({});
@@ -86,13 +87,15 @@ export function PricesPanel({ password }: { password: string }) {
   const handleAddItem = async (sectionId: number) => {
     const name  = newItemName[sectionId]?.trim();
     const price = newItemPrice[sectionId]?.trim();
+    const description = newItemDesc[sectionId]?.trim() ?? "";
     if (!name || !price) return;
     setSavingItem((p) => ({ ...p, [sectionId]: true }));
     try {
-      await contentPost({ section: "prices", action: "add_item", section_id: sectionId, name, price });
+      await contentPost({ section: "prices", action: "add_item", section_id: sectionId, name, price, description });
       showToast("Позиция добавлена", "ok");
       setNewItemName((p)  => ({ ...p, [sectionId]: "" }));
       setNewItemPrice((p) => ({ ...p, [sectionId]: "" }));
+      setNewItemDesc((p)  => ({ ...p, [sectionId]: "" }));
       setAddingItem((p)   => ({ ...p, [sectionId]: false }));
       await load();
     } catch {
@@ -118,7 +121,7 @@ export function PricesPanel({ password }: { password: string }) {
     if (!draft) return;
     setSavingEditItem((p) => ({ ...p, [item.id]: true }));
     try {
-      await contentPost({ section: "prices", action: "update_item", id: item.id, name: draft.name, price: draft.price });
+      await contentPost({ section: "prices", action: "update_item", id: item.id, name: draft.name, price: draft.price, description: draft.description });
       showToast("Позиция обновлена", "ok");
       setEditItem((p) => { const n = { ...p }; delete n[item.id]; return n; });
       await load();
@@ -222,83 +225,107 @@ export function PricesPanel({ password }: { password: string }) {
                   const draft      = editItem[item.id];
                   const isSavingIt = savingEditItem[item.id];
                   return (
-                    <div key={item.id} className="flex items-center gap-3 px-5 py-3 hover:bg-secondary/30 transition-colors">
+                    <div key={item.id} className="px-5 py-3 hover:bg-secondary/30 transition-colors">
                       {draft ? (
-                        <>
-                          <Input
-                            className="h-8 text-sm flex-1"
-                            value={draft.name}
-                            onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, name: e.target.value } }))}
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-3">
+                            <Input
+                              className="h-8 text-sm flex-1"
+                              value={draft.name}
+                              onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, name: e.target.value } }))}
+                              placeholder="Название"
+                            />
+                            <Input
+                              className="h-8 text-sm w-28 shrink-0"
+                              value={draft.price}
+                              onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, price: e.target.value } }))}
+                              placeholder="1 500"
+                            />
+                            <button
+                              onClick={() => handleSaveItem(item)}
+                              disabled={isSavingIt}
+                              className="flex items-center gap-1 bg-clinic-teal text-white text-xs px-2.5 py-1.5 rounded-lg hover:bg-opacity-90 disabled:opacity-60 shrink-0"
+                            >
+                              <Icon name="Check" size={12} /> {isSavingIt ? "..." : "Ок"}
+                            </button>
+                            <button
+                              onClick={() => setEditItem((p) => { const n = { ...p }; delete n[item.id]; return n; })}
+                              className="text-xs text-clinic-text-muted hover:text-clinic-text shrink-0"
+                            >
+                              <Icon name="X" size={14} />
+                            </button>
+                          </div>
+                          <textarea
+                            className="w-full text-xs text-clinic-text border border-border rounded-lg px-3 py-2 resize-none focus:outline-none focus:ring-1 focus:ring-clinic-teal"
+                            rows={2}
+                            placeholder="Описание (необязательно): состав чекапа, что входит, примечания..."
+                            value={draft.description}
+                            onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, description: e.target.value } }))}
                           />
-                          <Input
-                            className="h-8 text-sm w-28 shrink-0"
-                            value={draft.price}
-                            onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, price: e.target.value } }))}
-                            placeholder="1 500"
-                          />
-                          <button
-                            onClick={() => handleSaveItem(item)}
-                            disabled={isSavingIt}
-                            className="flex items-center gap-1 bg-clinic-teal text-white text-xs px-2.5 py-1.5 rounded-lg hover:bg-opacity-90 disabled:opacity-60 shrink-0"
-                          >
-                            <Icon name="Check" size={12} /> {isSavingIt ? "..." : "Ок"}
-                          </button>
-                          <button
-                            onClick={() => setEditItem((p) => { const n = { ...p }; delete n[item.id]; return n; })}
-                            className="text-xs text-clinic-text-muted hover:text-clinic-text shrink-0"
-                          >
-                            <Icon name="X" size={14} />
-                          </button>
-                        </>
+                        </div>
                       ) : (
-                        <>
-                          <span className="text-sm text-clinic-text flex-1">{item.name}</span>
-                          <span className="text-sm font-semibold text-clinic-teal whitespace-nowrap shrink-0">{item.price} ₽</span>
+                        <div className="flex items-start gap-3">
+                          <div className="flex-1 min-w-0">
+                            <span className="text-sm text-clinic-text">{item.name}</span>
+                            {item.description && (
+                              <p className="text-xs text-clinic-text-muted mt-0.5 leading-relaxed">{item.description}</p>
+                            )}
+                          </div>
+                          <span className="text-sm font-semibold text-clinic-teal whitespace-nowrap shrink-0 mt-0.5">{item.price} ₽</span>
                           <button
-                            onClick={() => setEditItem((p) => ({ ...p, [item.id]: { name: item.name, price: item.price } }))}
-                            className="text-xs text-clinic-text-muted hover:text-clinic-teal transition-colors shrink-0"
+                            onClick={() => setEditItem((p) => ({ ...p, [item.id]: { name: item.name, price: item.price, description: item.description } }))}
+                            className="text-xs text-clinic-text-muted hover:text-clinic-teal transition-colors shrink-0 mt-0.5"
                           >
                             <Icon name="Pencil" size={14} />
                           </button>
                           <button
                             onClick={() => handleDeleteItem(item)}
-                            className="text-xs text-clinic-text-muted hover:text-red-500 transition-colors shrink-0"
+                            className="text-xs text-clinic-text-muted hover:text-red-500 transition-colors shrink-0 mt-0.5"
                           >
                             <Icon name="Trash2" size={14} />
                           </button>
-                        </>
+                        </div>
                       )}
                     </div>
                   );
                 })}
 
                 {addingItem[sec.id] ? (
-                  <div className="flex items-center gap-2 px-5 py-3 bg-clinic-teal-light/30">
-                    <Input
-                      className="h-8 text-sm flex-1"
-                      placeholder="Название услуги"
-                      value={newItemName[sec.id] ?? ""}
-                      onChange={(e) => setNewItemName((p) => ({ ...p, [sec.id]: e.target.value }))}
+                  <div className="px-5 py-3 bg-clinic-teal-light/30 space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Input
+                        className="h-8 text-sm flex-1"
+                        placeholder="Название услуги"
+                        value={newItemName[sec.id] ?? ""}
+                        onChange={(e) => setNewItemName((p) => ({ ...p, [sec.id]: e.target.value }))}
+                      />
+                      <Input
+                        className="h-8 text-sm w-28 shrink-0"
+                        placeholder="Цена"
+                        value={newItemPrice[sec.id] ?? ""}
+                        onChange={(e) => setNewItemPrice((p) => ({ ...p, [sec.id]: e.target.value }))}
+                      />
+                      <button
+                        onClick={() => handleAddItem(sec.id)}
+                        disabled={savingItem[sec.id] || !newItemName[sec.id]?.trim() || !newItemPrice[sec.id]?.trim()}
+                        className="flex items-center gap-1 bg-clinic-teal text-white text-xs px-2.5 py-1.5 rounded-lg hover:bg-opacity-90 disabled:opacity-60 shrink-0"
+                      >
+                        <Icon name="Check" size={12} /> {savingItem[sec.id] ? "..." : "Ок"}
+                      </button>
+                      <button
+                        onClick={() => setAddingItem((p) => ({ ...p, [sec.id]: false }))}
+                        className="text-clinic-text-muted hover:text-clinic-text shrink-0"
+                      >
+                        <Icon name="X" size={14} />
+                      </button>
+                    </div>
+                    <textarea
+                      className="w-full text-xs text-clinic-text border border-border rounded-lg px-3 py-2 resize-none focus:outline-none focus:ring-1 focus:ring-clinic-teal bg-white"
+                      rows={2}
+                      placeholder="Описание (необязательно): состав чекапа, что входит, примечания..."
+                      value={newItemDesc[sec.id] ?? ""}
+                      onChange={(e) => setNewItemDesc((p) => ({ ...p, [sec.id]: e.target.value }))}
                     />
-                    <Input
-                      className="h-8 text-sm w-28 shrink-0"
-                      placeholder="Цена"
-                      value={newItemPrice[sec.id] ?? ""}
-                      onChange={(e) => setNewItemPrice((p) => ({ ...p, [sec.id]: e.target.value }))}
-                    />
-                    <button
-                      onClick={() => handleAddItem(sec.id)}
-                      disabled={savingItem[sec.id] || !newItemName[sec.id]?.trim() || !newItemPrice[sec.id]?.trim()}
-                      className="flex items-center gap-1 bg-clinic-teal text-white text-xs px-2.5 py-1.5 rounded-lg hover:bg-opacity-90 disabled:opacity-60 shrink-0"
-                    >
-                      <Icon name="Check" size={12} /> {savingItem[sec.id] ? "..." : "Ок"}
-                    </button>
-                    <button
-                      onClick={() => setAddingItem((p) => ({ ...p, [sec.id]: false }))}
-                      className="text-clinic-text-muted hover:text-clinic-text shrink-0"
-                    >
-                      <Icon name="X" size={14} />
-                    </button>
                   </div>
                 ) : (
                   <div className="px-5 py-2.5">
