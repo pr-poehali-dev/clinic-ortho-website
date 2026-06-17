@@ -9,6 +9,7 @@ interface PriceItem {
   id?: number | string;
   name: string;
   price: string;
+  description?: string;
 }
 
 interface PriceSection {
@@ -133,9 +134,14 @@ export default function Prices() {
                     </div>
                     <div className="divide-y divide-border">
                       {priceSections[active].items.map((item) => (
-                        <div key={item.id ?? item.name} className="flex items-center justify-between px-6 py-4 hover:bg-secondary/40 transition-colors">
-                          <span className="text-sm text-clinic-text pr-4">{item.name}</span>
-                          <span className="text-clinic-teal font-semibold font-body whitespace-nowrap">{item.price} ₽</span>
+                        <div key={item.id ?? item.name} className="flex items-start justify-between px-6 py-4 hover:bg-secondary/40 transition-colors gap-4">
+                          <div className="flex-1 min-w-0">
+                            <span className="text-sm text-clinic-text">{item.name}</span>
+                            {item.description && (
+                              <p className="text-xs text-clinic-text-muted mt-1 leading-relaxed">{item.description}</p>
+                            )}
+                          </div>
+                          <span className="text-clinic-teal font-semibold font-body whitespace-nowrap shrink-0 mt-0.5">{item.price} ₽</span>
                         </div>
                       ))}
                     </div>

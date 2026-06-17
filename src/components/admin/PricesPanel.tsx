@@ -273,7 +273,7 @@ export function PricesPanel({ password }: { password: string }) {
                           </div>
                           <span className="text-sm font-semibold text-clinic-teal whitespace-nowrap shrink-0 mt-0.5">{item.price} ₽</span>
                           <button
-                            onClick={() => setEditItem((p) => ({ ...p, [item.id]: { name: item.name, price: item.price, description: item.description } }))}
+                            onClick={() => setEditItem((p) => ({ ...p, [item.id]: { name: item.name, price: item.price, description: item.description ?? "" } }))}
                             className="text-xs text-clinic-text-muted hover:text-clinic-teal transition-colors shrink-0 mt-0.5"
                           >
                             <Icon name="Pencil" size={14} />
