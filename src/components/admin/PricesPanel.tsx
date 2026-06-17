@@ -12,14 +12,14 @@ export function PricesPanel({ password }: { password: string }) {
   const [newSectionTitle, setNewSectionTitle] = useState("");
   const [newSectionIcon, setNewSectionIcon]   = useState("");
   const [savingSection, setSavingSection]     = useState(false);
-  const [addingItem, setAddingItem]           = useState<Record<number, boolean>>({});
-  const [newItemName, setNewItemName]         = useState<Record<number, string>>({});
-  const [newItemPrice, setNewItemPrice]       = useState<Record<number, string>>({});
-  const [newItemDesc, setNewItemDesc]         = useState<Record<number, string>>({});
-  const [savingItem, setSavingItem]           = useState<Record<number, boolean>>({});
-  const [editItem, setEditItem]               = useState<Record<number, { name: string; price: string; description: string }>>({});
-  const [savingEditItem, setSavingEditItem]   = useState<Record<number, boolean>>({});
-  const [editSection, setEditSection]         = useState<Record<number, { title: string; icon: string }>>({});
+  const [addingItem, setAddingItem]     = useState<Record<number, boolean>>({});
+  const [newItemName, setNewItemName]   = useState<Record<number, string>>({});
+  const [newItemPrice, setNewItemPrice] = useState<Record<number, string>>({});
+  const [newItemDesc, setNewItemDesc]   = useState<Record<number, string>>({});
+  const [savingItem, setSavingItem]     = useState<Record<number, boolean>>({});
+  const [editItem, setEditItem]         = useState<Record<number, { name: string; price: string; description: string }>>({});
+  const [savingEditItem, setSavingEditItem] = useState<Record<number, boolean>>({});
+  const [editSection, setEditSection]   = useState<Record<number, { title: string; icon: string }>>({});
   const [savingEditSection, setSavingEditSection] = useState<Record<number, boolean>>({});
 
   const showToast = (message: string, type: "ok" | "err") => {
@@ -57,15 +57,10 @@ export function PricesPanel({ password }: { password: string }) {
     try {
       await contentPost({ section: "prices", action: "add_section", title: newSectionTitle, icon: newSectionIcon });
       showToast("Раздел добавлен", "ok");
-      setNewSectionTitle("");
-      setNewSectionIcon("");
-      setAddingSection(false);
+      setNewSectionTitle(""); setNewSectionIcon(""); setAddingSection(false);
       await load();
-    } catch {
-      showToast("Ошибка при добавлении раздела", "err");
-    } finally {
-      setSavingSection(false);
-    }
+    } catch { showToast("Ошибка при добавлении раздела", "err"); }
+    finally { setSavingSection(false); }
   };
 
   const handleSaveSection = async (sec: PriceSection) => {
@@ -77,11 +72,8 @@ export function PricesPanel({ password }: { password: string }) {
       showToast("Раздел обновлён", "ok");
       setEditSection((p) => { const n = { ...p }; delete n[sec.id]; return n; });
       await load();
-    } catch {
-      showToast("Ошибка при сохранении", "err");
-    } finally {
-      setSavingEditSection((p) => ({ ...p, [sec.id]: false }));
-    }
+    } catch { showToast("Ошибка при сохранении", "err"); }
+    finally { setSavingEditSection((p) => ({ ...p, [sec.id]: false })); }
   };
 
   const handleAddItem = async (sectionId: number) => {
@@ -98,11 +90,8 @@ export function PricesPanel({ password }: { password: string }) {
       setNewItemDesc((p)  => ({ ...p, [sectionId]: "" }));
       setAddingItem((p)   => ({ ...p, [sectionId]: false }));
       await load();
-    } catch {
-      showToast("Ошибка при добавлении", "err");
-    } finally {
-      setSavingItem((p) => ({ ...p, [sectionId]: false }));
-    }
+    } catch { showToast("Ошибка при добавлении", "err"); }
+    finally { setSavingItem((p) => ({ ...p, [sectionId]: false })); }
   };
 
   const handleDeleteItem = async (item: PriceItem) => {
@@ -111,9 +100,7 @@ export function PricesPanel({ password }: { password: string }) {
       await contentPost({ section: "prices", action: "delete_item", id: item.id });
       showToast("Позиция удалена", "ok");
       await load();
-    } catch {
-      showToast("Ошибка при удалении", "err");
-    }
+    } catch { showToast("Ошибка при удалении", "err"); }
   };
 
   const handleSaveItem = async (item: PriceItem) => {
@@ -125,11 +112,8 @@ export function PricesPanel({ password }: { password: string }) {
       showToast("Позиция обновлена", "ok");
       setEditItem((p) => { const n = { ...p }; delete n[item.id]; return n; });
       await load();
-    } catch {
-      showToast("Ошибка при сохранении", "err");
-    } finally {
-      setSavingEditItem((p) => ({ ...p, [item.id]: false }));
-    }
+    } catch { showToast("Ошибка при сохранении", "err"); }
+    finally { setSavingEditItem((p) => ({ ...p, [item.id]: false })); }
   };
 
   if (loading) return <Spinner />;
@@ -158,11 +142,7 @@ export function PricesPanel({ password }: { password: string }) {
             <div><FieldLabel>Иконка (Lucide)</FieldLabel><Input value={newSectionIcon} onChange={(e) => setNewSectionIcon(e.target.value)} placeholder="Stethoscope" /></div>
           </div>
           <div className="flex gap-2">
-            <button
-              onClick={handleAddSection}
-              disabled={savingSection || !newSectionTitle.trim()}
-              className="flex items-center gap-2 bg-clinic-teal text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-opacity-90 disabled:opacity-60"
-            >
+            <button onClick={handleAddSection} disabled={savingSection || !newSectionTitle.trim()} className="flex items-center gap-2 bg-clinic-teal text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-opacity-90 disabled:opacity-60">
               <Icon name="Check" size={14} /> {savingSection ? "Сохраняем..." : "Добавить"}
             </button>
             <button onClick={() => setAddingSection(false)} className="px-4 py-2 rounded-xl text-sm text-clinic-text-muted hover:bg-secondary transition-all">Отмена</button>
@@ -177,167 +157,150 @@ export function PricesPanel({ password }: { password: string }) {
 
           return (
             <div key={sec.id} className="bg-white rounded-2xl border border-border">
+
+              {/* Заголовок раздела */}
               <div className="px-5 py-3 border-b border-border bg-clinic-beige flex items-center gap-3">
                 {secDraft ? (
                   <>
-                    <Input
-                      className="h-8 text-sm font-medium"
-                      value={secDraft.title}
-                      onChange={(e) => setEditSection((p) => ({ ...p, [sec.id]: { ...secDraft, title: e.target.value } }))}
-                      placeholder="Название раздела"
-                    />
-                    <Input
-                      className="h-8 text-sm w-36"
-                      value={secDraft.icon}
-                      onChange={(e) => setEditSection((p) => ({ ...p, [sec.id]: { ...secDraft, icon: e.target.value } }))}
-                      placeholder="Иконка"
-                    />
-                    <button
-                      onClick={() => handleSaveSection(sec)}
-                      disabled={isSavingSec}
-                      className="flex items-center gap-1.5 bg-clinic-teal text-white text-xs px-3 py-1.5 rounded-lg hover:bg-opacity-90 disabled:opacity-60 shrink-0"
-                    >
+                    <Input className="h-8 text-sm font-medium" value={secDraft.title} onChange={(e) => setEditSection((p) => ({ ...p, [sec.id]: { ...secDraft, title: e.target.value } }))} placeholder="Название раздела" />
+                    <Input className="h-8 text-sm w-36" value={secDraft.icon} onChange={(e) => setEditSection((p) => ({ ...p, [sec.id]: { ...secDraft, icon: e.target.value } }))} placeholder="Иконка" />
+                    <button onClick={() => handleSaveSection(sec)} disabled={isSavingSec} className="flex items-center gap-1.5 bg-clinic-teal text-white text-xs px-3 py-1.5 rounded-lg hover:bg-opacity-90 disabled:opacity-60 shrink-0">
                       <Icon name="Check" size={12} /> {isSavingSec ? "..." : "Сохранить"}
                     </button>
-                    <button
-                      onClick={() => setEditSection((p) => { const n = { ...p }; delete n[sec.id]; return n; })}
-                      className="text-xs text-clinic-text-muted hover:text-clinic-text shrink-0"
-                    >
-                      Отмена
-                    </button>
+                    <button onClick={() => setEditSection((p) => { const n = { ...p }; delete n[sec.id]; return n; })} className="text-xs text-clinic-text-muted hover:text-clinic-text shrink-0">Отмена</button>
                   </>
                 ) : (
                   <>
                     <Icon name={sec.icon || "Tag"} size={16} className="text-clinic-teal shrink-0" />
                     <span className="font-display text-base text-clinic-text flex-1">{sec.title}</span>
-                    <button
-                      onClick={() => setEditSection((p) => ({ ...p, [sec.id]: { title: sec.title, icon: sec.icon } }))}
-                      className="flex items-center gap-1.5 text-xs text-clinic-teal hover:underline shrink-0"
-                    >
+                    <button onClick={() => setEditSection((p) => ({ ...p, [sec.id]: { title: sec.title, icon: sec.icon } }))} className="flex items-center gap-1.5 text-xs text-clinic-teal hover:underline shrink-0">
                       <Icon name="Pencil" size={12} /> Изменить
                     </button>
                   </>
                 )}
               </div>
 
-              <div>
-                {sec.items.map((item) => {
-                  const draft      = editItem[item.id];
-                  const isSavingIt = savingEditItem[item.id];
-                  return (
-                    <div key={item.id} className="px-5 py-3 hover:bg-secondary/30 transition-colors border-t border-border">
-                      {draft ? (
-                        <div style={{display:"flex", flexDirection:"column", gap:"8px"}}>
-                          <div style={{display:"flex", gap:"8px", alignItems:"center"}}>
-                            <Input
-                              className="h-8 text-sm flex-1"
-                              value={draft.name}
-                              onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, name: e.target.value } }))}
-                              placeholder="Название"
-                            />
-                            <Input
-                              className="h-8 text-sm shrink-0"
-                              style={{width:"110px"}}
-                              value={draft.price}
-                              onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, price: e.target.value } }))}
-                              placeholder="1 500"
-                            />
-                            <button
-                              onClick={() => handleSaveItem(item)}
-                              disabled={isSavingIt}
-                              className="flex items-center gap-1 bg-clinic-teal text-white text-xs px-2.5 py-1.5 rounded-lg hover:bg-opacity-90 disabled:opacity-60 shrink-0"
-                            >
-                              <Icon name="Check" size={12} /> {isSavingIt ? "..." : "Ок"}
-                            </button>
-                            <button
-                              onClick={() => setEditItem((p) => { const n = { ...p }; delete n[item.id]; return n; })}
-                              className="text-xs text-clinic-text-muted hover:text-clinic-text shrink-0"
-                            >
-                              <Icon name="X" size={14} />
-                            </button>
-                          </div>
-                          <textarea
-                            style={{width:"100%", fontSize:"12px", border:"1px solid #e2e8f0", borderRadius:"8px", padding:"8px 12px", resize:"vertical", minHeight:"60px", outline:"none", fontFamily:"inherit"}}
-                            placeholder="Описание (необязательно): что входит в чекап, примечания..."
-                            value={draft.description}
-                            onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, description: e.target.value } }))}
+              {/* Позиции */}
+              {sec.items.map((item) => {
+                const draft      = editItem[item.id];
+                const isSavingIt = savingEditItem[item.id];
+                return (
+                  <div key={item.id} style={{ borderBottom: "1px solid #e2e8f0" }}>
+                    {draft ? (
+                      /* ── РЕЖИМ РЕДАКТИРОВАНИЯ ── */
+                      <div style={{ padding: "12px 20px", background: "#f8fffe" }}>
+                        <div style={{ display: "flex", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
+                          <input
+                            style={{ flex: 1, height: "32px", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "0 10px", fontSize: "13px", outline: "none" }}
+                            value={draft.name}
+                            onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, name: e.target.value } }))}
+                            placeholder="Название"
                           />
-                        </div>
-                      ) : (
-                        <div className="flex items-start gap-3">
-                          <div className="flex-1 min-w-0">
-                            <span className="text-sm text-clinic-text">{item.name}</span>
-                            {item.description && (
-                              <p className="text-xs text-clinic-text-muted mt-0.5 leading-relaxed">{item.description}</p>
-                            )}
-                          </div>
-                          <span className="text-sm font-semibold text-clinic-teal whitespace-nowrap shrink-0 mt-0.5">{item.price} ₽</span>
+                          <input
+                            style={{ width: "100px", height: "32px", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "0 10px", fontSize: "13px", outline: "none" }}
+                            value={draft.price}
+                            onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, price: e.target.value } }))}
+                            placeholder="Цена"
+                          />
                           <button
-                            onClick={() => setEditItem((p) => ({ ...p, [item.id]: { name: item.name, price: item.price, description: item.description ?? "" } }))}
-                            className="text-xs text-clinic-text-muted hover:text-clinic-teal transition-colors shrink-0 mt-0.5"
+                            onClick={() => handleSaveItem(item)}
+                            disabled={isSavingIt}
+                            style={{ display: "flex", alignItems: "center", gap: "4px", background: "#2d7d6e", color: "white", border: "none", borderRadius: "8px", padding: "6px 10px", fontSize: "12px", cursor: "pointer", opacity: isSavingIt ? 0.6 : 1 }}
                           >
-                            <Icon name="Pencil" size={14} />
+                            <Icon name="Check" size={12} /> {isSavingIt ? "..." : "Ок"}
                           </button>
                           <button
-                            onClick={() => handleDeleteItem(item)}
-                            className="text-xs text-clinic-text-muted hover:text-red-500 transition-colors shrink-0 mt-0.5"
+                            onClick={() => setEditItem((p) => { const n = { ...p }; delete n[item.id]; return n; })}
+                            style={{ background: "none", border: "none", cursor: "pointer", color: "#94a3b8", padding: "4px" }}
                           >
-                            <Icon name="Trash2" size={14} />
+                            <Icon name="X" size={14} />
                           </button>
                         </div>
-                      )}
-                    </div>
-                  );
-                })}
-
-                {addingItem[sec.id] ? (
-                  <div style={{padding:"12px 20px", background:"rgba(var(--clinic-teal-rgb,0,128,128),0.06)", borderTop:"1px solid #e2e8f0", display:"flex", flexDirection:"column", gap:"8px"}}>
-                    <div style={{display:"flex", gap:"8px", alignItems:"center"}}>
-                      <Input
-                        className="h-8 text-sm flex-1"
-                        placeholder="Название услуги"
-                        value={newItemName[sec.id] ?? ""}
-                        onChange={(e) => setNewItemName((p) => ({ ...p, [sec.id]: e.target.value }))}
-                      />
-                      <Input
-                        className="h-8 text-sm shrink-0"
-                        style={{width:"110px"}}
-                        placeholder="Цена"
-                        value={newItemPrice[sec.id] ?? ""}
-                        onChange={(e) => setNewItemPrice((p) => ({ ...p, [sec.id]: e.target.value }))}
-                      />
-                      <button
-                        onClick={() => handleAddItem(sec.id)}
-                        disabled={savingItem[sec.id] || !newItemName[sec.id]?.trim() || !newItemPrice[sec.id]?.trim()}
-                        className="flex items-center gap-1 bg-clinic-teal text-white text-xs px-2.5 py-1.5 rounded-lg hover:bg-opacity-90 disabled:opacity-60 shrink-0"
-                      >
-                        <Icon name="Check" size={12} /> {savingItem[sec.id] ? "..." : "Ок"}
-                      </button>
-                      <button
-                        onClick={() => setAddingItem((p) => ({ ...p, [sec.id]: false }))}
-                        className="text-clinic-text-muted hover:text-clinic-text shrink-0"
-                      >
-                        <Icon name="X" size={14} />
-                      </button>
-                    </div>
-                    <textarea
-                      style={{width:"100%", fontSize:"12px", border:"1px solid #e2e8f0", borderRadius:"8px", padding:"8px 12px", resize:"vertical", minHeight:"60px", outline:"none", fontFamily:"inherit", background:"white"}}
-                      placeholder="Описание (необязательно): что входит в чекап, примечания..."
-                      value={newItemDesc[sec.id] ?? ""}
-                      onChange={(e) => setNewItemDesc((p) => ({ ...p, [sec.id]: e.target.value }))}
-                    />
+                        <textarea
+                          style={{ display: "block", width: "100%", minHeight: "64px", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "8px 12px", fontSize: "12px", resize: "vertical", outline: "none", fontFamily: "inherit", boxSizing: "border-box" }}
+                          placeholder="Описание (необязательно): что входит в чекап, состав анализов, примечания..."
+                          value={draft.description}
+                          onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, description: e.target.value } }))}
+                        />
+                      </div>
+                    ) : (
+                      /* ── РЕЖИМ ПРОСМОТРА ── */
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", padding: "12px 20px" }}>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ fontSize: "14px", color: "#1e293b" }}>{item.name}</div>
+                          {item.description && (
+                            <div style={{ fontSize: "12px", color: "#64748b", marginTop: "3px", lineHeight: "1.5" }}>{item.description}</div>
+                          )}
+                        </div>
+                        <div style={{ fontWeight: 600, color: "#2d7d6e", whiteSpace: "nowrap", fontSize: "14px" }}>{item.price} ₽</div>
+                        <button
+                          onClick={() => setEditItem((p) => ({ ...p, [item.id]: { name: item.name, price: item.price, description: item.description ?? "" } }))}
+                          style={{ background: "none", border: "none", cursor: "pointer", color: "#94a3b8", padding: "2px" }}
+                          title="Редактировать"
+                        >
+                          <Icon name="Pencil" size={14} />
+                        </button>
+                        <button
+                          onClick={() => handleDeleteItem(item)}
+                          style={{ background: "none", border: "none", cursor: "pointer", color: "#94a3b8", padding: "2px" }}
+                          title="Удалить"
+                        >
+                          <Icon name="Trash2" size={14} />
+                        </button>
+                      </div>
+                    )}
                   </div>
-                ) : (
-                  <div className="px-5 py-2.5 border-t border-border">
+                );
+              })}
+
+              {/* Форма добавления позиции */}
+              {addingItem[sec.id] ? (
+                <div style={{ padding: "12px 20px", background: "#f0fafa", borderTop: "1px solid #e2e8f0" }}>
+                  <div style={{ display: "flex", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
+                    <input
+                      style={{ flex: 1, height: "32px", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "0 10px", fontSize: "13px", outline: "none" }}
+                      placeholder="Название услуги"
+                      value={newItemName[sec.id] ?? ""}
+                      onChange={(e) => setNewItemName((p) => ({ ...p, [sec.id]: e.target.value }))}
+                    />
+                    <input
+                      style={{ width: "100px", height: "32px", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "0 10px", fontSize: "13px", outline: "none" }}
+                      placeholder="Цена"
+                      value={newItemPrice[sec.id] ?? ""}
+                      onChange={(e) => setNewItemPrice((p) => ({ ...p, [sec.id]: e.target.value }))}
+                    />
                     <button
-                      onClick={() => setAddingItem((p) => ({ ...p, [sec.id]: true }))}
-                      className="flex items-center gap-1.5 text-xs text-clinic-teal hover:underline"
+                      onClick={() => handleAddItem(sec.id)}
+                      disabled={savingItem[sec.id] || !newItemName[sec.id]?.trim() || !newItemPrice[sec.id]?.trim()}
+                      style={{ display: "flex", alignItems: "center", gap: "4px", background: "#2d7d6e", color: "white", border: "none", borderRadius: "8px", padding: "6px 10px", fontSize: "12px", cursor: "pointer", opacity: (savingItem[sec.id] || !newItemName[sec.id]?.trim() || !newItemPrice[sec.id]?.trim()) ? 0.5 : 1 }}
                     >
-                      <Icon name="Plus" size={13} /> Добавить позицию
+                      <Icon name="Check" size={12} /> {savingItem[sec.id] ? "..." : "Ок"}
+                    </button>
+                    <button
+                      onClick={() => setAddingItem((p) => ({ ...p, [sec.id]: false }))}
+                      style={{ background: "none", border: "none", cursor: "pointer", color: "#94a3b8", padding: "4px" }}
+                    >
+                      <Icon name="X" size={14} />
                     </button>
                   </div>
-                )}
-              </div>
+                  <textarea
+                    style={{ display: "block", width: "100%", minHeight: "64px", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "8px 12px", fontSize: "12px", resize: "vertical", outline: "none", fontFamily: "inherit", boxSizing: "border-box", background: "white" }}
+                    placeholder="Описание (необязательно): что входит в чекап, состав анализов, примечания..."
+                    value={newItemDesc[sec.id] ?? ""}
+                    onChange={(e) => setNewItemDesc((p) => ({ ...p, [sec.id]: e.target.value }))}
+                  />
+                </div>
+              ) : (
+                <div style={{ padding: "10px 20px", borderTop: "1px solid #e2e8f0" }}>
+                  <button
+                    onClick={() => setAddingItem((p) => ({ ...p, [sec.id]: true }))}
+                    style={{ display: "flex", alignItems: "center", gap: "6px", background: "none", border: "none", cursor: "pointer", color: "#2d7d6e", fontSize: "12px" }}
+                  >
+                    <Icon name="Plus" size={13} /> Добавить позицию
+                  </button>
+                </div>
+              )}
+
             </div>
           );
         })}
