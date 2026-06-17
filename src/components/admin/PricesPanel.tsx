@@ -176,7 +176,7 @@ export function PricesPanel({ password }: { password: string }) {
           const isSavingSec = savingEditSection[sec.id];
 
           return (
-            <div key={sec.id} className="bg-white rounded-2xl border border-border overflow-hidden">
+            <div key={sec.id} className="bg-white rounded-2xl border border-border">
               <div className="px-5 py-3 border-b border-border bg-clinic-beige flex items-center gap-3">
                 {secDraft ? (
                   <>
@@ -220,12 +220,12 @@ export function PricesPanel({ password }: { password: string }) {
                 )}
               </div>
 
-              <div className="divide-y divide-border">
+              <div>
                 {sec.items.map((item) => {
                   const draft      = editItem[item.id];
                   const isSavingIt = savingEditItem[item.id];
                   return (
-                    <div key={item.id} className="px-5 py-3 hover:bg-secondary/30 transition-colors">
+                    <div key={item.id} className="px-5 py-3 hover:bg-secondary/30 transition-colors border-t border-border">
                       {draft ? (
                         <div className="space-y-2">
                           <div className="flex items-center gap-3">
@@ -291,7 +291,7 @@ export function PricesPanel({ password }: { password: string }) {
                 })}
 
                 {addingItem[sec.id] ? (
-                  <div className="px-5 py-3 bg-clinic-teal-light/30 space-y-2">
+                  <div className="px-5 py-3 bg-clinic-teal-light/30 space-y-2 border-t border-border">
                     <div className="flex items-center gap-2">
                       <Input
                         className="h-8 text-sm flex-1"
@@ -328,7 +328,7 @@ export function PricesPanel({ password }: { password: string }) {
                     />
                   </div>
                 ) : (
-                  <div className="px-5 py-2.5">
+                  <div className="px-5 py-2.5 border-t border-border">
                     <button
                       onClick={() => setAddingItem((p) => ({ ...p, [sec.id]: true }))}
                       className="flex items-center gap-1.5 text-xs text-clinic-teal hover:underline"
