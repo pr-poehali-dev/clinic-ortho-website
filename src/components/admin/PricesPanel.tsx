@@ -227,8 +227,8 @@ export function PricesPanel({ password }: { password: string }) {
                   return (
                     <div key={item.id} className="px-5 py-3 hover:bg-secondary/30 transition-colors border-t border-border">
                       {draft ? (
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-3">
+                        <div style={{display:"flex", flexDirection:"column", gap:"8px"}}>
+                          <div style={{display:"flex", gap:"8px", alignItems:"center"}}>
                             <Input
                               className="h-8 text-sm flex-1"
                               value={draft.name}
@@ -236,7 +236,8 @@ export function PricesPanel({ password }: { password: string }) {
                               placeholder="Название"
                             />
                             <Input
-                              className="h-8 text-sm w-28 shrink-0"
+                              className="h-8 text-sm shrink-0"
+                              style={{width:"110px"}}
                               value={draft.price}
                               onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, price: e.target.value } }))}
                               placeholder="1 500"
@@ -256,9 +257,8 @@ export function PricesPanel({ password }: { password: string }) {
                             </button>
                           </div>
                           <textarea
-                            className="w-full text-xs text-clinic-text border border-border rounded-lg px-3 py-2 resize-none focus:outline-none focus:ring-1 focus:ring-clinic-teal"
-                            rows={2}
-                            placeholder="Описание (необязательно): состав чекапа, что входит, примечания..."
+                            style={{width:"100%", fontSize:"12px", border:"1px solid #e2e8f0", borderRadius:"8px", padding:"8px 12px", resize:"vertical", minHeight:"60px", outline:"none", fontFamily:"inherit"}}
+                            placeholder="Описание (необязательно): что входит в чекап, примечания..."
                             value={draft.description}
                             onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, description: e.target.value } }))}
                           />
@@ -291,8 +291,8 @@ export function PricesPanel({ password }: { password: string }) {
                 })}
 
                 {addingItem[sec.id] ? (
-                  <div className="px-5 py-3 bg-clinic-teal-light/30 space-y-2 border-t border-border">
-                    <div className="flex items-center gap-2">
+                  <div style={{padding:"12px 20px", background:"rgba(var(--clinic-teal-rgb,0,128,128),0.06)", borderTop:"1px solid #e2e8f0", display:"flex", flexDirection:"column", gap:"8px"}}>
+                    <div style={{display:"flex", gap:"8px", alignItems:"center"}}>
                       <Input
                         className="h-8 text-sm flex-1"
                         placeholder="Название услуги"
@@ -300,7 +300,8 @@ export function PricesPanel({ password }: { password: string }) {
                         onChange={(e) => setNewItemName((p) => ({ ...p, [sec.id]: e.target.value }))}
                       />
                       <Input
-                        className="h-8 text-sm w-28 shrink-0"
+                        className="h-8 text-sm shrink-0"
+                        style={{width:"110px"}}
                         placeholder="Цена"
                         value={newItemPrice[sec.id] ?? ""}
                         onChange={(e) => setNewItemPrice((p) => ({ ...p, [sec.id]: e.target.value }))}
@@ -320,9 +321,8 @@ export function PricesPanel({ password }: { password: string }) {
                       </button>
                     </div>
                     <textarea
-                      className="w-full text-xs text-clinic-text border border-border rounded-lg px-3 py-2 resize-none focus:outline-none focus:ring-1 focus:ring-clinic-teal bg-white"
-                      rows={2}
-                      placeholder="Описание (необязательно): состав чекапа, что входит, примечания..."
+                      style={{width:"100%", fontSize:"12px", border:"1px solid #e2e8f0", borderRadius:"8px", padding:"8px 12px", resize:"vertical", minHeight:"60px", outline:"none", fontFamily:"inherit", background:"white"}}
+                      placeholder="Описание (необязательно): что входит в чекап, примечания..."
                       value={newItemDesc[sec.id] ?? ""}
                       onChange={(e) => setNewItemDesc((p) => ({ ...p, [sec.id]: e.target.value }))}
                     />
