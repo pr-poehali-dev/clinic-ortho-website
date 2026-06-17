@@ -216,9 +216,12 @@ export function PricesPanel({ password }: { password: string }) {
                             <Icon name="X" size={14} />
                           </button>
                         </div>
+                        <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: "#2d7d6e", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                          Описание (что входит в услугу)
+                        </label>
                         <textarea
-                          style={{ display: "block", width: "100%", minHeight: "64px", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "8px 12px", fontSize: "12px", resize: "vertical", outline: "none", fontFamily: "inherit", boxSizing: "border-box" }}
-                          placeholder="Описание (необязательно): что входит в чекап, состав анализов, примечания..."
+                          style={{ display: "block", width: "100%", minHeight: "64px", border: "2px solid #2d7d6e", borderRadius: "8px", padding: "8px 12px", fontSize: "12px", resize: "vertical", outline: "none", fontFamily: "inherit", boxSizing: "border-box", background: "#fff" }}
+                          placeholder="Например: Тестостерон общий, Эстрадиол, Пролактин, ФСГ, ЛГ..."
                           value={draft.description}
                           onChange={(e) => setEditItem((p) => ({ ...p, [item.id]: { ...draft, description: e.target.value } }))}
                         />
@@ -283,9 +286,12 @@ export function PricesPanel({ password }: { password: string }) {
                       <Icon name="X" size={14} />
                     </button>
                   </div>
+                  <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: "#2d7d6e", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                    Описание (что входит в услугу)
+                  </label>
                   <textarea
-                    style={{ display: "block", width: "100%", minHeight: "64px", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "8px 12px", fontSize: "12px", resize: "vertical", outline: "none", fontFamily: "inherit", boxSizing: "border-box", background: "white" }}
-                    placeholder="Описание (необязательно): что входит в чекап, состав анализов, примечания..."
+                    style={{ display: "block", width: "100%", minHeight: "64px", border: "2px solid #2d7d6e", borderRadius: "8px", padding: "8px 12px", fontSize: "12px", resize: "vertical", outline: "none", fontFamily: "inherit", boxSizing: "border-box", background: "white" }}
+                    placeholder="Например: Тестостерон общий, Эстрадиол, Пролактин, ФСГ, ЛГ..."
                     value={newItemDesc[sec.id] ?? ""}
                     onChange={(e) => setNewItemDesc((p) => ({ ...p, [sec.id]: e.target.value }))}
                   />
