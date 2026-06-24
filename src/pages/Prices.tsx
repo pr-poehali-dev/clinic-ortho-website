@@ -151,7 +151,7 @@ export default function Prices() {
                 <div className="mt-4 bg-clinic-teal-light rounded-xl p-4 flex items-start gap-3">
                   <Icon name="Info" size={16} className="text-clinic-teal mt-0.5 shrink-0" />
                   <p className="text-sm text-clinic-text">
-                    Цены носят информационный характер. Точную стоимость уточняйте у администратора при записи. При предъявлении пенсионного удостоверения скидка — 20%.
+                    Цены носят информационный характер. Точную стоимость уточняйте у администратора при записи.
                   </p>
                 </div>
               </div>
