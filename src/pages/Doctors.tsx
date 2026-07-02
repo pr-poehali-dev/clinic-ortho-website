@@ -34,7 +34,7 @@ function DoctorCard({ doctor }: { doctor: Doctor }) {
         <div className="relative">
           <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full object-cover" style={{ height: doctor.imgHeight ?? "24rem", objectPosition: doctor.imgPosition ?? "center top", marginTop: doctor.imgMarginTop ?? "0" }} loading="lazy" decoding="async" />
           {badge && (
-            <div className="absolute bg-white" style={{ top: badge.top, left: badge.left, width: badge.width, height: badge.height }} aria-hidden="true" />
+            <div className="absolute" style={{ top: badge.top, left: badge.left, width: badge.width, height: badge.height, backgroundColor: "#eef1f4" }} aria-hidden="true" />
           )}
           <img src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/3e87c830-678c-485d-b730-8467068e3086.png" alt="Ваш Ортопед" className="absolute top-3 right-3 h-10 w-10 object-contain opacity-90" loading="lazy" decoding="async" />
         </div>
