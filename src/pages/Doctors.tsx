@@ -23,7 +23,7 @@ interface Doctor {
 }
 
 const BADGE_COVER: Record<number, { top: string; left: string; width: string; height: string }> = {
-  5: { top: "58.5%", left: "34%", width: "18%", height: "6.5%" },
+  5: { top: "70%", left: "30%", width: "20%", height: "9%" },
 };
 
 function DoctorCard({ doctor }: { doctor: Doctor }) {
