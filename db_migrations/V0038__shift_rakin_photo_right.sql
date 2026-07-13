@@ -1,0 +1,3 @@
+UPDATE t_p48876731_clinic_ortho_website.doctors
+SET img_position = '35% 20%'
+WHERE id = 5;

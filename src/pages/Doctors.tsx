@@ -22,9 +22,7 @@ interface Doctor {
   is_active?: boolean;
 }
 
-const BADGE_COVER: Record<number, { top: string; left: string; width: string; height: string }> = {
-  5: { top: "75%", left: "32%", width: "13%", height: "8%" },
-};
+const BADGE_COVER: Record<number, { top: string; left: string; width: string; height: string }> = {};
 
 function DoctorCard({ doctor }: { doctor: Doctor }) {
   const badge = BADGE_COVER[Number(doctor.id)];
