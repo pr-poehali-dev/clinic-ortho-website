@@ -1,0 +1,1 @@
+UPDATE t_p48876731_clinic_ortho_website.doctors SET is_active = true WHERE id = 5;
