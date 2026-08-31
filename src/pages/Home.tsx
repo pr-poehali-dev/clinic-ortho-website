@@ -23,6 +23,7 @@ const SERVICES_PREVIEW = [
   { icon: "Bone", title: "Ортопедия и травматология", desc: "Лечение заболеваний суставов, опорно-двигательного аппарата и травм", href: "/services/orthopedics" },
   { icon: "Brain", title: "Неврология", desc: "Избавление от болей в спине — лечение остеохондроза, грыж и протрузий", href: "/services/neurology" },
   { icon: "Waves", title: "Ударно-волновая терапия", desc: "Лечение пяточной шпоры, тендинитов и хронических болей в суставах без проколов", href: "/services/uvt" },
+  { icon: "Dna", title: "Стромально-васкулярная фракция", desc: "Клеточное лечение артроза собственными клетками — альтернатива замене сустава", href: "/services/svf" },
 ];
 
 export default function Home() {
@@ -337,13 +338,13 @@ export default function Home() {
             <h2 className="font-display text-2xl md:text-4xl text-clinic-text mb-3">Наши услуги</h2>
             <p className="text-clinic-text-muted">Комплексная помощь при заболеваниях опорно-двигательного аппарата</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {SERVICES_PREVIEW.map((s) => (
-              <Link key={s.title} to={s.href} className="bg-white rounded-2xl p-7 border border-border service-card block">
-                <div className="w-12 h-12 rounded-xl bg-clinic-teal flex items-center justify-center mb-4">
-                  <Icon name={s.icon} size={22} className="text-white" />
+              <Link key={s.title} to={s.href} className="bg-white rounded-2xl p-5 border border-border service-card block">
+                <div className="w-11 h-11 rounded-xl bg-clinic-teal flex items-center justify-center mb-3">
+                  <Icon name={s.icon} size={20} className="text-white" />
                 </div>
-                <h3 className="font-display text-2xl text-clinic-text mb-2">{s.title}</h3>
+                <h3 className="font-display text-xl text-clinic-text mb-2 leading-snug">{s.title}</h3>
                 <p className="text-sm text-clinic-text-muted leading-relaxed mb-4">{s.desc}</p>
                 <span className="text-clinic-teal text-sm font-medium flex items-center gap-1">
                   Подробнее <Icon name="ArrowRight" size={14} />
