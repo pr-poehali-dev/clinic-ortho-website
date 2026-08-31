@@ -40,6 +40,7 @@ const PrpTerapiya = lazy(() => import("@/pages/services/PrpTerapiya"));
 const GialuronovayaKislota = lazy(() => import("@/pages/services/GialuronovayaKislota"));
 const UvtLanding = lazy(() => import("@/pages/services/UvtLanding"));
 const SvfLanding = lazy(() => import("@/pages/services/SvfLanding"));
+const SvfTherapy = lazy(() => import("@/pages/services/SvfTherapy"));
 const Orthopedics = lazy(() => import("@/pages/services/Orthopedics"));
 const Neurology = lazy(() => import("@/pages/services/Neurology"));
 const ShockwaveTherapy = lazy(() => import("@/pages/services/ShockwaveTherapy"));
@@ -87,6 +88,7 @@ const App = () => (
           <Route path="/services/gialuronovaya-kislota" element={<Layout><GialuronovayaKislota /></Layout>} />
           <Route path="/services/uvt" element={<Layout><UvtLanding /></Layout>} />
           <Route path="/services/svf" element={<Layout><SvfLanding /></Layout>} />
+          <Route path="/services/svf-therapy" element={<Layout><SvfTherapy /></Layout>} />
           <Route path="/services/orthopedics-clinic" element={<Layout><Orthopedics /></Layout>} />
           <Route path="/services/neurology-clinic" element={<Layout><Neurology /></Layout>} />
           <Route path="/services/shockwave-therapy" element={<Layout><ShockwaveTherapy /></Layout>} />
