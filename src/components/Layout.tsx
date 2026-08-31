@@ -25,7 +25,7 @@ const DISEASE_LINKS = [
   { href: "/services/osteohondroz", label: "Лечение остеохондроза" },
   { href: "/services/prp-terapiya", label: "PRP / Плазмотерапия суставов" },
   { href: "/services/gialuronovaya-kislota", label: "Гиалуроновая кислота в сустав" },
-  { href: "/services/massazh", label: "Лечебный массаж" },
+  { href: "/services/uvt", label: "Ударно-волновая терапия" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {

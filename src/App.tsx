@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 
 const ScrollToTop = () => {
@@ -38,10 +38,10 @@ const KolennyjSustav = lazy(() => import("@/pages/diseases/KolennyjSustav"));
 const TazobedrenyjSustav = lazy(() => import("@/pages/diseases/TazobedrenyjSustav"));
 const PrpTerapiya = lazy(() => import("@/pages/services/PrpTerapiya"));
 const GialuronovayaKislota = lazy(() => import("@/pages/services/GialuronovayaKislota"));
-const MassazhLanding = lazy(() => import("@/pages/services/MassazhLanding"));
+const UvtLanding = lazy(() => import("@/pages/services/UvtLanding"));
 const Orthopedics = lazy(() => import("@/pages/services/Orthopedics"));
 const Neurology = lazy(() => import("@/pages/services/Neurology"));
-const Massage = lazy(() => import("@/pages/services/Massage"));
+const ShockwaveTherapy = lazy(() => import("@/pages/services/ShockwaveTherapy"));
 const LabTests = lazy(() => import("@/pages/services/LabTests"));
 const Ultrasound = lazy(() => import("@/pages/services/Ultrasound"));
 const Infusions = lazy(() => import("@/pages/services/Infusions"));
@@ -84,10 +84,13 @@ const App = () => (
           <Route path="/promos" element={<Layout><Promos /></Layout>} />
           <Route path="/services/prp-terapiya" element={<Layout><PrpTerapiya /></Layout>} />
           <Route path="/services/gialuronovaya-kislota" element={<Layout><GialuronovayaKislota /></Layout>} />
-          <Route path="/services/massazh" element={<Layout><MassazhLanding /></Layout>} />
+          <Route path="/services/uvt" element={<Layout><UvtLanding /></Layout>} />
           <Route path="/services/orthopedics-clinic" element={<Layout><Orthopedics /></Layout>} />
           <Route path="/services/neurology-clinic" element={<Layout><Neurology /></Layout>} />
-          <Route path="/services/massage-clinic" element={<Layout><Massage /></Layout>} />
+          <Route path="/services/shockwave-therapy" element={<Layout><ShockwaveTherapy /></Layout>} />
+          <Route path="/services/massazh" element={<Navigate to="/services/uvt" replace />} />
+          <Route path="/services/massage-clinic" element={<Navigate to="/services/shockwave-therapy" replace />} />
+          <Route path="/services/massage" element={<Navigate to="/services/uvt" replace />} />
           <Route path="/services/lab-tests" element={<Layout><LabTests /></Layout>} />
           <Route path="/services/ultrasound" element={<Layout><Ultrasound /></Layout>} />
           <Route path="/services/infusions" element={<Layout><Infusions /></Layout>} />

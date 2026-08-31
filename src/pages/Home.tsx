@@ -22,7 +22,7 @@ const ADVANTAGES = [
 const SERVICES_PREVIEW = [
   { icon: "Bone", title: "Ортопедия и травматология", desc: "Лечение заболеваний суставов, опорно-двигательного аппарата и травм", href: "/services/orthopedics" },
   { icon: "Brain", title: "Неврология", desc: "Избавление от болей в спине — лечение остеохондроза, грыж и протрузий", href: "/services/neurology" },
-  { icon: "Hand", title: "Массаж", desc: "Восстановление после заболеваний и травм опорно-двигательного аппарата", href: "/services/massage" },
+  { icon: "Waves", title: "Ударно-волновая терапия", desc: "Лечение пяточной шпоры, тендинитов и хронических болей в суставах без проколов", href: "/services/uvt" },
 ];
 
 export default function Home() {
@@ -183,7 +183,7 @@ export default function Home() {
               {[
                 { icon: "Bone", label: "Ортопедия", href: "/services/orthopedics-clinic" },
                 { icon: "Brain", label: "Неврология", href: "/services/neurology-clinic" },
-                { icon: "Hand", label: "Массаж", href: "/services/massage-clinic" },
+                { icon: "Waves", label: "УВТ", href: "/services/shockwave-therapy" },
                 { icon: "FlaskConical", label: "Анализы", href: "/services/lab-tests" },
                 { icon: "Scan", label: "УЗИ суставов", href: "/services/ultrasound" },
                 { icon: "Droplets", label: "Капельницы", href: "/services/infusions" },
@@ -274,7 +274,7 @@ export default function Home() {
             {[
               { icon: "Bone", label: "Ортопедия", href: "/services/orthopedics-clinic" },
               { icon: "Brain", label: "Неврология", href: "/services/neurology-clinic" },
-              { icon: "Hand", label: "Массаж", href: "/services/massage-clinic" },
+              { icon: "Waves", label: "УВТ", href: "/services/shockwave-therapy" },
               { icon: "FlaskConical", label: "Анализы", href: "/services/lab-tests" },
               { icon: "Scan", label: "УЗИ суставов", href: "/services/ultrasound" },
               { icon: "Droplets", label: "Капельницы", href: "/services/infusions" },

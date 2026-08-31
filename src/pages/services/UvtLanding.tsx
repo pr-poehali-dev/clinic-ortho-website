@@ -5,114 +5,114 @@ import PhoneModal from "@/components/PhoneModal";
 
 const trackGoal = (goal: string) => window.ym?.(108160921, 'reachGoal', goal);
 
-const BOOKING_URL = "https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089&utm_source=site&utm_medium=organic&utm_campaign=massazh";
+const BOOKING_URL = "https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089&utm_source=site&utm_medium=organic&utm_campaign=uvt";
 
 const TYPES = [
   {
-    icon: "HandHeart",
-    title: "Лечебный массаж",
-    desc: "Устраняет боль в спине, шее, пояснице. Снимает мышечные спазмы, восстанавливает подвижность позвоночника.",
+    icon: "Footprints",
+    title: "УВТ при пяточной шпоре",
+    desc: "Разрушает кальцинаты в подошвенной фасции, убирает утреннюю боль в пятке. Эффективность 80–88%.",
     badge: "Популярно",
   },
   {
     icon: "Bone",
-    title: "Массаж при остеохондрозе",
-    desc: "Снижает нагрузку на диски, улучшает кровообращение, убирает онемение рук и ног.",
+    title: "УВТ при тендините плеча",
+    desc: "Рассасывает отложения кальция в сухожилии надостной мышцы, возвращает объём движений в плече.",
     badge: null,
   },
   {
     icon: "Activity",
-    title: "Массаж при грыже позвоночника",
-    desc: "Расслабляет мышцы вокруг грыжи, снимает болевой синдром без операции.",
+    title: "УВТ при эпикондилите",
+    desc: "Лечение «локтя теннисиста» и «локтя гольфиста». Снимает хроническую боль в локте без блокад.",
     badge: null,
   },
   {
-    icon: "Footprints",
-    title: "Массаж ног и стоп",
-    desc: "При варикозе, усталости ног, отёках. Улучшает венозный отток, снимает тяжесть.",
+    icon: "Zap",
+    title: "УВТ при боли в спине",
+    desc: "Работа с триггерными точками и миофасциальным синдромом. Снимает мышечные зажимы и спазмы.",
     badge: null,
   },
   {
     icon: "Shield",
-    title: "Реабилитационный массаж",
-    desc: "После травм, операций и переломов. Восстанавливает мышечный тонус и подвижность суставов.",
+    title: "УВТ при тендинопатии ахилла",
+    desc: "Восстанавливает структуру сухожилия, возвращает к спорту после хронической перегрузки.",
     badge: null,
   },
   {
-    icon: "Smile",
-    title: "Расслабляющий массаж",
-    desc: "Снимает стресс, нормализует сон, снижает тревогу. Полное расслабление за 60 минут.",
+    icon: "HeartPulse",
+    title: "УВТ при артрозе",
+    desc: "Улучшает питание околосуставных тканей, снимает мышечный компонент боли в колене и бедре.",
     badge: null,
   },
 ];
 
 const RESULTS = [
-  { value: "1–3", label: "сеанса достаточно для снятия острой боли в спине" },
-  { value: "10–15", label: "сеансов в курсе для стойкого результата" },
-  { value: "60 мин", label: "стандартный сеанс лечебного массажа" },
-  { value: "с 1-го сеанса", label: "пациенты чувствуют облегчение" },
+  { value: "80–88%", label: "эффективность при пяточной шпоре" },
+  { value: "3–7", label: "процедур в стандартном курсе" },
+  { value: "7–20 мин", label: "длительность одного сеанса" },
+  { value: "без наркоза", label: "процедура не требует проколов и анестезии" },
 ];
 
 const INDICATIONS = [
-  "Боль в спине, пояснице, шее",
-  "Остеохондроз позвоночника",
-  "Межпозвонковые грыжи",
-  "Мышечные спазмы и зажимы",
-  "Сколиоз и нарушения осанки",
-  "Реабилитация после травм",
-  "Головные боли напряжения",
-  "Онемение рук и ног",
-  "Усталость и стресс",
-  "Варикоз и отёки ног",
-  "Синдром хронической усталости",
-  "Профилактика заболеваний",
+  "Пяточная шпора",
+  "Подошвенный фасциит",
+  "Боль в пятке при ходьбе",
+  "Кальцифицирующий тендинит плеча",
+  "Эпикондилит («локоть теннисиста»)",
+  "Тендинопатия ахиллова сухожилия",
+  "«Колено прыгуна»",
+  "Трохантерит бедра",
+  "Миофасциальные боли",
+  "Триггерные точки в мышцах",
+  "Хронические энтезопатии",
+  "Замедленное сращение переломов",
 ];
 
 const FAQ_ITEMS = [
   {
-    q: "Сколько сеансов нужно для результата?",
-    a: "При острой боли — 1–3 сеанса дают заметное облегчение. Для стойкого результата и профилактики рекомендуем курс 10–15 сеансов. Массажист подберёт оптимальный план на первом приёме.",
+    q: "Сколько сеансов УВТ нужно для результата?",
+    a: "Стандартный курс — 3–7 процедур с интервалом 5–10 дней. При свежем подошвенном фасциите бывает достаточно 3–4 сеансов, при кальцифицирующем тендините плеча обычно нужно 5–7. Точное количество врач определяет после УЗИ.",
   },
   {
-    q: "Больно ли делать лечебный массаж?",
-    a: "Лечебный массаж может вызывать умеренный дискомфорт в зонах напряжения — это нормально. Специалист всегда учитывает болевой порог пациента и регулирует интенсивность. После сеанса обычно наступает приятное расслабление.",
+    q: "Больно ли делать ударно-волновую терапию?",
+    a: "Процедура терпима и не требует анестезии. Ощущения описывают как ритмичные постукивания с ломотой в глубине тканей. Врач подбирает мощность индивидуально и ориентируется на вашу обратную связь, поэтому воздействие остаётся комфортным.",
   },
   {
-    q: "Есть ли противопоказания?",
-    a: "Да: острые воспалительные процессы, онкологические заболевания, тромбозы, высокая температура, кожные заболевания в зоне воздействия. Перед курсом обязательно консультируйтесь с врачом.",
+    q: "Есть ли противопоказания к УВТ?",
+    a: "Да: онкологические заболевания, беременность, нарушения свёртываемости крови, приём антикоагулянтов без коррекции, наличие кардиостимулятора, острая инфекция или гнойный процесс в зоне воздействия, тромбоз вен этой области. Все ограничения врач проверяет на консультации.",
   },
   {
-    q: "Можно ли совмещать массаж с другими процедурами?",
-    a: "Да — массаж отлично сочетается с физиотерапией, PRP-терапией, лечебной физкультурой. Комплексный подход даёт лучший результат. Врач составит индивидуальную программу.",
+    q: "Когда появится результат от процедуры?",
+    a: "Многие отмечают облегчение уже после первого-второго сеанса, но эффект накопительный: полностью он раскрывается через 4–12 недель после окончания курса, когда завершается рост новых капилляров и перестройка ткани.",
   },
   {
-    q: "Как подготовиться к сеансу массажа?",
-    a: "Не есть за 1–2 часа до процедуры. Принять душ. На сеанс лучше взять удобное нижнее бельё. Если есть медицинские документы (снимки, заключения) — возьмите с собой.",
+    q: "Нужна ли подготовка к сеансу УВТ?",
+    a: "Специальной подготовки нет. За 7–10 дней по согласованию с врачом отменяются противовоспалительные препараты и мази в зоне лечения — они снижают эффект. В день процедуры не наносите на кожу кремы и масла, приходите в удобной одежде.",
   },
   {
-    q: "Какой интервал между сеансами?",
-    a: "При лечебном курсе — через день или ежедневно, в зависимости от состояния. При расслабляющем — 1–2 раза в неделю. Массажист даст точные рекомендации после первого сеанса.",
+    q: "Что нельзя делать после процедуры?",
+    a: "В течение 48 часов исключаются интенсивные нагрузки на обработанную зону, бег, прыжки, подъём тяжестей, а также баня, сауна и горячая ванна. Обычная ходьба и повседневные дела разрешены сразу — больничный не нужен.",
   },
 ];
 
-export default function MassazhLanding() {
+export default function UvtLanding() {
   const [callModalOpen, setCallModalOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <>
       <SEO
-        title="Лечебный массаж в Новосибирске — запись, цены | Ваш Ортопед"
-        description="Лечебный массаж в Новосибирске. Массаж при остеохондрозе, грыже, болях в спине и пояснице. Реабилитационный и расслабляющий массаж. Запись онлайн. Первичная консультация — 2500₽."
-        keywords="лечебный массаж Новосибирск, массаж спины Новосибирск, массаж при остеохондрозе, массаж при грыже позвоночника, массаж поясницы, реабилитационный массаж, расслабляющий массаж Новосибирск, массаж шеи, массаж от боли в спине"
+        title="Ударно-волновая терапия в Новосибирске — УВТ, запись, цены | Ваш Ортопед"
+        description="Ударно-волновая терапия (УВТ) в Новосибирске. Лечение пяточной шпоры, тендинита плеча, эпикондилита, болей в суставах. Без проколов и наркоза. Запись онлайн. Клиника «Ваш Ортопед», Есенина 67."
+        keywords="ударно-волновая терапия Новосибирск, УВТ Новосибирск, лечение пяточной шпоры Новосибирск, УВТ пяточной шпоры, ударно волновая терапия суставов, УВТ плечевого сустава, лечение эпикондилита, УВТ цена Новосибирск, ударно-волновая терапия отзывы"
       />
 
       {/* HERO */}
       <section className="relative bg-clinic-warm md:min-h-[560px] flex items-center pt-8 pb-6 md:pt-10 md:pb-8">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/f7e0e41a-d81e-47ba-9d16-10d71c186fbf.jpg"
-            alt="Лечебный массаж в Новосибирске"
+            src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/3fba9dd5-4929-465e-8358-a82376dba7a4.jpg"
+            alt="Ударно-волновая терапия в Новосибирске"
             className="w-3/5 object-cover opacity-60 absolute right-0 hidden sm:block"
             style={{ filter: "brightness(1.25) saturate(0.85)", top: "-120px", height: "calc(100% + 180px)", objectPosition: "60% 20%" }}
           />
@@ -132,24 +132,24 @@ export default function MassazhLanding() {
               </div>
             </div>
             <h1 className="text-3xl md:text-5xl font-light leading-[1.15] text-clinic-text mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              <span className="text-clinic-teal italic">Лечебный массаж</span><br />в Новосибирске
+              <span className="text-clinic-teal italic">Ударно-волновая терапия</span><br />в Новосибирске
             </h1>
             <p className="text-clinic-text-muted text-base md:text-lg leading-relaxed mb-6 max-w-lg">
-              Снимаем боль в спине, шее и пояснице. Лечебный, реабилитационный и расслабляющий массаж у опытных специалистов. Записывайтесь онлайн — без ожиданий.
+              Лечим пяточную шпору, тендинит плеча и хроническую боль в суставах. Без проколов, наркоза и больничного. Процедуру проводит врач под контролем УЗИ.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <a
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackGoal('click_massage_zapis')}
+                onClick={() => trackGoal('click_uvt_zapis')}
                 className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-7 py-3.5 rounded-xl font-medium hover:opacity-90 transition-all text-sm shadow-md"
               >
                 <Icon name="CalendarCheck" size={16} />
-                Записаться на массаж
+                Записаться на УВТ
               </a>
               <button
-                onClick={() => { setCallModalOpen(true); trackGoal('click_massage_zvonok'); }}
+                onClick={() => { setCallModalOpen(true); trackGoal('click_uvt_zvonok'); }}
                 className="hidden sm:flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal bg-white px-7 py-3.5 rounded-xl font-medium text-sm hover:bg-clinic-teal-light transition-all"
               >
                 <Icon name="Phone" size={16} />
@@ -171,7 +171,7 @@ export default function MassazhLanding() {
                   <Icon name="Tag" size={18} className="text-amber-700" />
                 </div>
                 <div>
-                  <span className="text-base font-bold text-clinic-text block">Недорогой массаж в Новосибирске — от 800 ₽</span>
+                  <span className="text-base font-bold text-clinic-text block">Боль в пятке? УВТ помогает в 80–88% случаев</span>
                   <span className="text-sm text-amber-700 font-medium">Запись сегодня · без очереди</span>
                 </div>
               </div>
@@ -179,7 +179,7 @@ export default function MassazhLanding() {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackGoal('click_massage_promo')}
+                onClick={() => trackGoal('click_uvt_promo')}
                 className="sm:ml-auto flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-500 text-amber-900 font-semibold px-5 py-2.5 rounded-xl text-sm transition-all whitespace-nowrap"
               >
                 <Icon name="CalendarDays" size={15} />
@@ -190,13 +190,13 @@ export default function MassazhLanding() {
         </div>
       </section>
 
-      {/* ВИДЫ МАССАЖА */}
+      {/* ВИДЫ ПРОЦЕДУР */}
       <section className="py-12 bg-white">
         <div className="container">
           <h2 className="text-2xl md:text-3xl font-light text-clinic-text mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Виды массажа
+            При каких проблемах помогает УВТ
           </h2>
-          <p className="text-clinic-text-muted mb-8">Подбираем вид массажа под вашу ситуацию и цель</p>
+          <p className="text-clinic-text-muted mb-8">Подбираем параметры воздействия под вашу ситуацию и диагноз</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {TYPES.map((t) => (
               <div key={t.title} className="bg-clinic-warm rounded-2xl p-6 border border-clinic-teal/10 relative">
@@ -216,7 +216,7 @@ export default function MassazhLanding() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackGoal('click_massage_vidy')}
+              onClick={() => trackGoal('click_uvt_vidy')}
               className="inline-flex items-center gap-2 bg-clinic-teal text-white px-8 py-3.5 rounded-xl font-medium hover:opacity-90 transition-all shadow-md"
             >
               <Icon name="CalendarCheck" size={16} />
@@ -230,9 +230,9 @@ export default function MassazhLanding() {
       <section className="py-12 bg-clinic-warm">
         <div className="container">
           <h2 className="text-2xl md:text-3xl font-light text-clinic-text mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Показания к лечебному массажу
+            Показания к ударно-волновой терапии
           </h2>
-          <p className="text-clinic-text-muted mb-8">Если у вас есть хотя бы один из симптомов — массаж поможет</p>
+          <p className="text-clinic-text-muted mb-8">Если у вас есть хотя бы один из симптомов — УВТ поможет</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {INDICATIONS.map((ind) => (
               <div key={ind} className="flex items-center gap-3 bg-white border border-clinic-beige-dark/40 rounded-xl px-4 py-3">
@@ -246,38 +246,28 @@ export default function MassazhLanding() {
         </div>
       </section>
 
-      {/* ЦЕНЫ */}
+      {/* КАК ПРОХОДИТ */}
       <section className="py-12 bg-white">
         <div className="container">
           <h2 className="text-2xl md:text-3xl font-light text-clinic-text mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Стоимость массажа
+            Как проходит процедура
           </h2>
-          <p className="text-clinic-text-muted mb-8">Прозрачные цены — называем стоимость до начала</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <p className="text-clinic-text-muted mb-8">Амбулаторно, без проколов и анестезии — можно сразу вернуться к делам</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
             {[
-              { title: "Сеанс 10–30 минут", price: "800–1 500 ₽", desc: "Массаж отдельной зоны: спина, шея, поясница или ноги.", badge: "Старт" },
-              { title: "Сеанс 60 минут", price: "3 000 ₽", desc: "Полноценный лечебный или расслабляющий массаж всей спины.", badge: "Основа" },
-              { title: "Курс 10 сеансов", price: "Скидка 10%", desc: "При единовременной оплате курса. Стойкий результат и профилактика.", badge: "Выгодно" },
-            ].map((p) => (
-              <div key={p.title} className="bg-clinic-warm rounded-2xl p-6 border border-clinic-teal/10 shadow-sm relative">
-                <span className="absolute top-4 right-4 text-xs font-medium px-2.5 py-1 rounded-full bg-clinic-teal text-white">{p.badge}</span>
-                <h3 className="text-lg font-bold text-clinic-text mb-1 pr-16">{p.title}</h3>
-                <p className="text-3xl font-bold text-clinic-teal mb-3">{p.price}</p>
-                <p className="text-sm text-clinic-text/75 leading-relaxed">{p.desc}</p>
+              { step: "1", title: "Осмотр и УЗИ", desc: "Врач находит точную зону поражения и исключает состояния, при которых УВТ противопоказана." },
+              { step: "2", title: "Наведение аппликатора", desc: "На кожу наносится контактный гель, аппликатор устанавливается в точку максимальной болезненности." },
+              { step: "3", title: "Подача импульсов", desc: "За сеанс подаётся 1500–3000 импульсов. Мощность врач наращивает по вашей обратной связи." },
+              { step: "4", title: "Домой сразу", desc: "Через несколько минут после сеанса можно идти. Больничный и восстановление не требуются." },
+            ].map((s) => (
+              <div key={s.step} className="bg-clinic-warm rounded-2xl p-6 border border-clinic-teal/10">
+                <div className="w-10 h-10 rounded-xl bg-clinic-teal text-white flex items-center justify-center mb-3 font-bold">
+                  {s.step}
+                </div>
+                <h3 className="font-semibold text-clinic-text mb-2 text-sm">{s.title}</h3>
+                <p className="text-sm text-clinic-text/75 leading-relaxed">{s.desc}</p>
               </div>
             ))}
-          </div>
-          <div className="mt-6 text-center">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackGoal('click_massage_ceny')}
-              className="inline-flex items-center gap-2 bg-clinic-teal text-white px-8 py-3.5 rounded-xl font-medium hover:opacity-90 transition-all shadow-md"
-            >
-              <Icon name="CalendarCheck" size={16} />
-              Записаться на первый сеанс
-            </a>
           </div>
         </div>
       </section>
@@ -305,14 +295,14 @@ export default function MassazhLanding() {
           <h2 className="text-2xl md:text-3xl font-light text-clinic-text mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
             Почему выбирают нас
           </h2>
-          <p className="text-clinic-text-muted mb-8">Клиника «Ваш Ортопед» — медицинский подход к массажу</p>
+          <p className="text-clinic-text-muted mb-8">Клиника «Ваш Ортопед» — врачебный подход к аппаратному лечению</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { icon: "UserCheck", title: "Опытные специалисты", desc: "Массажисты с медицинским образованием и опытом 5+ лет. Знают анатомию и работают безопасно." },
-              { icon: "Stethoscope", title: "Медицинский подход", desc: "Массаж назначается врачом после осмотра — с учётом диагноза и противопоказаний." },
+              { icon: "UserCheck", title: "Процедуру ведёт врач", desc: "УВТ выполняет травматолог-ортопед, а не средний персонал. Параметры подбираются под диагноз." },
+              { icon: "Scan", title: "Наведение по УЗИ", desc: "УЗИ выполняется на приёме — мы видим кальцинат и работаем точно по зоне поражения." },
+              { icon: "Stethoscope", title: "Сначала диагноз", desc: "Одна и та же боль в пятке бывает разной природы. Сперва находим причину, потом лечим." },
               { icon: "Clock", title: "Запись в день обращения", desc: "Онлайн-запись без ожиданий. Принимаем в удобное для вас время." },
-              { icon: "Wallet", title: "Прозрачные цены", desc: "Называем стоимость курса до начала. Никаких скрытых доплат." },
-              { icon: "HeartHandshake", title: "Индивидуальный подбор", desc: "Вид и интенсивность массажа подбирается под каждого пациента персонально." },
+              { icon: "Wallet", title: "Прозрачные цены", desc: "Стоимость курса называем до начала лечения. Никаких скрытых доплат." },
               { icon: "BadgeCheck", title: "Лицензия Минздрава", desc: "Клиника работает официально. Все процедуры в рамках российского законодательства." },
             ].map((item) => (
               <div key={item.title} className="flex gap-4 p-5 rounded-2xl bg-clinic-warm border border-clinic-teal/10">
@@ -335,7 +325,7 @@ export default function MassazhLanding() {
           <h2 className="text-2xl md:text-3xl font-light text-clinic-text mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
             Частые вопросы
           </h2>
-          <p className="text-clinic-text-muted mb-8">О лечебном массаже в нашей клинике</p>
+          <p className="text-clinic-text-muted mb-8">Об ударно-волновой терапии в нашей клинике</p>
           <div className="space-y-3">
             {FAQ_ITEMS.map((item, i) => (
               <div key={i} className="bg-white rounded-2xl border border-clinic-teal/10 overflow-hidden">
@@ -361,10 +351,10 @@ export default function MassazhLanding() {
       <section className="py-14 bg-white">
         <div className="container text-center max-w-2xl">
           <h2 className="text-2xl md:text-3xl font-light text-clinic-text mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Болит спина? Запишитесь на массаж
+            Болит пятка или плечо? Запишитесь на УВТ
           </h2>
           <p className="text-clinic-text-muted mb-8">
-            Опытный массажист снимет боль и напряжение уже после первого сеанса.
+            Врач проведёт осмотр с УЗИ, определит причину боли и подберёт курс.
             Запись онлайн — без ожиданий, в удобное время.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -372,14 +362,14 @@ export default function MassazhLanding() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackGoal('click_massage_final')}
+              onClick={() => trackGoal('click_uvt_final')}
               className="flex items-center justify-center gap-2 bg-clinic-teal text-white px-8 py-4 rounded-xl font-medium hover:opacity-90 transition-all shadow-md text-base"
             >
               <Icon name="CalendarCheck" size={18} />
-              Записаться на массаж
+              Записаться на УВТ
             </a>
             <button
-              onClick={() => { setCallModalOpen(true); trackGoal('click_massage_final_zvonok'); }}
+              onClick={() => { setCallModalOpen(true); trackGoal('click_uvt_final_zvonok'); }}
               className="hidden sm:flex items-center justify-center gap-2 border border-clinic-teal text-clinic-teal px-8 py-4 rounded-xl font-medium hover:bg-clinic-teal-light transition-all text-base"
             >
               <Icon name="Phone" size={18} />
