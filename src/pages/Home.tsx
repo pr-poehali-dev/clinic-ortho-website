@@ -96,7 +96,7 @@ export default function Home() {
                 </ul>
                 <div className="flex items-center gap-2 bg-amber-50 border-2 border-amber-400 rounded-lg px-3 py-2 mb-2 whitespace-nowrap w-fit">
                   <Icon name="Tag" size={15} className="text-amber-500 shrink-0" />
-                  <span className="font-bold text-clinic-text text-base">Первичный приём + УЗИ сустава — <span className="text-amber-600">2 500 ₽</span></span>
+                  <span className="font-bold text-clinic-text text-base">Первичный приём + УЗИ сустава — <span className="text-amber-600">2 800 ₽</span></span>
                 </div>
                 <div className="flex gap-3 text-xs text-clinic-text whitespace-nowrap">
                   <span className="flex items-center gap-1"><Icon name="Clock" size={11} className="text-clinic-teal" />Приём уже сегодня</span>
@@ -217,7 +217,7 @@ export default function Home() {
               <Icon name="Tag" size={13} className="text-amber-500 shrink-0" />
               Первичный приём + УЗИ сустава
             </span>
-            <span className="font-bold text-amber-600 text-lg">2 500 ₽</span>
+            <span className="font-bold text-amber-600 text-lg">2 800 ₽</span>
           </div>
           <div className="flex flex-wrap gap-3 text-xs text-clinic-text">
             <span className="flex items-center gap-1"><Icon name="Clock" size={11} className="text-clinic-teal" />Приём уже сегодня</span>
