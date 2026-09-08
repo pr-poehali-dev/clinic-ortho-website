@@ -112,7 +112,7 @@ export default function Doctors() {
     <>
       <SEO
         title="Врачи: травматологи-ортопеды и неврологи в Новосибирске — клиника Ваш Ортопед"
-        description="Опытные травматологи-ортопеды и неврологи в Новосибирске. PRP-терапия, SVF-терапия, лечение артроза, блокады суставов, лечение головных болей и остеохондроза. Запись: +7 999 464 91 94."
+        description="Опытные травматологи-ортопеды и неврологи в Новосибирске со стажем до 28 лет. PRP-терапия, SVF-терапия, лечение артроза, все виды блокад включая внутрикостные, лечение головных болей и остеохондроза. Запись: +7 999 464 91 94."
         canonical="/doctors"
         breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Врачи", url: "/doctors" }]}
         schema={[
@@ -126,6 +126,18 @@ export default function Doctors() {
             "worksFor": { "@type": "MedicalClinic", "name": "Ваш Ортопед", "url": "https://vash-ortoped.ru" },
             "medicalSpecialty": ["Orthopedic", "Traumatology"],
             "knowsAbout": ["Лечение артроза", "Лечение артрита", "PRP-терапия", "УЗИ суставов", "Медикаментозные блокады"],
+            "url": "https://vash-ortoped.ru/doctors"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Палий Василий Николаевич",
+            "jobTitle": "Врач травматолог-ортопед",
+            "description": "Врач травматолог-ортопед в Новосибирске со стажем 20 лет. Безоперационное лечение артроза, артрита, бурсита и тендинита. PRP-терапия, SVF-терапия, гиалуроновая кислота, все виды блокад, включая внутрикостные. Манипуляции под УЗИ-навигацией.",
+            "image": "https://vash-ortoped.ru/paliy-vasiliy.jpg",
+            "worksFor": { "@type": "MedicalClinic", "name": "Ваш Ортопед", "url": "https://vash-ortoped.ru" },
+            "medicalSpecialty": ["Orthopedic", "Traumatology"],
+            "knowsAbout": ["Лечение артроза", "PRP-терапия", "SVF-терапия", "Гиалуроновая кислота", "Внутрикостные блокады", "Медикаментозные блокады", "УЗИ-навигация"],
             "url": "https://vash-ortoped.ru/doctors"
           },
           {
