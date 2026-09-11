@@ -26,11 +26,13 @@ const BADGE_COVER: Record<number, { top: string; left: string; width: string; he
 
 function DoctorCard({ doctor }: { doctor: Doctor }) {
   const badge = BADGE_COVER[Number(doctor.id)];
+  const [expanded, setExpanded] = useState(false);
+  const isLong = doctor.desc.length > 420;
   return (
-    <div className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col">
+    <div className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col h-full">
       {doctor.img ? (
         <div className="relative">
-          <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full object-cover" style={{ height: doctor.imgHeight ?? "24rem", objectPosition: doctor.imgPosition ?? "center top", marginTop: doctor.imgMarginTop ?? "0" }} loading="lazy" decoding="async" />
+          <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full bg-white" style={{ height: "23.66rem", objectFit: doctor.imgHeight === "17rem" ? "contain" : "cover", objectPosition: doctor.imgPosition ?? "center top" }} loading="lazy" decoding="async" />
           {badge && (
             <div className="absolute" style={{ top: badge.top, left: badge.left, width: badge.width, height: badge.height, backgroundColor: "#eef1f4" }} aria-hidden="true" />
           )}
@@ -66,7 +68,27 @@ function DoctorCard({ doctor }: { doctor: Doctor }) {
               <span key={tag} className="bg-clinic-teal-light text-clinic-teal text-xs px-2.5 py-1 rounded-full">{tag}</span>
             ))}
           </div>
-          <p className="text-sm text-clinic-text-muted leading-relaxed whitespace-pre-line">{doctor.desc}</p>
+          <div className="relative">
+            <p
+              className="text-sm text-clinic-text-muted leading-relaxed whitespace-pre-line"
+              style={!expanded && isLong ? { display: "-webkit-box", WebkitLineClamp: 9, WebkitBoxOrient: "vertical", overflow: "hidden" } : undefined}
+            >
+              {doctor.desc}
+            </p>
+            {!expanded && isLong && (
+              <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+            )}
+          </div>
+          {isLong && (
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              className="mt-2 flex items-center gap-1 text-xs text-clinic-teal font-medium hover:underline"
+            >
+              {expanded ? "Свернуть" : "Читать полностью"}
+              <Icon name={expanded ? "ChevronUp" : "ChevronDown"} size={13} />
+            </button>
+          )}
         </div>
         {doctor.img && (
           <a
