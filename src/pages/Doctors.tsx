@@ -91,7 +91,7 @@ function DoctorCard({ doctor }: { doctor: Doctor }) {
             </button>
           )}
         </div>
-        {(doctor.img || Number(doctor.id) === 8) && (
+        {doctor.img && (
           <a
             href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
             target="_blank"
@@ -181,6 +181,7 @@ export default function Doctors() {
             "name": "Лунякина Светлана Борисовна",
             "jobTitle": "Врач-невролог высшей квалификационной категории",
             "description": "Врач-невролог высшей категории в Новосибирске со стажем около 30 лет. Лечение болей в спине и шее, остеохондроза, грыж и протрузий межпозвонковых дисков, радикулопатий, головных болей, мигрени, головокружения, когнитивных нарушений, невропатий и хронических заболеваний нервной системы.",
+            "image": "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/288d8ee1-3566-4f5f-bbbd-4477a18fc101.png",
             "worksFor": { "@type": "MedicalClinic", "name": "Ваш Ортопед", "url": "https://vash-ortoped.ru" },
             "medicalSpecialty": ["Neurologic"],
             "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "Новосибирский государственный медицинский институт" }],
