@@ -1,0 +1,1 @@
+UPDATE t_p48876731_clinic_ortho_website.doctors SET description = left(description, position('К каждому пациенту Светлана' in description) - 1) || 'К каждому пациенту подходит индивидуально, учитывает наличие сопутствующей соматической патологии.' WHERE id=8;
