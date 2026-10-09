@@ -1,0 +1,1 @@
+UPDATE t_p48876731_clinic_ortho_website.doctors SET img='https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/75955528-13fd-4d82-b63e-6244a71d260f.png', img_position='center 15%' WHERE id=7;
