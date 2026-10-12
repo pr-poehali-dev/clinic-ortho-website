@@ -22,88 +22,86 @@ interface Doctor {
   is_active?: boolean;
 }
 
-const BADGE_COVER: Record<number, { top: string; left: string; width: string; height: string }> = {};
+const CERT_URL: Record<number, string> = {
+  1: "/doctors/bulanbayev/certificates",
+  8: "/doctors/lunyakina/certificates",
+};
 
-function DoctorCard({ doctor }: { doctor: Doctor }) {
-  const badge = BADGE_COVER[Number(doctor.id)];
+const BOOKING_URL = "https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089";
+
+function DoctorRow({ doctor }: { doctor: Doctor }) {
   const [expanded, setExpanded] = useState(false);
-  const isLong = doctor.desc.length > 420;
+  const certUrl = CERT_URL[Number(doctor.id)];
+  const tags = doctor.experience.split(" · ").filter(Boolean);
   return (
-    <div className="bg-white rounded-2xl border border-border overflow-hidden doctor-card flex flex-col h-full">
-      {doctor.img ? (
-        <div className="relative">
-          <img src={doctor.img} alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`} className="w-full bg-white" style={{ height: "23.66rem", objectFit: doctor.imgHeight === "17rem" ? "contain" : "cover", objectPosition: doctor.imgPosition ?? "center top" }} loading="lazy" decoding="async" />
-          {badge && (
-            <div className="absolute" style={{ top: badge.top, left: badge.left, width: badge.width, height: badge.height, backgroundColor: "#eef1f4" }} aria-hidden="true" />
+    <div className="bg-white rounded-2xl border border-border overflow-hidden doctor-card">
+      <div className="flex">
+        <div className="relative shrink-0 w-28 sm:w-36 bg-clinic-teal-light">
+          {doctor.img ? (
+            <img
+              src={doctor.img}
+              alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`}
+              className="absolute inset-0 w-full h-full"
+              style={{ objectFit: doctor.imgHeight === "17rem" ? "contain" : "cover", objectPosition: doctor.imgPosition ?? "center top" }}
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center text-3xl font-display font-medium text-clinic-teal">
+              {doctor.name.split(" ").map((w: string) => w[0]).slice(0, 2).join("")}
+            </div>
           )}
-          <img src="https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/bucket/3e87c830-678c-485d-b730-8467068e3086.png" alt="Ваш Ортопед" className="absolute top-3 right-3 h-10 w-10 object-contain opacity-90" loading="lazy" decoding="async" />
         </div>
-      ) : (
-        <div className="w-full flex items-center justify-center bg-clinic-teal-light text-6xl font-display font-medium text-clinic-teal" style={{ height: "23.66rem" }}>
-          {doctor.name.split(" ").map((w: string) => w[0]).slice(0, 2).join("")}
-        </div>
-      )}
-      <div className="p-6 flex flex-col justify-between flex-1">
-        <div>
-          <h2 className="font-display text-2xl text-clinic-text mb-1">{doctor.name}</h2>
-          <div className="flex items-center gap-3 mb-3 flex-wrap">
-            <p className="text-clinic-teal text-sm font-medium">{doctor.specialty}</p>
-            {(() => {
-              const certUrl: Record<number, string> = {
-                1: "/doctors/bulanbayev/certificates",
-                8: "/doctors/lunyakina/certificates",
-              };
-              const url = certUrl[Number(doctor.id)];
-              return url ? (
-                <Link
-                  to={url}
-                  className="flex items-center gap-1 text-xs text-clinic-teal border border-clinic-teal rounded-full px-2.5 py-0.5 hover:bg-clinic-teal hover:text-white transition-all"
-                >
-                  <Icon name="Award" size={11} /> Сертификаты
-                </Link>
-              ) : null;
-            })()}
-          </div>
-          <div className="flex flex-wrap gap-1 mb-4">
-            {doctor.experience.split(" · ").map((tag: string) => (
-              <span key={tag} className="bg-clinic-teal-light text-clinic-teal text-xs px-2.5 py-1 rounded-full">{tag}</span>
-            ))}
-          </div>
-          <div className="relative">
-            <p
-              className="text-sm text-clinic-text-muted leading-relaxed whitespace-pre-line"
-              style={!expanded && isLong ? { display: "-webkit-box", WebkitLineClamp: 9, WebkitBoxOrient: "vertical", overflow: "hidden" } : undefined}
-            >
-              {doctor.desc}
-            </p>
-            {!expanded && isLong && (
-              <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+        <div className="p-4 flex flex-col flex-1 min-w-0">
+          <h2 className="font-display text-lg sm:text-xl text-clinic-text leading-tight mb-1">{doctor.name}</h2>
+          <div className="flex items-center gap-2 mb-2 flex-wrap">
+            <p className="text-clinic-teal text-xs sm:text-sm font-medium">{doctor.specialty}</p>
+            {certUrl && (
+              <Link
+                to={certUrl}
+                className="flex items-center gap-1 text-xs text-clinic-teal border border-clinic-teal rounded-full px-2 py-0.5 hover:bg-clinic-teal hover:text-white transition-all"
+              >
+                <Icon name="Award" size={11} /> Сертификаты
+              </Link>
             )}
           </div>
-          {isLong && (
-            <button
-              type="button"
-              onClick={() => setExpanded((v) => !v)}
-              className="mt-2 flex items-center gap-1 text-xs text-clinic-teal font-medium hover:underline"
-            >
-              {expanded ? "Свернуть" : "Читать полностью"}
-              <Icon name={expanded ? "ChevronUp" : "ChevronDown"} size={13} />
-            </button>
-          )}
+          <div className="flex flex-wrap gap-1 mb-3 max-h-[3.25rem] overflow-hidden">
+            {tags.map((tag: string) => (
+              <span key={tag} className="bg-clinic-teal-light text-clinic-teal text-[11px] px-2 py-0.5 rounded-full">{tag}</span>
+            ))}
+          </div>
+          <div className="mt-auto flex items-center gap-3 flex-wrap">
+            {doctor.img && (
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackGoal('click_zapis')}
+                className="flex items-center gap-1.5 bg-clinic-teal text-white text-xs sm:text-sm px-3 py-2 rounded-lg hover:bg-opacity-90 transition-all"
+              >
+                <Icon name="CalendarDays" size={14} />
+                Записаться
+              </a>
+            )}
+            {doctor.desc && (
+              <button
+                type="button"
+                onClick={() => setExpanded((v) => !v)}
+                className="flex items-center gap-1 text-xs sm:text-sm text-clinic-teal font-medium hover:underline"
+                aria-expanded={expanded}
+              >
+                {expanded ? "Свернуть" : "Подробнее"}
+                <Icon name={expanded ? "ChevronUp" : "ChevronDown"} size={14} />
+              </button>
+            )}
+          </div>
         </div>
-        {doctor.img && (
-          <a
-            href="https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8454089"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackGoal('click_zapis')}
-            className="mt-5 flex items-center gap-2 bg-clinic-teal text-white text-sm px-4 py-2.5 rounded-lg hover:bg-opacity-90 transition-all w-fit"
-          >
-            <Icon name="CalendarDays" size={14} />
-            Записаться на приём
-          </a>
-        )}
       </div>
+      {expanded && (
+        <div className="px-4 pb-4 pt-3 border-t border-border">
+          <p className="text-sm text-clinic-text-muted leading-relaxed whitespace-pre-line">{doctor.desc}</p>
+        </div>
+      )}
     </div>
   );
 }
@@ -207,15 +205,7 @@ export default function Doctors() {
         </div>
       </section>
 
-      {/* Специализация-бейдж */}
-      <div className="container mt-8 mb-2">
-        <div className="inline-block bg-clinic-beige border border-border rounded-xl px-5 py-2">
-          <span className="text-clinic-text font-medium text-sm">Травматологи-ортопеды</span>
-        </div>
-      </div>
-
-      {/* Doctors */}
-      <section className="container py-6">
+      <section className="container py-6 mb-6">
         {loading ? (
           <div className="flex items-center justify-center py-20 text-clinic-text-muted text-sm gap-3">
             <svg className="animate-spin h-5 w-5 text-clinic-teal" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -225,32 +215,32 @@ export default function Doctors() {
             Загрузка...
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {orthopeds.map((doctor) => (
-              <DoctorCard key={doctor.id ?? doctor.name} doctor={doctor} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-start">
+            {[
+              { title: "Травматологи-ортопеды", icon: "Bone", list: orthopeds },
+              { title: "Неврологи", icon: "Brain", list: neurologists },
+            ].map((group) => (
+              <div key={group.title}>
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="inline-flex items-center gap-2 bg-clinic-beige border border-border rounded-xl px-4 py-1.5">
+                    <Icon name={group.icon} fallback="Stethoscope" size={15} className="text-clinic-teal" />
+                    <span className="text-clinic-text font-medium text-sm">{group.title}</span>
+                  </div>
+                  <span className="text-xs text-clinic-text-muted">{group.list.length}</span>
+                </div>
+                {group.list.length > 0 ? (
+                  <div className="flex flex-col gap-3">
+                    {group.list.map((doctor) => (
+                      <DoctorRow key={doctor.id ?? doctor.name} doctor={doctor} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="bg-clinic-beige border border-border rounded-2xl flex items-center justify-center" style={{ minHeight: "8rem" }}>
+                    <span className="text-clinic-text-muted text-sm">Скоро здесь появятся наши врачи</span>
+                  </div>
+                )}
+              </div>
             ))}
-          </div>
-        )}
-      </section>
-
-      {/* Неврологи-бейдж */}
-      <div className="container mb-2">
-        <div className="inline-block bg-clinic-beige border border-border rounded-xl px-5 py-2">
-          <span className="text-clinic-text font-medium text-sm">Неврологи</span>
-        </div>
-      </div>
-
-      {/* Неврологи */}
-      <section className="container mb-10">
-        {loading ? null : neurologists.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {neurologists.map((doctor) => (
-              <DoctorCard key={doctor.id ?? doctor.name} doctor={doctor} />
-            ))}
-          </div>
-        ) : (
-          <div className="max-w-4xl mx-auto bg-clinic-beige border border-border rounded-2xl flex items-center justify-center" style={{ minHeight: "8rem" }}>
-            <span className="text-clinic-text-muted text-sm">Скоро здесь появятся наши неврологи</span>
           </div>
         )}
       </section>
