@@ -22,6 +22,11 @@ interface Doctor {
   is_active?: boolean;
 }
 
+const ROW_ZOOM: Record<number, { scale: number; origin: string }> = {
+  1: { scale: 1.6, origin: "52% 14%" },
+  2: { scale: 1.6, origin: "74% 14%" },
+};
+
 const CERT_URL: Record<number, string> = {
   1: "/doctors/bulanbayev/certificates",
   8: "/doctors/lunyakina/certificates",
@@ -32,17 +37,22 @@ const BOOKING_URL = "https://booking.medflex.ru/?user=331eaa0fb0b7b75fcc25b457b8
 function DoctorRow({ doctor }: { doctor: Doctor }) {
   const [expanded, setExpanded] = useState(false);
   const certUrl = CERT_URL[Number(doctor.id)];
+  const zoom = ROW_ZOOM[Number(doctor.id)];
   const tags = doctor.experience.split(" · ").filter(Boolean);
   return (
     <div className="bg-white rounded-2xl border border-border overflow-hidden doctor-card">
       <div className="flex">
-        <div className="relative shrink-0 w-28 sm:w-36 bg-clinic-teal-light">
+        <div className="relative shrink-0 w-28 sm:w-36 bg-clinic-teal-light overflow-hidden">
           {doctor.img ? (
             <img
               src={doctor.img}
               alt={`${doctor.name} — ${doctor.specialty}, клиника Ваш Ортопед, Новосибирск`}
               className="absolute inset-0 w-full h-full"
-              style={{ objectFit: doctor.imgHeight === "17rem" ? "contain" : "cover", objectPosition: doctor.imgPosition ?? "center top" }}
+              style={{
+                objectFit: doctor.imgHeight === "17rem" ? "contain" : "cover",
+                objectPosition: doctor.imgPosition ?? "center top",
+                ...(zoom ? { transform: `scale(${zoom.scale})`, transformOrigin: zoom.origin } : {}),
+              }}
               loading="lazy"
               decoding="async"
             />
