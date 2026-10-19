@@ -410,7 +410,7 @@ export default function KolennyjSustav() {
               Позвонить
             </button>
           </div>
-          <p className="text-xs text-clinic-text-muted mt-4">Пн–Сб: 9:00–19:00 · Новосибирск</p>
+          <p className="text-xs text-clinic-text-muted mt-4">Пн–Вс: 9:00–19:00 · Новосибирск</p>
         </div>
       </section>
 

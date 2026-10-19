@@ -29,7 +29,7 @@ export default function Contacts() {
     <>
       <SEO
         title="Контакты клиники Ваш Ортопед в Новосибирске"
-        description="Адрес: Новосибирск, ул. Есенина, 67. Телефон: +7 999 464 91 94. Пн–Сб 09:00–19:00. Запись онлайн или по телефону. Удобная парковка."
+        description="Адрес: Новосибирск, ул. Есенина, 67. Телефон: +7 999 464 91 94. Пн–Вс 09:00–19:00. Запись онлайн или по телефону. Удобная парковка."
         canonical="/contacts"
         breadcrumbs={[{ name: "Главная", url: "/" }, { name: "Контакты", url: "/contacts" }]}
         schema={{
@@ -52,7 +52,7 @@ export default function Contacts() {
             "longitude": 83.1028
           },
           "openingHoursSpecification": [
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "19:00" }
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "09:00", "closes": "19:00" }
           ],
           "contactPoint": {
             "@type": "ContactPoint",
@@ -101,7 +101,7 @@ export default function Contacts() {
                   >
                     {get("contacts.phone", "+7 999 464 91 94")}
                   </a>
-                  <p className="text-xs text-clinic-text-muted mt-0.5">Пн–Сб с 09:00 до 19:00</p>
+                  <p className="text-xs text-clinic-text-muted mt-0.5">Пн–Вс с 09:00 до 19:00</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -122,12 +122,8 @@ export default function Contacts() {
                   <div className="text-xs text-clinic-text-muted mb-1">Режим работы</div>
                   <div className="space-y-1 text-sm text-clinic-text">
                     <div className="flex justify-between gap-6">
-                      <span>Понедельник — Суббота</span>
+                      <span>Понедельник — Воскресенье</span>
                       <span className="font-medium">{get("contacts.hours_weekday", "09:00 — 19:00")}</span>
-                    </div>
-                    <div className="flex justify-between gap-6 text-clinic-text-muted">
-                      <span>Воскресенье</span>
-                      <span>{get("contacts.hours_sunday", "Выходной")}</span>
                     </div>
                   </div>
                 </div>

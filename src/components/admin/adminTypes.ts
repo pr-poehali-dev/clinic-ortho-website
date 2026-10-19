@@ -52,7 +52,7 @@ export const SETTINGS_SECTIONS = [
       { key: "contacts.phone",           label: "Телефон" },
       { key: "contacts.email",           label: "Email" },
       { key: "contacts.address",         label: "Адрес" },
-      { key: "contacts.hours_weekday",   label: "Часы работы: Пн–Пт" },
+      { key: "contacts.hours_weekday",   label: "Часы работы (Пн–Вс)" },
       { key: "contacts.hours_saturday",  label: "Часы работы: Суббота" },
       { key: "contacts.hours_sunday",    label: "Часы работы: Воскресенье" },
     ],
