@@ -66,7 +66,7 @@ export default function Home() {
         <Link
           to="/services/svf"
           onClick={() => trackGoal("svf_offer_click")}
-          className="group container block max-w-5xl rounded-2xl p-[2px] bg-gradient-to-r from-clinic-teal via-clinic-teal/40 to-clinic-teal shadow-sm hover:shadow-md transition-shadow"
+          className="group container block rounded-2xl p-[2px] bg-gradient-to-r from-clinic-teal via-clinic-teal/40 to-clinic-teal shadow-sm hover:shadow-md transition-shadow"
         >
           <div className="rounded-[14px] bg-white px-4 py-3 md:px-8 md:py-4 flex items-center justify-center gap-3">
             <Icon name="Dna" size={26} className="text-clinic-teal shrink-0 hidden sm:block" />
@@ -83,6 +83,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Врач и пациент" className="w-4/5 h-full object-cover object-[80%_20%] opacity-80 absolute right-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/10" />
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-clinic-warm via-clinic-warm/70 to-transparent" />
         </div>
         <div className="container relative z-10 pt-8 md:pb-6 pb-6">
           <div className="max-w-lg">
