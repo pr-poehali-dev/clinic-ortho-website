@@ -61,6 +61,23 @@ export default function Home() {
       </div>
       <div className="h-4 bg-gradient-to-b from-clinic-teal to-clinic-warm" />
 
+      {/* SVF offer */}
+      <div className="bg-clinic-warm px-4 pb-4 md:pb-5">
+        <Link
+          to="/services/svf"
+          onClick={() => trackGoal("svf_offer_click")}
+          className="group container block max-w-5xl rounded-2xl p-[2px] bg-gradient-to-r from-clinic-teal via-clinic-teal/40 to-clinic-teal shadow-sm hover:shadow-md transition-shadow"
+        >
+          <div className="rounded-[14px] bg-white px-4 py-3 md:px-8 md:py-4 flex items-center justify-center gap-3">
+            <Icon name="Dna" size={26} className="text-clinic-teal shrink-0 hidden sm:block" />
+            <p className="text-center text-clinic-teal text-base md:text-2xl font-bold leading-snug" style={{fontFamily: "'Playfair Display', serif"}}>
+              Артроз 2–3 степени? Узнайте о возможностях SVF-терапии до эндопротезирования
+            </p>
+            <Icon name="ArrowRight" size={22} className="text-clinic-teal shrink-0 transition-transform group-hover:translate-x-1" />
+          </div>
+        </Link>
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden bg-clinic-warm md:min-h-[780px] flex items-start">
         <div className="absolute inset-0">
