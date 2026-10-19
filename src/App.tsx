@@ -51,6 +51,8 @@ const Infusions = lazy(() => import("@/pages/services/Infusions"));
 const OsteohondrozService = lazy(() => import("@/pages/services/OsteohondrozService"));
 const Booking = lazy(() => import("@/pages/Booking"));
 const BookingAdmin = lazy(() => import("@/pages/BookingAdmin"));
+const Dds = lazy(() => import("@/pages/Dds"));
+const DdsAccess = lazy(() => import("@/pages/DdsAccess"));
 
 const queryClient = new QueryClient();
 
@@ -103,6 +105,8 @@ const App = () => (
           <Route path="/services/osteohondroz" element={<Layout><OsteohondrozService /></Layout>} />
           <Route path="/booking" element={<Layout><Booking /></Layout>} />
           <Route path="/booking-admin" element={<BookingAdmin />} />
+          <Route path="/dds" element={<Dds />} />
+          <Route path="/dds/access" element={<DdsAccess />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

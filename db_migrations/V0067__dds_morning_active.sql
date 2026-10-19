@@ -1,0 +1,1 @@
+ALTER TABLE t_p48876731_clinic_ortho_website.dds_morning_balance ADD COLUMN is_active BOOLEAN NOT NULL DEFAULT true;

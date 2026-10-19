@@ -1,4 +1,5 @@
 {"tests": [
   {"name": "CORS preflight", "method": "OPTIONS", "path": "/", "expectedStatus": 200},
-  {"name": "Без пароля — отказ", "method": "GET", "path": "/?action=dictionaries", "expectedStatus": 403, "expectedBody": {"error": "string"}, "bodyMatcher": "partial"}
+  {"name": "Без входа — отказ", "method": "GET", "path": "/?action=month", "expectedStatus": 401, "expectedBody": {"error": "string"}, "bodyMatcher": "partial"},
+  {"name": "Неверный пароль", "method": "POST", "path": "/?action=login", "body": {"login": "nobody", "password": "wrong"}, "expectedStatus": 403, "expectedBody": {"error": "string"}, "bodyMatcher": "partial"}
 ]}
