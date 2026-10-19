@@ -1,0 +1,4 @@
+{"tests": [
+  {"name": "CORS preflight", "method": "OPTIONS", "path": "/", "expectedStatus": 200},
+  {"name": "Без пароля — отказ", "method": "GET", "path": "/?action=dictionaries", "expectedStatus": 403, "expectedBody": {"error": "string"}, "bodyMatcher": "partial"}
+]}

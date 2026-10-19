@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { useLocation } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const OFFERS = [
@@ -47,6 +48,8 @@ const OFFERS = [
 
 export default function PromoPopup() {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isService = ["/admin", "/booking-admin", "/dds"].some((p) => pathname.startsWith(p));
 
   useEffect(() => {
     const dismissed = sessionStorage.getItem("promo_dismissed");
@@ -75,7 +78,7 @@ export default function PromoPopup() {
     setOpen(false);
   };
 
-  if (!open) return null;
+  if (!open || isService) return null;
 
   return createPortal(
     <div

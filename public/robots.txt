@@ -2,11 +2,13 @@ User-agent: Googlebot
 Allow: /
 Disallow: /admin
 Disallow: /booking-admin
+Disallow: /dds
 
 User-agent: Bingbot
 Allow: /
 Disallow: /admin
 Disallow: /booking-admin
+Disallow: /dds
 
 User-agent: Twitterbot
 Allow: /
@@ -18,5 +20,6 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /booking-admin
+Disallow: /dds
 
 Sitemap: https://vash-ortoped.ru/sitemap.xml
