@@ -71,9 +71,9 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
     return s;
   }, [entries]);
 
-  const labelCls = "sticky left-0 z-20 text-left px-1.5 lg:px-2 py-[3px] border-r border-b whitespace-nowrap text-[11px] lg:text-xs leading-tight";
-  const totalCls = "sticky right-0 z-20 px-1.5 lg:px-2 py-[3px] border-l border-b text-right whitespace-nowrap tabular-nums text-[11px] lg:text-xs leading-tight";
-  const cellCls = "px-[3px] lg:px-[2px] 2xl:px-1 py-[3px] border-b border-r text-right whitespace-nowrap tabular-nums text-[10.5px] lg:text-[10px] 2xl:text-xs leading-tight min-w-[44px] lg:min-w-0";
+  const labelCls = "sticky left-0 z-20 text-left px-1.5 lg:px-2 py-[5px] lg:py-1.5 border-r border-b whitespace-nowrap overflow-hidden text-[11px] lg:text-xs leading-tight";
+  const totalCls = "sticky right-0 z-20 px-1.5 lg:px-2 py-[5px] lg:py-1.5 border-l border-b text-right whitespace-nowrap tabular-nums text-[11px] lg:text-xs leading-tight";
+  const cellCls = "px-[3px] py-[5px] lg:py-1.5 border-b border-r text-right whitespace-nowrap overflow-hidden tabular-nums text-[10.5px] lg:text-[11px] leading-tight";
 
   const renderRow = (r: RowDef) => {
     const bg = r.tone ? TONE[r.tone] : "bg-white";
@@ -92,7 +92,7 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
                 <Icon name={expOpen ? "Minus" : "Plus"} size={12} />
               </button>
             )}
-            <span className="max-w-[96px] lg:max-w-[130px] 2xl:max-w-none truncate" title={r.label}>{r.label}</span>
+            <span className="max-w-[92px] lg:max-w-none truncate" title={r.label}>{r.label}</span>
             {r.kind === "formula" && <Icon name="Sigma" size={11} className="text-slate-300 shrink-0" />}
           </span>
         </th>
@@ -128,8 +128,21 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
   };
 
   return (
-    <div ref={scrollRef} className="overflow-auto h-full border rounded-xl bg-white">
-      <table className="border-separate border-spacing-0 min-w-max lg:min-w-0 lg:w-full">
+    <div
+      ref={scrollRef}
+      className="overflow-auto h-full border rounded-xl bg-white [--dds-label:112px] [--dds-total:76px] [--dds-day:46px] lg:[--dds-label:214px] lg:[--dds-total:88px] lg:[--dds-day:48px]"
+    >
+      <table
+        className="border-separate border-spacing-0 table-fixed w-full"
+        style={{ minWidth: `calc(var(--dds-label) + var(--dds-total) + ${days.length} * var(--dds-day))` }}
+      >
+        <colgroup>
+          <col style={{ width: "var(--dds-label)" }} />
+          {days.map((d) => (
+            <col key={d.date} />
+          ))}
+          <col style={{ width: "var(--dds-total)" }} />
+        </colgroup>
         <thead>
           <tr>
             <th className={`${labelCls} top-0 z-30 bg-yellow-200 font-semibold`}>Дата</th>
