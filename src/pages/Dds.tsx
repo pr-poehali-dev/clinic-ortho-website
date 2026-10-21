@@ -103,7 +103,7 @@ export default function Dds() {
     <div className="h-[100dvh] flex flex-col bg-slate-50">
       <DdsHeader session={session} minutesLeft={minutesLeft} onLogout={logout} current="table" />
 
-      <div className="px-3 sm:px-5 py-2.5 flex items-center gap-2 flex-wrap">
+      <div className="px-2 sm:px-4 py-1.5 sm:py-2 flex items-center gap-2 flex-wrap">
         <div className="flex items-center gap-1">
           <Button size="icon" variant="outline" className="h-9 w-9" disabled={!month || month <= START.slice(0, 7)} onClick={() => setMonth(shiftMonth(month, -1))}>
             <Icon name="ChevronLeft" size={18} />
@@ -134,7 +134,7 @@ export default function Dds() {
         </div>
       </div>
 
-      <div className="flex-1 min-h-0 px-2 sm:px-5 pb-2 sm:pb-4">
+      <div className="flex-1 min-h-0 px-1 sm:px-3 pb-1 sm:pb-2">
         {days.length === 0 && !loading ? (
           <div className="h-full flex items-center justify-center text-slate-500 text-sm">Учёт ведётся с 01.10.2026</div>
         ) : (
@@ -151,7 +151,10 @@ export default function Dds() {
         )}
       </div>
 
-      <div className="px-3 sm:px-5 pb-2 text-[11px] text-slate-500 flex flex-wrap gap-x-4 gap-y-1">
+      <div className="px-2 sm:px-4 pb-1.5 text-[10px] sm:text-[11px] text-slate-500 flex flex-wrap gap-x-4 gap-y-0.5">
+        <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-slate-200" />прошедшие</span>
+        <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm border bg-white" />сегодня</span>
+        <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-emerald-100" />будущие</span>
         <span className="inline-flex items-center gap-1"><Icon name="Sigma" size={11} />— считается по формуле</span>
         <span className="inline-flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-amber-500" />— есть комментарий</span>
         {role === "owner" && <span className="inline-flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-violet-500" />— остаток внесён вручную</span>}

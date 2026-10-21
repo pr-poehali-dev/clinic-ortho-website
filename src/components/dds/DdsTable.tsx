@@ -20,10 +20,20 @@ const TONE: Record<string, string> = {
   info: "bg-sky-50",
 };
 
-function Num({ v, strong }: { v: number; strong?: boolean }) {
+const dayTint = (date: string, today: string) =>
+  !today ? "" : date < today ? "bg-slate-500/[0.09]" : date > today ? "bg-emerald-500/[0.08]" : "";
+
+const short = (n: number) =>
+  new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 }).format(Math.round(n)).replace(/\s/g, "\u2009");
+
+function Num({ v, strong, full }: { v: number; strong?: boolean; full?: boolean }) {
   const n = Number(v) || 0;
-  if (n === 0) return <span className="text-slate-300">0</span>;
-  return <span className={`${n < 0 ? "text-red-600" : ""} ${strong ? "font-semibold" : ""}`}>{money(n)}</span>;
+  if (n === 0) return <span className="relative text-slate-300">0</span>;
+  return (
+    <span title={money(n)} className={`relative ${n < 0 ? "text-red-600" : ""} ${strong ? "font-semibold" : ""}`}>
+      {full ? money(n) : short(n)}
+    </span>
+  );
 }
 
 export default function DdsTable({ days, entries, categories, today, canWrite, isOwner, onCell, onMorning }: Props) {
@@ -61,9 +71,9 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
     return s;
   }, [entries]);
 
-  const labelCls = "sticky left-0 z-20 text-left px-2 sm:px-3 py-1.5 border-r border-b whitespace-nowrap text-[12px] sm:text-sm";
-  const totalCls = "sticky right-0 z-20 px-2 sm:px-3 py-1.5 border-l border-b text-right whitespace-nowrap tabular-nums text-[12px] sm:text-sm";
-  const cellCls = "px-1.5 sm:px-2 py-1.5 border-b border-r text-right whitespace-nowrap tabular-nums text-[12px] sm:text-sm min-w-[72px] sm:min-w-[92px]";
+  const labelCls = "sticky left-0 z-20 text-left px-1.5 lg:px-2 py-[3px] border-r border-b whitespace-nowrap text-[11px] lg:text-xs leading-tight";
+  const totalCls = "sticky right-0 z-20 px-1.5 lg:px-2 py-[3px] border-l border-b text-right whitespace-nowrap tabular-nums text-[11px] lg:text-xs leading-tight";
+  const cellCls = "px-[3px] lg:px-[2px] 2xl:px-1 py-[3px] border-b border-r text-right whitespace-nowrap tabular-nums text-[10.5px] lg:text-[10px] 2xl:text-xs leading-tight min-w-[44px] lg:min-w-0";
 
   const renderRow = (r: RowDef) => {
     const bg = r.tone ? TONE[r.tone] : "bg-white";
@@ -76,13 +86,13 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
             {r.kind === "expense" && (
               <button
                 onClick={() => setExpOpen(!expOpen)}
-                className="w-5 h-5 rounded border flex items-center justify-center text-slate-500 hover:bg-slate-100"
+                className="w-4 h-4 rounded border flex items-center justify-center text-slate-500 hover:bg-slate-100"
                 aria-label="Раскрыть расходы"
               >
                 <Icon name={expOpen ? "Minus" : "Plus"} size={12} />
               </button>
             )}
-            <span className="max-w-[120px] sm:max-w-none truncate">{r.label}</span>
+            <span className="max-w-[96px] lg:max-w-[130px] 2xl:max-w-none truncate" title={r.label}>{r.label}</span>
             {r.kind === "formula" && <Icon name="Sigma" size={11} className="text-slate-300 shrink-0" />}
           </span>
         </th>
@@ -99,10 +109,11 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
                   if (morningClickable) onMorning(d);
                 } else if (r.entryType && (clickable || Number(d[r.key]) !== 0)) onCell(d.date, r.entryType);
               }}
-              className={`${cellCls} ${bg} ${isToday ? "ring-1 ring-inset ring-clinic-teal/40" : ""} ${
+              className={`${cellCls} ${isToday ? "bg-white" : bg} ${
                 can || (r.entryType && Number(d[r.key]) !== 0) ? "cursor-pointer hover:bg-teal-50" : ""
               } relative`}
             >
+              <span className={`pointer-events-none absolute inset-0 ${dayTint(d.date, today)}`} />
               <Num v={d[r.key] as number} strong={r.strong} />
               {hasComment && <span className="absolute top-0.5 right-0.5 w-1.5 h-1.5 rounded-full bg-amber-500" />}
               {manual && <span className="absolute top-0.5 left-0.5 w-1.5 h-1.5 rounded-full bg-violet-500" title="Внесено вручную" />}
@@ -110,7 +121,7 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
           );
         })}
         <td className={`${totalCls} ${r.tone ? TONE[r.tone] : "bg-slate-50"} font-semibold`}>
-          <Num v={rowTotal(days, r)} strong />
+          <Num v={rowTotal(days, r)} strong full />
         </td>
       </tr>
     );
@@ -118,7 +129,7 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
 
   return (
     <div ref={scrollRef} className="overflow-auto h-full border rounded-xl bg-white">
-      <table className="border-separate border-spacing-0 min-w-max">
+      <table className="border-separate border-spacing-0 min-w-max lg:min-w-0 lg:w-full">
         <thead>
           <tr>
             <th className={`${labelCls} top-0 z-30 bg-yellow-200 font-semibold`}>Дата</th>
@@ -130,12 +141,12 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
                 <th
                   key={d.date}
                   ref={isToday ? todayRef : undefined}
-                  className={`sticky top-0 z-10 border-b border-r px-1 py-1 text-center ${
-                    isToday ? "bg-clinic-teal text-white" : "bg-yellow-200 text-slate-800"
+                  className={`sticky top-0 z-10 border-b border-r px-0.5 py-0.5 text-center ${
+                    isToday ? "bg-clinic-teal text-white" : !today ? "bg-yellow-200 text-slate-800" : d.date < today ? "bg-slate-200 text-slate-500" : "bg-emerald-100 text-slate-800"
                   }`}
                 >
-                  <div className="text-sm font-semibold leading-tight">{dt.getDate()}</div>
-                  <div className={`text-[10px] leading-tight ${weekend && !isToday ? "text-red-600" : ""}`}>{WEEKDAYS[dt.getDay()]}</div>
+                  <div className="text-xs font-semibold leading-none">{dt.getDate()}</div>
+                  <div className={`text-[9px] leading-tight ${weekend && !isToday ? "text-red-600" : ""}`}>{WEEKDAYS[dt.getDay()]}</div>
                 </th>
               );
             })}
@@ -157,20 +168,21 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
                     expOpen &&
                     expenseByCat.map((c) => (
                       <tr key={`cat-${c.id}`}>
-                        <th className={`${labelCls} bg-white font-normal text-slate-600 pl-8 sm:pl-10`}>
+                        <th className={`${labelCls} bg-white font-normal text-slate-600 pl-6 lg:pl-8`}>
                           <span className="max-w-[110px] sm:max-w-[220px] truncate inline-block align-bottom">{c.name}</span>
                         </th>
                         {days.map((d) => (
                           <td
                             key={d.date}
                             onClick={() => (c.byDay.get(d.date) || canWrite) && onCell(d.date, "expense")}
-                            className={`${cellCls} bg-white text-slate-600 cursor-pointer hover:bg-teal-50`}
+                            className={`${cellCls} bg-white text-slate-600 cursor-pointer hover:bg-teal-50 relative`}
                           >
+                            <span className={`pointer-events-none absolute inset-0 ${dayTint(d.date, today)}`} />
                             <Num v={c.byDay.get(d.date) || 0} />
                           </td>
                         ))}
                         <td className={`${totalCls} bg-slate-50 text-slate-600`}>
-                          <Num v={c.total} />
+                          <Num v={c.total} full />
                         </td>
                       </tr>
                     ))}
