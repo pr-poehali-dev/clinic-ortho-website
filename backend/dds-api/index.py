@@ -7,6 +7,7 @@ import secrets
 from datetime import date, datetime, timedelta, timezone
 from decimal import Decimal
 import psycopg2
+from med import MED_ROLES, med_can_view, med_can_edit, med_month, med_items_list, med_cell, med_item_save
 
 SCHEMA = os.environ.get("MAIN_DB_SCHEMA", "t_p48876731_clinic_ortho_website")
 START = date(2026, 10, 1)
@@ -82,7 +83,7 @@ def get_session(cur, token):
     if not token:
         return None
     cur.execute(f"""
-        SELECT s.user_id, EXTRACT(EPOCH FROM (s.expires_at - now()))::int, u.name, u.is_active, u.role
+        SELECT s.user_id, EXTRACT(EPOCH FROM (s.expires_at - now()))::int, u.name, u.is_active, u.role, u.med_role
         FROM {SCHEMA}.dds_sessions s LEFT JOIN {SCHEMA}.dds_users u ON u.id = s.user_id
         WHERE s.token = {esc(token)} AND s.expires_at > now()
     """)
@@ -90,10 +91,10 @@ def get_session(cur, token):
     if not r:
         return None
     if r[0] is None:
-        return {"role": "owner", "user_id": None, "name": "Владелец", "left": r[1]}
+        return {"role": "owner", "med_role": "edit", "user_id": None, "name": "Владелец", "left": r[1]}
     if not r[3]:
         return None
-    return {"role": r[4], "user_id": r[0], "name": r[2], "left": r[1]}
+    return {"role": r[4], "med_role": r[5], "user_id": r[0], "name": r[2], "left": r[1]}
 
 
 def is_full(sess) -> bool:
@@ -197,40 +198,41 @@ def build_month(cur, month: str):
 def handle_login(cur, body):
     login = str(body.get("login") or "").strip().lower()
     password = str(body.get("password") or "")
-    user_id, role, name = None, None, None
+    user_id, role, name, med_role = None, None, None, "edit"
     owner_pass = os.environ.get("DDS_PASSWORD", "")
     if login == "admin":
         if owner_pass and hmac.compare_digest(password.encode(), owner_pass.encode()):
             role, name = "owner", "Владелец"
     else:
-        cur.execute(f"SELECT id, password_hash, role, name FROM {SCHEMA}.dds_users WHERE login={esc(login)} AND is_active")
+        cur.execute(f"SELECT id, password_hash, role, name, med_role FROM {SCHEMA}.dds_users WHERE login={esc(login)} AND is_active")
         r = cur.fetchone()
         if r and check_password(password, r[1]):
-            user_id, role, name = r[0], r[2], r[3]
+            user_id, role, name, med_role = r[0], r[2], r[3], r[4]
     if not role:
         return resp({"error": "Неверный логин или пароль"}, 403)
     token = secrets.token_urlsafe(32)
     uid = str(user_id) if user_id else "NULL"
     cur.execute(f"INSERT INTO {SCHEMA}.dds_sessions (token, user_id, role, expires_at) VALUES ({esc(token)}, {uid}, {esc(role)}, now() + interval '{SESSION_HOURS} hours')")
-    return resp({"token": token, "role": role, "name": name, "seconds_left": SESSION_HOURS * 3600})
+    return resp({"token": token, "role": role, "med_role": med_role, "name": name, "seconds_left": SESSION_HOURS * 3600})
 
 
 def handle_users(cur, method, body, sess):
     if sess["role"] != "owner":
         return resp({"error": "Нет доступа"}, 403)
     if method == "GET":
-        return resp(rows(cur, f"SELECT id, login, name, role, is_active, created_at FROM {SCHEMA}.dds_users ORDER BY is_active DESC, name"))
+        return resp(rows(cur, f"SELECT id, login, name, role, med_role, is_active, created_at FROM {SCHEMA}.dds_users ORDER BY is_active DESC, name"))
     if method == "POST":
         login = str(body.get("login") or "").strip().lower()
         name = str(body.get("name") or "").strip()[:150]
         password = str(body.get("password") or "")
         role = body.get("role")
+        med_role = body.get("med_role") if body.get("med_role") in MED_ROLES else "none"
         if not login or login == "admin" or not name or len(password) < 6 or role not in ROLES:
             return resp({"error": "Заполните имя, логин (не admin), пароль от 6 символов и права"}, 400)
         cur.execute(f"SELECT 1 FROM {SCHEMA}.dds_users WHERE login={esc(login)}")
         if cur.fetchone():
             return resp({"error": "Такой логин уже занят"}, 400)
-        cur.execute(f"INSERT INTO {SCHEMA}.dds_users (login, name, password_hash, role) VALUES ({esc(login)}, {esc(name)}, {esc(hash_password(password))}, {esc(role)}) RETURNING id")
+        cur.execute(f"INSERT INTO {SCHEMA}.dds_users (login, name, password_hash, role, med_role) VALUES ({esc(login)}, {esc(name)}, {esc(hash_password(password))}, {esc(role)}, {esc(med_role)}) RETURNING id")
         return resp({"id": cur.fetchone()[0]})
     if method == "PUT":
         uid = to_int(body.get("id"))
@@ -239,6 +241,8 @@ def handle_users(cur, method, body, sess):
             sets.append(f"name={esc(str(body['name']).strip()[:150])}")
         if body.get("role") in ROLES:
             sets.append(f"role={esc(body['role'])}")
+        if body.get("med_role") in MED_ROLES:
+            sets.append(f"med_role={esc(body['med_role'])}")
         if "is_active" in body:
             sets.append(f"is_active={'true' if body['is_active'] else 'false'}")
         if body.get("password"):
@@ -247,7 +251,7 @@ def handle_users(cur, method, body, sess):
             sets.append(f"password_hash={esc(hash_password(str(body['password'])))}")
         if sets:
             cur.execute(f"UPDATE {SCHEMA}.dds_users SET {', '.join(sets)} WHERE id={uid}")
-        if body.get("password") or body.get("role") or body.get("is_active") is False:
+        if body.get("password") or body.get("role") or body.get("med_role") or body.get("is_active") is False:
             cur.execute(f"UPDATE {SCHEMA}.dds_sessions SET expires_at = now() WHERE user_id={uid} AND expires_at > now()")
         return resp({"id": uid})
     return resp({"error": "Неизвестное действие"}, 400)
@@ -361,6 +365,24 @@ def handle_entry(cur, method, params, body, sess):
     return resp({"error": "Неизвестное действие"}, 400)
 
 
+def handle_med(cur, action, method, params, body, sess):
+    if not med_can_view(sess):
+        return resp({"error": "Нет доступа к медрасходке"}, 403)
+    if method != "GET" and not med_can_edit(sess):
+        return resp({"error": "У вас только просмотр медрасходки"}, 403)
+    if action == "med_month" and method == "GET":
+        return resp(med_month(cur, SCHEMA, rows, esc, params.get("month") or today().strftime("%Y-%m")))
+    if action == "med_items":
+        if method == "GET":
+            return resp(med_items_list(cur, SCHEMA, rows, esc))
+        if method in ("POST", "PUT"):
+            return resp({"id": med_item_save(cur, SCHEMA, esc, method, body, sess["name"])})
+    if action == "med_cell" and method in ("POST", "PUT"):
+        med_cell(cur, SCHEMA, esc, body, sess["name"])
+        return resp({"ok": True})
+    return resp({"error": "Неизвестное действие"}, 400)
+
+
 def handler(event: dict, context) -> dict:
     if event.get("httpMethod") == "OPTIONS":
         return {"statusCode": 200, "headers": CORS, "body": ""}
@@ -384,7 +406,7 @@ def handler(event: dict, context) -> dict:
             return resp({"error": "Сессия истекла, войдите заново"}, 401)
 
         if action == "me":
-            return resp({"role": sess["role"], "name": sess["name"], "seconds_left": sess["left"],
+            return resp({"role": sess["role"], "med_role": sess["med_role"], "name": sess["name"], "seconds_left": sess["left"],
                          "today": today().isoformat(), "start": START.isoformat()})
         if action == "logout":
             cur.execute(f"UPDATE {SCHEMA}.dds_sessions SET expires_at = now() WHERE token={esc(token)}")
@@ -400,6 +422,8 @@ def handler(event: dict, context) -> dict:
             return resp(data)
         if action == "morning" and method in ("POST", "PUT"):
             return handle_morning(cur, body, sess)
+        if action.startswith("med_"):
+            return handle_med(cur, action, method, params, body, sess)
         if action == "entry":
             return handle_entry(cur, method, params, body, sess)
         return resp({"error": "Неизвестное действие"}, 400)

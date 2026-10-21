@@ -29,9 +29,18 @@ export const ROLE_LABEL: Record<Role, string> = {
   view: "Только просмотр",
 };
 
+export type MedRole = "none" | "view" | "edit";
+
+export const MED_ROLE_LABEL: Record<MedRole, string> = {
+  none: "Нет доступа",
+  view: "Просмотр медрасходки",
+  edit: "Редактирование медрасходки",
+};
+
 export interface Session {
   token: string;
   role: Role;
+  med_role?: MedRole;
   name: string;
   expiresAt: number;
 }
@@ -84,6 +93,7 @@ export interface DdsUser {
   login: string;
   name: string;
   role: Exclude<Role, "owner">;
+  med_role: MedRole;
   is_active: boolean;
   created_at: string;
 }
@@ -101,6 +111,11 @@ export function loadSession(): Session | null {
   } catch {
     return null;
   }
+}
+
+export function patchSession(patch: Partial<Session>) {
+  const s = loadSession();
+  if (s) localStorage.setItem(KEY, JSON.stringify({ ...s, ...patch }));
 }
 
 export function clearSession() {
@@ -136,7 +151,7 @@ export async function ddsRequest<T>(
 }
 
 export async function login(loginName: string, password: string): Promise<Session> {
-  const data = await ddsRequest<{ token: string; role: Role; name: string; seconds_left: number }>(
+  const data = await ddsRequest<{ token: string; role: Role; med_role: MedRole; name: string; seconds_left: number }>(
     "POST",
     { action: "login" },
     { login: loginName, password },
@@ -144,6 +159,7 @@ export async function login(loginName: string, password: string): Promise<Sessio
   const s: Session = {
     token: data.token,
     role: data.role,
+    med_role: data.med_role,
     name: data.name,
     expiresAt: Date.now() + data.seconds_left * 1000,
   };
@@ -180,3 +196,6 @@ export const WEEKDAYS = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"]
 
 export const isFull = (r: Role) => r === "owner" || r === "full";
 export const canWrite = (r: Role) => r !== "view";
+
+export const medView = (s: Session | null) => !!s && (s.role === "owner" || s.med_role === "view" || s.med_role === "edit");
+export const medEdit = (s: Session | null) => !!s && (s.role === "owner" || s.med_role === "edit");

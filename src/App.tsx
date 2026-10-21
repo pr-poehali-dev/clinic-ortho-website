@@ -53,6 +53,8 @@ const Booking = lazy(() => import("@/pages/Booking"));
 const BookingAdmin = lazy(() => import("@/pages/BookingAdmin"));
 const Dds = lazy(() => import("@/pages/Dds"));
 const DdsAccess = lazy(() => import("@/pages/DdsAccess"));
+const Med = lazy(() => import("@/pages/Med"));
+const MedOrder = lazy(() => import("@/pages/MedOrder"));
 
 const queryClient = new QueryClient();
 
@@ -107,6 +109,8 @@ const App = () => (
           <Route path="/booking-admin" element={<BookingAdmin />} />
           <Route path="/dds" element={<Dds />} />
           <Route path="/dds/access" element={<DdsAccess />} />
+          <Route path="/dds/med" element={<Med />} />
+          <Route path="/dds/med-order" element={<MedOrder />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

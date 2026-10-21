@@ -10,7 +10,7 @@ import { toast } from "sonner";
 import DdsLogin from "@/components/dds/DdsLogin";
 import DdsHeader from "@/components/dds/DdsHeader";
 import useDdsSession from "@/components/dds/useDdsSession";
-import { AuthError, DdsUser, ROLE_LABEL, ddsRequest } from "@/components/dds/api";
+import { AuthError, DdsUser, MED_ROLE_LABEL, MedRole, ROLE_LABEL, ddsRequest } from "@/components/dds/api";
 
 type UserRole = DdsUser["role"];
 
@@ -37,11 +37,28 @@ function RoleSelect({ value, onChange }: { value: UserRole; onChange: (r: UserRo
   );
 }
 
+function MedRoleSelect({ value, onChange }: { value: MedRole; onChange: (r: MedRole) => void }) {
+  return (
+    <Select value={value} onValueChange={(v) => onChange(v as MedRole)}>
+      <SelectTrigger className="w-full sm:w-56">
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>
+        {(["none", "view", "edit"] as MedRole[]).map((r) => (
+          <SelectItem key={r} value={r}>
+            {MED_ROLE_LABEL[r]}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
+}
+
 export default function DdsAccess() {
   const { session, login, logout, expire, minutesLeft } = useDdsSession();
   const [users, setUsers] = useState<DdsUser[]>([]);
   const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({ name: "", login: "", password: "", role: "edit" as UserRole });
+  const [form, setForm] = useState({ name: "", login: "", password: "", role: "edit" as UserRole, med_role: "none" as MedRole });
   const [saving, setSaving] = useState(false);
   const [newPass, setNewPass] = useState<Record<number, string>>({});
 
@@ -89,7 +106,7 @@ export default function DdsAccess() {
     try {
       await ddsRequest("POST", { action: "users" }, form);
       toast.success(`Сотрудник добавлен. Логин: ${form.login.trim().toLowerCase()}`);
-      setForm({ name: "", login: "", password: "", role: "edit" });
+      setForm({ name: "", login: "", password: "", role: "edit", med_role: "none" });
       load();
     } catch (err) {
       handleErr(err);
@@ -132,6 +149,11 @@ export default function DdsAccess() {
               <RoleSelect value={form.role} onChange={(role) => setForm({ ...form, role })} />
               <p className="text-xs text-slate-500">{ROLE_HINT[form.role]}</p>
             </div>
+            <div className="space-y-1.5">
+              <Label>Медрасходка</Label>
+              <MedRoleSelect value={form.med_role} onChange={(med_role) => setForm({ ...form, med_role })} />
+              <p className="text-xs text-slate-500">Редактирование — вносит приход/расход, цены, добавляет препараты и нормы остатка</p>
+            </div>
             <div className="sm:col-span-2">
               <Button type="submit" disabled={saving || !form.name || !form.login || form.password.length < 6}>
                 <Icon name="UserPlus" size={16} className="mr-1.5" />
@@ -152,7 +174,10 @@ export default function DdsAccess() {
                   <div className="font-medium text-slate-900">{u.name}</div>
                   <div className="text-xs text-slate-500">логин: {u.login}</div>
                 </div>
-                <RoleSelect value={u.role} onChange={(role) => update(u.id, { role })} />
+                <div className="flex flex-col gap-2">
+                  <RoleSelect value={u.role} onChange={(role) => update(u.id, { role })} />
+                  <MedRoleSelect value={u.med_role || "none"} onChange={(med_role) => update(u.id, { med_role })} />
+                </div>
                 <div className="flex gap-2 flex-1">
                   <Input
                     placeholder="Новый пароль"
