@@ -18,6 +18,7 @@ const TONE: Record<string, string> = {
   accent: "bg-amber-50",
   warn: "bg-orange-100/70",
   info: "bg-sky-50",
+  dark: "bg-indigo-900 text-white",
 };
 
 const dayTint = (date: string, today: string) =>
@@ -26,11 +27,11 @@ const dayTint = (date: string, today: string) =>
 const short = (n: number) =>
   new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 }).format(Math.round(n)).replace(/\s/g, "\u2009");
 
-function Num({ v, strong, full }: { v: number; strong?: boolean; full?: boolean }) {
+function Num({ v, strong, full, dark }: { v: number; strong?: boolean; full?: boolean; dark?: boolean }) {
   const n = Number(v) || 0;
-  if (n === 0) return <span className="relative text-slate-300">0</span>;
+  if (n === 0) return <span className={`relative ${dark ? "text-indigo-300/60" : "text-slate-300"}`}>0</span>;
   return (
-    <span title={money(n)} className={`relative ${n < 0 ? "text-red-600" : ""} ${strong ? "font-semibold" : ""}`}>
+    <span title={money(n)} className={`relative ${n < 0 ? (dark ? "text-red-300" : "text-red-600") : ""} ${strong ? "font-semibold" : ""}`}>
       {full ? money(n) : short(n)}
     </span>
   );
@@ -79,9 +80,11 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
     const bg = r.tone ? TONE[r.tone] : "bg-white";
     const clickable = (r.kind === "input" || r.kind === "expense") && canWrite;
     const morningClickable = r.kind === "morning" && isOwner;
+    const dark = r.tone === "dark";
+    const big = dark ? "!text-[13px] lg:!text-[15px] !py-1.5 lg:!py-2 !font-bold" : "";
     return (
       <tr key={r.key} className="group">
-        <th className={`${labelCls} ${bg} ${r.strong ? "font-semibold" : "font-normal"} text-slate-800`}>
+        <th className={`${labelCls} ${bg} ${big} ${r.strong ? "font-semibold" : "font-normal"} ${dark ? "" : "text-slate-800"}`}>
           <span className="inline-flex items-center gap-1">
             {r.kind === "expense" && (
               <button
@@ -93,7 +96,7 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
               </button>
             )}
             <span className="max-w-[92px] lg:max-w-none truncate" title={r.label}>{r.label}</span>
-            {r.kind === "formula" && <Icon name="Sigma" size={11} className="text-slate-300 shrink-0" />}
+            {r.kind === "formula" && <Icon name="Sigma" size={11} className={`${dark ? "text-indigo-300" : "text-slate-300"} shrink-0`} />}
           </span>
         </th>
         {days.map((d) => {
@@ -109,19 +112,19 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
                   if (morningClickable) onMorning(d);
                 } else if (r.entryType && (clickable || Number(d[r.key]) !== 0)) onCell(d.date, r.entryType);
               }}
-              className={`${cellCls} ${isToday ? "bg-white" : bg} ${
+              className={`${cellCls} ${big} ${dark ? `${bg} border-indigo-800` : isToday ? "bg-white" : bg} ${
                 can || (r.entryType && Number(d[r.key]) !== 0) ? "cursor-pointer hover:bg-teal-50" : ""
               } relative`}
             >
-              <span className={`pointer-events-none absolute inset-0 ${dayTint(d.date, today)}`} />
-              <Num v={d[r.key] as number} strong={r.strong} />
+              <span className={`pointer-events-none absolute inset-0 ${dark ? (isToday ? "bg-white/15" : "") : dayTint(d.date, today)}`} />
+              <Num v={d[r.key] as number} strong={r.strong} dark={dark} />
               {hasComment && <span className="absolute top-0.5 right-0.5 w-1.5 h-1.5 rounded-full bg-amber-500" />}
               {manual && <span className="absolute top-0.5 left-0.5 w-1.5 h-1.5 rounded-full bg-violet-500" title="Внесено вручную" />}
             </td>
           );
         })}
-        <td className={`${totalCls} ${r.tone ? TONE[r.tone] : "bg-slate-50"} font-semibold`}>
-          <Num v={rowTotal(days, r)} strong full />
+        <td className={`${totalCls} ${big} ${r.tone ? TONE[r.tone] : "bg-slate-50"} font-semibold`}>
+          <Num v={rowTotal(days, r)} strong full dark={dark} />
         </td>
       </tr>
     );

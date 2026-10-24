@@ -10,7 +10,7 @@ export interface RowDef {
   entryType?: EntryType;
   total: TotalMode;
   strong?: boolean;
-  tone?: "accent" | "warn" | "info";
+  tone?: "accent" | "warn" | "info" | "dark";
 }
 
 export interface SectionDef {
@@ -35,7 +35,7 @@ export const SECTIONS: SectionDef[] = [
       { key: "in_transfer", label: "Приход переводом", kind: "input", entryType: "in_transfer", total: "sum" },
       { key: "total_in_cash", label: "Итого приход нал", kind: "formula", total: "sum", strong: true, tone: "accent" },
       { key: "in_bank", label: "Приход безнал", kind: "input", entryType: "in_bank", total: "sum" },
-      { key: "total_in_day", label: "Итого приход день", kind: "formula", total: "sum", strong: true },
+      { key: "total_in_day", label: "Итого приход день", kind: "formula", total: "sum", strong: true, tone: "dark" },
       { key: "topup", label: "Иные пополнения", kind: "input", entryType: "topup", total: "sum" },
       { key: "cash_in_register", label: "Итого в кассе нал", kind: "formula", total: "sum", strong: true, tone: "accent" },
     ],
