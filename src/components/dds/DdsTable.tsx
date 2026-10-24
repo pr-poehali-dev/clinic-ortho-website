@@ -112,7 +112,7 @@ export default function DdsTable({ days, entries, categories, today, canWrite, i
                   if (morningClickable) onMorning(d);
                 } else if (r.entryType && (clickable || Number(d[r.key]) !== 0)) onCell(d.date, r.entryType);
               }}
-              className={`${cellCls} ${big} ${dark ? `${bg} border-indigo-800` : isToday ? "bg-white" : bg} ${
+              className={`${cellCls} ${dark ? "!py-1.5 lg:!py-2" : ""} ${dark ? `${bg} border-indigo-800` : isToday ? "bg-white" : bg} ${
                 can || (r.entryType && Number(d[r.key]) !== 0) ? "cursor-pointer hover:bg-teal-50" : ""
               } relative`}
             >
