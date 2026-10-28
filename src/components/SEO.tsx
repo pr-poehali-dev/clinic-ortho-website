@@ -20,7 +20,7 @@ interface SEOProps {
 }
 
 export default function SEO({ title, description, canonical, image, breadcrumbs, schema, keywords }: SEOProps) {
-  const fullTitle = `${title} | ${SITE_NAME}`;
+  const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
   const canonicalUrl = canonical ? `${SITE_URL}${canonical}` : SITE_URL;
   const ogImage = image || DEFAULT_IMAGE;
 
