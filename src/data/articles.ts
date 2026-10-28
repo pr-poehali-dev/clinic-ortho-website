@@ -3008,7 +3008,7 @@ export const ARTICLES: Article[] = [
   },
   // ───── ВАЛЬГУСНАЯ ДЕФОРМАЦИЯ СТОПЫ ─────
   {
-    slug: "valgusnaya-deformaciya-stopy-kosточка-lechenie-novosibirsk",
+    slug: "valgusnaya-deformaciya-stopy-kostochka-lechenie-novosibirsk",
     title: "Вальгусная деформация стопы (косточка на большом пальце): причины и лечение",
     metaTitle: "Вальгусная деформация стопы — лечение в Новосибирске | косточка на ноге | Ваш Ортопед",
     metaDesc: "Вальгусная деформация первого пальца стопы (Hallux Valgus): причины роста косточки, степени, консервативное лечение стельками и хирургия. Клиника «Ваш Ортопед» Новосибирск.",

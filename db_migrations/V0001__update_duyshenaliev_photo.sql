@@ -1,0 +1,1 @@
+UPDATE doctors SET img = '/duyshenaliev.jpg', img_position = 'center top' WHERE id = 7;
