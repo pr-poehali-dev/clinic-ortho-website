@@ -483,7 +483,7 @@ export default function GialuronovayaKislota() {
         </div>
       </section>
 
-      <PhoneModal open={callModalOpen} onOpenChange={setCallModalOpen} />
+      <PhoneModal open={callModalOpen} onClose={() => setCallModalOpen(false)} />
     </>
   );
 }

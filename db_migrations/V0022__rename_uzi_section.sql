@@ -1,1 +1,0 @@
-UPDATE t_p48876731_clinic_ortho_website.price_sections SET title='УЗИ суставов' WHERE id=14;

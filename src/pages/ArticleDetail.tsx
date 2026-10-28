@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link } from "@/lib/router-compat";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
 import { ARTICLES, ARTICLES_BY_CATEGORY } from "@/data/articles";

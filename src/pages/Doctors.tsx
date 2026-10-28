@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
 
@@ -7,7 +7,7 @@ const API_URL = "https://functions.poehali.dev/e3850f3d-bba8-4c1c-8dbb-bf8d3f7bd
 
 const trackGoal = (goal: string) => window.ym?.(108160921, 'reachGoal', goal);
 
-interface Doctor {
+export interface Doctor {
   id?: number | string;
   name: string;
   specialty: string;
@@ -116,11 +116,18 @@ function DoctorRow({ doctor }: { doctor: Doctor }) {
   );
 }
 
-export default function Doctors() {
-  const [doctors, setDoctors] = useState<Doctor[]>([]);
-  const [loading, setLoading] = useState(true);
+export const mapDoctors = (data: Doctor[]): Doctor[] =>
+  data.map((d) => ({
+    ...d,
+    desc: d.description ?? d.desc ?? "",
+  }));
+
+export default function Doctors({ initialDoctors }: { initialDoctors?: Doctor[] | null }) {
+  const [doctors, setDoctors] = useState<Doctor[]>(initialDoctors ? mapDoctors(initialDoctors) : []);
+  const [loading, setLoading] = useState(!initialDoctors);
 
   useEffect(() => {
+    if (initialDoctors) return;
     fetch(`${API_URL}?section=doctors`)
       .then((res) => res.json())
       .then((data: Doctor[]) => {
@@ -134,7 +141,7 @@ export default function Doctors() {
         // silently fail — empty list will be shown
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [initialDoctors]);
 
   const neurologists = doctors.filter((d) => d.specialty.toLowerCase().includes("невролог"));
   const orthopeds = doctors.filter((d) => !d.specialty.toLowerCase().includes("невролог"));

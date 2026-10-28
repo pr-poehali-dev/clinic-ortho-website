@@ -421,7 +421,7 @@ export default function PrpTerapiya() {
         </div>
       </section>
 
-      <PhoneModal open={callModalOpen} onOpenChange={setCallModalOpen} />
+      <PhoneModal open={callModalOpen} onClose={() => setCallModalOpen(false)} />
     </>
   );
 }

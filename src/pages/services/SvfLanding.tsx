@@ -387,7 +387,7 @@ export default function SvfLanding() {
         </div>
       </section>
 
-      <PhoneModal open={callModalOpen} onOpenChange={setCallModalOpen} />
+      <PhoneModal open={callModalOpen} onClose={() => setCallModalOpen(false)} />
     </>
   );
 }

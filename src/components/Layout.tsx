@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@/lib/router-compat";
 import Icon from "@/components/ui/icon";
 import PhoneModal from "@/components/PhoneModal";
 

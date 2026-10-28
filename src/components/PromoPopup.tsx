@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "@/lib/router-compat";
 import Icon from "@/components/ui/icon";
 
 const OFFERS = [

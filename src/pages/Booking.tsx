@@ -61,7 +61,7 @@ export default function Booking() {
   useEffect(() => {
     fetch(`${API}/specialists`)
       .then((r) => r.json())
-      .then((d) => setSpecialists(Array.isArray(d) ? d : JSON.parse(d)));
+      .then((d) => setSpecialists(Array.isArray(d) ? d : typeof d === "string" ? JSON.parse(d) : []));
   }, []);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function Booking() {
     const to = format(maxDate, "yyyy-MM-dd");
     fetch(`${API}/schedule?specialist_id=${selectedSpec.id}&from=${from}&to=${to}`)
       .then((r) => r.json())
-      .then((d) => setSchedule(Array.isArray(d) ? d : JSON.parse(d)));
+      .then((d) => setSchedule(Array.isArray(d) ? d : typeof d === "string" ? JSON.parse(d) : []));
   }, [selectedSpec]);
 
   useEffect(() => {

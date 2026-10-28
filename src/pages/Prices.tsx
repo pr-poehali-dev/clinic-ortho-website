@@ -12,7 +12,7 @@ interface PriceItem {
   description?: string;
 }
 
-interface PriceSection {
+export interface PriceSection {
   id?: number | string;
   title: string;
   icon: string;
@@ -20,13 +20,14 @@ interface PriceSection {
   items: PriceItem[];
 }
 
-export default function Prices() {
+export default function Prices({ initialSections }: { initialSections?: PriceSection[] | null }) {
   const [active, setActive] = useState(0);
-  const [priceSections, setPriceSections] = useState<PriceSection[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [priceSections, setPriceSections] = useState<PriceSection[]>(initialSections ?? []);
+  const [loading, setLoading] = useState(!initialSections);
   const [phoneOpen, setPhoneOpen] = useState(false);
 
   useEffect(() => {
+    if (initialSections) return;
     fetch(`${API_URL}?section=prices`)
       .then((res) => res.json())
       .then((data: PriceSection[]) => {
@@ -36,7 +37,7 @@ export default function Prices() {
         // silently fail — empty list will be shown
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [initialSections]);
 
   return (
     <>

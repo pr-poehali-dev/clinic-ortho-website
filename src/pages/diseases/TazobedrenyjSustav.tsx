@@ -428,7 +428,7 @@ export default function TazobedrenyjSustav() {
         </div>
       </section>
 
-      <PhoneModal open={callModalOpen} onOpenChange={setCallModalOpen} />
+      <PhoneModal open={callModalOpen} onClose={() => setCallModalOpen(false)} />
     </>
   );
 }

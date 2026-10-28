@@ -387,7 +387,7 @@ export default function UvtLanding() {
         </div>
       </section>
 
-      <PhoneModal open={callModalOpen} onOpenChange={setCallModalOpen} />
+      <PhoneModal open={callModalOpen} onClose={() => setCallModalOpen(false)} />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
 import PhoneModal from "@/components/PhoneModal";
@@ -24,25 +24,23 @@ export interface Service {
 // At runtime ServiceDetail will find services via the API; this acts as a safe fallback type anchor.
 export const SERVICES_LIST: Service[] = [];
 
-export default function Services() {
-  const [services, setServices] = useState<Service[]>([]);
-  const [loading, setLoading] = useState(true);
+export default function Services({ initialServices }: { initialServices?: Service[] | null }) {
+  const [services, setServices] = useState<Service[]>(initialServices ?? []);
+  const [loading, setLoading] = useState(!initialServices);
   const [phoneOpen, setPhoneOpen] = useState(false);
 
   useEffect(() => {
+    if (initialServices) return;
     fetch(`${API_URL}?section=services`)
       .then((res) => res.json())
       .then((data: Service[]) => {
         setServices(data);
-        // Sync into the module-level export so ServiceDetail (which imports it statically)
-        // can access loaded data when navigating after this page has been mounted.
-        SERVICES_LIST.splice(0, SERVICES_LIST.length, ...data);
       })
       .catch(() => {
         // silently fail — empty list will be shown
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [initialServices]);
 
   return (
     <>

@@ -1,1 +1,0 @@
-UPDATE doctors SET is_active = false WHERE id = 2;

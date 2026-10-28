@@ -1,6 +1,6 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link } from "@/lib/router-compat";
 import { useState, useEffect } from "react";
-import { SERVICES_LIST, type Service } from "./Services";
+import { type Service } from "./Services";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
 
@@ -104,21 +104,26 @@ const SEO_META: Record<string, { title: string; description: string }> = {
   },
 };
 
-export default function ServiceDetail() {
+export default function ServiceDetail({ initialServices }: { initialServices?: Service[] | null }) {
   const { slug } = useParams();
-  const [service, setService] = useState<Service | undefined>(SERVICES_LIST.find((s) => s.slug === slug));
-  const [loading, setLoading] = useState(!service);
+  const [servicesList, setServicesList] = useState<Service[]>(initialServices ?? []);
+  const [fetched, setFetched] = useState(!!initialServices);
+  const service = servicesList.find((s) => s.slug === slug);
+  const loading = !fetched;
 
   useEffect(() => {
-    if (service) return;
+    if (initialServices) {
+      setServicesList(initialServices);
+      setFetched(true);
+      return;
+    }
     fetch(`${API_URL}?section=services`)
       .then((r) => r.json())
       .then((data: Service[]) => {
-        SERVICES_LIST.splice(0, SERVICES_LIST.length, ...data);
-        setService(data.find((s) => s.slug === slug));
+        setServicesList(data);
       })
-      .finally(() => setLoading(false));
-  }, [slug]);
+      .finally(() => setFetched(true));
+  }, [slug, initialServices]);
 
   if (loading) {
     return (
@@ -265,7 +270,7 @@ export default function ServiceDetail() {
           <div className="bg-white rounded-2xl border border-border p-6">
             <h3 className="font-display text-xl text-clinic-text mb-4">Другие услуги</h3>
             <ul className="space-y-2">
-              {SERVICES_LIST.filter((s) => s.slug !== slug).map((s) => (
+              {servicesList.filter((s) => s.slug !== slug).map((s) => (
                 <li key={s.slug}>
                   <Link
                     to={`/services/${s.slug}`}

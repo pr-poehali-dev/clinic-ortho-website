@@ -43,7 +43,20 @@ export interface PriceSection {
   items: PriceItem[];
 }
 
-export const SETTINGS_SECTIONS = [
+export interface SettingsField {
+  key: string;
+  label: string;
+  multiline?: boolean;
+}
+
+export interface SettingsSection {
+  id: string;
+  title: string;
+  icon: string;
+  fields: SettingsField[];
+}
+
+export const SETTINGS_SECTIONS: SettingsSection[] = [
   {
     id: "contacts",
     title: "Контакты",

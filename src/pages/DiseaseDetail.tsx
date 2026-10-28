@@ -1,6 +1,8 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link } from "@/lib/router-compat";
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
+import AppointmentModal from "@/components/AppointmentModal";
+import { useState } from "react";
 
 const DISEASES = [
   {
@@ -173,6 +175,7 @@ export const DISEASES_LIST = DISEASES;
 export default function DiseaseDetail() {
   const { slug } = useParams();
   const disease = DISEASES.find((d) => d.slug === slug);
+  const [modalOpen, setModalOpen] = useState(false);
 
   if (!disease) {
     return (
@@ -345,6 +348,7 @@ export default function DiseaseDetail() {
           </div>
         </div>
       </section>
+      <AppointmentModal open={modalOpen} onClose={() => setModalOpen(false)} service={disease.title} />
     </>
   );
 }

@@ -1,5 +1,3 @@
-import { Helmet } from "react-helmet-async";
-
 const SITE_NAME = "Ваш Ортопед";
 const SITE_URL = "https://vash-ortoped.ru";
 const DEFAULT_IMAGE = "https://cdn.poehali.dev/projects/6e339ebb-3990-4eb0-b0e9-b0325ebc1901/files/4a0a4c5f-8b18-4083-8a51-0d1df1369b90.jpg";
@@ -38,8 +36,7 @@ export default function SEO({ title, description, canonical, image, breadcrumbs,
   } : null;
 
   return (
-    <Helmet>
-      <html lang="ru" />
+    <>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
@@ -63,18 +60,14 @@ export default function SEO({ title, description, canonical, image, breadcrumbs,
 
       {/* Breadcrumbs schema */}
       {breadcrumbSchema && (
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       )}
 
       {/* Custom schema */}
       {schema && (Array.isArray(schema) ? schema : [schema]).map((s, i) => (
-        <script key={i} type="application/ld+json">
-          {JSON.stringify(s)}
-        </script>
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-    </Helmet>
+    </>
   );
 }
 

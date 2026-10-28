@@ -1,6 +1,6 @@
 import Icon from "@/components/ui/icon";
 import SEO from "@/components/SEO";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 
 const orgs = [
   {
