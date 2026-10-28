@@ -133,7 +133,7 @@ export default function Booking() {
 
   return (
     <>
-      <SEO title="Онлайн-запись" description="Запишитесь к специалисту онлайн" />
+      <SEO title="Онлайн-запись" description="Онлайн-запись к травматологу-ортопеду и неврологу в Новосибирске: выберите врача, дату и время за минуту. Клиника «Ваш Ортопед», ул. Есенина, 67. Телефон: +7 999 464 91 94." />
       <div className="min-h-screen bg-[hsl(var(--clinic-warm))]">
         <div className="max-w-2xl mx-auto px-4 py-10">
           <h1 className="font-display text-3xl md:text-4xl text-[hsl(var(--clinic-text))] mb-2 text-center">
